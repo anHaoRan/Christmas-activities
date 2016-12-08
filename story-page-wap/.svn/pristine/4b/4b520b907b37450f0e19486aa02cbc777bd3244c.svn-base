@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no,email=no" />
+  <title>火星小说</title>
+  <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+  <link rel="stylesheet" href="../styles/story-wap.min.css">
+</head>
+<body>
+  <header class="header">
+    <a class="slogan" href="./index.html">火星小说</a>
+    <div class="tools">
+      <a href="./search.html" class="search"><span class="icon-search"></span></a>
+      <div class="user-help">
+        <a href="./login.html">登录</a>
+        <i class="divide">|</i>
+        <a href="./register.html">注册</a>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    
+    <nav class="nav">
+      <a href="./index.html">男频</a>
+      <a href="###">女频</a>
+      <a href="./toplist.html">排行</a>
+      <a href="###">充值</a>
+      <a href="###">书架</a>
+    </nav>
+    <div class="banner">
+      <a href="./index.html" class="back"><span class="icon-back"></span></a>
+      <h3>评论</h3>
+      <span class="write-comment">写评论</span>
+    </div>
+
+    <div class="wrap">
+      <section class="section">
+        <h4>评论</h4>
+        <ul class="comment-list">
+          <li class="comment-item">
+            <div class="user-avatar"><img src="../images/avatar.png" alt=""></div>
+            <div class="comment-detail">
+              <h4>
+                D.Kelly
+                <i class="jing">精</i>
+                <i class="ding">顶</i>
+              </h4>
+              <p>这是一本关于思考的启迪。文字随俗但意愿不俗，静下心，品味百千人生。</p>
+              <div class="comment-operate">
+                <span class="time">2016/11/30 07:45</span>
+                <span class="add-comment"><i class="icon-comment"></i> 98</span>
+                <span class="add-fav"><i class="icon-fav-full"></i> 64</span>
+              </div>
+            </div>
+          </li>
+          <li class="comment-item">
+            <div class="user-avatar"><img src="../images/avatar.png" alt=""></div>
+            <div class="comment-detail">
+              <h4>D.Kelly</h4>
+              <p>这是一本关于思考的启迪。文字随俗但意愿不俗，静下心，品味百千人生。</p>
+              <div class="comment-operate">
+                <span class="time">2016/11/30 07:45</span>
+                <span class="add-comment"><i class="icon-comment"></i> 评论</span>
+                <span class="add-fav"><i class="icon-fav"></i> 稀饭</span>
+              </div>
+            </div>
+          </li>
+          <li class="comment-item">
+            <div class="user-avatar"><img src="../images/avatar.png" alt=""></div>
+            <div class="comment-detail">
+              <h4>D.Kelly</h4>
+              <p>这是一本关于思考的启迪。文字随俗但意愿不俗，静下心，品味百千人生。</p>
+              <div class="comment-operate">
+                <span class="time">2016/11/30 07:45</span>
+                <span class="add-comment"><i class="icon-comment"></i> 评论</span>
+                <span class="add-fav"><i class="icon-fav"></i> 稀饭</span>
+              </div>
+            </div>
+          </li>
+          <li class="comment-item">
+            <div class="user-avatar"><img src="../images/avatar.png" alt=""></div>
+            <div class="comment-detail">
+              <h4>D.Kelly</h4>
+              <p>这是一本关于思考的启迪。文字随俗但意愿不俗，静下心，品味百千人生。</p>
+              <div class="comment-operate">
+                <span class="time">2016/11/30 07:45</span>
+                <span class="add-comment"><i class="icon-comment"></i> 评论</span>
+                <span class="add-fav"><i class="icon-fav"></i> 稀饭</span>
+              </div>
+            </div>
+          </li>
+          <li class="comment-item">
+            <div class="user-avatar"><img src="../images/avatar.png" alt=""></div>
+            <div class="comment-detail">
+              <h4>D.Kelly</h4>
+              <p>这是一本关于思考的启迪。文字随俗但意愿不俗，静下心，品味百千人生。</p>
+              <div class="comment-operate">
+                <span class="time">2016/11/30 07:45</span>
+                <span class="add-comment"><i class="icon-comment"></i> 评论</span>
+                <span class="add-fav"><i class="icon-fav"></i> 稀饭</span>
+              </div>
+            </div>
+          </li>
+          <li class="comment-item">
+            <div class="user-avatar"><img src="../images/avatar.png" alt=""></div>
+            <div class="comment-detail">
+              <h4>D.Kelly</h4>
+              <p>这是一本关于思考的启迪。文字随俗但意愿不俗，静下心，品味百千人生。</p>
+              <div class="comment-operate">
+                <span class="time">2016/11/30 07:45</span>
+                <span class="add-comment"><i class="icon-comment"></i> 评论</span>
+                <span class="add-fav"><i class="icon-fav"></i> 稀饭</span>
+              </div>
+            </div>
+          </li>
+          <li class="comment-item">
+            <div class="user-avatar"><img src="../images/avatar.png" alt=""></div>
+            <div class="comment-detail">
+              <h4>D.Kelly</h4>
+              <p>这是一本关于思考的启迪。文字随俗但意愿不俗，静下心，品味百千人生。</p>
+              <div class="comment-operate">
+                <span class="time">2016/11/30 07:45</span>
+                <span class="add-comment"><i class="icon-comment"></i> 评论</span>
+                <span class="add-fav"><i class="icon-fav"></i> 稀饭</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+
+        <form action="">
+          <input type="search" placeholder="输入关键词搜索小说">
+          <input type="submit" value="搜索">
+        </form>
+
+        <nav class="nav-bottom">
+          <a href="###">书架</a>
+          <a href="###">排行</a>
+          <a href="###">充值</a>
+          <a href="###">客户端</a>
+        </nav>
+
+        <div class="contact">
+          <div class="title">联系客服：</div>
+          <div class="contact-list">
+            <span>客服QQ:3416319270</span>
+            <span>客服微信:huoxingkufu</span>
+            <span>客服邮箱:kefu@hotread.com</span>
+            <span>客服电话:010-59002324-621</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

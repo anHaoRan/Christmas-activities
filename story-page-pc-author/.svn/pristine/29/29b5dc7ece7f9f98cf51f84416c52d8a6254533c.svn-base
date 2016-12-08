@@ -1,0 +1,413 @@
+<link rel="stylesheet" type="text/css" href="../styles/boon.min.css">
+<div class='boonbody' id="boonbody">
+  <div class='logo'>
+    <img style="height: auto;" src='http://c.hotread.com/wap/images/3x/slogan.png' />
+  </div>
+  <div class='banner'></div>
+  <div class='boonmain'>
+    <div class="broadside" id="broadsidebox">
+
+      <dl v-for="item in navList" @click="clickDl($index, $event)" :class="{active: dlIndex == $index, noStyle: !item.junior.length > 0}">
+        <dt>{{item.total}}<i class="right-tri" v-if="item.junior.length > 0"></i></dt>
+        <dd>
+          <em :class="{optS: $index == emIndex}" v-for="list in item.junior" @click="clickEm($index)">{{list}}</em>
+        </dd>
+      </dl>
+
+    </div>
+    <div id='detailsbox' :class="{details: true, detailsbig: 1 == dlIndex && 2 == emIndex}">
+      <!-- system1 box2 -->
+      <div :class="{active: 0 == dlIndex && 0 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>质量优秀、创作稳定的作品 。</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励前提：</dt>
+          <dd>1、作者拥有完整的作品版权，并未授权于第三方。</dd>
+          <dd>2、作品质量优秀、创作稳定，且预计创作字数100万字以上。</dd>
+          <dd>3、在他站取得过优秀历史成绩者优先。</dd>
+          <dd>4、在火星小说已经完成一部100万字以上作品者优先。 </dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>申请方法：</dt>
+          <dd>1、通过签约编辑申请。</dd>
+          <dd class='annotation'>注:自收稿之日起3—5个工作日（节假日顺延），编辑部将会对作品进行审核，并给予答复。</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励福利：</dt>
+          <dd>1、稳定的稿费收入。</dd>
+          <dd>2、各项推广渠道资源。</dd>
+          <dd>3、IP包装与推广的机会。</dd>
+          <dd class='annotation'>
+              <strong>特别注意：</strong>
+              即日起，所有买断及保底分成作品，如无特殊原因或得到编辑许可，每自然月内作品断更每累积三天，扣除该月稿费的10%，扣完为止。
+          </dd>
+          <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+        </dl>
+      </div>
+      <!-- system1 box2 -->
+      <div :class="{active: 0 == dlIndex && 1 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>质量优秀、创作稳定的作品。</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励前提：</dt>
+          <dd>1、作者拥有完整的作品版权，并未授权于第三方。</dd>
+          <dd>2、作品质量优秀、创作稳定，且预计创作字数100万字以上。</dd>
+          <dd>3、在他站取得过优秀历史成绩者优先。</dd>
+          <dd>4、在火星小说已经完成一部100万字以上作品者优先。 </dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>申请方法：</dt>
+          <dd>通过签约编辑申请。</dd>
+          <dd class='annotation'>注:自收稿之日起3—5个工作日（节假日顺延），编辑部将会对作品进行审核，并给予答复。</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励福利：</dt>
+          <dd>1、稳定的稿费收入。</dd>
+          <dd>2、各项推广渠道资源。</dd>
+          <dd>3、IP包装与推广的机会。</dd>
+          <dd>4、其他版权收益分成。</dd>
+          <dd class='annotation'>
+              <strong>特别注意：</strong>
+              即日起，所有买断及保底分成作品，如无特殊原因或得到编辑许可，每自然月内作品断更每累积三天，扣除该月稿费的10%，扣完为止。
+          </dd>
+          <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+        </dl>
+      </div>
+      <!-- system1 box3 -->
+      <div :class="{active: 0 == dlIndex && 2 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>质量优秀、创作稳定、适合渠道推广的作品。</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励前提：</dt>
+          <dd>1、作者拥有完整的作品版权，并未授权于第三方。</dd>
+          <dd>2、作品质量优秀、创作稳定，且预计创作字数100万字以上。</dd>
+          <dd>3、在他站取得过优秀历史成绩者优先。</dd>
+          <dd>4、在火星小说已经完成一部100万字以上作品者优先。 </dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>申请方法：</dt>
+          <dd>1、通过作者后台申请。</dd>
+          <dd>2、通过签约编辑申请。</dd>
+          <dd class='annotation'>注:自收稿之日起3—5个工作日（节假日顺延），编辑部将会对作品进行审核，并给予答复。</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励福利：</dt>
+          <dd>1、稳定的稿费收入。</dd>
+          <dd>2、各项推广渠道资源。</dd>
+          <dd>3、IP包装与推广的机会。</dd>
+          <dd>4、主站与第三方收入分成。</dd>
+          <dd class='annotation'>
+              <strong>特别注意：</strong>
+              即日起，所有买断及保底分成作品，如无特殊原因或得到编辑许可，每自然月内作品断更每累积三天，扣除该月稿费的10%，扣完为止。
+          </dd>
+          <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+        </dl>
+      </div>
+      <!-- system1 box4 -->
+      <div :class="{active: 0 == dlIndex && 3 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd><i class='moon'></i>质量优秀、版权价值较高的作品。</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励前提：</dt>
+          <dd>1、作者拥有完整的作品版权，并未授权于第三方。</dd>
+          <dd>2、作品质量优秀、创作稳定，且预计创作字数100万字以上。</dd>
+          <dd>3、在他站取得过优秀历史成绩者优先。</dd>
+          <dd>4、在火星小说已经完成一部100万字以上作品者优先。 </dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>申请方法：</dt>
+          <dd>1、通过作者后台申请。</dd>
+          <dd>2、通过签约编辑申请。</dd>
+          <dd class='annotation'>注:自收稿之日起5－7个工作日（节假日顺延），编辑部将会对作品进行审核，并给予答复。</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励福利：</dt>
+          <dd>1、稳定而优厚的稿费收入。</dd>
+          <dd>2、全推广渠道资源。</dd>
+          <dd>3、优先享受IP包装与推广的机会。</dd>
+          <dd class='annotation'>
+              <strong>特别注意：</strong>
+              即日起，所有买断及保底分成作品，如无特殊原因或得到编辑许可，每自然月内作品断更每累积三天，扣除该月稿费的10%，扣完为止。
+          </dd>
+          <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+        </dl>
+      </div>
+      <!-- system2 box1 -->
+      <div :class="{active: 1 == dlIndex && 0 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>火星小说普通分成签约作品（不含第三方签约）</dd>
+        </dl>
+        <dl>
+            <dt><i class='moon'></i>实施时间：</dt>
+            <dd>2016年9月21日起至2016年12月31日</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励细则：</dt>
+          <dd>自然月自有渠道（含火星小说PC站、wap、app等）纯订阅销售（不含打赏）突破一定等级的单部作品，根据收入等级，可获得额外分成奖励：</dd>
+          <dd>单部作品单月订阅销售突破三万元，可获当月销售额110%分成；</dd>
+          <dd>单部作品单月订阅销售突破五万元，可获当月销售额120%分成；</dd>
+          <dd>单部作品单月订阅销售突破十万元，可获当月销售额130%分成；</dd>
+        </dl>
+        <dl class='specialDl'>
+          <dt><i class='moon'></i>特别说明：</dt>
+          <dd>1、要求作品尺度合理，无敏感低俗情节，无抄袭现象。</dd>
+          <dd>2、当签约作品出现违反国家相关规定、火星小说签约协议等情况时，将不参与该奖励。</dd>
+          <dd>3、享受到100%分成以上的部分，额外最高奖金不超过三万元人民币。</dd>
+          <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+        </dl>
+      </div>
+      <!-- system2 box2 -->
+      <div :class="{active: 1 == dlIndex && 1 == emIndex}">
+        <dl>
+            <dt><i class='moon'></i>年度作品奖：200%分成（试运行）</dt>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>实施对象：</dt>
+          <dd>火星小说普通分成签约作品（不含第三方签约）</dd>
+        </dl>
+        <dl>
+            <dt><i class='moon'></i>实施时间：</dt>
+            <dd>2016年9月21日起</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>实施细则：</dt>
+          <dd>1、每年年末由读者投票，评选出该年度最佳作品，年度作品可获得该年度全年订阅额200%的现金奖励。</dd>
+          <dd>2、年度销售冠军、年度月票冠军，可登陆火星名人堂，获得火星定制黄金身份铭牌以及神秘大奖！</dd>
+          <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+        </dl>
+      </div>
+      <!-- system2 box3 -->
+      <div :class="{active: 1 == dlIndex && 2 == emIndex}">
+        <dl>
+            <dt><i class='moon'></i>奖励对象：</dt>
+            <dd>2016年9月21日起普通分成签约作品（不含第三方签约）</dd>
+        </dl>
+        <dl>
+            <dt><i class='moon'></i>奖励细则：</dt>
+            <dd>1、特级签约（S级）：</dd>
+            <dd>签约要求：作品质量优秀，适合渠道推广，题材有创新。</dd>
+            <dd>奖励：每日更新5000字以上，获得千字15元的奖励。</dd>
+            <dd>2、精品签约（A级）</dd>
+            <dd>签约要求：作品质量优秀，语言文字成熟，故事完整。</dd>
+            <dd>奖励：每日更新5000字以上，获得千字12元的奖励。</dd>
+            <dd>3、优秀签约（B级）</dd>
+            <dd>签约要求：故事完整，语言流畅，有一定可读性。</dd>
+            <dd>奖励：每日更新5000字以上，获得千字8元奖励。</dd>
+            <dd>4、普通签约（C级）</dd>
+            <dd>签约要求：故事完整，更新稳定。</dd>
+            <dd>奖励：每日更新5000字以上，获得千字5元奖励。</dd>
+        </dl>
+        <dl>
+            <dt><i class='moon'></i>发放标准：</dt>
+            <dd>全勤奖从作品的第一个字开始计算（不包括他站已发布字数），按自然月统计，次月支付50%，作品完结并通过完本审核后支付剩余的50%。</dd>
+            <dd>全勤奖励每月与分成稿酬同时发放，作品更新字数以作者后台统计字数为准，且不包括作品相关的章节字数。</dd>
+        </dl>
+        <dl class='specialDl'>
+            <dt><i class='moon'></i>特殊说明：</dt>
+            <dd>1、以月为单位对作品签约级别进行调整，全勤奖以当月的签约级别来计算。</dd>
+            <dd>2、因作品质量不佳（情节平淡、节奏感差、滥竽充数等）由特级、精品、优秀或普通签约要求完本，在接到责编通知后于当月内完结仍可结清剩余的全勤奖，如若不能将不再进行结算，作品发现灌水、恶意抄袭或违禁等情况，网站将取消此作品全勤奖励，网站有要求作者对作品进行修改或停止继续写作。</dd>
+            <dd>3、如遇以下情况：</dd>
+            <dd>①作品当日未更新；</dd>
+            <dd>②新增章节字数未达到5000字（以首次更新字数为准）；</dd>
+            <dd>③章节内容审核未通过；</dd>
+            <dd>则各级别签约作品将分别扣除全勤奖金，计算公式为：千字价格*5000（字）*2（天），相当于当日相应基础福利（以5000字计算）的二倍。每日最多扣除1次，奖金余额扣到0为止。</dd>
+            <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+        </dl>
+      </div>
+      <!-- system2 box4 -->
+      <div :class="{active: 1 == dlIndex && 3 == emIndex}">
+          <dl>
+              <dt><i class='moon'></i>奖励对象：</dt>
+              <dd>火星小说优秀的普通分成签约作品（不含第三方签约作品）</dd>
+          </dl>
+          <dl>
+              <dt><i class='moon'></i>奖励细则：</dt>
+              <dd>1、凡成绩优秀的普通分成作品，可向编辑申请提升全勤等级，审核通过后，作品可提升全勤等级，并从次月开始施行。</dd>
+              <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+          </dl>
+      </div>
+      <!-- system2 box5 -->
+      <div :class="{active: 1 == dlIndex && 4 == emIndex}">
+          <dl>
+              <dt><i class='moon'></i>奖励对象：</dt>
+              <dd>火星小说优秀的普通分成签约作品（不含第三方签约）</dd>
+          </dl>
+          <dl>
+              <dt><i class='moon'></i>奖励细则：</dt>
+              <dd>1、凡成绩优秀的普通分成作品，可向编辑申请转签买断。</dd>
+              <dd>2、审核通过并签订补充协议后，作品可升级为买断作品。</dd>
+              <dd>3、买断奖励按补充协议生效后的更新字数计算。</dd>
+              <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+          </dl>
+      </div>
+      <!-- system3 box1 -->
+      <div :class="{active: 2 == dlIndex && 0 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>火星小说所有签约作品（不含第三方签约）</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励细则：</dt>
+          <dd>1、签约作品当月所得用户道具，按照消费金额相应比例以人民币形式与稿费一起支付给签约作者。</dd>
+          <dd>2、逢法定节假日及作者生日当天，所有道具打赏100%分成。</dd>
+          <dd className="annotation">火星小说对本福利计划拥有最终解释权，并保留根据实际情况，对本福利计划及具体操作方式进行修订的权利。</dd>
+        </dl>
+      </div>
+      <!-- system3 box2 -->
+      <div :class="{active: 2 == dlIndex && 1 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>火星小说所有签约作品（不含第三方签约）</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励细则：</dt>
+          <dd>1.月票榜按照所有vip作品当月所得月票数进行排名，前10位书籍将获得相应的奖金。</dd>
+          <dd>第1名：5000元</dd>
+          <dd>第2名：3000元</dd>
+          <dd>第3名：1000元</dd>
+          <dd>第4名：800元</dd>
+          <dd>第5—10名：500元</dd>
+        </dl>
+        <dl>
+            <dt>
+                <i className="moon"></i>
+                特别说明：
+            </dt>
+            <dd>月票奖福利暂时处于试运行，如各位读者作者朋友们有更好的建议，欢迎发送邮件至kefu@hotread.com,一旦采用火星小说将给予奖励。
+            </dd>
+        </dl>
+      </div>
+      <!-- system4 box1 -->
+      <div :class="{active: 3 == dlIndex && 0 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>火星小说所有签约VIP作品（不包含第三方签约）</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励细则：</dt>
+          <dd>1、买断类作品，将享受全平台渠道推广福利，作品经渠道推广后成绩优异者，可享受全网（微信、微博、贴吧等）精品渠道推广福利。</dd>
+          <dd>2、分成类作品，成绩优异者，将享受全平台渠道推广福利，作品经渠道推广后成绩优异者，可享受全网（微信、微博、贴吧等）精品渠道推广福利。</dd>
+        </dl>
+      </div>
+      <!-- system5 box1 -->
+      <div :class="{active: 4 == dlIndex && 0 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>火星小说所有签约VIP作品（不包含第三方签约） </dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励细则：</dt>
+          <dd>作品成绩优异者，将有机会获得明星IP包装与推广的机会，作品作者将成为网站重点培养对象，买断和分成类作品均可享受此福利。</dd>
+        </dl>
+      </div>
+      <!-- system6 box1 -->
+      <div :class="{active: 5 == dlIndex && 0 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>首次签约火星小说的非买断签约作品（不包含第三方签约）</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励细则：</dt>
+          <dd>1、成功签约并累计更新20万字以上，可申请此奖励。</dd>
+          <dd>2、作者发起申请，编辑审核通过后，奖金随下月稿费发放。签约奖金为300元。</dd>
+        </dl>
+      </div>
+      <!-- system6 box2 -->
+      <div :class="{active: 5 == dlIndex && 1 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>奖励对象：</dt>
+          <dd>火星小说非买断签约作品（不包含第三方签约）</dd>
+        </dl>
+        <dl>
+          <dt><i class='moon'></i>奖励细则：</dt>
+                    <dd>1、男频作品字数在100万字、女频60万字以上正常完本并通过审核。</dd>
+                    <dd>2、新书与火星小说签约成功，并发表20万字以上，可获得300元的完本续约奖励。 </dd>
+        </dl>
+      </div>
+      <!-- system7 box1 -->
+      <div :class="{active: 6 == dlIndex && 0 == emIndex}">
+        <dl>
+          <dt><i class='moon'></i>签约编辑QQ：</dt>
+        </dl>
+        <dl>
+          <dd>男频编辑（收稿类型不限）： </dd>
+          <dd><h1>晓离</h1>1017612247</dd>
+          <dd><h1>洛水</h1>2316852212</dd>
+          <dd><h1>摩西</h1>195898256</dd>
+          <dd><h1>凉粉</h1>461470903</dd>
+          <dd><h1>心湖</h1>2188719713</dd>
+          <dd><h1>洛龟</h1>4503623</dd>
+          <dd><h1>风火</h1>571442164</dd>
+        </dl>
+        <dl>
+          <dd>女频编辑（收稿类型不限）： </dd>
+          <dd><h1>暖茶</h1>644637852</dd>
+          <dd><h1>关关</h1>1802308150</dd>
+          <dd><h1>喵苓</h1>3397317478</dd>
+          <dd><h1>小巫</h1>2461441535</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var vm = new Vue({
+    el: '#boonbody',
+    data: {
+      navList: [
+        {
+          total: '作品买断体系',
+          junior: ['电子版权买断', '买断分成', '保底买断', '全版权买断']
+        },
+        {
+          total: '作品腾飞体系',
+          junior: ['销售突破奖', '年度作品奖', '全勤奖', '全勤等级提升', '分成转买断']
+        },
+        {
+          total: '作品增值体系',
+          junior: ['道具分成', '月票奖（试运行）']
+        },
+        {
+          total: '渠道推广体系',
+          junior: []
+        },
+        {
+          total: '明星IP包装体系',
+          junior: []
+        },
+        {
+          total: '人文关怀体系',
+          junior: ['签约送礼', '完本续约奖']
+        },
+        {
+          total: '投稿专区',
+          junior: []
+        },
+      ],
+      dlIndex: 0,
+      emIndex: 0
+    },
+    methods: {
+      clickDl: function(index, event){
+        if(this.dlIndex != index){
+          this.dlIndex = index;
+          this.emIndex = 0;
+        }
+      },
+      clickEm: function(index){
+        this.emIndex = index;
+        console.log(this.dlIndex,'dlIndex');
+        console.log(this.emIndex,'emIndex')
+      }
+    }
+  })
+</script>

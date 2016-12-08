@@ -1,0 +1,115 @@
+@mixin showApo(){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+body{
+  width: 375px;
+  margin: 0 auto;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+}
+a:link{text-decoration: none;}
+a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+a:active{text-decoration: none;}
+.top{
+  height: 568px;
+  background: url('../images/christmas/top_bg.jpg') 50%/cover;
+  padding-top: 21px;
+}
+.header{
+  width: 304px;
+  height: 180px;
+  background: url('../images/christmas/logo.png') 50%/cover;
+  margin: 0 auto;
+  h1{
+    display: none;
+  }
+}
+.turnplate{
+  width: 325px;
+  height: 325px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 38px;
+  &::before{
+    content: '';
+    position: absolute;
+    width: 102px;
+    height: 114px;
+    background: url('../images/christmas/old-man.png') 50%/cover;
+    top: -42px;
+    z-index: 3;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    width: 107px;
+    height: 148px;
+    background: url('../images/christmas/deer.png') 50%/cover;
+    bottom: -39px;
+    right: -20px;
+    z-index: 3;
+  }
+  .rotate{
+    position: absolute;
+    z-index: 2;
+    width: 325px;
+    height: 325px;
+    border-radius: 50%;
+    background: url('../images/christmas/rotate.png') 50%/cover;
+    -webkit-transition: -webkit-transform 7s ease-out;
+    transition: -webkit-transform 7s ease-out;
+    transition: transform 7s ease-out;
+    transition: transform 7s ease-out,-webkit-transform 7s ease-out;
+  }
+  .light{
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    left: 7.5px;
+    top: 7.5px;
+    z-index: 2;
+    &.s-one{
+      background: url('../images/christmas/light.png') 50%/cover;
+    }
+    &.s-two{
+      background: url('../images/christmas/light-two.png') 50%/cover;
+    }
+  }
+  .shadow{
+    position: absolute;
+    z-index: 1;
+    width: 325px;
+    height: 325px;
+    border-radius: 50%;
+    background: #940009;
+    top: 3px;
+    left: 1px;
+  }
+  .pointer{
+    position: absolute;
+    width: 56px;
+    height: 115px;
+    left: 50%;
+    top: 50%;
+    margin-left: -28px;
+    margin-top: -88px;
+    background: url('../images/christmas/pointer.png') 50%/cover;
+    z-index: 5;
+  }
+}
+
+
+.rule{
+  height: 113px;
+  background: #fcfae7;
+}
+.prize{
+  height: 999px;
+  background: #d5232a;
+}

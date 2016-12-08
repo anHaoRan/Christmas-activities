@@ -1,0 +1,255 @@
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+//公共按钮
+.btn {
+    display: inline-block;
+    line-height: 34px;
+    font-size: 14px;
+    color: #fff;
+    padding: 0 15px;
+    border-radius: 5px;
+    background: #4a9bff;
+    border-width: 0;
+    cursor: pointer;
+}
+
+//公共title
+
+//禁用按钮
+.disabled-btn{
+  display: inline-block;
+  line-height: 34px;
+  font-size: 14px;
+  color: #fff;
+  padding: 0 15px;
+  border-radius: 5px;
+  background: #cbcbcb;
+  border-width: 0;
+  cursor: pointer;
+}
+
+//公共列表title
+.list-title {
+    height: 32px;
+    background: #f6f6f6;
+    border-top: 1px solid #eaeaea;
+    padding: 4px 0;
+    line-height: 24px;
+    font-style: 14px;
+    color: #a5acb2;
+    span {
+        display: block;
+        float: left;
+        text-align: center;
+        border-right: 1px solid #eaeaea;
+        &:last-child {
+            border: 0;
+        }
+    }
+}
+
+// 公共的时间选择
+.filter {
+    height: 34px;
+    padding-left: 15px;
+    color: #26282e;
+    .book-name {
+        width: 214px;
+        height: 34px;
+        border-radius: 3px;
+        color: #a5acb2;
+        text-indent: 14px;
+    }
+    .time {
+        width: 140px;
+        line-height: 32px;
+        display: inline-block;
+        border-radius: 3px;
+        font-size: 14px;
+        color: #a5acb2;
+        background: #fff;
+        text-indent: 14px;
+        position: relative;
+        margin: 0 12px;
+        &:after {
+            content: "";
+            position: absolute;
+            right: 16px;
+            top: 6px;
+            width: 18px;
+            height: 18px;
+            background-image: bg('calendar.png');
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+// 边框
+.border {
+    border: 1px solid #e1e1e1;
+//右边头部  不带返回
+.right-header{
+  height: 54px;
+  padding-top: 10px;
+  margin-top: 6px;
+  .hint{
+    float: left;
+    margin: 0;
+    line-height: 34px;
+  }
+}
+//右边头部  带返回
+.right-header-haveback{
+  height: 54px;
+  padding-top: 10px;
+  margin-top: 6px;
+  .hint{
+    float: left;
+    margin: 0;
+    line-height: 34px;
+  }
+  .back{
+    position: relative;
+    display: inline-block;
+    width: 88px;
+    color: #a5acb2;
+    &::after{
+      position: absolute;
+      right: 11px;
+      top: 11px;
+      content: '';
+      width: 7px;
+      height: 12px;
+      margin-left: 11px;
+      background-image: bg('q-arrow.png');
+      background-repeat: no-repeat;
+      background-size: 7px auto;
+      background-position:0 -12px;
+    }
+  }
+}
+
+// 右侧盒子
+.content {
+    width: 820px;
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+.right-boder {
+    border-bottom: 1px solid #eaeaea;
+}
+
+// 公共title
+.right-header {
+    height: 54px;
+    padding-top: 10px;
+    .hint {
+        float: left;
+        margin: 0;
+        line-height: 34px;
+    }
+}
+
+
+.x {
+        float: left;
+        margin-top: 8px;
+}
+.form-group {
+    width: 214px;
+    height: 36px;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    color: #a5acb2;
+    overflow: hidden;
+    margin-left: 10px;
+    float: left;
+    margin-right: 12px;
+    .form-control {
+        position: relative;
+        padding-left: 14px;
+        &.has-value {
+            &::before {
+                display: none;
+            }
+        }
+    }
+    .form-control:before {
+        content: attr(data-placeholder);
+        position: absolute;
+        line-height: 34px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding-left: 14px;
+        color: #aaa;
+    }
+    input[type=text] {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 34px;
+        border: none;
+        color: inherit;
+        background-color: transparent;
+    }
+    .select-model {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 34px;
+        z-index: 3;
+        border: 0 none;
+        opacity: 0;
+        cursor: pointer;
+        text-indent: 14px;
+    }
+}
+//右边导航
+// 分卷设置 && 写新章节...
+.main-nav{
+  height: 39px;
+  background: #f6f6f6;
+  border-top: 1px solid #eaeaea;
+  a{
+    float: left;
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 20px;
+    &.active, &:hover{
+      border-bottom: 3px solid #4a9bff;
+    }
+  }
+}
+
+
+//加星提示
+.label{
+  display: inline-block;
+  float: left;
+  width: 126px;
+  line-height: 36px;
+  padding-left: 26px;
+}
+.label.must{
+  padding-left: 0;
+  &::before{
+    content: '*';
+    color: red;
+    padding: 0 10px;
+  }
+}>>>>>>> .r20168

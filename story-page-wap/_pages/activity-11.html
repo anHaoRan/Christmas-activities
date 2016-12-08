@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>火星小说</title>
+    <script src="http://c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <link rel="stylesheet" href="../styles/activity-11.min.css">
+</head>
+</head>
+
+<body>
+    <div class="activity-top"></div>
+    <div class="activity-bottom">
+        <span class="icon"></span>
+        <a href="#" :class="class" @click="a"></a>
+        <p class="text" v-show="if_block">剩余:<span class="red">{{number}}</span>份</p>
+    </div>
+    <div class="hide">
+        <div class="login">
+            <p class="header">
+                <span class="span" @click="close_login"></span>
+            </p>
+            <p class="main mian_text">
+                您是游客用户，为保障虚拟财产安全，请登录火星账号
+            </p>
+        </div>
+    </div>
+</body>
+<script src="//c.hotread.com/assets/js/vue.min.js"></script>
+<script type="text/javascript">
+new Vue({
+    el: "body",
+    data: {
+        number: 1111,
+        if_block: false,
+        class: 'button',
+        msg: '123',
+        pay_hide: false,
+        login_hide: false,
+        wap_hide: false,
+    },
+    methods: {
+        a: function() {
+            this.pay_hide = true;
+            console.log(this.msg);
+        },
+        close_pay: function() {
+            this.pay_hide = false;
+        },
+        close_login: function() {
+            this.pay_hide = false;
+        },
+        close_wap: function() {
+            this.wap_hide = false;
+        }
+    },
+    ready: function() {
+        var activity = new Date(2016, 10, 11);
+        var activity_time = activity.getTime();
+
+        var activity_over = new Date(2016, 10, 12);
+        var activity_over_time = activity_over.getTime();
+
+        var current = new Date();
+        var current_time = current.getTime();
+        var _self = this;
+        // setInterval(function() {
+        var current = new Date();
+        var current_time = current.getTime();
+        if (current_time < activity_time) {
+            _self.if_block = true;
+            _self.class = 'button'
+            console.log('即将开始')
+        } else if (current_time > activity_time && current_time < activity_over_time) {
+            console.log('立即抽取')
+            _self.class = 'button one'
+        } else if (current_time > activity_over_time) {
+            console.log('活动结束')
+            _self.class = 'button two'
+        }
+        // }, 1000)
+    }
+});
+</script>
+
+</html>

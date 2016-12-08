@@ -1,0 +1,53 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: $textColor;
+  background: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #666;
+}
+
+html {
+  &.platform-mac {
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans GB", "STHeiti", "微软雅黑", "Microsoft YaHei", SimHei, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  }
+
+  &.platform-win {
+    body {
+      font-family: Simsun, Arial, sans-serif;
+    }
+
+    h2, h3, .win-head {
+      font-family: "微软雅黑", "Microsoft YaHei", Simsun, Arial, sans-serif;
+    }
+
+    //微软雅黑字体
+    .wryh-font {
+        font-family: "Hiragino Sans GB", "STHeiti", "微软雅黑", "Microsoft YaHei", SimHei, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1400px;
+  &:after{
+    content: ""; 
+    display: block;
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+  }
+}
+

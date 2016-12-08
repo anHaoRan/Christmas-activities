@@ -1,0 +1,220 @@
+<!--本周热推-->
+<div class="weekHot <%= nav %>" id="hotController">
+  <div class="weekHot-main">
+    <h2 class="weekHot-title">本周热推</h2>
+    <div class="picAuto">
+      <ul class="bigBook-rect">
+        <li class="bigBook-list" v-if="active===index" v-for="(index, item) in weekHot">
+          <a :href="'/story/' + item.story.id"><img :src="item.pic || item.story.cover" /></a>
+        </li>
+      </ul>
+      <ol class="smallBook-rect">
+        <li class="smallBook-list" 
+          @mouseover="active=index"
+          :class="{'on': active === index}" 
+          v-for="(index, item) in weekHot">
+          <a :href="'/story/' + item.story.id"><img :src="item.pic || item.story.cover" /></a>
+        </li>
+      </ol>
+      <div class="cover"></div>
+      <span class="bookName">{{weekHot[active].story.name}}</span>
+    </div>
+    <div class="bookIntro">
+      <% if (bigWord.length) { -%>
+      <dl class="bookIntro-rect">
+        <dt class="bookIntro-title"><a href="/story/<%= bigWord[0].story.id %>"><%= bigWord[0].story.name %>：<%= bigWord[0].story.pcIntroduce %></a></dt>
+        <% smallWord.slice(0, 4).forEach(function (item) { -%>
+          <dd class="bookIntro-list">
+            <a href="/story/<%= item.story.id %>">
+            [<%= item.story.type %>] <%= item.story.name %>：<%= item.story.pcIntroduce %>
+            </a>
+          </dd>
+        <% }) -%>
+      </dl>
+      <dl class="bookIntro-rect">
+        <dt class="bookIntro-title"><a href="/story/<%= bigWord[1].story.id %>"><%= bigWord[1].story.name %>：<%= bigWord[1].story.pcIntroduce %></a></dt>
+        <% smallWord.slice(4, 8).forEach(function (item) { -%>
+          <dd class="bookIntro-list">
+            <a href="/story/<%= item.story.id %>">
+            [<%= item.story.type %>] <%= item.story.name %>：<%= item.story.pcIntroduce %>
+            </a>
+          </dd>
+        <% }) -%>
+      </dl>
+      <dl class="bookIntro-rect">
+        <dt class="bookIntro-title"><a href="/story/<%= bigWord[2].story.id %>"><%= bigWord[2].story.name %>：<%= bigWord[2].story.pcIntroduce %></a></dt>
+        <% smallWord.slice(8, 12).forEach(function (item) { -%>
+          <dd class="bookIntro-list">
+            <a href="/story/<%= item.story.id %>">
+            [<%= item.story.type %>] <%= item.story.name %>：<%= item.story.pcIntroduce %>
+            </a>
+          </dd>
+        <% }) -%>
+      </dl>
+      <% } -%>
+    </div>
+  </div>
+  <div style="width: 208px;float: right">
+    <rank :type="4" :border="true" :channel="<%= nav === 'girl' ? 1 : 0 %>" :size="8"></rank>
+  </div>
+</div>
+
+<!--精品推荐-->
+<div class="girlRecommend <%= nav %>" id="goodRecommend">
+  <div class="girlRecommend-rect">
+    <h2 class="girlRecommend-title">精品推荐</h2>
+    <div class="chiefBook">
+      <a :href="'/story/' + bigGood.story.id">
+        <img :src="bigGood.pic || bigGood.story.cover" />
+        <div class="message">
+          <h2 class="bookName">{{bigGood.story.name}}</h2>
+          <span class="author">{{bigGood.story.author}}</span>
+          <p class="recoSent">小编推荐：{{bigGood.story.pcIntroduce}}</p>
+        </div>
+      </a>
+    </div>
+    <ul class="assistantBook">
+      <li v-for="(index, item) in smallGood">
+        <a :href="'/story/' + item.story.id">
+          <img :src="item.pic || item.story.cover" />
+          <div class="message">
+            <h2 class="bookName">{{item.story.name}}</h2>
+            <span class="author">{{item.story.author}}</span>
+            <p class="recoSent">小编推荐：{{item.story.pcIntroduce}}</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div style="width: 208px;float: right">
+    <rank :border="true" :channel="<%= nav === 'girl' ? 1 : 0 %>" :size="8"></rank>
+  </div>
+</div>
+
+<!--女频banner-->
+<div class="girl-banner" id="bannerController">
+  <a :href="url"><img :src="banner.pic" /></a>
+</div>
+
+<!--分类推荐-->
+<div class="classify <%= nav %>" id="classifyController">
+  <div class="classify-rect">
+    <h3 class="classify-title">分类推荐</h3>
+    <ul class="columnBook-rect">
+      <li class="columnBook-list" v-for="(index, item) in list">
+        <h2 class="type">{{types[index]}}<a :href="'/library?channel=' + (channel + 1) + '&type=' + types[index]" class="more">更多</a></h2>
+        <a :href="'/story/' + item[0].story.id" class="bookLink">
+          <img :src="item[0].story.cover" />
+          <div class="details">
+            <h3 class="bookName">{{item[0].story.name}}</h3>
+            <em class="author">{{item[0].story.author}}</em>
+            <p class="intro">简介：{{item[0].story.introduce | clean}}</p>
+            <span class="sent">小编推荐语：{{item[0].story.pcIntroduce | clean}}</span>
+          </div>
+        </a>
+        <div>
+          <p v-if="index > 0" v-for="(index, rec) in item" class="comment">
+            <a :href="'/story/' + rec.story.id">[{{rec.story.name}}] {{rec.story.pcIntroduce | clean}}</a>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div style="width: 208px;float: right">
+    <rank :type="3" :border="true" :channel="<%= nav === 'girl' ? 1 : 0 %>" :size="16"></rank>
+  </div>
+</div>
+
+<% include ../partials/vue.ejs %>
+<script type="text/javascript">
+;(function (Vue) {
+  var channel = <%= nav === 'girl' ? 1 : 0 %>;
+  var weekHot = <%- JSON.stringify(weekHot) %>;
+  var girlTypes = <%- JSON.stringify(girlType) %>;
+  var boyTypes = <%- JSON.stringify(boyType) %>;
+
+  new Vue({
+    el: '#hotController',
+    data: {
+      active: 0,
+      weekHot: weekHot
+    }
+  });
+
+  new Vue({
+    el: '#goodRecommend',
+    data: {
+      bigGood: {},
+      smallGood: []
+    },
+    methods: {
+      getBigGood: function () {
+        this.$http.get('/api/channel/bigGood/' + channel)
+          .then(function (resp) {
+            this.bigGood = resp.body.bigGood;
+          });
+      },
+      getSmallGood: function () {
+        this.$http.get('/api/channel/smallGood/' + channel)
+          .then(function (resp) {
+            this.smallGood = resp.body.smallGood;
+          });
+      }
+    },
+    ready: function () {
+      this.getBigGood();
+      this.getSmallGood();
+    }
+  });
+
+  new Vue({
+    el: '#bannerController',
+    data: {
+      banner: {}
+    },
+    computed: {
+      url: function () {
+        if (this.banner.targetType === 1) {
+          return '/story/' + this.banner.targetId;
+        } else {
+          return this.banner.linkUrl;
+        }
+      }
+    },
+    methods: {
+      getBanner: function () {
+        this.$http.get('/api/channel/banner/' + channel)
+          .then(function(resp) {
+            this.banner = resp.body.banner;
+          });
+      }
+    },
+    ready: function () {
+      this.getBanner();
+    }
+  });
+
+  new Vue({
+    el: '#classifyController',
+    data: {
+      channel: channel,
+      types: channel === 1 ? girlTypes : boyTypes,
+      list: [[], [], [], []]
+    },
+    methods: {
+      getList: function (index) {
+        this.$http.get('/api/channel/type/' + channel + '/' + index)
+          .then(function (resp) {
+            this.list.$set(index, resp.body.typeRecommend);
+          });
+      }
+    },
+    ready: function () {
+      this.getList(0);
+      this.getList(1);
+      this.getList(2);
+      this.getList(3);
+    }
+  });
+})(Vue);
+</script>

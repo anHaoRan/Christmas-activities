@@ -1,0 +1,61 @@
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var cssnano = require('gulp-cssnano');
+var prefix = require('gulp-autoprefixer');
+var rename = require('gulp-rename');
+var px2rem = require('gulp-px2rem');
+
+gulp.task('sass', function () {
+  gulp.src('sass/main.scss')
+    .pipe(sass())
+    .pipe(prefix({
+      browsers: ['last 14 versions']
+    }))
+    // .pipe(px2rem({
+    //   baseDpr: 2,
+    //   remUnit: 37.5
+    // }))
+    .pipe(px2rem({replace: true, rootValue: 37.5}))
+    .pipe(cssnano())
+    .pipe(rename(function (path) {
+      path.basename = "story-wap.min";
+    }))
+    .pipe(gulp.dest('./styles'));
+
+  // gulp.src('sass/lucky.scss')
+  //   .pipe(sass())
+  //   .pipe(prefix({
+  //     browsers: ['last 14 versions']
+  //   }))
+  //   .pipe(px2rem({replace: true, rootValue: 37.5}))
+  //   .pipe(cssnano())
+  //   .pipe(rename(function (path) {
+  //     path.basename = "lucky.min";
+  //   }))
+  //   .pipe(gulp.dest('./styles'));
+});
+
+gulp.task('activity', function () {
+  gulp.src('sass/activity.scss')
+    .pipe(sass())
+    .pipe(prefix({
+      browsers: ['last 14 versions']
+    }))
+    // .pipe(px2rem({
+    //   baseDpr: 2,
+    //   remUnit: 37.5
+    // }))
+    .pipe(px2rem({replace: true, rootValue: 37.5}))
+    .pipe(cssnano())
+    .pipe(rename(function (path) {
+      path.basename = "congratulation.min";
+    }))
+    .pipe(gulp.dest('./styles'));
+});
+
+
+gulp.task('watch', ['sass'], function () {
+  gulp.watch('sass/*.scss', ['sass']);
+});
+
+gulp.task('default', ['watch']);

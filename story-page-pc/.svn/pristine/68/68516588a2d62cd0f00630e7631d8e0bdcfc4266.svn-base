@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="../styles/search.min.css" />
+<!--导航-->
+<div class="hotr-nav">
+  <ul class="nav-main">
+    <li class="on"><a href="index.html">首页</a></li>
+    <li><a href="girl.html">女频</a></li>
+    <li><a href="#">男频</a></li>
+    <li><a href="chart.html">排行</a></li>
+    <li><a href="library.html">书库</a></li>
+    <li><a href="qualityCopyright.html">优质版权</a></li>
+    <li><a href="topUp.html">充值</a></li>
+    <li><a href="#">福利</a></li>
+    <li><a href="#">下载客户端</a></li>
+  </ul>
+</div>
+<!--搜索-->
+<div class="search-box">
+  <!--搜索结果-->
+  <div class="searchRect">
+    <h2 class="result-title">搜索结果</h2>
+    <div class="no-result">抱歉！搜索无结果</div>
+    <dl class="result-list">
+      <dt><img src="../assets/pic4.jpg" /></dt>
+      <dd>
+        <a href="#">
+          <h3 class="bookName">总裁大<i>人</i>爱上我</h3>
+          <span class="author">颖宝</span>
+          <p class="intro">简介：消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你</p>
+          <b class="type">分类：现代都市</b>
+        </a>
+      </dd>
+    </dl>
+    <dl class="result-list">
+      <dt><img src="../assets/pic4.jpg" /></dt>
+      <dd>
+        <a href="#">
+          <h3 class="bookName">总裁大<i>人</i>爱上我</h3>
+          <span class="author">颖宝</span>
+          <p class="intro">简介：消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你</p>
+          <b class="type">分类：现代都市</b>
+        </a>
+      </dd>
+    </dl>
+    <dl class="result-list">
+      <dt><img src="../assets/pic4.jpg" /></dt>
+      <dd>
+        <a href="#">
+          <h3 class="bookName">总裁大<i>人</i>爱上我</h3>
+          <span class="author">颖宝</span>
+          <p class="intro">简介：消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你</p>
+          <b class="type">分类：现代都市</b>
+        </a>
+      </dd>
+    </dl>
+    <dl class="result-list">
+      <dt><img src="../assets/pic4.jpg" /></dt>
+      <dd>
+        <a href="#">
+          <h3 class="bookName">总裁大<i>人</i>爱上我</h3>
+          <span class="author">颖宝</span>
+          <p class="intro">简介：消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你</p>
+          <b class="type">分类：现代都市</b>
+        </a>
+      </dd>
+    </dl>
+    <dl class="result-list">
+      <dt><img src="../assets/pic4.jpg" /></dt>
+      <dd>
+        <a href="#">
+          <h3 class="bookName">总裁大<i>人</i>爱上我</h3>
+          <span class="author">颖宝</span>
+          <p class="intro">简介：消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你消费是<i>人</i>生大事，穿衣是灵魂问题。看完再出发，钱才不白花！ 《时髦鬼必须知道的东京》是一本拿起来就不愿意放下的书。这里有你</p>
+          <b class="type">分类：现代都市</b>
+        </a>
+      </dd>
+    </dl>
+  </div>
+  <!--精彩推荐-->
+  <div class="recommend">
+    <h2 class="recommend-title">精彩推荐</h2>
+    <div class="recommend-rect">
+      <dl class="recommend-list">
+        <dt><img src="../assets/pic8.jpg" /></dt>
+        <dd>
+          <a href="#">
+            <h3 class="bookName">第一大牌弃妇</h3>
+            <span class="author">羽之墨</span>
+            <p class="intro">简介： 五百年前八十一难，你护我成佛</p>
+          </a>
+        </dd>
+      </dl>
+      <dl class="recommend-list">
+        <dt><img src="../assets/pic8.jpg" /></dt>
+        <dd>
+          <a href="#">
+            <h3 class="bookName">第一大牌弃妇</h3>
+            <span class="author">羽之墨</span>
+            <p class="intro">简介： 五百年前八十一难，你护我成佛</p>
+          </a>
+        </dd>
+      </dl>
+      <dl class="recommend-list">
+        <dt><img src="../assets/pic8.jpg" /></dt>
+        <dd>
+          <a href="#">
+            <h3 class="bookName">第一大牌弃妇</h3>
+            <span class="author">羽之墨</span>
+            <p class="intro">简介： 五百年前八十一难，你护我成佛</p>
+          </a>
+        </dd>
+      </dl>
+      <dl class="recommend-list">
+        <dt><img src="../assets/pic8.jpg" /></dt>
+        <dd>
+          <a href="#">
+            <h3 class="bookName">第一大牌弃妇</h3>
+            <span class="author">羽之墨</span>
+            <p class="intro">简介： 五百年前八十一难，你护我成佛</p>
+          </a>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>

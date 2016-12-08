@@ -1,0 +1,803 @@
+<div style="height: 50px;"></div>
+<div class="details-main" id="detailController" style="margin-top: 0;">
+  <div class="details">
+    <!--介绍-->
+    <div class="intro">
+      <!--介绍 带图片部分-->
+      <div class="intro-sip">
+        <a href="/story/<%= readChapter.storyId %>/<%= readChapter.id %>" target="_blank">
+          <img src="<%= story.cover %>" class="bookImg" />
+        </a>
+        <div class="intro-wz">
+          <div class="fire-value">
+            <div class="fv-count">
+              <% if (story.fireValue > 9999) { -%>
+                
+                <% if (story.fireValue % 10000 > 0) { -%>
+                  <em><%= (story.fireValue / 10000).toFixed(1) %></em>
+                <% } else { -%>
+                  <em><%= story.fireValue / 10000 %></em>
+                <% } -%>
+
+              <% } else { -%>
+
+                <em><%= story.fireValue %></em>
+
+              <% } -%>
+              <% if (story.fireValue > 9999) { -%>
+                <span>万</span>
+              <% } -%>
+            </div>
+            <div class="fv-label">火力值</div>
+          </div>
+          <h2 class="booxName"><%= story.name %></h2>
+          <span class="authorName"><%= story.author %></span>
+          <em class="classify">分类：<%= story.type %></em>
+          <em class="lab">标签：<%= story.tag %></em>
+          <em class="worNum">字数：<%= story.wordNumber %></em>
+          <p class="state">更新状态：<%= story.latestRevisionDate %> 更新至<%= story.latestChapter %></p>
+          <dl class="btn-list">
+            <dt>
+              <a href="javascript:void(0)" @click="addShelf">加入书架</a>
+              <a href="/story/<%= readChapter.storyId %>/<%= readChapter.id %>">立即阅读</a>
+            </dt>
+            <dd>
+              <div class="twoCode" @mouseover="showCode=true" @mouseout="showCode=false">
+                <span class="tCBox" :style="{ display: showCode ? 'block' : 'none' }"><img src='<%= cdn %>/assets/images/qrcode.jpg'></span>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- 简介、目录、评论 -->
+      <div class="intro-con">
+        <style type="text/css">
+          .current-nav-1 .nav-1,
+          .current-nav-2 .nav-2,
+          .current-nav-3 .nav-3 {
+            border-bottom: 3px solid #fd2f35;
+          }
+        </style>
+        <ul id="detail-nav" class="current-nav-1">
+          <li class="win-head nav-1" @click="navTo(1)">简介</li>
+          <li class="win-head nav-2" @click="navTo(2)">目录</li>
+          <li class="win-head nav-3" @click="navTo(3)">评论</li>
+        </ul>
+        <div class="introduce" id="story-introduce">
+          <%- '<p>' + (story.introduce || '').replace(/\n+/g, '</p><p>').replace(/\s*/g, '') + '</p>'%>
+        </div>
+      </div>
+    </div>
+    <!--奖品-->
+    <div class="award">
+      <ul class="award-cutBtn">
+        <li class="cutBtn-list" :class="{on: award === 0}">
+          <a href="javascript:void(0)" @click="award=0">月票</a>
+        </li>
+        <li class="cutBtn-list" :class="{on: award === 1}">
+          <a href="javascript:void(0)" @click="award=1">推荐票</a>
+        </li>
+        <li class="cutBtn-list" :class="{on: award === 2}">
+          <a href="javascript:void(0)" @click="award=2">打赏</a>
+        </li>
+      </ul>
+      <ol class="award-cutRect" v-cloak>
+        <li v-if="story.isPay" class="cutRect-list" :class="{on: award === 0}">
+          <div class="user-case-a">
+            <span v-if="story.monthNum === 0">当前月票为<em>0</em></span>
+            <span v-if="story.monthNumRank === 1">当前月票数<em>{{story.monthNum}}</em></span>
+            <span v-if="story.monthNumRank === 1">排名第<em>1</em></span>
+            <span v-if="story.monthNumRank > 1 && story.monthNum > 0">当前月票<em>{{story.monthNum}}</em></span>
+            <span v-if="story.monthNumRank > 1 && story.monthNum > 0">当月排行<em>{{story.monthNumRank}}</em></span>
+          </div>
+          <div class="user-case-b"><span>剩余火星币：<em>{{onlineUser.goldAmount || 0}}</em>火星币</span><a href="/pay">充值</a></div>
+          <!--月票-->
+          <div class="monTicket">
+            <dl v-for="(index, item) in monthTicketList.slice(0, 4)" 
+              @click="monthTicketIndex=index"
+              :class="{on: monthTicketIndex === index}">
+              <dt class="shade"><i></i></dt>
+              <dd>
+                <p>{{item.title}}</p>
+                <span>{{item.remark}}</span>
+              </dd>
+            </dl>
+            <dl class="surpass" v-for="item in monthTicketList.slice(4, 5)" 
+              @click="monthTicketIndex=4"
+              :class="{on: monthTicketIndex === 4}">
+              <dt class="shade"><i></i></dt>
+              <dd>
+                <p>{{item.title}}<em>超越前一名</em></p>
+                <span>{{item.remark}}</span>
+              </dd>
+            </dl>
+          </div>
+          <div class="vote-box">
+            <p class="vote-title">赠言</p>
+            <input type="text" v-model="monthTicketWord"/>
+            <a class="vote-btn" href="javascript:void(0)" @click="voteMonth">投票</a>
+          </div>
+          <p class="message">
+            月票说明：<br />
+            1）月票是一种荣誉，代表了读者对作品的喜爱程度<br />
+            2）每月月票榜前十名的作品将会获得火星小说颁发的奖金<br />
+            3）非vip作品不能享受被投月票资格
+          </p>
+          <dl class="record">
+            <dt class="record-title">今日投票记录</dt>
+            <dd class="record-rect">
+              <div class="record-list" v-for="record in voteRecord">
+                <img :src="record.imageurl | avatar" />
+                <p><a href="javascript:void(0)" class="name">{{record.username}}</a>{{record.message}}</p>
+                <p><em class="time">{{record.time}}</em><em class="goods">打赏了 {{record.num}} 张月票</em></p>
+              </div>
+            </dd>
+          </dl>
+        </li>
+        <li v-else class="cutRect-list" :class="{on: award === 0}">
+          <div class="ticket-prevent">该作品尚未入vip作品，不能投月票哦！</div>
+          <!--月票-->
+          <div class="monTicket disabled">
+            <dl v-for="(index, item) in monthTicketList.slice(0, 4)" @click="preventVote">
+              <dd>
+                <p>{{item.title}}</p>
+                <span>{{item.remark}}</span>
+              </dd>
+            </dl>
+          </div>
+          <div class="vote-box">
+            <p class="vote-title">赠言</p>
+            <input type="text" v-model="monthTicketWord" disabled/>
+            <a class="vote-btn disabled" @click="preventVote">投票</a>
+          </div>
+          <p class="message">
+            月票说明：<br />
+            1）月票是一种荣誉，代表了读者对作品的喜爱程度<br />
+            2）每月月票榜前十名的作品将会获得火星小说颁发的奖金<br />
+            3）非vip作品不能享受被投月票资格
+          </p>
+        </li>
+        <li class="cutRect-list" :class="{on: award === 1}">
+          <div class="user-case-a">
+            <span>月推荐票<em>{{story.recommentNum}}</em></span>
+            <span>总推荐票<em>{{story.recommentNumTotal}}</em></span>
+            <span>排名<em>No.{{story.recommentNumRank}}</em></span>
+          </div>
+          <div class="recommendTicket">
+            <ul class="recommendTicket-rect">
+              <li 
+                @click="voteRecommend(n+1)"
+                class="recommendTicket-list" v-for="n in 4">
+                <img src="<%=cdn%>/assets/images/zan.png"><i>+{{n+1}}</i>
+              </li>
+            </ul>
+            <p>感谢您支持，推荐票还剩余<span>{{onlineUser.recommendTicket || 0}}</span>张</p>
+            <h5>推荐票说明：<br /> 1.非付费用户每天登录获赠2张推荐票，付费用户每天登录获取4张推荐票 <br />2.推荐时效为24小时，每天0：00清零余额</h5>
+          </div>
+        </li>
+        <li class="cutRect-list" :class="{on: award === 2}">
+          <div class="user-case-a"><span>打赏<em>{{story.rewardTotal}}</em></span></div>
+          <div class="user-case-b">
+            <span>剩余火星币：<em>{{onlineUser.goldAmount || 0}}</em>火星币</span>
+            <a href="/pay">充值</a>
+          </div>
+          <div class="reward">
+            <div class="reward-rect">
+              <dl class="reward-list"
+                :class="{on: rewardIndex === index}"
+                v-for="(index, item) in rewards"
+                @click="rewardIndex=index">
+                <dd class="shade"><i></i></dd>
+                <dd><img :src="cdn + rewardMap[item.image]" /></dd>
+                <dt>{{item.title}}</dt>
+              </dl>
+            </div>
+            <ul class="count-ract">
+              <li>
+                <span>数量：</span>
+                <em class="sub" @click="reduceRewardCount">-</em>
+                <input type="text" class="num" v-model="rewardCount"/>
+                <em class="add" @click="rewardCount+=1">+</em>
+              </li>
+              <li><span>价值：</span><em class="money">{{rewardValue}}</em><span>火星币</span></li>
+            </ul>
+          </div>
+          <div class="vote-box">
+            <p class="vote-title">赠言</p>
+            <input type="text" v-model="rewardRemark" />
+            <a class="vote-btn" @click="voteReward">打赏</a>
+          </div>
+          <p class="message">打赏说明：
+            <br />通过打赏是对作者进行鼓励的一种方式，如果您对小说满意，除了给与作者订阅支持，也可以
+            <br />打赏激励作者创作更好的作品。您打赏的道具，我们将按比例和作者分成
+          </p>
+          <dl class="record">
+            <dt class="record-title">今日打赏记录</dt>
+            <dd class="record-rect">
+              <div class="record-list" v-for="record in rewardRecord">
+                <img :src="record.imageurl | avatar" />
+                <p>
+                  <a href="javascript:void(0)" class="name">{{record.username}}</a>
+                  {{record.message}}
+                </p>
+                <p>
+                  <em class="time">{{record.time}}</em>
+                  <em class="goods">打赏了 {{record.num}} 个{{record.pname}}</em>
+                </p>
+              </div>
+            </dd>
+          </dl>
+        </li>
+      </ol>
+    </div>
+    <!--目录-->
+    <div class="catalog" v-cloak id="catalogContainer">
+      <dl class="catalog-rect" :class="{on: indexOf(volumesOpend, volume.id) > -1}" v-for="(index, volume) in volumes">
+        <dt class="roll" @click="toggleVolumes(volume, index)"><i></i>{{volume.name}}</dt>
+        <dd>
+          <div class="catalog-list">
+            <a :href="'/story/' + chapter.storyId + '/' + chapter.id" v-for="chapter in chapterList[index]">{{chapter.name}}</a>
+          </div>
+          <p class="moreBox"><a class="more" :href="'/catalogue?storyId=' + story.id">查看更多目录</a></p>
+        </dd>
+      </dl>
+    </div>
+    <!--评论-->
+    <div class="comment-rect" id="commentContainer">
+      <div class="comment-txt">
+        <textarea v-model="commentContent"></textarea>
+      </div>
+      <span class="comment-btn" @click="addComment">发表评论</span>
+    </div>
+    <!--评论列表-->
+    <div class="commentList-rect" v-cloak>
+      <div class="comment-box">
+        <dl class="comment-list" v-for="(index, item) in commentPage.list">
+          <dt class="list-tx"><img :src="item.headImage | avatar" /></dt>
+          <dd>
+            <h2><a href="javascript:void(0)" style="cursor: default;">{{item.nickname}}</a></h2>
+            <p class="con-sent">{{item.commentBody}}</p>
+            <ul>
+              <li>
+                <span class="time">{{item.createDateStr}}</span>
+                <i class="ding" v-if="item.type == 1 || item.type == 3"></i>
+                <i class="jing" v-if="item.type == 2 || item.type == 3"></i>
+              </li>
+              <li><em class="reply" @click="toggleCommentForm(index)">回复</em></li>
+            </ul>
+
+            <form v-show="commentIndex === index" 
+              @submit.prevent="replyComment(item, index)"
+              class="reply-rect">
+              <textarea v-model="replyContent"></textarea>
+              <div style="text-align: right;">
+                <input type="submit" class="send-btn" value="发送" />
+              </div>
+            </form>
+
+            <div v-if="item.actCommentPage.total" class="replyOfReply">
+              <div class="reply-list" v-for="(_index, comment) in item.actCommentPage.list">
+                <img :src="comment.headImage | avatar" class="userPortrait" />
+                <h2 class="userName">
+                  <a href="javascript:void(0)" style="cursor: default;">{{comment.nickName}}</a>
+                  <span v-if="comment.commentUserId > 0">
+                    回复
+                    <a href="javascript:void(0)" style="cursor: default;">{{comment.commentUserName}}</a>
+                  </span>
+                </h2>
+                <p class="reply-sent">{{comment.commentContext}}</p>
+                <div style="overflow: hidden; margin: 10px 0;">
+                  <em class="reply" @click="toggleCommentForm(index + '_' + _index)">回复</em>
+                </div>
+                <form 
+                  v-show="commentIndex===index + '_' + _index"
+                  @submit.prevent="replyRecomment(comment, item, index)"
+                  style="margin: 10px 0; background: transparent" 
+                  class="reply-rect reply-of-reply">
+                  <textarea v-model="replyContent"></textarea>
+                  <div style="text-align: right;">
+                    <input type="submit" class="send-btn" value="发送" />
+                  </div>
+                </form>
+              </div>
+              <pagination @page-change="getActCommentsList" 
+                mode="small"
+                :params="{comment: item, index: index}"
+                :page-no="item.actCommentPage.pageNo + 1" 
+                :total-pages="item.actCommentPage.totalPages"></pagination>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <pagination @page-change="getCommentsList" 
+      :page-no="commentPage.pageNo + 1" 
+      :total-pages="commentPage.totalPages"></pagination>
+  </div>
+  <div class="main-right">
+    <!--作者说明-->
+    <div class="author-explain">
+      <dl class="girlBg">
+        <dt class="author-tx"><img :src="story.faceUrl | avatar" /></dt>
+        <dd class="author-name"><%= story.author %></dd>
+      </dl>
+      <p class="author-sent">个人说明：<%= story.authorIntroduce || '暂无简介' %></p>
+    </div>
+    <!--猜你喜欢-->
+    <div class="guess" v-cloak>
+      <h2>猜你喜欢</h2>
+      <div class="guess-rect">
+        <a :href="'/story/' + item.story.id" v-for="item in guesses">
+          <dl class="guess-list">
+            <dt><img :src="item.story.cover"/></dt>
+            <dd>
+              <h3 class="bookName" :title="item.name">{{item.story.name}}</h3>
+              <span class="author">{{item.story.author}}</span>
+              <p style="height: 4.4em; overflow: hidden">简介：{{(item.story.pcIntroduce || item.story.introduce) | clean}}</p>
+            </dd>
+          </dl>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  ;(function (win) {
+    var fixed = false;
+    var current = 1;
+    win.catalogPos = 1340;
+    win.commentPos = 1600;
+    var detailNav = document.getElementById('detail-nav');
+    var storyIntroduce = document.getElementById('story-introduce');
+    var catalogContainer = document.getElementById('catalogContainer');
+    var commentContainer = document.getElementById('commentContainer');
+
+    win.addEventListener('scroll', function () {
+      whenScroll();
+    });
+
+    whenScroll();
+
+    function calculatePos() {
+      var _catalogPos = catalogContainer.offsetTop - 110; // delta + 103 = 59 + 44 = menu + nav
+      var _commentPos = commentContainer.offsetTop - 110;
+      if (_catalogPos !== win.catalogPos || _commentPos !== win.commentPos) {
+        win.catalogPos = _catalogPos;
+        win.commentPos = _commentPos;
+        whenScroll();
+      }
+    }
+
+    setInterval(function () {
+      calculatePos();
+    }, 1000);
+
+    function whenScroll() {
+      var t = win.scrollY;
+      if (fixed && t <= 613) {
+        detailNav.style.cssText = '';
+        storyIntroduce.style.cssText = '';
+        fixed = false;
+      } else if (!fixed && t >= 613) {
+        detailNav.style.cssText = 'position: fixed;top:59px;z-index: 100;width: 680px;background:#fff;';
+        storyIntroduce.style.cssText = 'margin-top: 44px;';
+        fixed = true;
+      }
+
+      if (current !== 2 && t > win.catalogPos && t < win.commentPos - 50) {
+        current = 2;
+        detailNav.className = 'current-nav-2';
+      } else if (current !== 1 && t < win.catalogPos - 50) {
+        current = 1;
+        detailNav.className = 'current-nav-1';
+      } else if (current !== 3 && t > win.commentPos) {
+        current = 3;
+        detailNav.className = 'current-nav-3';
+      }
+    }
+
+  })(window);
+</script>
+
+<% include ../partials/vue.ejs %>
+<% include ../partials/pagination.ejs %>
+<script type="text/javascript">
+  var story = <%- JSON.stringify(story) %>
+  ;(function (Vue, win) {
+    var story = <%- JSON.stringify(story) %>;
+    var onlineUser = <%- JSON.stringify(onlineUser) %>;
+    var award = <%- query.award || 0 %> - 0;
+    // console.log(story, onlineUser)
+    var REWARD_MAP = {
+      '金刚狼抓': '/assets/images/reward-lw.png',
+      '超人内裤': '/assets/images/reward-crnk.png',
+      '钢铁侠': '/assets/images/reward-gtx.png',
+      '美队之盾': '/assets/images/reward-mdzd.png',
+      '雷神锤': '/assets/images/reward-lsc.png',
+      '大宝剑': '/assets/images/reward-dbj.png',
+      '香水': '/assets/images/reward-perfume.png',
+      '包包': '/assets/images/reward-bag.png',
+      '皇冠': '/assets/images/reward-diadema.png',
+      '豪车': '/assets/images/reward-car.png',
+      '轮船': '/assets/images/reward-ship.png',
+      '城堡': '/assets/images/reward-house.png'
+    };
+
+    new Vue({
+      el: '#detailController',
+      data: {
+        story: story,
+        showCode: false,
+        award: 0,
+        monthTicketList: [],
+        monthTicketIndex: 0,
+        monthTicketWord: '支持一下，希望创造出更好的作品',
+        volumes: [],
+        chapterList: [[]],
+        volumesOpend: [],
+        onlineUser: onlineUser,
+        rewards: [],
+        rewardIndex: 0,
+        rewardCount: 1,
+        rewardMap: REWARD_MAP,
+        rewardRemark: '',
+        cdn: '<%= cdn %>',
+        guesses: [],
+        commentIndex: -1,
+        commentPage: {list: [], pageNo: 0, totalPages: 0},
+        replyContent: '',
+        commentContent: '',
+        voteRecord: [],
+        rewardRecord: []
+      },
+      computed: {
+        rewardValue: function () {
+          if (this.rewards.length) {
+            return this.rewards[this.rewardIndex].virtualprice * this.rewardCount;
+          }
+          return 0;
+        }
+      },
+      watch: {
+        award: function () {
+          if (this.award === 2 && !this.rewards.length) {
+            this.getRewards();
+            this.getRewardRecord();
+          }
+        },
+        rewardIndex: function () {
+          this.rewardRemark = this.rewards[this.rewardIndex].remark;
+        }
+      },
+      methods: {
+        navTo: function (index) {
+          var t = 613;
+          if (index === 2) {
+            t = win.catalogPos + 5;
+          } else if (index === 3) {
+            t = win.commentPos + 5;
+          }
+          win.scrollTo(0, t);
+        },
+        indexOf: function (array, item) {
+          var i = 0, len = array.length;
+          var index = -1;
+          for (; i < len; i++) {
+            if (array[i] === item) {
+              index = i;
+              break;
+            }
+          }
+          return index;
+        },
+        remove: function (array, item) {
+          var i = 0, len = array.length;
+          var result = [];
+          for (; i < len; i++) {
+            if (array[i] !== item) {
+              result.push(array[i]);
+            }
+          }
+          return result;
+        },
+        toggleVolumes: function (volume, index) {
+          if (this.indexOf(this.volumesOpend, volume.id) > -1) {
+            this.volumesOpend = this.remove(this.volumesOpend, volume.id);
+          } else {
+            this.volumesOpend.push(volume.id);
+            if (!this.chapterList[index]) {
+              this.getChapters(volume, index);
+            }
+          }
+        },
+        reduceRewardCount: function () {
+          this.rewardCount = this.rewardCount > 1 ? this.rewardCount - 1 : 1;
+        },
+        // 投月票
+        voteMonth: function () {
+          var ticket = this.monthTicketList[this.monthTicketIndex];
+          this.$http.post('/api/user/vote/month', {
+            voteNum: ticket.packamount,
+            storyId: this.story.id,
+            remark: this.monthTicketWord.substr(0, 200) || '支持一下，希望创造出更好的作品'
+          }).then(function (resp) {
+            var result = resp.body;
+            if (result.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            if (result.errorCode > 0) {
+              if (result.errorCode < 500) {
+                _alertCenter(result.message, 'error', 350);
+              } else {
+                _alertCenter('投票失败，请重试', 'error');
+              }
+            } else {
+              _alertCenter('投月票成功');
+              story.monthNum = result.data.monthNum;
+              story.monthNumRank = result.data.ranking;
+              onlineUser.goldAmount = result.data.goldAmount;
+              this.onlineUser = onlineUser;
+              this.story = story;
+              this.getMonthTicketList();
+              this.getVoteRecord();
+            }
+          });
+        },
+        // 投推荐票
+        voteRecommend: function (count) {
+          this.$http.post('/api/user/vote/recommend', {
+            storyId: this.story.id,
+            voteNum: count
+          }).then(function (resp) {
+            var result = resp.body;
+            if (result.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            if (result.errorCode > 0) {
+              if (result.errorCode < 500) {
+                _alertCenter(result.message, 'error', 350);
+              } else {
+                _alertCenter('投票失败，请重试', 'error');
+              }
+            } else {
+              _alertCenter('投推荐票成功');
+              story.recommentNum = result.data.monthRecommendTicket;
+              story.recommentNumTotal = result.data.recommendTicket;
+              story.recommentNumRank = result.data.ranking;
+              onlineUser.recommendTicket = result.data.userRecommendTicket;
+              this.story = story;
+              this.onlineUser = onlineUser;
+            }
+          });
+        },
+        // 打赏
+        voteReward: function () {
+          var reward = this.rewards[this.rewardIndex];
+          this.$http.post('/api/user/vote/reward', {
+            pid: reward.id,
+            amount: this.rewardCount,
+            storyId: this.story.id,
+            remark: this.rewardRemark.substr(0, 200)
+          }).then(function (resp) {
+            var result = resp.body;
+            if (result.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            if (result.errorCode > 0) {
+              if (result.errorCode < 500) {
+                _alertCenter(result.message, 'error', 350);
+              } else {
+                _alertCenter('打赏失败，请重试', 'error');
+              }
+            } else {
+              _alertCenter('打赏成功');
+              story.rewardTotal = result.data.rewardTotal;
+              onlineUser.goldAmount = result.data.goldAmount;
+              this.story = story;
+              this.onlineUser = onlineUser;
+              this.getRewardRecord();
+            }
+          });
+        },
+        // 加入书架
+        addShelf: function () {
+          this.$http.post('/api/user/shelf/add/' + this.story.id)
+            .then(function (resp) {
+              if (resp.body.error === 401) {
+                _authModal.type = 1;
+                return false;
+              }
+              _alertCenter('加入书架成功');
+            });
+        },
+        // 发表评论
+        addComment: function () {
+          this.$http.post('/api/user/comment', {
+            storyId: this.story.id,
+            title: '发表评论',
+            content: this.commentContent.substr(0, 500)
+          }).then(function (resp) {
+            var result = resp.body;
+            if (result.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            if (result.errorCode > 0) {
+              if (result.errorCode < 500) {
+                _alertCenter(result.message, 'error', 350);
+              } else {
+                _alertCenter('评论失败', 'error');
+              }
+            } else {
+              _alertCenter('评论成功');
+              this.commentContent = '';
+              this.getCommentsList();
+            }
+          });
+        },
+        // 回复评论
+        replyComment: function (comment, index) {
+          // console.log(this.replyContent, comment, index);
+          this.$http.post('/api/user/reply', {
+            resourceId: comment.id,
+            resUserId: comment.userId,
+            commentId: 0,
+            commentUserId: 0,
+            content: this.replyContent.substr(0, 500)
+          }).then(function (resp) {
+            var result = resp.body;
+            if (result.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            if (result.errorCode > 0) {
+              if (result.errorCode < 500) {
+                _alertCenter(result.message, 'error', 350);
+              } else {
+                _alertCenter('回复失败', 'error');
+              }
+            } else {
+              _alertCenter('回复成功');
+              this.replyContent = '';
+              this.getActCommentsList(1, {
+                index: index,
+                comment: comment
+              });
+            }
+          });
+        },
+        // 回复【回复】
+        replyRecomment: function (reply, comment, index) {
+          this.$http.post('/api/user/reply', {
+            resourceId: reply.resourceId,
+            resUserId: reply.resUserId,
+            commentId: reply.id,
+            commentUserId: reply.userId,
+            content: this.replyContent.substr(0, 500)
+          }).then(function (resp) {
+            var result = resp.body;
+            if (result.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            if (result.errorCode > 0) {
+              if (result.errorCode < 500) {
+                _alertCenter(result.message, 'error', 350);
+              } else {
+                _alertCenter('回复失败', 'error');
+              }
+            } else {
+              _alertCenter('回复成功');
+              this.replyContent = '';
+              this.getActCommentsList(1, {
+                index: index,
+                comment: comment
+              });
+            }
+          });
+        },
+        toggleCommentForm: function (index) {
+          this.replyContent = '';
+          if (this.commentIndex === index) {
+            this.commentIndex = -1;
+          } else {
+            this.commentIndex = index;
+          }
+        },
+        // 获取回复列表
+        getActCommentsList: function (pageNo, params) {
+          this.$http.get('/api/story/reply/page?pageNo=' + pageNo + '&resourceId=' + params.comment.id)
+            .then(function (resp) {
+              var replyPage = resp.body.replyPage;
+              var comment = params.comment;
+              comment.actCommentPage = replyPage;
+              this.commentPage.list.$set(params.index, comment);
+              this.commentIndex = -1;
+            });
+        },
+        // 获取评论列表
+        getCommentsList: function (pageNo) {
+          return this.$http.get('/api/story/comment/page?storyId=' + this.story.id + '&pageNo=' + (pageNo || 1))
+            .then(function(resp) {
+              var page = resp.body.commentPage;
+              this.commentPage = {
+                list: page.list || [],
+                pageNo: page.pageNo || 0,
+                totalPages: page.totalPages || 0 
+              };
+              this.commentIndex = -1;
+            });
+        },
+        // 获取月票类型
+        getMonthTicketList: function () {
+          this.$http.get('/api/story/monthTicketList?storyId=' + story.id)
+            .then(function (resp) {
+              this.monthTicketList = resp.body.monthTicketList;
+            });
+        },
+        getVolumes: function () {
+          this.$http.get('/api/story/volumes?storyId=' + story.id)
+            .then(function (resp) {
+              this.volumes = resp.body.volumes;
+              this.volumesOpend = [this.volumes[0].id];
+              this.getChapters(this.volumes[0], 0);
+            });
+        },
+        // 对应卷的章节列表
+        getChapters: function (volume, index) {
+          this.$http.get('/api/story/chapters?volumeId=' + volume.id)
+            .then(function (resp) {
+              this.chapterList.$set(index, resp.body.chapters.slice(0, 10));
+            });
+        },
+        // 打赏物品
+        getRewards: function () {
+          this.$http.get('/api/story/rewards?channel=' + story.channel)
+            .then(function (resp) {
+              this.rewards = resp.body.rewards;
+              this.rewardRemark = this.rewards[0].remark;
+            });
+        },
+        // 猜你喜欢
+        getGuessLikeList: function () {
+          this.$http.get('/api/story/typeRecommend?type=' + story.type)
+            .then(function (resp) {
+              this.guesses = resp.body.typeRecommend;
+            });
+        },
+        // 投月票记录
+        getVoteRecord: function () {
+          this.$http.get('/api/story/record/vote/' + story.id)
+            .then(function (resp) {
+              this.voteRecord = resp.body.record;
+            });
+        },
+        // 打赏记录
+        getRewardRecord: function () {
+          this.$http.get('/api/story/record/reward/' + story.id)
+            .then(function (resp) {
+              this.rewardRecord = resp.body.record;
+            });
+        },
+        preventVote: function () {
+          _alertCenter('该作品尚未入vip作品，不能投月票哦！', 'error', 400, 1000);
+        }
+      },
+      ready: function () {
+        this.getMonthTicketList();
+        this.getVolumes();
+        this.getGuessLikeList();
+        this.getCommentsList();
+        this.getVoteRecord();
+        if (award > 0) {
+          this.award = award;
+        }
+      }
+    });
+  })(Vue, window);
+</script>

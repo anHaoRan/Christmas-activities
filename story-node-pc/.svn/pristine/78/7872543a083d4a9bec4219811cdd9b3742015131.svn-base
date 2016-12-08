@@ -1,0 +1,8 @@
+<% include partials/head.ejs %>
+<body>
+<% include partials/header.ejs %>
+<div style="width: 1002px;margin: 0 auto;padding: 100px 0 124px;text-align: center;font-size: 18px;color: #f00;">
+    恭喜您，充值成功！进入<a href="/userCenter">个人中心</a>，可以查看充值记录。
+</div>
+<% include partials/vue.ejs %>
+<% include partials/foot.ejs %>

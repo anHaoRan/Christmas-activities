@@ -1,0 +1,141 @@
+if (typeof require.ensure !== "function") require.ensure = function(d, c) { c(require) };
+
+export const getComponentPayResult = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/PayResult').default);
+  }, 'payresult');
+}
+
+// 首页
+export const getComponentIndex = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Index').default);
+  }, 'index');
+}
+
+// 下载
+export const getComponentDownload = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Download').default);
+  }, 'download');
+}
+
+// 下载
+export const getComponentCatalogue = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Catalogue').default);
+  }, 'catalogue');
+}
+
+// 粉丝
+export const getComponentFans = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Fans').default);
+  }, 'fans');
+}
+
+// 个人中心
+export const getComponentUserCenter = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/UserCenter').default);
+  }, 'userCenter');
+}
+
+// 女频
+export const getComponentGirl = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Girl').default);
+  }, 'girl');
+}
+
+// 男频
+export const getComponentBoy = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Boy').default);
+  }, 'boy');
+}
+
+// 排行榜
+export const getComponentChart = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Chart').default);
+  }, 'chart');
+}
+
+// 优质版权
+export const getComponentCopyright = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Copyright').default);
+  }, 'copyright');
+}
+
+// 书库
+export const getComponentLibrary = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Library').default);
+  }, 'library');
+}
+
+// 登录
+export const getComponentLogin = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/SignIn').default);
+  }, 'signin');
+}
+
+// 注册
+export const getComponentRegister = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Register').default);
+  }, 'register');
+}
+
+// 注册
+export const getComponentRecover = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Recover').default);
+  }, 'recover');
+}
+
+// 充值
+export const getComponentPay = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Pay').default);
+  }, 'pay');
+}
+
+// 阅读页
+export const getComponentReading = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Reading').default);
+  }, 'reading');
+
+}
+
+// 搜索
+export const getComponentSearch = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Search').default);
+  }, 'search');
+}
+
+// 详情页
+export const getComponentDetails = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/Details').default);
+  }, 'details');
+}
+
+// 资讯消息页
+export const getComponentNewsPage = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/NewsPage').default);
+  }, 'newsPage');
+}
+
+// 图集
+export const getComponentAtlasStatic = (location, callback) => {
+  return require.ensure([], require => {
+    return callback(null, require('./modules/AtlasStatic').default);
+  }, 'atlas-static');
+}

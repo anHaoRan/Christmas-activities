@@ -1,0 +1,67 @@
+@import 'common/fun';
+.drafts{
+  width: 833px;
+  height: auto;
+}
+.dr-t{
+  margin-top: 36px;
+  span{
+    &:nth-child(1){
+      width: 86px;
+    }
+    &:nth-child(2){
+      width: 333px;
+    }
+    &:nth-child(3){
+      width: 86px;
+    }
+    &:nth-child(4){
+      width: 168px;
+    }
+    &:nth-child(5){
+      width: 160px;
+    }
+  }
+}
+.drafts-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li{
+    height: 35px;
+    border-bottom: 1px dotted #cbcbcb;
+    &>span{
+      display: inline-block;
+      float: left;
+      text-align: center;
+      line-height: 35px;
+      &.num{
+        width: 86px;
+      }
+      &.name{
+        width: 333px;
+      }
+      &.wordsnum{
+        width: 86px;
+      }
+      &.time{
+        width: 168px;
+      }
+      &.operate{
+        width: 160px;
+        a{
+          display: inline-block;
+          float: left;
+          width: 80px;
+          text-align: center;
+          &.amend{
+            color: #499fff;
+          }
+          &.del{
+            color: #ff3a3a;
+          }
+        }
+      }
+    }
+  }
+}

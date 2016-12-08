@@ -1,0 +1,38 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: $textColor;
+  background: white;
+  font: 14px / 1.42857143 "Hiragino Sans GB", "STHeiti", "微软雅黑", "Microsoft YaHei", SimHei, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #666;
+}
+
+html {
+  &.platform-mac {
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans GB", "STHeiti", "微软雅黑", "Microsoft YaHei", SimHei, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  }
+
+  &.platform-win {
+    body {
+      font-family: Simsun, Arial, sans-serif;
+    }
+
+    h2, h3, .win-head {
+      font-family: "微软雅黑", "Microsoft YaHei", Simsun, Arial, sans-serif;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+

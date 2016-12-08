@@ -1,0 +1,16 @@
+
+<div class="popup">
+    <div class="popup-box">
+        <a href="#" class="popup-close"></a>
+        <h3 class="popup-title wryh-font">修改卷名</h3>
+        <section class="popup-body">
+            <span class="popup-name">卷名</span>
+            <input type="text" class="popup-v" placeholder="卷一：再起风云之雄霸天下" />
+            <p class="popup-t">卷名不允许重名，限定20字以内。例卷一</p>
+        </section>
+        <footer class="popup-footer">
+            <div class="btn disabled-btn">取消</div>
+            <div class="btn">确定</div>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="root platform-mac">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作者中心</title>
+  <link href="http://c.hotread.com/assets/images/favico.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="../styles/common.min.css">
+  <style>[v-cloak] { visibility: hidden;  }</style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="slogan" href="http://author.hotread.com">
+        <img src="http://c.hotread.com/wap/images/3x/slogan.png" alt="">
+      </a>
+    </div>
+  </header>
+  <link rel="stylesheet" type="text/css" href="../styles/worksList-setProduction.min.css">
+
+<div class="container">
+  <div class="nav">
+    <h4>作者中心</h4>
+    <ul>
+      <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+      <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+      <li class="item"><a href="reward.html">打赏收入</a></li>
+      <li class="item"><a href="comment.html">评论管理</a></li>
+      <li class="item"><a href="settings.html">个人设置</a></li>
+    </ul>
+  </div>
+  <div class="production fl">
+    <div class="right-header-haveback">
+      <p class="hint"><a href="worksList.html" class="back">作品列表</a><a href="worksList.html" class="back">山村老尸</a><span>作品设置</span></p>
+    </div>
+    <div class="main-nav">
+      <a href="worksList-setroll.html">分卷设置</a>
+      <a href="worksList-writeNewSection.html">写新章节</a>
+      <a href="worksList-drafts.html">草稿箱</a>
+      <a href="worksList-issue.html">已发布章节</a>
+      <a href="worksList-setProduction.html" class="active">作品设置</a>
+    </div>
+    <div class="production-main">
+      <div class="cover-box">
+        <div class="cover">
+          <img src="../images/pic.jpg">
+          <span class="uploading-btn">点击上传</span>
+        </div>
+        <span class="msg">封面尺寸为450*590<br />格式为jpg、png、bmp</span>
+      </div>
+      <div class="production-info">
+        <div class="pro-name">
+          <div class="label">作品名称</div>
+          <div class="info-right">
+            <span class="bookname">山村老尸</span>
+            <i class="hint">（更改分类请联系编辑）</i>
+          </div>
+        </div>
+        <div class="pro-number">
+          <div class="label">作品编号</div>
+          <div class="info-right">
+            <span class="number">12121</span>
+            <i class="hint">（系统默认分配，无法修改）</i>
+          </div>
+        </div>
+        <div class="pro-chan">
+          <div class="label">作品频道</div>
+          <div class="info-right">
+            <span class="chan">男频</span>
+            <i class="hint">（更改分类请联系编辑）</i>
+          </div>
+        </div>
+        <div class="pro-type">
+          <div class="label">作品分类</div>
+          <div class="info-right">
+            <span class="type">现代都市</span>
+            <i class="hint">（更改分类请联系编辑）</i>
+          </div>
+        </div>
+        <div class="pro-intro">
+          <div class="label">作品简介</div>
+          <div class="info-right">
+            <textarea class="fl">从前有座山山上有座庙庙里有个老和尚在给小和尚讲故事听</textarea>
+            <span class="num-hint fl">字数需控制在20至500字之间</span>
+            <span class="new-num fr">当前字数：42</span>
+          </div>
+        </div>
+        <div class="pro-tag">
+          <div class="label">作品标签</div>
+          <div class="info-right">
+            <div class="tag-list">
+              <span class="active">穿越</span>
+              <span>穿越穿越</span>
+              <span>穿越</span>
+              <span>穿越穿越</span>
+              <span>穿越</span>
+              <span>穿11越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+            </div>
+          </div>
+        </div>
+        <div class="pro-btn">
+          <div class="label">&nbsp;</div>
+          <div class="btn">修改</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="http://c.hotread.com/assets/js/vue.min.js"></script>
+  <script>!function(e){function n(){}function t(e,n){return function(){e.apply(n,arguments)}}function o(e){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],s(e,this)}function i(e,n){for(;3===e._state;)e=e._value;return 0===e._state?void e._deferreds.push(n):(e._handled=!0,void o._immediateFn(function(){var t=1===e._state?n.onFulfilled:n.onRejected;if(null===t)return void(1===e._state?r:u)(n.promise,e._value);var o;try{o=t(e._value)}catch(i){return void u(n.promise,i)}r(n.promise,o)}))}function r(e,n){try{if(n===e)throw new TypeError("A promise cannot be resolved with itself.");if(n&&("object"==typeof n||"function"==typeof n)){var i=n.then;if(n instanceof o)return e._state=3,e._value=n,void f(e);if("function"==typeof i)return void s(t(i,n),e)}e._state=1,e._value=n,f(e)}catch(r){u(e,r)}}function u(e,n){e._state=2,e._value=n,f(e)}function f(e){2===e._state&&0===e._deferreds.length&&o._immediateFn(function(){e._handled||o._unhandledRejectionFn(e._value)});for(var n=0,t=e._deferreds.length;n<t;n++)i(e,e._deferreds[n]);e._deferreds=null}function c(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}function s(e,n){var t=!1;try{e(function(e){t||(t=!0,r(n,e))},function(e){t||(t=!0,u(n,e))})}catch(o){if(t)return;t=!0,u(n,o)}}var a=setTimeout;o.prototype["catch"]=function(e){return this.then(null,e)},o.prototype.then=function(e,t){var o=new this.constructor(n);return i(this,new c(e,t,o)),o},o.all=function(e){var n=Array.prototype.slice.call(e);return new o(function(e,t){function o(r,u){try{if(u&&("object"==typeof u||"function"==typeof u)){var f=u.then;if("function"==typeof f)return void f.call(u,function(e){o(r,e)},t)}n[r]=u,0===--i&&e(n)}catch(c){t(c)}}if(0===n.length)return e([]);for(var i=n.length,r=0;r<n.length;r++)o(r,n[r])})},o.resolve=function(e){return e&&"object"==typeof e&&e.constructor===o?e:new o(function(n){n(e)})},o.reject=function(e){return new o(function(n,t){t(e)})},o.race=function(e){return new o(function(n,t){for(var o=0,i=e.length;o<i;o++)e[o].then(n,t)})},o._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},o._unhandledRejectionFn=function(e){"undefined"!=typeof console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)},o._setImmediateFn=function(e){o._immediateFn=e},o._setUnhandledRejectionFn=function(e){o._unhandledRejectionFn=e},"undefined"!=typeof module&&module.exports?module.exports=o:e.Promise||(e.Promise=o)}(this);</script>
+  <script src="http://c.hotread.com/assets/js/vue-resource.min.js"></script>
+</body>
+</html>

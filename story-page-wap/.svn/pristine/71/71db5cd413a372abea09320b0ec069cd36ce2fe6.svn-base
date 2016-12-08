@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>火星小说</title>
+    <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <link rel="stylesheet" href="../styles/story-wap.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <a class="slogan" href="./index.html">火星小说</a>
+        <div class="tools">
+            <a href="./search.html" class="search"><span class="icon-search"></span></a>
+            <div class="user-help">
+                <a href="./login.html">登录</a>
+                <i class="divide">|</i>
+                <a href="./register.html">注册</a>
+            </div>
+        </div>
+    </header>
+    <main class="main bookshelf">
+        <nav class="nav">
+            <a href="index.html">男频</a>
+            <a href="###">女频</a>
+            <a href="top.html">排行</a>
+            <a href="pay.html">充值</a>
+            <a class="active" href="bookshelf.html">书架</a>
+        </nav>
+        <div class="wrap">
+            <section class="section" style="display:non-e;">
+                <div class="shelf-operate">
+                    <span class="so-btn">编辑书架</span>
+                </div>
+                <ul class="books-column book-one">
+                    <li>
+                        <a href="./details.html">
+                            <span class="cover update" style="background-image: url(../images/cover.png)"></span>
+                            <div class="descn">
+                                <span class="delete"></span>
+                                <h4 class="name">十宗罪</h4>
+                                <div class="unread">19章未读</div>
+                                <div class="read">已读至：第三章 戈壁</div>
+                                <div class="latest-chapter">7小时前更新：第18章 戈薇</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./details.html">
+                            <span class="cover serial" style="background-image: url(../images/cover.png)"></span>
+                            <div class="descn">
+                                <span class="delete"></span>
+                                <h4 class="name">十宗罪</h4>
+                                <div class="unread">19章未读</div>
+                                <div class="read">已读至：第三章 戈壁</div>
+                                <div class="latest-chapter">7小时前更新：第18章 戈薇</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./details.html">
+                            <span class="cover complete" style="background-image: url(../images/cover.png)"></span>
+                            <div class="descn">
+                                <span class="delete"></span>
+                                <h4 class="name">十宗罪</h4>
+                                <div class="unread">19章未读</div>
+                                <div class="read">已读至：第三章 戈壁</div>
+                                <div class="latest-chapter">7小时前更新：第18章 戈薇</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./details.html">
+                            <span class="cover" style="background-image: url(../images/cover.png)"></span>
+                            <div class="descn">
+                                <span class="delete"></span>
+                                <h4 class="name">十宗罪</h4>
+                                <div class="unread">19章未读</div>
+                                <div class="read">已读至：第三章 戈壁</div>
+                                <div class="latest-chapter">7小时前更新：第18章 戈薇</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- 书架 -->
+            <section class="section no-book">
+                <div class="no-book-img"></div>
+                <div class="no-book-text">抱歉，书架里还没有书哦～</div>
+            </section>
+            <!-- 没有书 -->
+            <section class="section not-login">
+              <div class="not-login-main">登录后才能查看收藏至书架内容哦～
+              </div>
+            </section>
+            <!-- 未登录 -->
+         <section class="section recommended pr">
+           <h3 class="title">重磅推荐</h3>
+           <ul class="books-column">
+             <li>
+               <a href="./details.html">
+                 <span class="cover" style="background-image: url(../images/cover.png)"></span>
+                 <div class="descn">
+                   <h3 class="name">十宗罪</h3>
+                 </div>
+                 <div class="join"><i class="icon-plus"></i> 加入书架</div>
+               </a>
+             </li>
+             <li>
+               <a href="./details.html">
+                 <span class="cover" style="background-image: url(../images/cover.png)"></span>
+                 <div class="descn">
+                   <h3 class="name">十宗罪</h3>
+                 </div>
+                 <div class="join"><i class="icon-plus"></i> 加入书架</div>
+               </a>
+             </li>
+           </ul>
+         </section>
+        <footer class="footer">
+            <form action="">
+                <input type="search" placeholder="输入关键词搜索小说">
+                <input type="submit" value="搜索">
+            </form>
+            <nav class="nav-bottom">
+                <a href="###">书架</a>
+                <a href="###">排行</a>
+                <a href="###">充值</a>
+                <a href="###">客户端</a>
+            </nav>
+            <div class="contact">
+                <div class="title">联系客服：</div>
+                <div class="contact-list">
+                    <span>客服QQ:3416319270</span>
+                    <span>客服微信:huoxingkufu</span>
+                    <span>客服邮箱:kefu@hotread.com</span>
+                    <span>客服电话:010－59002324-621</span>
+                </div>
+            </div>
+        </footer>
+        </div>
+    </main>
+</body>
+
+</html>

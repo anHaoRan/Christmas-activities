@@ -1,0 +1,381 @@
+@import "common/variable";
+@import "common/fun";
+
+.copyright_box {
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  .box_left {
+    width: 659px;
+    height: 321px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+  }
+  .box_right {
+    width: 317px;
+    height: 321px;
+    border: 1px solid #e6e5e5;
+    float: right;
+    h3 {
+      padding-left: 10px;
+    }
+    ul.a_information {
+      @include marPad();
+      list-style: none;
+      >li {
+        height: 32px;
+        width: 100%;
+        @include showApo();
+      }
+      a{
+        color: #666666;
+        &:hover {
+          color: $girl;
+        }
+      }
+      span.a_information-title {
+        float: left;
+        display: inline-block;
+        width: 56px;
+        height: 100%;
+        float: left;
+      }
+      span.a_information-content {
+        float: left;
+        display: inline-block;
+        width: 259px;
+        float: left;
+        @include showApo();
+      }
+    }
+  }
+}
+
+.outplay_box {
+  width: 1000px;
+  margin: 40px auto;
+  position: relative;
+  .top {
+    width: 100%;
+    height: 30px;
+    h2 {
+      @include marPad();
+      &::before {
+        content: "";
+        width: 27px;
+        height: 27px;
+        float: left;
+        background: bg('timepiece.png');
+        background-size: cover;
+        margin-right: 14px;
+      }
+    }
+  }
+  .main {
+    position: relative;
+    height: 350px;
+    padding-top: 24px;
+    margin: 0 -10px;
+    overflow: hidden;
+    ul.outplay_ul {
+      @include ulEmpty();
+      position: absolute;
+      top: 24px;
+      left: 0;
+      transition: left .3s ease;
+      width: 2000px;
+      height: 326px;
+      li.item {
+        width: 184px;
+        height: 326px;
+        border: 1px solid $borderColor;
+        float: left;
+        padding: 22px;
+        margin: 0 10px;
+        position: relative;
+        div.img{
+          width: 138px;
+          height: 195px;
+          img {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+        }
+        a>span {
+          display: block;
+          color: #333;
+        }
+        span._fictionName {
+          font-size: 18px;
+          line-height: 40px;
+          font-weight: 600;
+          @include showApo();
+        }
+        span._author {
+          font-size: 14px;
+        }
+        span._classification {
+          font-size: 14px;
+          color: $text-light;
+        }
+      }
+      li:hover {
+        transition: box-shadow 0.3s , top 0.5s;
+        box-shadow: -1px 3px 14px rgba(0, 0, 0, .1);
+        top: -10px;
+      }
+    }
+  }
+
+  .left,
+  .right {
+    position: absolute;
+    bottom: 160px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    cursor: pointer;
+    background: #f5f5f5;
+    border-radius: 50%;
+    font-size: 0;
+    text-align: center;
+    &::after {
+      content: "";
+      width: 11px;
+      height: 19px;
+      display: inline-block;
+      vertical-align: middle;
+      background-size: 11px 76px;
+      background-image: bg('q-arrow.png');
+      @media (-webkit-min-device-pixel-ratio: 1.25),(min-resolution:1.25dppx),(min-resolution:120dpi) {
+        background-image: bg('q-arrow@2x.png');
+      }
+    }
+    &:hover {
+      background: #fa2e34;
+    }
+  }
+  .left {
+    left: -100px;
+    &::after {
+      background-position: 0 0;
+    }
+
+    &:hover {
+      &::after {
+        background-position: 0 -38px;
+      }
+    }
+  }
+  .right {
+    right: -100px;
+    &::after {
+      background-position: 0 -19px;
+    }
+
+    &:hover {
+      &::after {
+        background-position: 0 -57px;
+      }
+    }
+  }
+}
+
+
+.fCRecommendation_box {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 10px 0px 98px;
+  .fCRecommendation_box-top {
+    height: 40px;
+    h2 {
+      float: left;
+      @include marPad();
+      &::before {
+        content: "";
+        width: 23px;
+        height: 23px;
+        float: left;
+        background: bg('A_fCR-book.png')no-repeat;
+        background-size: 100%;
+        margin-right: 16px;
+        margin-left: 7px;
+      }
+    }
+  }
+  .fCRecommendation_box-main {
+    ul.main_top {
+      @include ulEmpty();
+      margin: 0 -10px;
+      padding-top: 5px;
+
+      &::before, &::after {
+        content: "";
+        display: table;
+        line-height: 0;
+      }
+
+      &::after {
+        clear: both;
+      }
+
+      li.item {
+        width: 320px;
+        margin: 15px 10px 0;
+        height: 208px;
+        float: left;
+        border: 1px solid $borderColor;
+        padding: 20px;
+        position: relative;
+        transition: box-shadow 0.3s,top 0.3s;
+        &:hover {
+          box-shadow: 0px 6px 14px rgba(0, 0, 0, .15);
+          top: -5px;
+        }
+        a{
+          color: #333;
+        }
+        div.img{
+          width: 120px;
+          height: 170px;
+          float: left;
+          img {
+            width: 100%;
+            height: 100%;
+            float: left;
+          }
+        }
+        
+        div.recommend {
+          float: left;
+          width: 154px;
+          height: 170px;
+          color: #333;
+          >span {
+            display: block;
+            padding-left: 18px;
+          }
+          span.recommend_title {
+            font-size: 18px;
+            font-weight: 600;
+            @include showApo();
+          }
+          span.recommend_author {
+            margin: 4px 0 20px;
+          }
+          span.recommend_concent {
+            color: $text-light;
+            max-height: 40px;
+            overflow: hidden;
+          }
+          span.recommend_classification {
+            margin-top: 15px;
+            color: $text-light;
+          }
+        }
+        i._icon {
+          width: 23px;
+          height: 38px;
+          background: bg('book_icon.png');
+          position:  absolute;
+          top: -5px;
+          left: 14px;
+          color: #fff;
+          font-style: normal;
+          text-align: center;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 14px;
+          padding-top: 2px;
+        }
+        &.books>i._icon {
+          background: bg('book_icon.png');
+        }
+        &.movies>i._icon {
+          background: bg('Movies.png');
+        }
+        &.games>i._icon {
+          background: bg('Game.png');
+        }
+      }
+    }
+    ul.main_bottom {
+      @include ulEmpty();
+      margin: 0 -10px;
+      &::before, &::after {
+        content: "";
+        display: table;
+        line-height: 0;
+      }
+
+      &::after {
+        clear: both;
+      }
+      li.item {
+        position: relative;
+        width: 320px;
+        height: 78px;
+        margin: 20px 10px 0;
+        float: left;
+        border: 1px solid $borderColor;
+        &:hover {
+          box-shadow: 0px 6px 14px rgba(0, 0, 0, .1);
+          top: -5px;
+        }
+
+        i.item_icon {
+          position: absolute;
+          width: 23px;
+          height: 38px;
+          display: block;
+          float: left;
+          background: bg('book_icon.png');
+          color: #fff;
+          font-style: normal;
+          left: 14px;
+          top: -6px;
+          text-align: center;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 14px;
+          padding-top: 2px;
+        }
+        &.books>i.item_icon {
+          background: bg('book_icon.png');
+        }
+        &.movies>i.item_icon {
+          background: bg('Movies.png');
+        }
+        &.games>i.item_icon {
+          background: bg('Game.png');
+        }
+        .item_title {
+          height: 25px;
+          font-size: 18px;
+          margin-top: 16px;
+          padding: 0 15px 0 50px;
+          @include showApo();
+          color: #333;
+          font-weight: 600;
+        }
+        .item_author_type {
+          margin-top: 5px;
+          padding-left: 50px;
+          overflow: hidden;
+        }
+        .item_author {
+          float: left;
+        }
+        .item_classification {
+          float: right;
+          padding-right: 20px;
+          color: #666;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+

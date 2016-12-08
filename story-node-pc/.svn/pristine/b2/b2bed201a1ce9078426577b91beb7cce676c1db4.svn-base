@@ -1,0 +1,78 @@
+<div class="chart-main" id="chart">
+  <div class="chart-nav">
+    <dl class="nav-girl">
+      <dt><h2>女频排行</h2></dt>
+      <dd class="<%= query.scope == '0' && query.type == '0' ? 'on' : '' %>">
+        <a href="/chart">全部</a>
+      </dd>
+      <dd class="<%= query.scope == '0' && query.type == '1' ? 'on' : '' %>">
+        <a href="/chart?type=1">人气榜</a>
+      </dd>
+      <dd class="<%= query.scope == '0' && query.type == '2' ? 'on' : '' %>">
+        <a href="/chart?type=2">收藏榜</a>
+      </dd>
+      <dd class="<%= query.scope == '0' && query.type == '3' ? 'on' : '' %>">
+        <a href="/chart?type=3">推荐榜</a>
+      </dd>
+      <dd class="<%= query.scope == '0' && query.type == '4' ? 'on' : '' %>">
+        <a href="/chart?type=4">月票榜</a>
+      </dd>
+      <dd class="<%= query.scope == '0' && query.type == '5' ? 'on' : '' %>">
+        <a href="/chart?type=5">新书榜</a>
+      </dd>
+      <dd class="<%= query.scope == '0' && query.type == '6' ? 'on' : '' %>">
+        <a href="/chart?type=6">土豪榜</a>
+      </dd>
+    </dl>
+    <dl class="nav-boy">
+      <dt><h2>男频排行</h2></dt>
+      <dd class="<%= query.scope == '1' && query.type == '0' ? 'on' : '' %>">
+        <a href="/chart?scope=1">全部</a>
+      </dd>
+      <dd class="<%= query.scope == '1' && query.type == '1' ? 'on' : '' %>">
+        <a href="/chart?scope=1&type=1">人气榜</a>
+      </dd>
+      <dd class="<%= query.scope == '1' && query.type == '2' ? 'on' : '' %>">
+        <a href="/chart?scope=1&type=2">收藏榜</a>
+      </dd>
+      <dd class="<%= query.scope == '1' && query.type == '3' ? 'on' : '' %>">
+        <a href="/chart?scope=1&type=3">推荐榜</a>
+      </dd>
+      <dd class="<%= query.scope == '1' && query.type == '4' ? 'on' : '' %>">
+        <a href="/chart?scope=1&type=4">月票榜</a>
+      </dd>
+      <dd class="<%= query.scope == '1' && query.type == '5' ? 'on' : '' %>">
+        <a href="/chart?scope=1&type=5">新书榜</a>
+      </dd>
+      <dd class="<%= query.scope == '1' && query.type == '6' ? 'on' : '' %>">
+        <a href="/chart?scope=1&type=6">土豪榜</a>
+      </dd>
+    </dl>
+  </div>
+  <div class="chrat-rect">
+    <% if (query.type=='0') { -%>
+      <div class="allChrat-box on">
+        <rank :type="0" :channel="<%= 1 - query.scope %>" :size="10"></rank>
+        <rank :type="1" :channel="<%= 1 - query.scope %>" :size="10"></rank>
+        <rank :type="2" :channel="<%= 1 - query.scope %>" :size="10"></rank>
+        <rank :type="3" :channel="<%= 1 - query.scope %>" :size="10"></rank>
+        <rank :type="4" :channel="<%= 1 - query.scope %>" :size="10"></rank>
+        <rank :type="5" :channel="<%= 1 - query.scope %>" :size="10"></rank>
+      </div>
+    <% } else { -%>
+      <rank-page :type="<%= query.type - 1 %>" :channel="<%= 1 - query.scope %>"></rank-page>
+    <% } -%>
+  </div>
+</div>
+
+<% include ../partials/vue.ejs %>
+<% include ../partials/pagination.ejs %>
+<% include ../partials/rankPage.ejs %>
+<script type="text/javascript">
+(function (Vue){
+
+  new Vue({
+    el: '#chart'
+  });
+})(Vue);
+</script>

@@ -1,0 +1,35 @@
+@import "common/variable";
+@import "common/fun";
+body {
+  height: 1249px;
+  background-color: #65398e;
+  background-image: linear-gradient(to left bottom, #96085c, #65398e);
+  background-image: bg('logo-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1000px;
+  height: 1249px;
+  .auth-banner {
+    height: 121px;
+    border-bottom: 1px solid #bb7ab2;
+    padding-top: 30px;
+    font-size: 0;
+  }
+  .logo {
+    width: 257px;
+    height: 66px;
+  }
+  .auth-form {
+    float: right;
+    margin: 120px 30px 0 0;
+
+    h2 {
+      margin: 50px 0;
+    }
+  }
+}

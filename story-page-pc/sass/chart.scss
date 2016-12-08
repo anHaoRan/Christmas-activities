@@ -1,0 +1,424 @@
+@import "common/variable";
+@import "common/fun";
+
+.chart-main {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  overflow: hidden;
+}
+
+.chart-nav {
+  width: 177px;
+  height: 100%;
+  float: left;
+  dl {
+    @include marPad();
+    width: 170px;
+    height: auto;
+    background: #f5f5f5;
+  }
+
+  .nav-girl {
+    dt {
+      background: #fd2f35 bg('chart-girl-logo.png');
+      background-repeat: no-repeat;
+      background-position: 31px 19px;
+    }
+
+    a:hover {
+      color: #fd2f35;
+    }
+  }
+  .nav-boy {
+    dt {
+      background: #41b1ec bg('chart-boy-logo.png');
+      background-repeat: no-repeat;
+      background-position: 31px 19px;
+    }
+
+    a:hover {
+      color: #41b1ec;
+    }
+  }
+
+  dt {
+    position: relative;
+    height: 60px;
+    h2 {
+      color: white;
+      line-height: 60px;
+      font-size: 18px;
+      padding-left: 63px;
+    }
+  }
+  dd {
+    a {
+      display: block;
+      height: 100%;
+      color: $textColor;
+      text-align: center;
+      line-height: 50px;
+      font-size: 16px;
+    }
+    @include marPad();
+    width: 170px;
+    height: 50px;
+    cursor: pointer;
+  }
+
+  dd.on {
+    width: 177px;
+    background: bg('chart-nav-on.png') no-repeat;
+
+    a:hover {
+      cursor: default;
+      color: $textColor;
+    }
+  }
+}
+
+.chrat-rect {
+  position: relative;
+  width: 780px;
+  height: auto;
+  float: right;
+  &>div {
+    display: none;
+  }
+  &>div.on {
+    display: block;
+  }
+}
+
+
+/*"全部"盒子*/
+
+.allChrat-box {
+  width: 100%;
+  height: auto;
+  /*八个小盒子*/
+  /*排行榜*/
+  &>div {
+    float: left;
+    width: 240px;
+    height: 576px;
+    margin-left: 30px;
+    margin-bottom: 18px;
+    &:first-child,
+    &:nth-child(4) {
+      margin-left: 0;
+    }
+  }
+  /*土豪榜*/
+  div.wealthy {
+    .name {
+      @include marPad();
+      line-height: 24px;
+      width: 150px;
+      color: $textColor;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    .money {
+      @include marPad();
+      width: auto;
+      height: auto;
+      font-size: 12px;
+      line-height: 12px;
+      color: #999999;
+      font-size: 12px;
+    }
+    .num {
+      font-style: normal;
+      line-height: 26px;
+    }
+    dd.on {
+      .num {
+        line-height: 59px;
+      }
+      img {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+      }
+      .money {
+        float: left;
+        color: #fd2f35;
+        line-height: 12px;
+      }
+      .name {
+        float: left;
+        width: 90px;
+        line-height: 26px;
+        height: 26px;
+      }
+    }
+  }
+}
+
+
+/*除了全部 其他的榜单*/
+
+.restsChrat {
+  width: 780px;
+  height: 979px;
+  .restsChrat-title {
+    height: 59px;
+    width: 100%;
+    h2 {
+      @include marPad();
+      float: left;
+      height: 59px;
+      width: 80px;
+      line-height: 59px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    span {
+      float: right;
+      margin-top: 18px;
+    }
+    a {
+      display: block;
+      float: left;
+      width: 30px;
+      height: 35px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 16px;
+      margin-left: 7px;
+      color: black;
+    }
+    a.on {
+      color: white;
+      background: bg('chart-phb-ob-big.png') no-repeat;
+    }
+  }
+  .restsChrat-list {
+    @include ulEmpty();
+    width: 780px;
+    // height: 824px;
+    border: 1px solid #e1e1e1;
+    padding: 0 9px 9px 15px;
+    a{
+      color: #666666;
+    }
+    li {
+      height: 38px;
+      width: 100%;
+      font-size: 13px;
+      line-height: 35px;
+      cursor: pointer;
+      color: #666666;
+      &.grilhover{
+        &:hover{
+          background: #ffe8ee;
+        }
+      }
+      &.boyhover{
+        &:hover{
+          background: #c5ebff;
+        }
+      }
+      &:nth-child(even) {
+        background: #f8f7f7;
+      }
+      span {
+        float: left;
+        height: 100%;
+        text-align: left;
+        i.vip-logo {
+          float: left;
+          display: block;
+          margin-top: 11px;
+          margin-left: 3px;
+          width: 15px;
+          height: 8px;
+          background: bg('vip.png') no-repeat;
+        }
+        h2.bookName {
+          @include marPad();
+          max-width: 130px;
+          float: left;
+          font-size: 14px;
+          font-weight: normal;
+          @include showApo();
+        }
+        &.num{
+          width: 40px;
+          text-align: center;
+          margin-right: 8px;
+        }
+        &.type{
+          width: 96px;
+        }
+        &.bookNameBox {
+          width: 163px;
+        }
+        &.newChapter {
+          width: 215px;
+          @include showApo();
+          padding-right: 10px;
+        }
+        &.author {
+          width: 106px;
+          @include showApo();
+          padding-right: 10px;
+        }
+        &.time {
+         width: 120px;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         color: #999;
+        }
+      }
+    }
+    li.list-title {
+      font-size: 16px;
+      height: 52px;
+      font-weight: bold;
+      line-height: 52px;
+      overflow: hidden;
+      color: $textColor;
+      span.time {
+        color: $textColor;
+      }
+      &:hover{
+        background: #fff;
+      }
+    }
+  }
+}
+
+.chrat-rect {
+  [class$="-title"] > span > a:hover {
+    color: #fd2f35;
+  }
+
+  [class$="-title"] > span > a.on:hover {
+    color: #fff;
+  }
+}
+
+/*土豪榜*/
+
+.wealthy {
+  width: 540px;
+  height: auto;
+  margin-left: 64px;
+  .wealthy-title {
+    height: 59px;
+    width: 100%;
+    h2 {
+      @include marPad();
+      float: left;
+      height: 59px;
+      width: 80px;
+      line-height: 59px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    span {
+      float: right;
+      margin-top: 17px;
+    }
+    a {
+      display: block;
+      float: left;
+      width: 30px;
+      height: 35px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 16px;
+      margin-left: 7px;
+      color: black;
+    }
+    a.on {
+      color: white;
+      background: bg('chart-phb-ob-big.png') no-repeat;
+    }
+  }
+  .wealthy-list {
+    @include ulEmpty();
+    width: 540px;
+    // height: 789px;
+    border: 1px solid #e1e1e1;
+    padding: 0 15px 15px 15px;
+    li.list-title {
+      height: 52px;
+      line-height: 52px;
+      font-size: 16px;
+      color: $textColor;
+      span {
+        font-weight: 600;
+      }
+    }
+    li {
+      height: 48px;
+      line-height: 48px;
+      font-size: 13px;
+      color: #666666;
+      a {
+        color: #666666;
+      }
+      &:nth-child(even) {
+        background: #f8f7f7;
+      }
+      &.grilhover{
+        &:hover{
+          background: #ffe8ee;
+        }
+      }
+      &.boyhover{
+        &:hover{
+          background: #c5ebff;
+        }
+      }
+    }
+    span {
+      display: block;
+      float: left;
+      height: 100%;
+    }
+    span:first-child {
+      position: relative;
+      width: 63px;
+      margin-right: 30px;
+      text-align: center;
+      i {
+        position: absolute;
+        right: 4px;
+        top: 16px;
+        width: 16px;
+        height: 13px;
+      }
+      i.champion {
+        background: bg('th-champion.png') no-repeat;
+      }
+      i.runner-up {
+        background: bg('th-runner-up.png') no-repeat;
+      }
+      i.third {
+        background: bg('th-third.png') no-repeat;
+      }
+    }
+    span:nth-child(2) {
+      width: 98px;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-top: 10px;
+      }
+    }
+    span:nth-child(3) {
+      width: 211px;
+    }
+    span:nth-child(4) {
+      width: 104px;
+    }
+  }
+}

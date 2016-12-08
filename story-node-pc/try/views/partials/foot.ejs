@@ -1,0 +1,71 @@
+<div class="footer">
+  <div class="footer-main">
+    <div class="contact">
+      <div>
+        <p>火星小说</p>
+        <span>最受欢迎的阅读产品</span>
+        <dl>
+          <dt>关注我们</dt>
+          <dd class='weixin-logo' style="margin-right: 20px">
+            <img src="<%= cdn %>/assets/images/qrcode_wyw.jpg" />
+          </dd>
+          <dd class='weibo-logo'>
+            <a href="http://www.weibo.com/u/5861671719" target="_blank" style="display: block; height: 40px;"></a>
+          </dd>
+        </dl>
+      </div>
+      <div>
+        <p>作者中心</p>
+        <span>投稿请联系编辑</span>
+        <a href="http://author.hotread.com/boon" target="_blank" class="contact-btn">如何联系</a>
+      </div>
+      <div>
+        <p>联系我们</p>
+        <span>欢迎反馈宝贵意见给我们</span>
+        <ul class="contact-way">
+          <li>客服邮箱：kefu@hotread.com</li>
+          <li>客服电话：010-59002324-621</li>
+          <li>服务时间：09:30-18:30</li>
+        </ul>
+      </div>
+      <div>
+        <p>火星小说客户端</p>
+        <span>扫描二维码直接下载</span>
+        <img src="<%= cdn %>/assets/images/qrcode.jpg" class="two-code" />
+      </div>
+    </div>
+    <div class="friendship">
+      <h2>友情连接:</h2>
+      <% links.forEach(function(link) { %>
+      <a target="_blank" href="<%= link.site %>"><%= link.name %></a>
+      <% }); %>
+    </div>
+    <ul class="footer-copyright">
+      <li>Beijing Jinying Technology Co., Ltd</li>
+      <li>
+        <i>北京金影科技有限公司</i>
+        <i>北京市海淀区信息路甲28号-1层D号-116号</i>
+        <i>&copy;hotread.com</i>
+        <a href="http://www.miibeian.gov.cn/" target="_blank"><i>京ICP备14052851-2
+        </i></a>
+        <i>TEL:010-59002324</i>
+      </li>
+    </ul>
+  </div>
+</div>
+<% if (nav != 'auth') { -%>
+<% include auth.ejs %>
+<% } -%>
+<% if (env == 'production') { -%>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?1ff0e73fea115b943850e1afc067ed22";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+<% } -%>
+</body>
+</html>

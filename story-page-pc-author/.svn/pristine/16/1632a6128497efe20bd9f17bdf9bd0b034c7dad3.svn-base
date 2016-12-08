@@ -1,0 +1,90 @@
+<link rel="stylesheet" type="text/css" href="../styles/works.min.css">
+
+<div class="container">
+  <div class="nav">
+    <h4>作者中心</h4>
+    <ul>
+      <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+      <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+      <li class="item"><a href="reward.html">打赏收入</a></li>
+      <li class="item"><a href="comment.html">评论管理</a></li>
+      <li class="item"><a href="settings.html">个人设置</a></li>
+    </ul>
+  </div>
+  <div class="estWorks fl">
+    <div class="right-header-haveback">
+      <p class="hint wryh-font"><a href="worksList.html" class="back">作品列表</a><span>创建作品</span></p>
+    </div>
+    <div class="estWorks-main">
+      <div class="works-name">
+        <div class="label must">作品名称</div>
+        <div class="bookname error wryh-font">
+          <input type="text" placeholder="18字以内，作品创建后不能更改">
+        </div>
+      </div>
+      <div class="works-cover">
+        <div class="label">作品封面</div>
+        <div class="cover">
+          <img src="../images/pic.jpg">
+          <span class="uploading-btn"><input type="file">点击上传</span>
+        </div>
+        <span class="mag">封面尺寸为450*590<br />格式为jpg、png、bmp</span>
+      </div>
+      <div class="works-chan">
+        <div class="label must">所属频道</div>
+        <ul class="chan-list">
+          <li><span><input type="radio" name="radio"><label></label></span>男生频道</li>
+          <li><span><input type="radio" name="radio"><label></label></span>女生频道</li>
+        </ul>
+      </div>
+      <div class="works-type">
+        <div class="label must">作品类型</div>
+        <ul class="chan-list">
+          <li><span><input type="radio" name="radio-type" ><label></label></span>现代言情</li>
+          <li><span><input type="radio" name="radio-type"><label></label></span>古代言情</li>
+          <li><span><input type="radio" name="radio-type"><label></label></span>仙侠奇幻</li>
+          <li><span><input type="radio" name="radio-type"><label></label></span>耽美纯爱</li>
+        </ul>
+      </div>
+      <div class="works-intro">
+        <div class="label">作品简介</div>
+        <div class="intro fl">
+          <textarea>字数需控制在20至500字之间</textarea>
+        </div>
+        <span class="num fr">当前字数：0</span>
+      </div>
+      <div class="works-tag">
+        <div class="label">
+          作品标签
+          <span>（最多选择5个）</span>
+        </div>
+        <div class="tag-list">
+          <span class="active">穿越</span>
+          <span>穿越穿越</span>
+          <span>穿越</span>
+          <span>穿越穿越</span>
+          <span>穿越</span>
+          <span>穿11越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+        </div>
+      </div>
+      <div class="works-est">
+        <div class="label"></div>
+        <div class="btn">创建书籍</div>
+      </div>
+    </div>
+  </div>
+</div>

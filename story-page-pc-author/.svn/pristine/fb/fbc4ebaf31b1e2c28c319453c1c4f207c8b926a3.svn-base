@@ -1,0 +1,17 @@
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.btn{
+  display: inline-block;
+  line-height: 34px;
+  font-size: 14px;
+  color: #fff;
+  padding: 0 15px;
+  border-radius: 5px;
+  background: #4a9bff;
+  border-width: 0;
+  cursor: pointer;
+}

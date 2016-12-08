@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <title>火星小说 • 圣诞节活动</title>
+    <link rel="stylesheet" href="../styles/christmas-1.min.css">
+    <style type="text/css">
+    [v-cloak] {
+        visibility: hidden;
+    }
+    </style>
+</head>
+<body :class="{'over': modal != 0, 'over1': popup}">
+    <div class="main">
+        <div class="top">
+            <header class="header"><h1>火星圣诞狂欢，无限好礼等你拿！</h1></header>
+            <div class="turnplate">
+                <div class="rotate-box">
+                    <div class="rotate" id="rotate"></div>
+                </div>
+                <div class="light s-one" id="light"></div>
+                <button class="pointer" id="pointer" @click="start" :disabled="disabledButton"></button>
+            </div>
+            <div class="surplus-num">您还剩<span class="num">{{chanceNum}}</span>次机会</div>
+        </div>
+        <div class="rule">
+            <h4>抽奖规则：</h4>
+            <ul>
+                <li>本活动只限注册用户或通过第三方登录的用户参加</li>
+                <li>活动日内充值几次便获取几次抽奖机会，过期无效</li>
+            </ul>
+            <div class="time-box"><span>抽奖时间：</span>12月23日12：00—12月26日12：00</div>
+        </div>
+        <div class="prize">
+            <div class="cut-box">
+                <div :class="{'myself-btn': true, 'active': cut}" @click="clickMyself()"></div>
+                <div :class="{'list-btn': true, 'active': cut == false}" @click="clickList()"></div>
+            </div>
+            <div class="msg-box">
+                <div class="msg">超过7天奖品未发放（火星券除外），请联系火星客服微信：huoxingkufu QQ：3416319270</div>
+            </div>
+            <div class="content-box">
+                <ul :class="{'myself-box none': cut == false, 'myself-box block': cut}">
+                    <li v-for="item in myArticleList">
+                        <div class="cover-dashed">
+                            <div class="cover-solid">
+                                <div class="img" :style="{backgroundImage: 'url('+ item.cover +')'}"></div>
+                            </div>
+                        </div>
+                        <span class="article">{{item.article}}</span>
+                        <span class="time">{{item.time}}</span>
+                    </li>
+                </ul>
+                <div :class="{'list-box none': cut, 'list-box block': cut == false}" id="box">
+                    <ul id="ul1">
+                        <li v-for="item in luckList">
+                            <div class="cover">
+                                <img :src="item.cover">
+                            </div>
+                            <span class="name">{{item.name}}</span>
+                            <span class="article">{{item.article}}</span>
+                            <span class="time">{{item.time}}</span>
+                        </li>
+                    </ul>
+                    <ul id="ul2"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box" v-if="popup" v-cloak>
+        <form>
+            <div class="popup material">
+                <div class="header"></div>
+                <div class="b">
+                    <div class="main">
+                        <div class="shade">
+                            <div class="shade-img" :style="{backgroundImage: 'url('+ nowPrize.prizeImg +')'}"></div>
+                            <div class="lottery">
+                                <div class="text">您获得了<span class="yellow">{{ nowPrize.prizeText }}</span></div>
+                            </div>
+                        </div>
+                        <div class="form-popup" v-if="aType==1">
+                            <input type="tel" placeholder="请输入手机号(必填)" class="iphone" maxlength="11" v-model="phone" />
+                            <input type="text" placeholder="请输入QQ号(必填)" class="iphone" maxlength="11" />
+                        </div>
+                        <div class="form-popup" v-if="aType==2">
+                            <input type="tel" placeholder="请输入手机号(必填)" class="iphone" maxlength="11" />
+                        </div>
+                        <div class="form-popup" v-if="aType==3">
+                            <p>兑换码：<span class="cdkey">JKSKLXK</span></p>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <input v-if="aType==3" type="button" class="submit" value="确定" @click="clickSubmit()"/>
+                        <input v-if="aType!=3" type="button" class="submit" value="提交" @click="clickSubmit()"/>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+            </div>
+            <!-- 实物+火星币  material-->
+        </form>
+    </div>
+    <div class="box" v-if="modal" v-cloak>
+        <div class="alert-box">
+            <span @click="closeClick()" class="close" v-cloak>×</span>
+            <div class="title-img"></div>
+            <div class="mian-text" v-if="modal==1">
+                <p>你还没有抽奖机会哦，赶紧去充值吧</p>
+                <p class="brownness">（充值几次便可获取几次抽奖机会）</p>
+                <a class="topay">去充值</a>
+            </div>
+            <div class="mian-text" v-if="modal==2">
+                <p>你还没有登陆哦</p>
+                <a class="topay">去登录</a>
+            </div>
+            <div class="mian-text" v-if="modal==3">
+                <p>活动已过期，欢迎下次再来火星哦～</p>
+            </div>
+            <div class="mian-text" v-if="modal==4">
+                <p>不要急，活动还未开始呢！</p>
+            </div>
+            <div class="mian-text" v-if="modal==5">
+                <p>火星发生异常，请刷新重试</p>
+                <a href="" class="topay">刷新</a>
+            </div>
+            <div class="mian-text" v-if="modal==6">
+                <p>当前版本过低，请更新版本使用本功能</p>
+                <a class="topay back" @click="closeClick()">返回</a>
+                <a class="topay">更新</a>
+            </div>
+            <div class="mian-text" v-if="modal==7">
+                <p style="line-height: 30px;">参与规则</p>
+                <p style="text-align: left">1.本活动只限注册用户或通过第三方登录的用户参加</p>
+                <p style="text-align: left">2.活动日内充值几次便获取几次抽奖机会，过期无效</p>
+                <a class="topay" @click="closeClick()">知道了</a>
+            </div>
+        </div>
+    </div>
+    <div class="alert" id="alert"></div>
+<script>
+    var _alertBox = document.getElementById('alert');
+    function _alert(message) {
+        _alertBox.innerHTML = message;
+        _alertBox.style.display = 'block';
+
+        setTimeout(function () {
+            _alertBox.style.display = 'none';
+        }, 1500);
+    }
+</script>
+<script src="//c.hotread.com/assets/js/vue.min.js"></script>
+<script src="//c.hotread.com/assets/js/vue-resource-polyfill.min.js"></script>
+<script type="text/javascript">
+;(function (Vue) {
+    new Vue({
+        el: 'body',
+        data: {
+            cut: true,                      //我的奖品 || 中间列表切换
+            disabledButton: false,          //禁用指针
+            angleInit: 0,                   //转盘角度
+            lastRandom: 0,                  //最后的随机次数
+
+            popup: false,                   //获奖弹窗显示
+            aType: 0,                       //获奖弹框手机号，qq，验证码类型
+            modal: 0,                       //提示弹窗内容
+            nowPrize: {
+                prizeImg: '',               //获奖奖品显示图片
+                prizeText: '',              //获奖奖品显示描述
+            },
+            allArticleList:[                //所有的奖品
+                {
+                    article: '苹果手机 iPhone6plus',
+                    cover: '../images/christmas/iPhone6splus.png'
+                },
+                {
+                    article: '小米手机5',
+                    cover: '../images/christmas/mi5.png'
+                },
+                {
+                    article: '星巴克保温杯',
+                    cover: '../images/christmas/cup.png'
+                },
+                {
+                    article: '龙猫暖手抱枕',
+                    cover: '../images/christmas/bolster.png'
+                },
+                {
+                    article: '50元现金红包',
+                    cover: '../images/christmas/money-50.png'
+                },
+                {
+                    article: '10元现金红包',
+                    cover: '../images/christmas/money-10.png'
+                },
+                {
+                    article: '188火星券',
+                    cover: '../images/christmas/hxjuan.png'
+                },
+            ],
+            chanceNum: 8,                   //剩余机会
+            myArticleList: [
+                {
+                    article: '苹果手机 iPhone6plus',
+                    cover: '../images/christmas/iPhone6splus.png',
+                    time: '12-25 16:30'
+                },
+                {
+                    article: '小米手机5',
+                    cover: '../images/christmas/mi5.png',
+                    time: '12-25 16:30'
+                },
+                {
+                    article: '星巴克保温杯',
+                    cover: '../images/christmas/cup.png',
+                    time: '12-25 16:30'
+                },
+                {
+                    article: '龙猫暖手抱枕',
+                    cover: '../images/christmas/bolster.png',
+                    time: '12-25 16:30'
+                },
+                {
+                    article: '50元现金红包',
+                    cover: '../images/christmas/money-50.png',
+                    time: '12-25 16:30'
+                },
+                {
+                    article: '10元现金红包',
+                    cover: '../images/christmas/money-10.png',
+                    time: '12-25 16:30'
+                },
+                {
+                    article: '188火星券',
+                    cover: '../images/christmas/hxjuan.png',
+                    time: '12-25 16:30'
+                },
+            ],
+            luckList: [
+                {
+                    cover: '../images/avatar.png',
+                    name: '胥',
+                    article: '苹果 6Puls',
+                    time: '12-25 15:08'
+                },
+                {
+                    cover: '../images/avatar.png',
+                    name: '柠檬',
+                    article: '小米5',
+                    time: '12-25 15:08'
+                },
+                {
+                    cover: '../images/avatar.png',
+                    name: '西瓜',
+                    article: '小米5',
+                    time: '12-25 15:08'
+                },
+                {
+                    cover: '../images/avatar.png',
+                    name: '苹果',
+                    article: '小米5',
+                    time: '12-25 15:08'
+                },
+                {
+                    cover: '../images/avatar.png',
+                    name: '奥特曼',
+                    article: '小米5',
+                    time: '12-25 15:08'
+                },
+                {
+                    cover: '../images/avatar.png',
+                    name: '小怪兽',
+                    article: '小米5',
+                    time: '12-25 15:08'
+                },
+                {
+                    cover: '../images/avatar.png',
+                    name: '葫芦娃',
+                    article: '火星卷188',
+                    time: '12-25 15:08'
+                },
+                {
+                    cover: '../images/avatar.png',
+                    name: '你好阳光',
+                    article: '暖水瓶',
+                    time: '12-25 15:08'
+                },
+            ],
+        },
+        methods: {
+            //点击我的奖品
+            clickMyself:function(){
+                this.cut = true;
+            },
+            //点击所有列表
+            clickList:function(){
+                this.cut = false;
+            },
+            //点击开始
+            start: function() {
+                if(!this.chanceNum){
+                    this.modal = 1;
+                    return false;
+                }
+                var random = Math.ceil(Math.random()*7);
+                //var random = 7;
+                this.disabledButton = true;
+                this.rotate(random);
+                this.chanceNum -= 1;
+                this.lastRandom = random;
+            },
+            rotate: function(random) {
+                var pointer = document.getElementById('pointer'),  //指针
+                    rotate = document.getElementById('rotate');    //转盘
+                
+                //判断是否第一次抽
+                if(this.angleInit == 0){
+                    this.angleInit += 3600 + ((7 - random)*360/7) + (360/14);
+                }else{
+                    this.angleInit += 3600 + ((7 - random)*360/7) - ((7 - this.lastRandom)*360/7);
+                }
+
+                var cssText = '-webkit-transition: -webkit-transform 7s ease-out;transition: -webkit-transform 7s ease-out;transition: transform 7s ease-out;transition: transform 7s ease-out,-webkit-transform 7s ease-out;transform: rotateZ('+ this.angleInit +'deg);-webkit-transform: rotateZ('+ this.angleInit +'deg);';
+                rotate.style.cssText = cssText;
+
+                this.glint();
+                var timer = setInterval(this.glint, 500),
+                    _this = this;
+                setTimeout(function(){
+                    clearInterval(timer);
+                    rotate.style.cssText = 'transform: rotateZ('+ _this.angleInit +'deg);-webkit-transform: rotateZ('+ _this.angleInit +'deg);';
+                    _this.disabledButton = false;
+                    _this.showPrize(random);
+                }, 7000);
+            },
+            glint: function(){
+                var light = document.getElementById('light');      //灯
+                if(light.className == 'light s-one'){
+                    document.getElementById('light').className = 'light s-two';
+                }else{
+                    document.getElementById('light').className = 'light s-one';
+                }
+            },
+            showPrize: function(random){
+                if(random == 7){
+                    this.aType = 3;
+                }else if(random == 6 || random == 5){
+                    this.aType = 1;
+                }else{
+                   this.aType = 2;
+                }
+                //显示弹框  展示图片文字
+                this.popup = true;
+                this.nowPrize.prizeImg = this.allArticleList[random -1].cover;
+                this.nowPrize.prizeText = this.allArticleList[random -1].article;
+                //alert('恭喜你中了'+ random +'等奖,'+ this.allArticleList[random - 1].article);
+            },
+            closeClick: function() {
+                this.modal = 0;
+            },
+            clickSubmit: function(){
+                this.popup = false;
+            }
+        },
+        ready:function(){
+            this.modal = 7;
+        }
+    });
+
+    window.onload=function(){
+        var speed = 50;
+        var ul2 = document.getElementById("ul2");
+        var ul1 = document.getElementById("ul1");
+        var box = document.getElementById("box");
+        ul2.innerHTML = ul1.innerHTML; 
+        function Marquee1(){
+          if(ul2.offsetTop - box.scrollTop <= 0){
+            box.scrollTop -= ul1.offsetHeight;
+          }else{
+            box.scrollTop++
+          }
+        }
+        var MyMar1 = setInterval(Marquee1,speed)
+      }
+})(Vue)
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<link rel="stylesheet" type="text/css" href="../styles/worksList-issue.min.css">
+
+<div class="container">
+  <div class="nav">
+    <h4>作者中心</h4>
+    <ul>
+      <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+      <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+      <li class="item"><a href="reward.html">打赏收入</a></li>
+      <li class="item"><a href="comment.html">评论管理</a></li>
+      <li class="item"><a href="settings.html">个人设置</a></li>
+    </ul>
+  </div>
+  <div class="issue fl">
+    <div class="right-header-haveback">
+      <p class="hint"><a href="worksList.html" class="back">作品列表</a><span>山村老尸</span></p>
+    </div>
+    <div class="main-nav">
+      <a href="worksList-setroll.html">分卷设置</a>
+      <a href="worksList-writeNewSection.html">写新章节</a>
+      <a href="worksList-drafts.html">草稿箱</a>
+      <a href="worksList-issue.html" class="active">已发布章节</a>
+      <a href="worksList-setProduction.html">作品设置</a>
+    </div>
+    <div class="list-title i-t">
+      <span>序号</span>
+      <span>卷名</span>
+      <span>标题</span>
+      <span>字数</span>
+      <span>发布时间</span>
+      <span>最新修改时间</span>
+      <span>订阅次数</span>
+      <span>操作</span>
+    </div>
+    <ul class="issue-list">
+      <li>
+        <span class="num">1</span>
+        <span class="rollname">卷一</span>
+        <span class="title top">第一章 火星之旅</span>
+        <span class="wordsnum">4115</span>
+        <span class="time">2016-10-26  10:32</span>
+        <span class="newtime">2016-10-26  10:32</span>
+        <span class="subscription">212131</span>
+        <span class="operate">
+          <a href="worksList-editIssue.html" class="amend">修改</a>
+          <a href="" class="share">分享</a>
+          <a href="" class="sort">排序</a>
+        </span>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <span class="rollname">卷一</span>
+        <span class="title">第一章 火星之旅</span>
+        <span class="wordsnum">4115</span>
+        <span class="time">2016-10-26  10:32</span>
+        <span class="newtime">2016-10-26  10:32</span>
+        <span class="subscription">212131</span>
+        <span class="operate">
+          <a href="worksList-editIssue.html" class="amend">修改</a>
+          <a href="" class="share">分享</a>
+          <a href="" class="sort">排序</a>
+        </span>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <span class="rollname">卷一</span>
+        <span class="title">第一章 火星之旅</span>
+        <span class="wordsnum">4115</span>
+        <span class="time">2016-10-26  10:32</span>
+        <span class="newtime">2016-10-26  10:32</span>
+        <span class="subscription">212131</span>
+        <span class="operate">
+          <a href="worksList-editIssue.html" class="amend">修改</a>
+          <a href="" class="share">分享</a>
+          <a href="" class="sort">排序</a>
+        </span>
+      </li>
+    </ul>
+    <ol class="paging">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>6</li>
+    </ol>
+  </div>
+</div>

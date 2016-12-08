@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="../styles/news.min.css" />
+<!--导航-->
+<div class="hotr-nav">
+  <ul class="nav-main">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="girl.html">女频</a></li>
+    <li><a href="#">男频</a></li>
+    <li><a href="chart.html">排行</a></li>
+    <li><a href="library.html">书库</a></li>
+    <li><a href="qualityCopyright.html">优质版权</a></li>
+    <li><a href="topUp.html">充值</a></li>
+    <li><a href="#">福利</a></li>
+    <li><a href="#">下载客户端</a></li>
+  </ul>
+</div>
+<!--导航 end-->
+<div class="main">
+  <h4 class="title" id="title">{{msg}}</h4>
+  <div class="show_box">
+    <div class="img_box">
+      <img :src="newList.pic">
+    </div>
+    <div class="bottom">
+      <p class="intro">{{newList.title}}</p>
+      <span class="num">{{newNum}}/{{length}}</span>
+    </div>
+  </div>
+  <div class="news_nav" id="news_nav">
+    <div class="left" v-on:click="doLeft()" v-if="length > 6"></div>
+    <div class="right" v-on:click="doRight()" v-if="length > 6"></div>
+    <div class="box">
+      <ul class="outplay_ul" style="width: {{length*166}}px; margin-left: -{{num*166}}px">
+        <li class="item" v-for='item in list' v-on:click="setCur($index)" v-bind:class="{active: i==$index}">
+          <img :src="item.pic">
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src='http://c.hotread.com/assets/js/vue.min.js'></script>
+<script type="text/javascript">
+  var len = 0,
+      data = [
+        {
+          pic: '../images/way-zhifubao.png',
+          title: '骠骑大神与火星小说的文学探讨交流'
+        },
+        {
+          pic: '../images/404.jpg',
+          title: '111'
+        },
+        {
+          pic: '../images/activity-header-bg.png',
+          title: '2222'
+        },
+        {
+          pic: '../images/logo-bg.jpg',
+          title: '3333'
+        },
+        {
+          pic: '../images/phone.png',
+          title: '4444'
+        },
+        {
+          pic: '../images/phone.png',
+          title: '55555'
+        },
+        {
+          pic: '../images/way-zhifubao.png',
+          title: '66666'
+        },
+        {
+          pic: '../images/activity-header-bg.png',
+          title: '2222'
+        },
+      ];
+  len = data.length;
+
+  new Vue({
+    el: 'body',
+    data: {
+      msg: '火星小说：北京十月文学月',
+
+      num: 0,
+      length: len,
+      list: data,
+
+      newList: data[0],
+      newNum: 1,
+
+      i : 0
+    },
+    methods: {
+      doLeft: function () {
+        console.log('left')
+        if (this.num + 6 < this.length) {
+          this.num += 1;
+        }
+      },
+      doRight: function () {
+        console.log('right')
+        if (this.num > 0) {
+          this.num -= 1;
+        }
+      },
+      setCur: function (index) {
+        this.newList = this.list[index];
+        this.newNum = index + 1;
+
+        this.i = index;
+      }
+    }
+  });
+</script>

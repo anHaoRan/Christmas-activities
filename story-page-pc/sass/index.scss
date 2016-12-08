@@ -1,0 +1,1004 @@
+@import "common/variable";
+@import "common/fun";
+
+/*主体*/
+.hotr-wrap {
+  width: 1000px;
+  height: 657px;
+  margin: 0 auto;
+  margin-bottom: 41px;
+}
+
+.wrap-top {
+  height: 505px;
+  width: 100%;
+  margin-bottom: 21px;
+  .slider {
+    position: relative;
+    height: 321px;
+    margin-bottom: 20px;
+  }
+  .sliderBox {
+    height: 321px;
+  }
+}
+
+/*人气榜*/
+.wrap-pop {
+  width: 321px;
+  height: 100%;
+  float: left;
+  ul.cut-btnRect {
+    position: relative;
+    height: 51px;
+    width: 100%;
+    z-index: 10;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    li {
+      position: relative;
+      float: left;
+      height: 50px;
+      width: 50%;
+      line-height: 50px;
+      cursor: pointer;
+      font-size: 18px;
+      color: $textColor;
+      padding-left: 48px;
+      background: white;
+      font-weight: 600;
+      &:nth-child(1){
+        &:hover{
+          color:$em;
+        }
+        &.on{
+          color:$em;
+        }
+      }
+      &:nth-child(2){
+        &:hover{
+          color:$boy;
+        }
+        &.on{
+          color:$boy;
+        }
+      }
+      i {
+        position: absolute;
+        left: 20px;
+        top: 14px;
+        width: 22px;
+        height: 22px;
+        &.girl {
+          background: bg('girl.png') no-repeat;
+        }
+        &.boy {
+          background: bg('boy.png') no-repeat;
+        }
+      }
+    }
+    li.on {
+      border: 1px solid #e6e5e5;
+      border-bottom: 0;
+      background: white !important;
+      height: 52px;
+    }
+  }
+  ol.cut-rect {
+    @include marPad();
+    position: relative;
+    z-index: 1;
+    background: white;
+    height: 453px;
+    width: 100%;
+    border: 1px solid #e6e5e5;
+    list-style: none;
+
+    &.rect-female {
+      li.on {
+        a {
+          background: $girl-light;
+          em.num {
+            color: $girl;
+          }
+        }
+      }
+    }
+
+    &.rect-male {
+      li.on {
+        a {
+          background: $boy-light;
+          em.num {
+            color: $boyText;
+          }
+        }
+      }
+    }
+
+    li {
+      &.on {
+        a {
+          display: block;
+          height: 119px;
+          padding-top: 12px;
+          padding-left: 11px;
+          margin: 4px auto 7px auto;
+          em.num {
+            display: block;
+            height: 96px;
+            line-height: 96px;
+            font-size: 30px;
+          }
+          img {
+            display: block;
+            float: left;
+            width: 67px;
+            height: 96px;
+            margin-right: 24px;
+          }
+          p.bookName {
+            width: 140px;
+            font-size: 16px;
+            line-height: 16px;
+            float: none;
+            color: $textColor;
+            font-weight: 600;
+          }
+          span.author {
+            font-size: 14px;
+            color: #666666;
+            line-height: 34px;
+          }
+        }
+      }
+    }
+    a.pinkBg {
+      display: block;
+      height: 35px;
+      width: 311px;
+      margin: 0 auto;
+      padding-left: 11px;
+      cursor: pointer;
+      em.num {
+        font-style: normal;
+        display: block;
+        float: left;
+        width: 60px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        font-size: 14px;
+        color: #999999;
+      }
+      p.bookName {
+        @include marPad();
+        display: block;
+        float: left;
+        width: 170px;
+        line-height: 35px;
+        font-size: 14px;
+        color: $textColor;
+        @include showApo();
+      }
+      img {
+        width: 0;
+        height: 0;
+        display: none;
+      }
+      span.author {
+        width: 0;
+        height: 0;
+        font-size: 0;
+      }
+    }
+    
+  }
+}
+
+
+/*人气右边的盒子*/
+
+.wrap-rightbox {
+  width: 659px;
+  height: 100%;
+  background: white;
+  float: right;
+  /*图片轮播*/
+  .picAuto {
+    position: relative;
+    width: 659px;
+    height: 321px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    ul.picAuto-picRect {
+      @include marPad();
+      position: relative;
+      list-style: none;
+    }
+    li.pic-list {
+      position: absolute;
+      left: 0;
+      top: 0;
+      img {
+        border: none;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    ol.picAuto-btnRect {
+      @include marPad();
+      position: absolute;
+      list-style: none;
+      right: 40px;
+      bottom: 12px;
+      width: 69px;
+      height: 8px;
+      li.on {
+        background: white;
+      }
+    }
+    li.btnRect-list {
+      width: 8px;
+      height: 8px;
+      background: #868585;
+      float: left;
+      margin-right: 9px;
+      border-radius: 50%;
+    }
+  }
+  /*推荐*/
+  .recom {
+    width: 659px;
+    height: 163px;
+    background: white;
+    dl.recom-rect {
+      @include marPad();
+      width: 319px;
+      height: 163px;
+      border: 1px solid #e6e5e5;
+      float: left;
+      background: white;
+      padding: 17px 18px 0 19px;
+      &:first-child {
+        margin-right: 21px;
+      }
+      a {
+        color: $textColor;
+        &:hover{
+          color:$em;
+        }
+      }
+    }
+    dt.recom-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: $textColor;
+      height: 52px;
+      line-height: 26px;
+      overflow: hidden;
+    }
+    dd.recom-list {
+      @include marPad();
+      @include showApo();
+      font-size: 14px;
+      line-height: 26px;
+    }
+  }
+}
+
+.hotr-wrap .wrap-bottom {
+  width: 100%;
+  height: 131px;
+  /*下载*/
+  .downloadRect {
+    width: 660px;
+    height: 131px;
+    float: left;
+    background: #fd2f35;
+    padding-left: 33px;
+  }
+  .download-linkRect {
+    @include marPad();
+    width: 180px;
+    height: 95px;
+    float: left;
+    margin-top: 20px;
+    list-style: none;
+    li:first-child {
+      margin-bottom: 13px;
+    }
+  }
+  li.linkRect-list {
+    width: 180px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 27px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    line-height: 38px;
+  }
+  .phone-log {
+    float: left;
+    width: 153px;
+    height: 119px;
+    background: bg('phone.png') no-repeat;
+    margin: 13px 0 0 41px;
+  }
+  .twoCode {
+    @include marPad();
+    width: 224px;
+    height: 113px;
+    float: left;
+    margin: 10px 0 0 20px;
+    list-style: none;
+    li {
+      float: left;
+      width: 112px;
+      height: 113px;
+      font-size: 16px;
+      color: white;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    li:first-child {
+      padding: 34px 24px 0 6px;
+      line-height: 23px;
+    }
+  }
+  /*公告*/
+  .notice {
+    @include marPad();
+    width: 319px;
+    height: 131px;
+    float: right;
+    border: 1px solid #e6e5e5;
+    padding: 15px 0 0 23px;
+    list-style: none;
+    a {
+      color: $textColor;
+      &:hover {
+        color: #fd2f35;
+      }
+    }
+    li.notice-list {
+      font-size: 14px;
+      line-height: 26px;
+      cursor: pointer;
+      @include showApo();
+      padding-right: 15px;
+      span {
+        color: #fd2f35;
+      }
+    }
+  }
+}
+
+
+/*火力推荐*/
+
+.fire-recom {
+  height: 571px;
+  width: 100%;
+  background: #ffe8ee;
+  margin-bottom: 16px;
+  .recom-main {
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    h2.recom-title {
+      @include marPad();
+      position: relative;
+      height: 77px;
+      width: 100%;
+      font-size: 25px;
+      font-weight: 600;
+      padding-top: 30px;
+      i {
+        position: absolute;
+        left: 29px;
+        top: -38px;
+        width: 45px;
+        height: 63px;
+        background: bg('rocket.png') no-repeat;
+      }
+    }
+    ul {
+      @include marPad();
+      width: 100%;
+      height: 215px;
+      margin-bottom: 22px;
+      list-style: none;
+      &>li:hover{
+        margin-top: -10px;
+        box-shadow: -1px 3px 19px rgba(0, 0, 0, .15);
+      }
+    }
+    li.recom-list {
+      float: left;
+      width: 320px;
+      height: 215px;
+      background: white;
+      margin-right: 20px;
+      padding: 22px 0 0 22px;
+      position: relative;
+      cursor: pointer;
+      transition: margin-top 0.3s,box-shadow 0.3s;
+      &:last-child {
+        margin-right: 0;
+      }
+      img {
+        display: block;
+        float: left;
+        width: 120px;
+        height: 170px;
+        margin-right: 18px;
+      }
+      &:after {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: 0;
+        width: 27px;
+        height: 27px;
+      }
+    }
+    .recom-detail {
+      float: left;
+      width: 142px;
+      h3.bookName {
+        @include marPad();
+        @include showApo();
+        font-size: 18px;
+        font-weight: 600;
+        color: #081426;
+      }
+      em.author {
+        font-style: normal;
+        display: block;
+        font-size: 14px;
+        color: $textColor;
+        line-height: 36px;
+        margin-bottom: 13px;
+      }
+      p.recoSent {
+        @include marPad();
+        overflow: hidden;
+        height: 40px;
+        font-size: 14px;
+        color: #999999;
+        line-height: 20px;
+      }
+      span.type {
+        font-size: 12px;
+        color: #999999;
+        line-height: 20px;
+      }
+      .readBtn {
+        display: block;
+        width: 88px;
+        height: 24px;
+        cursor: pointer;
+        font-size: 13px;
+        text-align: center;
+        line-height: 24px;
+        color: white;
+        margin-top: 11px;
+        border-radius: 27px;
+      }
+    }
+    ul.girlRect {
+      .readBtn {
+        background: #fa2e34;
+        &:hover{
+          background: #b20b27;
+        }
+      }
+      li {
+        &:after {
+          background: bg('girl-tb.jpg') no-repeat;
+        }
+      }
+    }
+    ul.boyRect {
+      .readBtn {
+        background: #3aaeeb;
+        &:hover{
+          background: #2585bc;
+        }
+      }
+      li {
+        &:after {
+          background: bg('boy-tb.jpg') no-repeat;
+        }
+      }
+    }
+  }
+}
+
+
+/*男频女频公共*/
+
+.column {
+  width: 1000px;
+  height: 931px;
+  margin: 0 auto;
+  overflow: hidden;
+  .column-title {
+    height: 62px;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    i {
+      display: block;
+      float: left;
+      width: 38px;
+      height: 48px;
+      margin-right: 16px;
+    }
+    h2 {
+      @include marPad();
+      float: left;
+      font-size: 25px;
+      color: $textColor;
+      line-height: 62px;
+      font-weight: 600;
+    }
+    a.go {
+      position: relative;
+      width: 136px;
+      height: 18px;
+      float: left;
+      font-weight: normal;
+      line-height: 18px;
+      font-size: 18px;
+      cursor: pointer;
+      margin: 26px 0 0 12px;
+      color: #666;
+      &:after {
+        position: absolute;
+        right: 4px;
+        top: 2px;
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: red;
+        border-radius: 50%;
+      }
+    }
+  }
+  .banner {
+    width: 100%;
+    height: 109px;
+    margin-bottom: 10px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  /*主体*/
+  .column-main {
+    width: 1000px;
+    height: 750px;
+  }
+  /*推荐列表*/
+  .column-bookRect {
+    @include marPad();
+    float: left;
+    width: 765px;
+    height: auto;
+    overflow: hidden;
+    padding-top: 43px;
+    list-style: none;
+  }
+  li.bookRect-list {
+    width: 372px;
+    height: 315px;
+    float: left;
+    margin-right: 21px;
+    margin-bottom: 47px;
+    cursor: pointer;
+    &:nth-child(2),
+    &:nth-child(4),
+    &:nth-child(6){
+      margin-right: 0;
+    }
+    .bookLink{
+      color: #333333;
+    }
+    h2 {
+      @include marPad();
+      height: 47px;
+      width: 100%;
+      font-size: 16px;
+      color: $textColor;
+      font-weight: 600;
+      line-height: 47px;
+      padding-left: 27px;
+      margin-bottom: 33px;
+    }
+    a.more {
+      position: relative;
+      width: 40px;
+      height: 14px;
+      font-size: 14px;
+      line-height: 14px;
+      float: right;
+      color: $textColor;
+      cursor: pointer;
+      font-weight: normal;
+      margin: 17px 17px 0 0;
+      &:after,
+      &:before {
+        position: absolute;
+        right: 1px;
+        top: 2px;
+        content: '';
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+      }
+      &:before {
+        right: 0;
+        top: 2px;
+        border-left-color: black;
+      }
+    }
+    img {
+      display: block;
+      float: left;
+      width: 145px;
+      height: 205px;
+      margin: 0 23px 0 25px;
+    }
+    div {
+      float: left;
+      width: 155px;
+      height: 230px;
+      h3.bookName {
+        @include marPad();
+        @include showApo();
+        height: 18px;
+        font-size: 16px;
+        line-height: 18px;
+        color: $textColor;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      em.author {
+        font-style: normal;
+        font-size: 14px;
+        line-height: 39px;
+        color: #081426;
+      }
+      p.intro {
+        font-size: 14px;
+        line-height: 20px;
+        max-height: 60px;
+        overflow: hidden;
+        color: #666666;
+        margin-bottom: 23px;
+      }
+      span.sent {
+        display: block;
+        font-size: 14px;
+        line-height: 20px;
+        color: #666666;
+        max-height: 60px;
+        overflow: hidden;
+      }
+    }
+  }
+  /*榜*/
+  ol.column-right {
+    @include marPad();
+    float: right;
+    width: 208px;
+    height: 720px;
+    list-style: none;
+  }
+}
+
+
+/*女频*/
+
+.girl-column {
+  .column-title {
+    i {
+      background: bg('girl-fire.jpg') no-repeat;
+    }
+    a.go {
+      &:hover{
+        color: $em;
+      }
+      &:after {
+        background: bg('girl-jt.jpg') no-repeat;
+      }
+    }
+  }
+  /*女频主体*/
+  .column-main {
+    li.bookRect-list {
+      border: 1px solid #ffe8ee;
+      &:hover{
+        border-color: #ff3131;
+        h2{
+          background: #ff3131;
+          color: #fff;
+          a.more{
+            color: #fff;
+          }
+          a:before{
+            border-left-color:#fff;
+          }
+          a:after {
+            border-left-color: #ff3131;
+          }
+        }
+      }
+      h2 {
+        background: #ffe8ee;
+        a:after {
+          border-left-color: #ffe8ee;
+        }
+      }
+    }
+    .column-right {
+      a.pinkBg {
+        color: $textColor;
+      }
+      dd.on {
+        a.pinkBg {
+          background: #ffe8ee;
+        }
+      }
+    }
+  }
+}
+
+
+/*男频*/
+
+.boy-column {
+  .column-title {
+    i {
+      background: bg('boy-fire.jpg') no-repeat;
+    }
+    a.go {
+      &:hover{
+        color: $boy;
+      }
+      &:after {
+        background: bg('boy-jt.jpg') no-repeat;
+      }
+    }
+  }
+  /*男频主体*/
+  .column-main {
+    li.bookRect-list {
+      border: 1px solid #c5ebff;
+      &:hover{
+        border-color: #3aaeeb;
+        h2{
+          background: #3aaeeb;
+          color: #fff;
+          a.more{
+            color: #fff;
+          }
+          a:before{
+            border-left-color:#fff;
+          }
+          a:after {
+            border-left-color: #3aaeeb;
+          }
+        }
+      }
+      h2 {
+        background: #c5ebff;
+        a:after {
+          border-left-color: #c5ebff;
+        }
+      }
+    }
+    .column-right {
+      a.pinkBg {
+        color: $textColor;
+      }
+      dd.on {
+        a.pinkBg {
+          background: #c5ebff
+        }
+      }
+    }
+  }
+}
+
+
+/*更新榜*/
+
+.update {
+  width: 1000px;
+  height: 858px;
+  margin: 0 auto;
+  margin-bottom: 49px;
+  .update-title {
+    @include marPad();
+    height: 48px;
+    width: 100%;
+    padding-top: 10px;
+    font-size: 25px;
+    line-height: 36px;
+    font-weight: 600;
+    i {
+      display: block;
+      float: left;
+      width: 34px;
+      height: 37px;
+      background: bg('update-logo.png') no-repeat;
+      margin: 0 10px 0 5px;
+    }
+  }
+  .update-cutBtn {
+    @include marPad();
+    list-style: none;
+    width: 100%;
+    height: 39px;
+    li.on {
+      color: #282c42;
+      p {
+        width: 167px;
+        height: 11px;
+      }
+    }
+  }
+  li.cutBtn-list {
+    float: left;
+    width: 167px;
+    height: 39px;
+    background: white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 39px;
+    color: #9d9d9d;
+    cursor: pointer;
+    &:hover{
+      color: #282c42;
+    }
+    p {
+      @include marPad();
+      width: 0px;
+      height: 0px;
+      background: bg('mark-jt.png') no-repeat;
+    }
+  }
+  .bookRect {
+    @include marPad();
+    width: 1000px;
+    height: 713px;
+    border: 1px solid #e6e5e5;
+    padding: 14px;
+    list-style: none;
+    li {
+      height: 35px;
+      width: 100%;
+      font-size: 14px;
+      line-height: 35px;
+      cursor: pointer;
+      color: #666666;
+      a {
+        color: #666666;
+      }
+      &:nth-child(even) {
+        background: #f8f7f7;
+      }
+      &:hover{
+        background: #ffe8ee;
+      }
+      span {
+        display: block;
+        float: left;
+        height: 100%;
+        text-align: left;
+        i {
+          font-style: normal;
+          display: block;
+          float: left;
+        }
+        em {
+          font-style: normal;
+          display: block;
+          float: left;
+        }
+        &.num {
+          width: 44px;
+          text-align: center;
+          margin-right: 14px;
+        }
+        &.type {
+          width: 129px;
+        }
+        &.bookName {
+          width: 224px;
+          padding-right:60px;
+          @include showApo();
+
+          .vip-logo {
+            float: none;
+            display: inline-block;
+            margin-left: 3px;
+            width: 15px;
+            height: 8px;
+            background: bg('vip.png') no-repeat;
+          }
+        }
+        &.chapter {
+          width: 300px;
+          padding-right:60px;
+          @include showApo();
+        }
+        &.author {
+          width: 117px;
+          @include showApo();
+        }
+        &.time {
+          width: 134px;
+          color: #999;
+        }
+      }
+    }
+    li.list-title {
+      font-size: 16px;
+      height: 47px;
+      font-weight: bold;
+      line-height: 43px;
+      overflow: hidden;
+      color: $textColor;
+      cursor: default;
+      &:hover{
+        background: #fff;
+      }
+      .time {
+        color: #333;
+      }
+    }
+  }
+  .more-book {
+    height: 58px;
+    width: 100%;
+    padding-top: 22px;
+    a {
+      position: relative;
+      display: block;
+      float: right;
+      width: 96px;
+      height: 14px;
+      text-align: left;
+      line-height: 14px;
+      font-size: 14px;
+      color: $textColor;
+      cursor: pointer;
+      margin-right: 5px;
+      &:after,
+      &:before {
+        position: absolute;
+        right: 1px;
+        top: 2px;
+        content: '';
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-left-color: #f8f7f7;
+      }
+      &:before {
+        right: 0;
+        top: 2px;
+        border-left-color: black;
+      }
+    }
+  }
+}

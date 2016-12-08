@@ -1,0 +1,195 @@
+.swiper-container, .slider {
+  height: 120px;
+  margin-bottom: 10px;
+}
+
+.slider {
+  margin-top: 10px;
+  a {
+    display: block;
+    height: 120px;
+  }
+}
+
+.home-search {
+  padding: 15px 20px;
+  background-color: #fff;
+  margin-bottom: 10px;
+
+  > form {
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid $theme;
+  }
+
+  input[type="search"] {
+    flex: 1;
+    display: block;
+    padding: 0 10px;
+    background-color: #fff;
+    font-size: 14px;
+    height: 29px;
+    line-height: normal;
+    color: $text;
+    border: 0 none;
+    -webkit-appearance: none;
+  }
+
+  input[type="submit"] {
+    border: 0 none;
+    width: 50px;
+    height: 29px;
+    color: #fff;
+    background-color: $theme;
+    font-size: 14px;
+    -webkit-appearance: none;
+    border: 0 none;
+  }
+}
+
+.section {
+  background: #fff;
+  padding-left: 15px;
+  overflow: hidden;
+  &.pr {
+    padding-right: 15px;
+  }
+
+  ~ .section {
+    margin-top: 10px;
+  }
+
+  > h3 {
+    padding: 15px 0 0;
+    font-size: 15px;
+    line-height: 1.4;
+
+    &::before {
+      margin-right: 8px;
+      content: "";
+      display: inline-block;
+      height: 17px;
+      width: 4px;
+      background: $theme;
+      border-radius: 1px;
+      vertical-align: -3px;
+    }
+  }
+}
+
+.books-column {
+
+  > li {
+
+    ~ li {
+      border-top: 1px solid $border;
+    }
+
+    padding: 15px 0;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: $text;
+      @include tap();
+    }
+  }
+
+  .cover {
+    display: block;
+    min-width: 76px;
+    max-width: 76px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 6px;
+    box-shadow: $coverShadow;
+  }
+
+  .descn {
+    flex: 1;
+    height: 100px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+
+    > h4 {
+      line-height: 24px;
+      font-size: 17px;
+      padding-right: 15px;
+      font-weight: 400;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .about {
+      font-size: 13px;
+    }
+
+    .book-type {
+      &::before, &::after {
+        content: "|";
+        margin: 0 5px;
+      }
+    }
+
+    .serial {
+      color: $serial;
+    }
+
+    .complete {
+      color: $complete;
+    }
+
+    .introduce {
+      margin-top: 10px;
+      color: $text-medium;
+      font-size: 13px;
+      line-height: 20px;
+      overflow: hidden;
+      max-height: 40px;
+      padding-right: 15px;
+    }
+  }
+}
+
+.books-table {
+  display: table;
+  margin: 15px 0;
+  padding: 0 15px 0 0;
+  width: 100%;
+
+  > li {
+    display: table-cell;
+    width: 33.3333%;
+  }
+
+  a {
+    color: $text;
+    display: block;
+    @include tap();
+  }
+
+  .cover {
+    margin: 0 auto;
+    display: block;
+    min-width: 90px;
+    max-width: 90px;
+    height: 118px;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 6px;
+    box-shadow: $coverShadow;
+  }
+
+  h4 {
+    margin: 10px auto 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    width: 90px;
+  }
+}

@@ -1,0 +1,72 @@
+<div class="search-box" id="searchBox">
+  <!--搜索结果-->
+  <div class="searchRect">
+    <% if (searchResult.list.length) { -%>
+      <h2 class="result-title">搜索结果</h2>
+      <% searchResult.list.forEach(function (story) { -%>
+        <dl class="result-list">
+          <dt><img src="<%= story.cover %>"/></dt>
+          <dd>
+            <a href="/story/<%= story.id %>">
+              <h3 class="bookName"><%- story.name %></h3>
+              <span class="author"><%- story.author %></span>
+              <p class="intro">简介：<%- story.introduce %></p>
+              <b class="type">分类：<%- story.type %></b>
+            </a>
+          </dd>
+        </dl>
+      <% }) -%>
+      <pagination @page-change="pageChange" :page-no="pageNo" :total-pages="totalPages"></pagination>
+    <% } else { -%>
+      <div class="no-result">抱歉！搜索无结果</div>
+    <% } -%>
+  </div>
+  <!--精彩推荐-->
+  <div class="recommend" v-cloak>
+    <h2 class="recommend-title">精彩推荐</h2>
+    <div class="recommend-rect">
+      <dl class="recommend-list" v-for="item in recommend">
+        <dt><img :src="item.story.cover" /></dt>
+        <dd>
+          <a :href="'/story/' + item.story.id">
+            <h3 class="bookName">{{item.story.name}}</h3>
+            <span class="author">{{item.story.author}}</span>
+            <p class="intro">简介：{{(item.story.pcIntroduce || item.story.introduce) | clean}}</p>
+          </a>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<% include ../partials/vue.ejs %>
+<% include ../partials/pagination.ejs %>
+<script type="text/javascript">
+(function (Vue) {
+var searchResult = <%- JSON.stringify(searchResult) %>;
+var query = <%- JSON.stringify(query) %>;
+
+new Vue({
+  el: '#searchBox',
+  data: {
+    pageNo: searchResult.pageNo + 1,
+    totalPages: searchResult.totalPages,
+    recommend: []
+  },
+  methods: {
+    pageChange: function (pageNo) {
+      location.href = '/search?keyWord=' + query.keyWord + '&pageNo=' + (pageNo - 1);
+    },
+    getRecommend: function () {
+      var first = searchResult.list[0] || {type: '现代言情'};
+      this.$http.get('/api/story/typeRecommend?type=' + first.type)
+        .then(function (resp) {
+          this.recommend = resp.body.typeRecommend;
+        });
+    }
+  },
+  ready: function () {
+    this.getRecommend();
+  }
+});
+})(Vue);
+</script>

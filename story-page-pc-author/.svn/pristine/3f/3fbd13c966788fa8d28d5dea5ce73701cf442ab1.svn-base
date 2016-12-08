@@ -1,0 +1,131 @@
+<div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+            <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item"><a href="comment.html">评论管理</a></li>
+            <li class="item"><a href="settings-one.html">个人设置</a></li>
+        </ul>
+    </div>
+    <div class="writeNewSection fl">
+        <div class="right-header-haveback">
+            <p class="hint wryh-font"><a href="worksList.html" class="back">作品列表</a><span class="bookname">山村老尸</span></p>
+        </div>
+        <div class="main-nav">
+            <a href="worksList-setroll.html">分卷设置</a>
+            <a href="worksList-writeNewSection.html" class="active">写新章节</a>
+            <a href="worksList-drafts.html">草稿箱</a>
+            <a href="worksList-issue.html">已发布章节</a>
+            <a href="worksList-setProduction.html">作品设置</a>
+        </div>
+        <div class="writeNewSection-main">
+            <div class="section-title">
+                <span class="label must">章节标题</span>
+                <div class="title all-input-box" :class="{'error': target=='title', 'has-value': title}" data-placeholder="示例：第一张 火星小说">
+                    <input type="text" v-model="title">
+                </div>
+                <div class="roll">
+                    <div class="form-group roll-form-group ">
+                        <div class="form-control" :class="{'error': target=='paperType', 'has-value': paperType}" data-placeholder="选择作品">
+                            <input type="text"  v-model="paperType">
+                            <select v-model="paperType" class="select-model">
+                                <option value="">--请选择--</option>
+                                <option :value="type" v-for="type in types">{{type}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn fl">添加卷</div>
+                <div class="btn fr">预览</div>
+            </div>
+            <div class="section-charge">
+                <div class="label must">是否收费</div>
+                <ul class="charge-list">
+                  <li><span><input type="radio" name="radio" id="charge"><i></i></span><label for="charge">收费章节</label></li>
+                  <li><span><input type="radio" name="radio" id="free"><i></i></span><label for="free">免费章节</label></li>
+                </ul>
+            </div>
+            <div class="section-text">
+                <span class="label must">章节正文</span>
+                <div class="text-box all-input-box" :class="{'error': target=='text', 'has-value': text}" data-placeholder="章节正文">
+                    <textarea v-model="text"></textarea>
+                </div>
+                <p class="hint-num">字数限制：100-1000字&nbsp;&nbsp;&nbsp;当前字数：0</p>
+            </div>
+            <div class="section-tag">
+                <span class="label must">附加语</span>
+                <div class="tag-box all-input-box" :class="{'error': target=='tag', 'has-value': tag}" data-placeholder="附加语">
+                    <textarea v-model="tag"></textarea>
+                </div>
+            </div>
+            <div class="section-send">
+                <div class="timing-btn">
+                    <span><input type="checkbox" id="timing-btn"><i></i></span><label for="timing-btn">定时发送</label>
+                </div>
+                <div class="timing-time">
+                    <input type="text" disabled value="2016-11-02 晚上6点40分">
+                </div>
+                <div class="btn private">发布</div>
+                <div class="disabled-btn private">保存到草稿箱</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mask hide">
+    <div class="preview-box" id="preview-box">
+        <span class="close"></span>
+        <div class="preview-header"><span class="pc-btn" id="pc-btn"></span><span class="phone-btn" id="phone-btn"></span></div>
+        <h4 class="wryh-font">第一张 火星探险</h4>
+        <div class="preview-content" id="preview-content">
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>“还是老样子。”顾易止往后靠，重重叹了口气。</p>
+            <p>卷宗摊开在桌子上，一张照片夹在里面，上面的女孩双目怒睁，嘴巴大张，手臂和腿上的皮肤布满类似野兽的抓痕，死状恐怖。</p>
+            <p>四个月前宜城发生了一件离奇命案，死者是十九岁的女大学生高婷婷，她被人发现死在郊外的垃圾场里。</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>“还是老样子。”顾易止往后靠，重重叹了口气。</p>
+            <p>卷宗摊开在桌子上，一张照片夹在里面，上面的女孩双目怒睁，嘴巴大张，手臂和腿上的皮肤布满类似野兽的抓痕，死状恐怖。</p>
+            <p>四个月前宜城发生了一件离奇命案，死者是十九岁的女大学生高婷婷，她被人发现死在郊外的垃圾场里。</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>“还是老样子。”顾易止往后靠，重重叹了口气。</p>
+            <p>卷宗摊开在桌子上，一张照片夹在里面，上面的女孩双目怒睁，嘴巴大张，手臂和腿上的皮肤布满类似野兽的抓痕，死状恐怖。</p>
+            <p>四个月前宜城发生了一件离奇命案，死者是十九岁的女大学生高婷婷，她被人发现死在郊外的垃圾场里。</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+        </div>
+    </div>
+</div>
+
+<script>
+new Vue({
+    el: 'body',
+    data: {
+        paperType: '',
+        title: '',
+        text: '',
+        tag: '',
+        target: 'mobilephone',
+        types: ['完美世界', '完美世界1', '完美世界2']
+    }
+});
+var preConH = $('#preview-box').height() - 130;
+$('#preview-content').slimScroll({
+    height: preConH + 'px'
+});
+
+$('#phone-btn').click(function(){
+    $('#preview-box').stop().animate({
+        width: '460px'
+    })
+})
+$('#pc-btn').click(function(){
+    $('#preview-box').stop().animate({
+        width: '1000px'
+    })
+})
+</script>

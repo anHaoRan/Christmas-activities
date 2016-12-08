@@ -1,0 +1,138 @@
+<link rel="stylesheet" type="text/css" href="../styles/worksList.min.css">
+
+<div class="container">
+  <div class="nav">
+    <h4>作者中心</h4>
+    <ul>
+      <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+      <li class="item"><a href="#">消息中心</a></li>
+      <li class="item"><a href="reward.html">订阅收入</a></li>
+      <li class="item"><a href="#">查看打赏</a></li>
+      <li class="item"><a href="#">个人设置</a></li>
+    </ul>
+  </div>
+  <div class="worksList fl">
+    <div class="worksList-header right-header">
+      <p class="hint">作品列表<span>（当前作品<i class="num">2</i>本）</span></p>
+      <a href="" class="btn fr">创建作品</a>
+    </div>
+    <div class="list-title wl-t">
+      <span>作品名称</span>
+      <span>最新发布章节</span>
+      <span>收藏量</span>
+      <span>作品状态</span>
+      <span>操作</span>
+    </div>
+    <ul class="worksList-list">
+      <li class="item">
+        <div class="particulars">
+          <div class="cover">
+            <img src="../images/pic.jpg">
+          </div>
+          <h3 class="bookname">最好的我们</h3>
+          <span class="wordsnum">总字数：200w</span>
+        </div>
+        <div class="newest">
+          <p class="intro">每篇文章都是从当事人大量的口述素材中整理提炼出来的，以第一人称的形式呈现。写完之后，女方的..</p>
+          <span class="time">2016-11-02 14:28:01</span>
+        </div>
+        <div class="collect">
+          <span class="num">11155</span>
+        </div>
+        <div class="state">
+          <span class="applying">已申请发布</span>
+        </div>
+        <div class="operation">
+          <a href="worksList-writeNewSection.html">写新章节</a>
+          <a href="">草稿箱</a>
+          <a href="">定时章节</a>
+          <a href="">已发布章节</a>
+          <a href="">作品设置</a>
+          <a href="">分卷设置</a>
+        </div>
+      </li>
+      <li class="item">
+        <div class="particulars">
+          <div class="cover">
+            <img src="../images/pic.jpg">
+          </div>
+          <h3 class="bookname">最好的我们</h3>
+          <span class="wordsnum">总字数：200w</span>
+        </div>
+        <div class="newest">
+          <p class="intro">每篇文章都是从当事人大量的口述素材中整理提炼出来的，以第一人称的形式呈现。写完之后，女方的..</p>
+          <span class="time">2016-11-02 14:28:01</span>
+        </div>
+        <div class="collect">
+          <span class="num">11155</span>
+        </div>
+        <div class="state">
+          <span class="serial">连载中</span>
+        </div>
+        <div class="operation">
+          <a href="worksList-writeNewSection.html">写新章节</a>
+          <a href="">草稿箱</a>
+          <a href="">定时章节</a>
+          <a href="">已发布章节</a>
+          <a href="">作品设置</a>
+          <a href="">分卷设置</a>
+        </div>
+      </li>
+      <li class="item">
+        <div class="particulars">
+          <div class="cover">
+            <img src="../images/pic.jpg">
+          </div>
+          <h3 class="bookname">最好的我们</h3>
+          <span class="wordsnum">总字数：200w</span>
+        </div>
+        <div class="newest">
+          <p class="intro">每篇文章都是从当事人大量的口述素材中整理提炼出来的，以第一人称的形式呈现。写完之后，女方的..</p>
+          <span class="time">2016-11-02 14:28:01</span>
+        </div>
+        <div class="collect">
+          <span class="num">11155</span>
+        </div>
+        <div class="state">
+          <span class="btn state-btn">申请发布</span>
+        </div>
+        <div class="operation">
+          <a href="worksList-writeNewSection.html">写新章节</a>
+          <a href="">草稿箱</a>
+          <a href="">定时章节</a>
+          <a href="">已发布章节</a>
+          <a href="">作品设置</a>
+          <a href="">分卷设置</a>
+        </div>
+      </li>
+      <li class="item">
+        <div class="particulars">
+          <div class="cover">
+            <img src="../images/pic.jpg">
+          </div>
+          <h3 class="bookname">最好的我们</h3>
+          <span class="wordsnum">总字数：200w</span>
+        </div>
+        <div class="newest">
+          <p class="intro">每篇文章都是从当事人大量的口述素材中整理提炼出来的，以第一人称的形式呈现。写完之后，女方的..</p>
+          <span class="time">2016-11-02 14:28:01</span>
+        </div>
+        <div class="collect">
+          <span class="num">11155</span>
+        </div>
+        <div class="state">
+          <span class="error">再次申请</span>
+          <span class="error-msg">审核未通过，拒绝理由。你这个不能通过，涉黄暴力请注意修改</span>
+        </div>
+        <div class="operation">
+          <a href="worksList-writeNewSection.html">写新章节</a>
+          <a href="">草稿箱</a>
+          <a href="">定时章节</a>
+          <a href="">已发布章节</a>
+          <a href="">作品设置</a>
+          <a href="">分卷设置</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

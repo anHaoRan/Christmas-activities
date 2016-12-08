@@ -1,0 +1,67 @@
+.userpic{
+  height: 100px;
+  background: #fff;
+  padding: 20px;
+  margin-top: 8px;
+  display: flex;
+  img {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  span {
+    display: block;
+    flex: 1;
+    line-height: 60px;
+    font-size: 16px;
+    margin-left: 20px;
+    color: #25232a;
+  }
+}
+.userinfo{
+  margin-top: 8px;
+  .remainmoney,
+  .topup{
+    display: block;
+    height: 60px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .remainmoney{
+    border-bottom: 1px solid $border;
+    display: flex;
+    justify-content: space-between;
+  }
+  .label{
+    line-height: 60px;
+    font-size: 14px;
+    color: #25232a;
+    [class^=icon-]{
+      font-size: 18px;
+      color: #D4D4D4;
+      margin: 0 15px;
+      vertical-align: middle;
+    }
+  }
+  .moneybox{
+    line-height: 60px;
+    padding-right: 15px;
+    font-size: 14px;
+    color: #25232a;
+  }
+
+  .logout{
+    display: block;
+    width: 285px;
+    height: 40px;
+    background: #fff;
+    margin: 50px auto 60px auto;
+    font-size: 17px;
+    color: $theme;
+    font-size: 600;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 3px;
+  }
+}

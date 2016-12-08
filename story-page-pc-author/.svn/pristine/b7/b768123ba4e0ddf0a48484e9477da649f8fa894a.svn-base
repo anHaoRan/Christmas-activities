@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" class="root platform-win">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作者中心</title>
+  <link href="http://c.hotread.com/assets/images/favico.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="../styles/common.min.css">
+  <link rel="stylesheet" href="../styles/works.min.css">
+  <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.slimscroll.min.js"></script>
+  <script src="http://c.hotread.com/assets/js/vue.min.js"></script>
+  <style>[v-cloak] { visibility: hidden;  }</style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="slogan" href="http://author.hotread.com">
+        <img src="http://c.hotread.com/wap/images/3x/slogan.png" alt="">
+      </a>
+      <span class="user">
+        <a href>退出登陆</a>
+      </span>
+    </div>
+  </header>
+  <div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+            <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item"><a href="comment.html">评论管理</a></li>
+            <li class="item"><a href="settings.html">个人设置</a></li>
+        </ul>
+    </div>
+    <div class="writeNewSection fl">
+        <div class="right-header-haveback">
+            <p class="hint wryh-font"><a href="worksList.html" class="back">作品列表</a><span class="bookname">山村老尸</span></p>
+        </div>
+        <div class="main-nav">
+            <a href="worksList-setroll.html">分卷设置</a>
+            <a href="worksList-writeNewSection.html" class="active">写新章节</a>
+            <a href="worksList-drafts.html">草稿箱</a>
+            <a href="worksList-issue.html">已发布章节</a>
+            <a href="worksList-setProduction.html">作品设置</a>
+        </div>
+        <div class="writeNewSection-main">
+            <div class="section-title">
+                <span class="label must">章节标题</span>
+                <div class="title">
+                    <input type="text" placeholder="示例：第一张 火星小说">
+                </div>
+                <div class="roll">
+                    <div class="form-group roll-form-group ">
+                        <div class="form-control" :class="{'error': target=='paperType', 'has-value': paperType}" data-placeholder="选择作品">
+                            <input type="text" class="select-like" v-model="paperType">
+                            <select v-model="paperType" class="select-model">
+                                <option value="">--请选择--</option>
+                                <option :value="type" v-for="type in types">{{type}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn fl">添加卷</div>
+                <div class="btn fr">预览</div>
+            </div>
+            <div class="section-charge">
+                <div class="label must">是否收费</div>
+                <ul class="charge-list">
+                  <li><span><input type="radio" name="radio"><label></label></span>收费章节</li>
+                  <li><span><input type="radio" name="radio"><label></label></span>免费章节</li>
+                </ul>
+            </div>
+            <div class="section-text">
+                <span class="label must">章节正文</span>
+                <textarea></textarea>
+                <p class="hint-num">字数限制：100-1000字&nbsp;&nbsp;&nbsp;当前字数：0</p>
+            </div>
+            <div class="section-tag">
+                <span class="label must">附加语</span>
+                <textarea></textarea>
+            </div>
+            <div class="section-send">
+                <div class="timing-btn">
+                    <span>
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox"></label>
+          </span> 定时发送
+                </div>
+                <div class="timing-time">
+                    <input type="text" disabled value="2016-11-02 晚上6点40分">
+                </div>
+                <div class="btn private">发布</div>
+                <div class="disabled-btn private">保存到草稿箱</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mask" style="display: none;">
+    <div class="preview-box" id="preview-box">
+        <span class="close"></span>
+        <div class="preview-header"><span class="pc-btn" id="pc-btn"></span><span class="phone-btn" id="phone-btn"></span></div>
+        <h4 class="wryh-font">第一张 火星探险</h4>
+        <div class="preview-content" id="preview-content">
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>“还是老样子。”顾易止往后靠，重重叹了口气。</p>
+            <p>卷宗摊开在桌子上，一张照片夹在里面，上面的女孩双目怒睁，嘴巴大张，手臂和腿上的皮肤布满类似野兽的抓痕，死状恐怖。</p>
+            <p>四个月前宜城发生了一件离奇命案，死者是十九岁的女大学生高婷婷，她被人发现死在郊外的垃圾场里。</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>“还是老样子。”顾易止往后靠，重重叹了口气。</p>
+            <p>卷宗摊开在桌子上，一张照片夹在里面，上面的女孩双目怒睁，嘴巴大张，手臂和腿上的皮肤布满类似野兽的抓痕，死状恐怖。</p>
+            <p>四个月前宜城发生了一件离奇命案，死者是十九岁的女大学生高婷婷，她被人发现死在郊外的垃圾场里。</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>“还是老样子。”顾易止往后靠，重重叹了口气。</p>
+            <p>卷宗摊开在桌子上，一张照片夹在里面，上面的女孩双目怒睁，嘴巴大张，手臂和腿上的皮肤布满类似野兽的抓痕，死状恐怖。</p>
+            <p>四个月前宜城发生了一件离奇命案，死者是十九岁的女大学生高婷婷，她被人发现死在郊外的垃圾场里。</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+            <p>办公室里，顾易止翻看着桌上那叠厚厚的资料，愁得眉头都已经拧成了川字。同事王浩从门外走进来，看见他这副表情，不由道：“怎么样，案子有进展没？”</p>
+        </div>
+    </div>
+</div>
+
+<script>
+new Vue({
+    el: 'body',
+    data: {
+        paperType: '',
+        target: 'mobilephone',
+        types: ['完美世界', '完美世界1', '完美世界2']
+    }
+});
+$('#preview-content').slimScroll({
+    height: '768px'
+});
+
+$('#phone-btn').click(function(){
+    $('#preview-box').stop().animate({
+        width: '460px'
+    })
+})
+$('#pc-btn').click(function(){
+    $('#preview-box').stop().animate({
+        width: '1000px'
+    })
+})
+</script>
+
+  <script>!function(e){function n(){}function t(e,n){return function(){e.apply(n,arguments)}}function o(e){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],s(e,this)}function i(e,n){for(;3===e._state;)e=e._value;return 0===e._state?void e._deferreds.push(n):(e._handled=!0,void o._immediateFn(function(){var t=1===e._state?n.onFulfilled:n.onRejected;if(null===t)return void(1===e._state?r:u)(n.promise,e._value);var o;try{o=t(e._value)}catch(i){return void u(n.promise,i)}r(n.promise,o)}))}function r(e,n){try{if(n===e)throw new TypeError("A promise cannot be resolved with itself.");if(n&&("object"==typeof n||"function"==typeof n)){var i=n.then;if(n instanceof o)return e._state=3,e._value=n,void f(e);if("function"==typeof i)return void s(t(i,n),e)}e._state=1,e._value=n,f(e)}catch(r){u(e,r)}}function u(e,n){e._state=2,e._value=n,f(e)}function f(e){2===e._state&&0===e._deferreds.length&&o._immediateFn(function(){e._handled||o._unhandledRejectionFn(e._value)});for(var n=0,t=e._deferreds.length;n<t;n++)i(e,e._deferreds[n]);e._deferreds=null}function c(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}function s(e,n){var t=!1;try{e(function(e){t||(t=!0,r(n,e))},function(e){t||(t=!0,u(n,e))})}catch(o){if(t)return;t=!0,u(n,o)}}var a=setTimeout;o.prototype["catch"]=function(e){return this.then(null,e)},o.prototype.then=function(e,t){var o=new this.constructor(n);return i(this,new c(e,t,o)),o},o.all=function(e){var n=Array.prototype.slice.call(e);return new o(function(e,t){function o(r,u){try{if(u&&("object"==typeof u||"function"==typeof u)){var f=u.then;if("function"==typeof f)return void f.call(u,function(e){o(r,e)},t)}n[r]=u,0===--i&&e(n)}catch(c){t(c)}}if(0===n.length)return e([]);for(var i=n.length,r=0;r<n.length;r++)o(r,n[r])})},o.resolve=function(e){return e&&"object"==typeof e&&e.constructor===o?e:new o(function(n){n(e)})},o.reject=function(e){return new o(function(n,t){t(e)})},o.race=function(e){return new o(function(n,t){for(var o=0,i=e.length;o<i;o++)e[o].then(n,t)})},o._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},o._unhandledRejectionFn=function(e){"undefined"!=typeof console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)},o._setImmediateFn=function(e){o._immediateFn=e},o._setUnhandledRejectionFn=function(e){o._unhandledRejectionFn=e},"undefined"!=typeof module&&module.exports?module.exports=o:e.Promise||(e.Promise=o)}(this);</script>
+  <script src="http://c.hotread.com/assets/js/vue-resource.min.js"></script>
+</body>
+</html>

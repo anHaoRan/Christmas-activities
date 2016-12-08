@@ -1,0 +1,16 @@
+@mixin retina-image($background-image, $other...) {
+  background: url('http://c.hotread.com/wap/images/2x/' + $background-image) $other;
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2.5),
+  only screen and (min--moz-device-pixel-ratio: 2.5), /* 注意这里的写法比较特殊 */
+  only screen and (-o-min-device-pixel-ratio: 5/2),
+  only screen and (min-device-pixel-ratio: 2.5),
+  only screen and (min-resolution: 240dpi),
+  only screen and (min-resolution: 2.5dppx) {
+    background: url('http://c.hotread.com/wap/images/3x/' + $background-image) $other;
+  }
+}
+
+@mixin tap($color: rgba(33, 33, 33, .05)) {
+  -webkit-tap-highlight-color: rgba(33, 33, 33, .05);
+}

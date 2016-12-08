@@ -1,0 +1,203 @@
+@import 'common/variable';
+@import 'common/fun';
+.box {
+    width: 1140px;
+    .item {
+        min-height: 150px;
+        overflow: hidden;
+        border-top: 1px solid $borderColor;
+        margin-bottom: 30px;
+        .portrait {
+            width: 36px;
+            height: 36px;
+            border-radius: 20px;
+            float: left;
+            margin-top: 30px;
+            margin-left: 15px;
+        }
+        // 头像
+        .portrait-content {
+            margin-left: 72px;
+            padding-top: 18px;
+            position: relative;
+            .name {
+                line-height: 26px;
+            }
+            .text {
+                line-height: 1.6;
+                word-break: break-all;
+            }
+            .portrait-b {
+                margin-top: 15px;
+                .button {
+                    color: #89a5bb;
+                    margin: 0 20px;
+                    font-size: 14px;
+                    display: inline-block;
+                    height: 20px;
+                    &:before {
+                        content: "";
+                        width: 16px;
+                        height: 18px;
+                        display: inline-block;
+                        margin-right: 10px;
+                        vertical-align: middle;
+                        background-image: bg('comment-icon.png');
+                        background-repeat: no-repeat;
+                        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
+                            background-image: bg('comment-icon@2x.png');
+                            background-size: 16px;
+                        }
+                    }
+                    &:nth-of-type(1) {
+                        &:before {
+                            background-position: 0px 2px;
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        margin-left: 0px;
+                        &:before {
+                            background-position: 0px -33px;
+                        }
+                    }
+                    &.active {
+                        color: #ff3a3a;
+                        &:nth-of-type(1) {
+                            &:before {
+                                background-position: 0px -16px;
+                            }
+                        }
+                        &:nth-of-type(2) {
+                            margin-left: 0px;
+                            &:before {
+                                background-position: 0px -50px;
+                            }
+                        }
+                    }
+                }
+            }
+            .huifu {
+                display: inline-block;
+                float: right;
+                color: #a5a5a5;
+                &:before {
+                    content: "";
+                    width: 17px;
+                    height: 12px;
+                    background-image: bg('comment-icon.png');
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                    background-position: 0px -67px;
+                    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
+                            background-image: bg('comment-icon@2x.png');
+                            background-size: 16px;
+                    }
+                }
+            }
+            .time {
+                color: #cbcbcb;
+            }
+        }
+    }
+}
+
+// 回复的回复列表
+.reply-list {
+    margin-top: 30px;
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+    .reply-item {
+        border-bottom: 1px solid #e0e0e0;
+        overflow-x: hidden;
+        margin-bottom: 6px;
+        .pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 30px;
+            float: left;
+            margin-bottom: 24px;
+        }
+        .reply-d {
+            margin-left: 66px;
+            position: relative;
+            p {
+                margin: 0px;
+                padding: 0px;
+            }
+            .btn {
+                background: #8dc63f;
+                margin-left: 5px;
+            }
+            .time {
+                margin-bottom: 18px;
+                margin-top: 14px;
+            }
+        }
+    }
+}
+
+// 写下你的回复
+.reply {
+    margin-top: 30px;
+    position: relative;
+    margin-bottom: 30px;
+    &.has-value {
+        &::before {
+            display: none;
+        }
+    }
+    &::before {
+        content: attr(data-placeholder);
+        position: absolute;
+        line-height: 40px;
+        width: 100%;
+        top: 0;
+        padding-left: 15px;
+        color: #aaa;
+    }
+    input[type='text'] {
+        height: 38px;
+        width: 100%;
+        color: #333;
+        border-color: #c7cacb;
+        text-indent: 14px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 3px;
+        position: relative;
+        z-index: 2px;
+        background: transparent;
+    }
+    .btn {
+        float: right;
+        margin-top: 10px;
+        padding: 0 24px;
+    }
+}
+
+// 筛选
+.comment-filter {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .form-group {
+        &::after {
+            width: 10px;
+            height: 5px;
+            content: "";
+            background: url(../images/read-arrow.png);
+            background-size: 10px auto;
+            position: absolute;
+            background-position: 0px -5px;
+            right: 10px;
+            top: 15px;
+        }
+    }
+    .btn {
+        padding: 0 24px;
+    }
+}

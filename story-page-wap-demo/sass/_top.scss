@@ -1,0 +1,62 @@
+.toplist{
+  display:flex;
+  flex-direction: column;
+
+  .title{
+      font-size: 16px;
+      line-height: 40px;
+      font-weight: bold;
+      padding: 0 20px;
+   }
+
+  li {
+    
+    flex-grow: 1;
+    background:$white;
+    padding: 10px 0;
+
+    a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 15px;
+      padding-left: 20px;
+      @include tap();
+    }
+
+    .list-name {
+      margin-right: 40px;
+      font-size: 14px;
+    }
+
+    .list-img {
+      width: 90px;
+      height: 60px;
+      background: none no-repeat 50% 50% / cover;
+    }
+
+    [class^="icon-"] {
+      font-size: 16px;
+      color: $text-light;
+    }
+
+  }
+}
+.top{
+  .nav{
+    background: $white;
+    border-bottom: 1px solid $border;  
+  }
+  .wrap,.section{
+    background: $bg;
+    padding:0px;  
+    a{
+      color:$text;
+    }  
+  }
+  .nav-bottom{
+    a{
+      color: $white;
+    }
+  }
+}

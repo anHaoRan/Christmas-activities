@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网文界大咖齐贺火星小说上线</title>
+    <link href="http://c.hotread.com/assets/images/favico.ico" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="./styles/activity.min.css">
+</head>
+
+<body style="margin: 0;">
+    <div class="activity">
+        <div class="main" id="main">
+        </div>
+    </div>
+    <script src="http://c.hotread.com/assets/js/congratulate.js"></script>
+    <script type="text/javascript" src='./js/falls.js'></script>
+    <script type="text/javascript">
+    var array = congratulateArray || [];
+    var html = [];
+    var i = 0, len = array.length;
+    for (; i < len; i++) {
+        html.push('<div class="tag">' + '<div class="title">' + array[i].name + '</div>' + '<div class="intr">' + array[i].title + '</div>' + '<div class="sent">' + array[i].content + '</div>' + '</div>');
+    }
+    document.getElementById('main').innerHTML = html.join('');
+    new Waterfall({
+        "container": "main",
+        "colWidth": 340,
+        "colCount": 3
+    });
+    </script>
+</body>
+
+</html>

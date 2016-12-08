@@ -1,0 +1,199 @@
+@import "common/variable";
+@import "common/fun";
+
+body {
+  height: 1249px;
+  background-color: #65398e;
+  background-image: linear-gradient(to left bottom, #96085c, #65398e);
+  background-image: bg('logo-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.login {
+  height: 1249px;
+  margin: 0 auto;
+}
+
+.loginMain {
+  margin: 0 auto;
+  width: 1000px;
+  .header {
+    height: 121px;
+    width: 100%;
+    border-bottom: 1px solid #bb7ab2;
+    padding-top: 30px;
+  }
+  .logo {
+    display: block;
+    width: 257px;
+    height: 66px;
+  }
+  .loginRect {
+    width: 455px;
+    // height: 595px;
+    height: 520px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 117px;
+    background: #faf7fb;
+    padding-top: 6px;
+    border-radius: 5px;
+    h2.loginRect-title {
+      @include marPad();
+      height: 154px;
+      line-height: 154px;
+      font-size: 46px;
+      text-align: center;
+    }
+    .msgBox {
+      display: block;
+      font-size: 14px;
+      text-align: center;
+      height: 14px;
+      line-height: 14px;
+      a {
+        color: #f50e0e;
+      }
+    }
+  }
+  .form-box {
+    @include ulEmpty();
+    width: 375px;
+    height: 303px;
+    margin: 0 auto;
+    padding-top: 19px;
+    // border-bottom: 1px solid #aaaaaa;
+    li {
+      height: 39px;
+      width: 100%;
+      margin-top: 18px;
+      label {
+        display: block;
+        float: left;
+        width: 25px;
+        height: 22px;
+        margin-top: 9px;
+        margin-right: 23px;
+      }
+      &.account{
+        label{
+          background: bg('input-user.png');
+          background-repeat: no-repeat; 
+        }
+      }
+      &.password{
+        label{
+          background: bg('input-lock.png');
+          background-repeat: no-repeat; 
+        }
+      }
+      &.verify-box{
+        label{
+          background: bg('input-verify.png');
+          background-repeat: no-repeat; 
+        }
+      }
+      p {
+        @include marPad();
+        float: left;
+        height: 39px;
+        padding: 2px 0 0 24px;
+        border: 1px solid #aaaaaa;
+        border-radius: 27px;
+        input {
+          height: 35px;
+          width: 95%;
+          border: 0;
+          outline: none;
+          background: #faf7fb;
+        }
+      }
+      &:first-child,
+      &:nth-child(2) {
+        p {
+          width: 326px;
+        }
+      }
+      .verify {
+        float: left;
+        width: 106px;
+        height: 27px;
+        margin: 10px 0 0 11px;
+      }
+      .verify-btn {
+        font-style: normal;
+        float: left;
+        width: 65px;
+        height: 28px;
+        text-align: center;
+        line-height: 28px;
+        margin-top: 10px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+    li.verify-box {
+      p {
+        width: 144px;
+        input {
+          width: 85%;
+        }
+      }
+    }
+    .submit-box {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .submit {
+      width: 182px;
+      height: 39px;
+      background: #f60e0e;
+      border-radius: 23px;
+      line-height: 39px;
+      color: white;
+      font-size: 16px;
+      margin: 0 auto;
+      cursor: pointer;
+      border: 0 none;
+    }
+  }
+}
+
+.thirdParty {
+  display: none;
+  @include marPad();
+  width: 100%;
+  height: 35px;
+  margin-top: 17px;
+  padding-left: 37px;
+  dt {
+    float: left;
+    width: 96px;
+    height: 35px;
+    text-align: left;
+    line-height: 35px;
+    color: $textColor;
+    font-size: 14px;
+  }
+  dd {
+    @include marPad();
+    float: left;
+    width: 35px;
+    height: 35px;
+    margin-left: 19px;
+    cursor: pointer;
+    &.third-qq{
+      background: bg('third-qq-logo.png');
+    }
+    &.third-weibo{
+      background: bg('third-weibo-logo.png');
+    }
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

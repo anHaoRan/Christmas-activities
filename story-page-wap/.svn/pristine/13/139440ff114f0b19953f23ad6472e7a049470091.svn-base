@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script src="http://c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <title>火星小说抽奖</title>
+    <link rel="stylesheet" href="../styles/lucky.min.css">
+</head>
+<body :class="{'modal-open': modal > 0}">
+<div class="turntable">
+    <!-- 转盘 -->
+    <div class="rotate" id="rotate">
+        <div class="icon" v-for="(index, item) in list" 
+            :class="[item.icon, 'icon-' + index]">
+            <h3>{{item.name}}</h3>
+        </div>
+    </div>
+    <!-- 指针 -->
+    <div class="pointer" @click="start"></div>
+</div>
+<div class="mars">
+    <div class="chance-count">您还有<em>{{t}}</em>次机会</div>
+
+    <div class="get-list">
+        <ul style="transform: translateY(-0.821326rem)">
+            <li><span class="number">135****8372</span><span class="get">获得：一等奖，苹果6PLUS</span></li>
+            <li><span class="number">135****8372</span><span class="get">获得：二等奖，苹果6PLUS</span></li>
+            <li><span class="number">135****8372</span><span class="get">获得：一等奖，苹果6PLUS</span></li>
+            <li><span class="number">135****8372</span><span class="get">获得：一等奖，苹果6PLUS</span></li>
+            <li><span class="number">135****8372</span><span class="get">获得：一等奖，苹果6PLUS</span></li>
+            <li><span class="number">135****8372</span><span class="get">获得：一等奖，苹果6PLUS</span></li>
+            <li><span class="number">135****8372</span><span class="get">获得：一等奖，苹果6PLUS</span></li>
+        </ul>
+    </div>
+
+    <ul class="get-ruler">
+        <li>1. 活动期间，每个手机号每天可免费获得1次抽奖机会（每日00:00更新）</li>
+        <li>2. 活动时间为：2016年9月30日12：00——2016年10月9日12：00</li>
+        <li>3. 奖品中的火星劵的使用时间为领取日起7天内有效,逾期作废。</li>
+        <li>4. 实物奖品将会在客服电话确认后在活动结束后3——7个工作日联系，请耐心等待。</li>
+        <li>5. 如有疑问可致电客服010-59002324转621，联系客服QQ3416319270，或者加微信号 huoxingkufu进行问题反馈。</li>
+        <li>6. 本活动最终解释权归北京金影科技有限公司所有。</li>
+    </ul>
+</div>
+<div class="modal-backup" :style="{display: modal > 0 ? 'block' : 'none'}">
+    <div class="modal prize-modal" v-if="modal===1">
+        <span class="close" @click="closePrizeModal">&times;</span>
+        <div class="prize-img ticket"></div>
+        <div class="prize-content">
+            <p class="prize-name">您获得了{{prize.name}}，请输入手机号领取。</p>
+            <p class="prize-tips">奖品隔日领取无效，记得今日领取哦~</p>
+        </div>
+        <form class="get-form">
+            <div class="form-control">
+                <input type="tel" placeholder="请输入手机号" v-model="phone"/>
+            </div>
+            <div class="code-box">
+                <div class="form-control">
+                    <input type="tel" placeholder="请输入验证码" v-model="code"/>
+                </div>
+                <span class="code-btn" 
+                    @click="sendCode"
+                    :class="{'disabled': sending}">{{sending ? count + 's后重新获取' : '获取验证码'}}</span>
+            </div>
+        </form>
+        <div class="modal-btn" @click="receive">马上领取</div>
+    </div>
+    <div class="modal again-modal" v-if="modal===2">
+        <span class="close">&times;</span>
+        <div class="notice">
+            <h3>温馨提示：</h3>
+            <p>您当前已经抽过奖，请您明日再来，如果想要查询中奖信息，请在下方输入手机号获取验证码查询。</p>
+        </div>
+        <form class="get-form">
+            <div class="form-control">
+                <input type="tel" placeholder="请输入手机号" v-model="phone"/>
+            </div>
+            <div class="code-box">
+                <div class="form-control">
+                    <input type="tel" placeholder="请输入验证码" v-model="code"/>
+                </div>
+                <span class="code-btn" 
+                    @click="sendCode"
+                    :class="{'disabled': sending}">{{sending ? count + 's后重新获取' : '获取验证码'}}</span>
+            </div>
+        </form>
+        <div class="modal-btn">确定</div>
+    </div>
+
+    <div class="modal thank-modal" v-if="modal===3">
+        <div class="modal-btn">明日再来</div>
+    </div>
+
+    <div class="modal convert-modal" v-if="modal===4">
+        <div class="ticket-box">兑换码：fkadjsd90u234</div>
+        <p>长按兑换码，复制到火星小说APP中兑换奖品</p>
+        <div class="modal-btn">确定</div>
+    </div>
+
+    <div class="modal wait-modal" v-if="modal===5">
+        <!-- <h3>中奖记录已生成</h3>
+        <p>工作人员将在3~7个工作日内联系您<br>请您耐心等待</p> -->
+        <div class="modal-btn">确认</div>
+    </div>
+
+    <div class="modal record-modal" v-if="modal===6">
+        <h3></h3>
+        <h4>获奖记录</h4>
+        <div class="record-box">
+            <p>2016-09-20&ensp;获得&ensp;<em>小米手机5</em></p>
+            <p>2016-09-20&ensp;获得&ensp;<em>小米手机5</em></p>
+            <p>2016-09-20&ensp;获得&ensp;<em>小米手机5</em></p>
+            <p>2016-09-20&ensp;获得&ensp;<em>小米手机5</em></p>
+            <p>2016-09-20&ensp;获得&ensp;<em>小米手机5</em></p>
+            <p>2016-09-20&ensp;获得&ensp;<em>小米手机5</em></p>
+            <p>2016-09-20&ensp;获得&ensp;<em>小米手机5</em></p>
+            <p>2016-09-20&ensp;获得&ensp;<em>小米手机5</em></p>
+            <p>2016-09-20&ensp;获得&ensp;<em>小米手机5</em></p>
+        </div>
+        <span class="btn">确定</span>
+    </div>
+</div>
+
+<div class="alert" id="alert"></div>
+<script>
+    var _alertBox = document.getElementById('alert');
+    function _alert(message) {
+        _alertBox.innerHTML = message;
+        _alertBox.style.display = 'block';
+
+        setTimeout(function () {
+            _alertBox.style.display = 'none';
+        }, 1500);
+    }
+</script>
+<script src="//c.hotread.com/assets/js/vue.min.js"></script>
+<script src="//c.hotread.com/assets/js/vue-resource-polyfill.min.js"></script>
+<script>
+;(function (Vue) {
+    var COUNT = 60;
+    var result = {};
+    var webContext = '';
+    var records = [
+    ];
+    new Vue({
+        el: 'body',
+        data: {
+            list: [
+                {name: '99人民币', icon: 'rmb'},
+                {name: '苹果6PLUS', icon: 'ip6p'},
+                {name: '谢谢参与', icon: 'empty'},
+                {name: '99火星券', icon: 'ticket'},
+                {name: '小米手机5', icon: 'mi5'},
+                {name: '188火星券', icon: 'ticket'},
+                {name: '谢谢参与', icon: 'empty'}
+            ],
+            map: [1, 4, 7, 5, 3],
+            names: ['一等奖', '二等奖', '三等奖', '四等奖', '五等奖', '谢谢参与'],
+            modal: 1,
+            sending: false,
+            count: COUNT,
+            phone: '',
+            code: '',
+            t: 1,
+            prize: {index: 1, name: '苹果6PLUS'},
+            records: []
+        },
+        methods: {
+            closePrizeModal: function () {
+                this.modal = 0;
+                this.code = '';
+            },
+            check: function (){
+                if (!/^1\d{10}$/.test(this.phone)) {
+                    _alert('请输入11位手机号码');
+                    return false;
+                }
+                if (!/^\d{4}$/.test(this.code)) {
+                    _alert('请输入4位短信验证码');
+                    return false;
+                }
+                return true;
+            },
+            receive: function () {
+                if (!this.check()) {
+                    return false;
+                }
+                // Vue.http.post(webContext + '/', {
+                //     phone: this.phone,
+                // });
+            },
+            counting: function () {
+                var self = this;
+                this.count -= 1;
+                setTimeout(function () {
+                    if (self.count <= 1) {
+                        self.count = COUNT;
+                        self.sending = false;
+                    } else {
+                        self.counting();
+                    }
+                }, 1000);
+            },
+            sendCode: function () {
+                if (!/^1\d{10}$/.test(this.phone)) {
+                    _alert('请输入11位手机号码');
+                    return false;
+                }
+                if (!this.sending) {
+                    this.sending = true;
+                    this.counting();
+
+                    // Vue.http.post(webContext + '/sms/code', {
+                    //     phone: this.phone
+                    // }).then(function (resp) {
+                    // });
+                }
+            },
+            start: function () {
+                var self = this;
+                if (result.done || this.t < 1) {
+
+                } else {
+                    this.t = 0;
+                    this.rotate(3600);
+                    // Vue.http.post(webContext + '/')
+                    //     .then(function (resp) {
+                    //         self.setDeg(self.prize.index);
+                    //         setTimeout(function () {
+                    //             this.modal = 1;
+                    //         }, 10000)
+                    //     });
+                    setTimeout(function () {
+                        self.setDeg(self.prize.index);
+                        setTimeout(function () {
+                            console.log('show result');
+                            self.modal = 1;
+                        }, 3200)
+                    }, 1000);
+                }
+            },
+            rotate: function (deg) {
+                var cssText = 'transform: rotateZ(' + deg + 'deg);-webkit-transform: rotateZ(' + deg + 'deg);';
+                document.getElementById('rotate').style.cssText = cssText;
+            },
+            setDeg: function (level) {
+                var index = 2;
+                // 六等奖
+                if (level === 6) {
+                    index = Math.random() > 0.5 ? 2 : 6;
+                } else {
+                    index = this.map[level - 1];
+                }
+
+                var deg = 3600 + (14 - 2 * (index - 1) - 1) * 25.714285714;
+                var cssText = 'transform: rotateZ(' + deg + 'deg);-webkit-transform: rotateZ(' + deg + 'deg);';
+                document.getElementById('rotate').style.cssText = cssText;
+            },
+            getRecord: function () {
+                var self = this;
+                // Vue.http.get(webContext + '/')
+                //     .then(function (resp) {
+                            self.records = records;
+                //     });
+            }
+        },
+        ready: function () {
+          this.getRecord();
+        }
+    });
+})(Vue);
+</script>
+</body>
+</html>

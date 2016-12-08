@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <title>火星小说</title>
+  <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+  <link rel="stylesheet" href="../styles/story-wap.min.css">
+</head>
+<body>
+  
+  <header class="header">
+    <a class="slogan" href="./index.html">火星小说</a>
+    <div class="tools">
+      <a href="./search.html" class="search"><span class="icon-search"></span></a>
+      <div class="user-help">
+        <a href="./login.html">登录</a>
+        <i class="divide">|</i>
+        <a href="./register.html">注册</a>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    
+    <nav class="nav">
+      <a class="active" href="###">男频</a>
+      <a href="###">女频</a>
+      <a href="top.html">排行</a>
+      <a href="pay.html">充值</a>
+      <a href="bookshelf.html">书架</a>
+    </nav>
+    <div class="banner">
+      <a href="./toplist.html" class="back"><span class="icon-back"></span></a>
+      <h3>注册</h3>
+      <a href="login.html" class="go-login">登录</a>
+    </div>
+
+    <div class="wrap wrap-only">
+      <form @submit.prevent="doRegister" class="auth-form register-modal" id="registerForm">
+        <div class="form-group account">
+          <input type="text" v-model="nickName" placeholder="给自己起个牛逼的昵称吧">
+        </div>
+        <div class="form-group phone">
+          <span class="region">+86</span>
+          <input type="tel" v-model="mobilePhone" placeholder="手机号码">
+        </div>
+        <div class="form-group note">
+          <input type="tel" v-model="clientCode" placeholder="验证码">
+          <span class="count-second" :class="sended ? 'show' : 'hide'">{{count}}S</span>
+          <span class="note-btn" @click="getCode">获取验证码</span>
+        </div>
+        <div class="form-group password">
+          <input type="password" v-model="password" placeholder="密码（字母和数字不少于6位）">
+        </div>
+        <div class="form-group password-confirm">
+          <input type="password" v-model="password2" placeholder="确认密码">
+        </div>
+        <div class="submit-box">
+          <input type="submit" value="完&nbsp;成">
+        </div>
+      </form>
+      <div class="thirdly-login">
+          <div class="title">
+            <span class="border"></span>
+            <span>选择登录方式</span>
+            <span class="border"></span>
+          </div>
+          <div class="rect">
+            <a href=""><i class="icon-wechat"></i></a>
+            <a href=""><i class="icon-qq"></i></a>
+            <a href=""><i class="icon-weibo"></i></a>
+          </div>
+      </div>
+
+      <footer class="footer">
+        <form action="">
+          <input type="search" placeholder="输入关键词搜索小说">
+          <input type="submit" value="搜索">
+        </form>
+
+        <nav class="nav-bottom">
+          <a href="###">书架</a>
+          <a href="###">排行</a>
+          <a href="###">充值</a>
+          <a href="###">客户端</a>
+        </nav>
+
+        <div class="contact">
+          <div class="title">联系客服：</div>
+          <div class="contact-list">
+            <span>客服QQ:3416319270</span>
+            <span>客服微信:huoxingkufu</span>
+            <span>客服邮箱:kefu@hotread.com</span>
+            <span>客服电话:010-59002324-621</span>
+          </div>
+        </div>
+
+      </footer>
+    </div>
+  </main>
+  <div class="alert" id="_alert">请输入11位手机号码</div>
+  <script>
+    ;(function (win) {
+      var box = document.getElementById('_alert');
+      var _alert = function (msg) {
+        if (msg && !/[<>]/.test(msg)) {
+          box.innerHTML = msg;
+          box.style.display = 'block';
+          setTimeout(function () {
+            box.style.display = 'none';
+          }, 1500);
+        }
+      };
+      win._alert = _alert;
+    })(window);
+  </script>
+  <script src="https://npmcdn.com/vue@1.0.26/dist/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.1/vue-resource.min.js"></script>
+  <script>
+    ;(function (Vue) {
+      new Vue({
+        el: '#registerForm',
+        data: {
+          nickName: '',
+          mobilePhone: '',
+          clientCode: '',
+          password: '',
+          password2: '',
+          sended: false,
+          count: 120
+        },
+        computed: {
+          phoneValid: function () {
+            return /^1\d{10}$/.test(this.mobilePhone);
+          },
+          codeValid: function () {
+            return /^\d{4}$/.test(this.clientCode);
+          },
+          passwordValid: function () {
+            return this.password.length > 5;
+          },
+          confirmValid: function () {
+            return this.password === this.password2;
+          },
+          nameValid: function () {
+            return !!this.nickName;
+          }
+        },
+        methods: {
+          doValid: function () {
+            if (!this.nameValid) {
+              _alert('请输入昵称');
+              return false;
+            }
+            if (!this.phoneValid) {
+              _alert('请输入11位手机号码');
+              return false;
+            }
+            if (!this.codeValid) {
+              _alert('请输入4位短信验证码');
+              return false;
+            }
+            if (!this.passwordValid) {
+              _alert('请输入密码');
+              return false;
+            }
+            if (!this.confirmValid) {
+              _alert('两次密码输入不一致');
+              return false;
+            }
+            return true;
+          },
+          doRegister: function () {
+            if (!this.doValid()) {
+              return false;
+            }
+
+          },
+          getCode: function () {
+            if (this.sended) {
+              return false;
+            }
+            if (!this.phoneValid) {
+              _alert('请输入11位手机号码');
+              return false;
+            }
+            this.sendCode();
+            this.sended = true;
+            this.counting();
+          },
+          sendCode: function () {
+            this.$http.post('/storyUser/register/do', {
+              mobilePhone: this.mobilePhone
+            });
+            console.log(this.$http.post);
+          },
+          counting: function () {
+            var self = this;
+            if (this.sended && this.count >= 1) {
+              setTimeout(function () {
+                self.count -= 1;
+                self.counting();
+              }, 1000);
+            } else {
+              this.sended = false;
+              this.count = 10;
+            }
+          }
+        }
+      });
+    })(Vue);
+  </script>
+</body>
+</html>

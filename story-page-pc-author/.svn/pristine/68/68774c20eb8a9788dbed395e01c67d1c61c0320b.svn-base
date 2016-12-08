@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="nav">
+    <h4>作者中心</h4>
+    <ul>
+      <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+      <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+      <li class="item"><a href="reward.html">打赏收入</a></li>
+      <li class="item"><a href="comment.html">评论管理</a></li>
+      <li class="item"><a href="settings.html">个人设置</a></li>
+    </ul>
+  </div>
+  <div class="setroll fl">
+    <div class="right-header-haveback">
+      <p class="hint wryh-font"><a href="worksList.html" class="back">作品列表</a><span>山村老尸</span></p>
+    </div>
+    <div class="main-nav">
+      <a href="worksList-setroll.html" class="active">分卷设置</a>
+      <a href="worksList-writeNewSection.html">写新章节</a>
+      <a href="worksList-drafts.html">草稿箱</a>
+      <a href="worksList-issue.html">已发布章节</a>
+      <a href="worksList-setProduction.html">作品设置</a>
+    </div>
+    <div class="addbtn-box">
+      <div class="btn fr">添加卷</div>
+    </div>
+    <div class="list-title sr-t">
+      <span>序号</span>
+      <span>卷名</span>
+      <span>章节数</span>
+      <span>总字数</span>
+      <span>操作</span>
+    </div>
+    <ul class="setroll-list">
+      <li>
+        <span class="num">1</span>
+        <span class="rollname">第一卷 火星之旅</span>
+        <span class="sectionnum">3552</span>
+        <span class="wordsnum">44515</span>
+        <span class="operate">
+          <a href="worksList-setroll-popup.html" class="amend">编辑</a>
+          <a href="" class="del">删除</a>
+        </span>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <span class="rollname">第一卷 火星之旅</span>
+        <span class="sectionnum">3552</span>
+        <span class="wordsnum">44515</span>
+        <span class="operate">
+          <a href="worksList-setroll-popup.html" class="amend">编辑</a>
+          <a href="" class="del">删除</a>
+        </span>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <span class="rollname">第一卷 火星之旅</span>
+        <span class="sectionnum">3552</span>
+        <span class="wordsnum">44515</span>
+        <span class="operate">
+          <a href="worksList-setroll-popup.html" class="amend">编辑</a>
+          <a href="" class="del">删除</a>
+        </span>
+      </li>
+      <li>
+        <span class="num">4</span>
+        <span class="rollname">第一卷 火星之旅</span>
+        <span class="sectionnum">3552</span>
+        <span class="wordsnum">44515</span>
+        <span class="operate">
+          <a href="worksList-setroll-popup.html" class="amend">编辑</a>
+          <a href="" class="del">删除</a>
+        </span>
+      </li>
+    </ul>
+    <div class="paging">
+        <ul class="paging-list">
+            <li class="paging-left"></li>
+            <li class="paging-item active">1</li>
+            <li class="paging-item">2</li>
+            <li class="paging-item">3</li>
+            <li class="paging-item">4</li>
+            <li class="paging-right"></li>
+        </ul>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="popup">
+    <div class="popup-box">
+        <a href="" class="popup-close"></a>
+        <h3 class="popup-title">修改卷名</h3>
+        <section class="popup-body">
+            <span class="popup-name">卷名</span>
+            <div class="popup-v all-input-box" :class="{'error': target=='rollname', 'has-value': rollname}" data-placeholder="卷一：再起风云之雄霸天下">
+              <input type="text" v-model="rollname" />
+            </div>
+            <p class="popup-t">卷名不允许重名，限定20字以内。例卷一</p>
+        </section>
+        <footer class="popup-footer">
+            <div class="btn disabled-btn">取消</div>
+            <div class="btn">确定</div>
+        </footer>
+    </div>
+
+</div>
+<script>
+new Vue({
+    el: 'body',
+    data: {
+        rollname: '',
+        target: 'mobilephone'
+    }
+});
+</script>

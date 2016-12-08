@@ -1,0 +1,367 @@
+.detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 15px;
+
+  .cover {
+    display: block;
+    min-width: 76px;
+    max-width: 76px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 6px;
+    box-shadow: $coverShadow;
+  }
+
+  .descn {
+    flex: 1;
+    height: 100px;
+    padding-left: 10px;
+
+    > h4 {
+      line-height: 24px;
+      font-size: 16px;
+      overflow: hidden;
+      word-break: break-all;
+    }
+
+    .about {
+      margin-top: 5px;
+      font-size: 12px;
+      color: $text-medium;
+    }
+
+    .book-type {
+      &::before, &::after {
+        content: "|";
+        margin: 0 5px;
+      }
+    }
+  }
+}
+
+.operate {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $border;
+
+  .btn {
+    flex: 1;
+    display: block;
+
+    &:nth-child(2) {
+      margin: 0 10px;
+    }
+  }
+
+  ~ .introduce {
+    padding: 15px 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: $text-medium;
+
+    p {
+      font-size: 14px;
+      word-break: break-all;
+      text-indent: 2em;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  }
+}
+
+.section {
+  > h4, .section-h4 {
+    font-size: 15px;
+    color: $text;
+    padding: 15px 0;
+  }
+
+  .tag-list {
+    padding-bottom: 5px;
+    font-size: 0;
+    .tag {
+      font-size: 12px;
+      color: $tag;
+      border: 1px solid $tag;
+      display: inline-block;
+      white-space: nowrap;
+      line-height: 24px;
+      border-radius: 15px;
+      padding: 0 10px;
+      margin: 0 5px 10px 0;
+    }
+  }
+}
+
+.right-expand {
+  position: relative;
+  padding-right: 30px;
+  .icon-right {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -6px;
+    font-size: 12px;
+    color: $icon;
+  }
+}
+
+.update-chapter {
+  font-size: 13px;
+  color: $text-medium;
+}
+
+.update-time {
+  margin: 10px 0 15px;
+  font-size: 13px;
+  color: $text-light;
+}
+
+.comment-box {
+  position: relative;
+
+  .write-comment {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 15px 15px 10px;
+    font-size: 12px;
+    color: $theme;
+  }
+}
+
+.comment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 15px 0 0;
+  border-bottom: 1px solid $border;
+  margin-bottom: 15px;
+
+  .user-avatar {
+    min-width: 30px;
+    max-width: 30px;
+
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+    }
+  }
+
+  .comment-detail {
+    padding: 0 10px;
+    font-size: 14px;
+    flex: 1;
+
+    h4 {
+      padding: 6px 0;
+      line-height: 20px;
+      .ding, .jing {
+        margin: 2px 0 0 5px;
+        float: right;
+      }
+    }
+
+    > p {
+      color: $text-medium;
+      line-height: 1.5;
+    }
+
+    .comment-operate {
+      line-height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $text-light;
+      font-size: 12px;
+    }
+  }
+
+  [class^="icon-"] {
+    margin-right: 2px;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  .add-comment {
+    display: block;
+    flex: 3;
+    text-align: center;
+  }
+
+  .add-fav {
+    display: block;
+    flex: 1;
+    text-align: right;
+  }
+
+  .ding, .jing {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    font-style: normal;
+    font-size: 10px;
+    text-align: center;
+    line-height: 15px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+  }
+
+  .ding {
+    color: $top;
+    border-color: $top;
+  }
+
+  .jing {
+    color: $fine;
+    border-color: $fine;
+  }
+}
+
+.more-comment {
+  display: block;
+  font-size: 15px;
+  color: $text-medium;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.comment-header {
+  padding-top: 15px;
+  margin-bottom: 0;
+
+  ~ h3 {
+    margin-bottom: 15px;
+  }
+}
+
+.comment-form {
+  background: #fff;
+  flex: 1;
+  padding-bottom: 40px;
+  text-align: center;
+
+  input[type="submit"] {
+    border: 0 none;
+    width: 80%;
+    max-width: 16em;
+    line-height: 40px;
+  }
+}
+
+.comment-text {
+  width: 100%;
+  height: 16em;
+  padding: 15px;
+  font-size: 15px;
+  color: $text;
+}
+
+.order {
+  margin: 20px auto;
+  width: 158px;
+  height: 36px;
+  border: 1px solid $text-light;
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    flex: 1;
+    display: block;
+    line-height: 36px;
+    font-size: 14px;
+    color: $text;
+
+    &.active {
+      color: $theme;
+    }
+
+    &:first-child {
+      text-align: right;
+      padding-right: 15px;
+    }
+
+    &:last-child {
+      padding-left: 15px;
+    }
+  }
+
+  .divide {
+    display: block;
+    width: 1px;
+    height: 14px;
+    background: $text-light;
+  }
+}
+
+.catalogue {
+  li {
+    position: relative;
+    height: 44px;
+    border-bottom: 1px solid $border;
+  }
+
+  .isvip {
+    &::after {
+      position: absolute;
+      right: 0;
+      top: 13px;
+      content: "\4ed8";
+      display: block;
+      width: 18px;
+      height: 18px;
+      font-size: 12px;
+      color: $vip;
+      border: 1px solid $vip;
+      border-radius: 2px;
+      text-align: center;
+      line-height: 17px;
+    }
+  }
+
+  .payed {
+    &::after {
+      position: absolute;
+      right: 0;
+      top: 13px;
+      content: "\5df2\4ed8";
+      display: block;
+      width: 32px;
+      height: 18px;
+      font-size: 12px;
+      color: $payed;
+      border: 1px solid $payed;
+      border-radius: 2px;
+      text-align: center;
+      line-height: 17px;
+    }
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    color: $text;
+    font-size: 15px;
+    line-height: 44px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 34px;
+    text-overflow: ellipsis;
+    @include tap();
+    &:hover {
+      color: $theme;
+    }
+  }
+}
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <title>火星小说</title>
+  <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+  <link rel="stylesheet" href="../styles/story-wap.min.css">
+</head>
+<body>
+  
+  <header class="header">
+    <a class="slogan" href="./index.html">火星小说</a>
+    <div class="tools">
+      <a href="./search.html" class="search"><span class="icon-search"></span></a>
+      <div class="user-help">
+        <a href="./login.html">登录</a>
+        <i class="divide">|</i>
+        <a href="./register.html">注册</a>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    
+    <nav class="nav">
+      <a href="index.html">男频</a>
+      <a href="###">女频</a>
+      <a class="active" href="top.html">排行</a>
+      <a href="pay.html">充值</a>
+      <a href="bookshelf.html">书架</a>
+    </nav>
+    <div class="banner">
+      <a href="./toplist.html" class="back"><span class="icon-back"></span></a>
+      <h3>男频人气榜</h3>
+    </div>
+    <div class="top-scope">
+      <a class="active" href="###"><span>周榜</span></a>
+      <a href="###"><span>月榜</span></a>
+      <a href="###"><span>总榜</span></a>
+    </div>
+
+    <div class="wrap">
+
+      <section class="section">
+        <ul class="books-column">
+          <li>
+            <a href="./details.html">
+              <span class="cover order-1" data-order="1" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="serial">连载</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover order-2" data-order="2" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover order-3" data-order="3" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover order-4" data-order="4" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+
+        <form action="">
+          <input type="search" placeholder="输入关键词搜索小说">
+          <input type="submit" value="搜索">
+        </form>
+
+        <nav class="nav-bottom">
+          <a href="###">书架</a>
+          <a href="###">排行</a>
+          <a href="###">充值</a>
+          <a href="###">客户端</a>
+        </nav>
+
+        <div class="contact">
+          <div class="title">联系客服：</div>
+          <div class="contact-list">
+            <span>客服QQ:3416319270</span>
+            <span>客服微信:huoxingkufu</span>
+            <span>客服邮箱:kefu@hotread.com</span>
+            <span>客服电话:010-59002324-621</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+</body>
+</html>

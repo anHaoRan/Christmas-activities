@@ -1,0 +1,149 @@
+.pagination {
+  margin: 20px 0;
+  overflow: hidden;
+  font-size: 0;
+
+  &.small {
+    margin: 10px;
+
+    > ul {
+      > li {
+        a, span {
+          width: 20px;
+          height: 20px;
+          line-height: 18px;
+          font-size: 12px;
+        }
+
+        &.dots {
+          height: 20px;
+          line-height: 20px;
+          i, &::before, &::after {
+            width: 2px;
+            height: 2px;
+          }
+        }
+
+        &.prev {
+          a, span {
+            &::before {
+              top: 6px;
+              left: 7.5px;
+              border-width: 4px 4px 4px 0;
+            }
+          }
+        }
+
+        &.next {
+          a, span {
+            &::before {
+              top: 6px;
+              left: 7.5px;
+              border-width: 4px 0 4px 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      display: inline-block;
+      margin-right: 10px;
+      position: relative;
+      vertical-align: middle;
+
+      &.next {
+        margin-right: 0;
+      }
+
+      &.prev {
+        a, span {
+          &::before {
+            content: "";
+            position: absolute;
+            top: 11px;
+            left: 14.5px;
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+            border-left-width: 0;
+            border-right-color: #666;
+          }
+        }
+      }
+
+      &.next {
+        a, span {
+          &::before {
+            content: "";
+            position: absolute;
+            top: 11px;
+            left: 14.5px;
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+            border-right-width: 0;
+            border-left-color: #666;
+          }
+        }
+      }
+
+      &.disabled {
+        span {
+          background: #e4e4e4;
+        }
+      }
+
+      &.active {
+        span {
+          background: #fd3339;
+          color: #fff;
+          border-color: #fd3339;
+        }
+      }
+
+      &.dots {
+        width: 17px;
+        height: 36px;
+        font-size: 0;
+        line-height: 36px;
+        
+        i, &::before, &::after {
+          display: inline-block;
+          content: "";
+          width: 3px;
+          height: 3px;
+          background: #666;
+          vertical-align: middle;
+        }
+
+        i {
+          margin: 0 4px;
+        }
+      }
+
+      a, span {
+        display: block;
+        width: 36px;
+        height: 36px;
+        text-align: center;
+        line-height: 34px;
+        color: #808080;
+        border: 1px solid #e1e1e1;
+        border-radius: 2px;
+        background: #fff;
+        font-size: 14px;
+      }
+
+      a:hover {
+        border-color: #999;
+      }
+    }
+  }
+}

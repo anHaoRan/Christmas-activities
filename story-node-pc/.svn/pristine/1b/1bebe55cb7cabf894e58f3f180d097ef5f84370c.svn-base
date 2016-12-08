@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh" class="{{rootClass}}">
+
+<head>
+  <meta charset="UTF-8">
+  {{!-- <title>火星小说 {{title}}</title> --}}
+  <title>火星小说，提供最新最热的免费小说在线阅读，各种好看的都市小说、悬疑小说、军事历史小说、玄幻小说、言情小说、穿越小说、耽美小说</title>
+  <meta name="keywords" content="小说，网络小说，小说网，免费小说，完本小说，都市小说，悬疑小说，玄幻小说，军事小说，历史小说，言情小说，耽美小说，穿越小说">
+  <meta name="description" content="火星小说，提供最新最热的免费小说在线阅读，各种好看的都市小说、悬疑小说、军事历史小说、玄幻小说、言情小说、穿越小说、耽美小说尽汇于此。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{cdn}}/assets/images/favico.ico" rel="shortcut icon">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta property="wb:webmaster" content="9c7fc0d9e77080c8" />
+  <meta property="qc:admins" content="0237266277607425146375" />
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/story.min.css">
+  
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/girl.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/index.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/chart.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/library.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/details.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/readTheArticle.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/qualityCopyright.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/topUp.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/userCenter.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/download.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/search.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/catalogue.min.css">
+  <link rel="stylesheet" href="{{cdn}}/assets/styles/auth.min.css">
+  <script type="text/javascript">
+    (function  () {
+      var common = '[normalize][story]';
+      var styleSheets = document.styleSheets;
+      var size = styleSheets.length;
+      var styleMap = {};
+      for (var i = 0; i < size; i++) {
+        var link = styleSheets[i];
+        if (link.ownerNode.nodeName === 'LINK') {
+          var linkName = link.href.split('/').pop().split('.').shift();
+          if (common.indexOf('[' + linkName + ']') > -1) {
+            continue;
+          }
+          link.disabled = true;
+          styleMap[linkName] = link;
+        }
+      }
+      window.styleMap = styleMap;
+    })();
+  </script>
+  <style type="text/css">.third-login {display: block !important;}</style>
+</head>
+
+<body>
+  <div id="app">{{{body}}}</div>
+  
+  <script type="text/javascript">
+  (function () {
+    var cdn = '{{cdn}}';
+    window._alert = function (content, type, width, during, position) {
+      var box = document.createElement('div');
+      box.style.cssText = 'z-index: 99999;';
+      box.className = 'notification ' + (type ? type : 'success');
+      box.innerHTML = content || '';
+      if (position === 'center') {
+        width = width || 210;
+        box.style.cssText = 'z-index: 30000;top: 50%; right: 50%;margin-top: -34px;margin-right: ' + (width / -2) + 'px;width:' + width + 'px';
+      }
+
+      document.body.appendChild(box);
+
+      setTimeout(function () {
+        document.body.removeChild(box);
+      }, during || 3000);
+    };
+
+    window._alertCenter = function (content, type, width, during) {
+      window._alert.apply(window, [content, type, width, during, 'center'])
+    }
+
+    var loadingBox;
+
+    window._loading = function (hide) {
+      if (hide) {
+        if (loadingBox) {
+          document.body.removeChild(loadingBox);
+          loadingBox = null;
+        }
+      } else {
+        if (loadingBox) {
+          return false;
+        }
+        loadingBox = document.createElement('div');
+        loadingBox.style.cssText = 'position: fixed;z-index: 999999;top: 50%;left:50%;margin: -30px 0 0 -50px;width: 100px;height: 60px;border-radius: 5px;background: rgba(0, 0, 0, .2) url("' + cdn + '/assets/images/loading.gif") no-repeat 50% 50% / 30px 30px;';
+
+        document.body.appendChild(loadingBox);
+      }
+    }
+  })();
+  </script>
+  <script type="text/javascript">window.__INITIAL_STATE__ = {{{initialState}}};</script>
+  <!--[if IE]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.13.0/polyfill.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="{{cdn}}/build/common.js"></script>
+  <script type="text/javascript" src="{{cdn}}/build/app.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?1ff0e73fea115b943850e1afc067ed22";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</body>
+
+</html>

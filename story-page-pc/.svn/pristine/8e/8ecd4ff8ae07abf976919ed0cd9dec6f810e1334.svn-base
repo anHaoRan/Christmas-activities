@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html class="root platform-mac">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>火星小说</title>
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="../styles/story.min.css">
+</head>
+
+<body>
+  <!--头部-->
+  <div class="hotr-header">
+    <div class="header-bg">
+      <div class="header-main">
+        <ul>
+          <li class="logo"></li>
+          <li>
+            <div class="header-search">
+              <input type="text" name="" id="" value="" class="search-text" placeholder="妖孽美人如毒药" />
+              <a href="search.html" class="search-btn"></a>
+            </div>
+            <p class="header-recommend"><a>绘天凤凰</a><a>绘天凤凰</a><a>绘天凤凰</a></p>
+          </li>
+        </ul>
+        <div class="user-state"><a href="login.html">登陆</a>|<a href="register.html">注册</a>|<a>作者中心</a></div>
+      </div>
+    </div>
+  </div>
+  <link rel="stylesheet" href="../styles/girl.min.css" />
+<!--导航-->
+<div class="hotr-nav">
+  <ul class="nav-main">
+    <li><a href="index.html">首页</a></li>
+    <li class="on"><a href="girl.html">女频</a></li>
+    <li><a href="#">男频</a></li>
+    <li><a href="chart.html">排行</a></li>
+    <li><a href="library.html">书库</a></li>
+    <li><a href="qualityCopyright.html">优质版权</a></li>
+    <li><a href="topUp.html">充值</a></li>
+    <li><a href="#">福利</a></li>
+    <li><a href="#">下载客户端</a></li>
+  </ul>
+</div>
+<!--本周热推-->
+<div class="weekHot">
+  <div class="weekHot-main">
+    <h2 class="weekHot-title">本周热推</h2>
+    <div class="picAuto">
+      <ul class="bigBook-rect">
+        <li class="bigBook-list">
+          <a href="#"><img src="../assets/pic5.jpg" /></a>
+        </li>
+        <li class="bigBook-list">
+          <a href="#"><img src="../assets/pic5.jpg" /></a>
+        </li>
+        <li class="bigBook-list">
+          <a href="#"><img src="../assets/pic5.jpg" /></a>
+        </li>
+        <li class="bigBook-list">
+          <a href="#"><img src="../assets/pic5.jpg" /></a>
+        </li>
+        <li class="bigBook-list">
+          <a href="#"><img src="../assets/pic5.jpg" /></a>
+        </li>
+      </ul>
+      <ol class="smallBook-rect">
+        <li class="smallBook-list on">
+          <a href="#"><img src="../assets/pic6.jpg" /></a>
+        </li>
+        <li class="smallBook-list">
+          <a href="#"><img src="../assets/pic6.jpg" /></a>
+        </li>
+        <li class="smallBook-list">
+          <a href="#"><img src="../assets/pic6.jpg" /></a>
+        </li>
+        <li class="smallBook-list">
+          <a href="#"><img src="../assets/pic6.jpg" /></a>
+        </li>
+        <li class="smallBook-list">
+          <a href="#"><img src="../assets/pic6.jpg" /></a>
+        </li>
+      </ol>
+      <div class="cover"></div>
+      <span class="bookName">真爱你的云</span>
+    </div>
+    <div class="bookIntro">
+      <dl class="bookIntro-rect">
+        <dt class="bookIntro-title"><a href="#">一场关于爱你的游戏：男友帮庆生竟是阴谋诡计</a></dt>
+        <dd class="bookIntro-list"><a href="#"><span>[现代言情]</span> <span>将军美人劫</span>：<span>爱上拖着酱油瓶的禁欲系大叔遇真爱</span></a></dd>
+        <dd class="bookIntro-list"><a href="#">[古代言情] 首席经纪人：男友带我走上蜕变之路</a></dd>
+        <dd class="bookIntro-list"><a href="#">[现代言情] 将军美人劫：爱上拖着酱油瓶的禁欲系大叔遇真爱</a></dd>
+        <dd class="bookIntro-list"><a href="#">[古代言情] 首席经纪人：男友带我走上蜕变之路</a></dd>
+      </dl>
+      <dl class="bookIntro-rect">
+        <dt class="bookIntro-title"><a href="#">一场关于爱你的游戏：男友帮庆生竟是阴谋诡计</a></dt>
+        <dd class="bookIntro-list"><a href="#">[现代言情] 将军美人劫：爱上拖着酱油瓶的禁欲系大叔遇真爱</a></dd>
+        <dd class="bookIntro-list"><a href="#">[古代言情] 首席经纪人：男友带我走上蜕变之路</a></dd>
+        <dd class="bookIntro-list"><a href="#">[现代言情] 将军美人劫：爱上拖着酱油瓶的禁欲系大叔遇真爱</a></dd>
+        <dd class="bookIntro-list"><a href="#">[古代言情] 首席经纪人：男友带我走上蜕变之路</a></dd>
+      </dl>
+      <dl class="bookIntro-rect">
+        <dt class="bookIntro-title"><a href="#">一场关于爱你的游戏：男友帮庆生竟是阴谋诡计</a></dt>
+        <dd class="bookIntro-list"><a href="#">[现代言情] 将军美人劫：爱上拖着酱油瓶的禁欲系大叔遇真爱</a></dd>
+        <dd class="bookIntro-list"><a href="#">[古代言情] 首席经纪人：男友带我走上蜕变之路</a></dd>
+        <dd class="bookIntro-list"><a href="#">[现代言情] 将军美人劫：爱上拖着酱油瓶的禁欲系大叔遇真爱</a></dd>
+        <dd class="bookIntro-list"><a href="#">[古代言情] 首席经纪人：男友带我走上蜕变之路</a></dd>
+      </dl>
+    </div>
+  </div>
+  <div style="width: 208px;float: right">
+    <div class="ranking">
+      <h2 class="rankTitle">新书榜<span><em class="day on">日</em><em class="week">周</em><em class="month">月</em></span></h2>
+      <dl class="ranking-rect" style="height: 446px;">
+        <dd class="on">
+          <a href="#" class="rectBg girlBg">
+            <em class="num">01</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dt class="more"><a href="#">查看更多</a></dt>
+      </dl>
+    </div>
+  </div>
+</div>
+<!--精品推荐-->
+<div class="girlRecommend">
+  <div class="girlRecommend-rect">
+    <h2 class="girlRecommend-title">精品推荐</h2>
+    <div class="chiefBook">
+      <a href="#">
+        <img src="../assets/pic5.jpg" />
+        <div class="message">
+          <h2 class="bookName">一代医后</h2>
+          <span class="author">帅虎</span>
+          <p class="recoSent">小编推荐：喜欢温暖美好的故事，一如江南温暖的流水，希望自己的文字如暖流...</p>
+        </div>
+      </a>
+    </div>
+    <ul class="assistantBook">
+      <li>
+        <a href="#">
+          <img src="../assets/pic7.jpg" />
+          <div class="message">
+            <h2 class="bookName">错嫁金婚</h2>
+            <span class="author">一犁春雨</span>
+            <p class="recoSent">小编推荐 : 我爱的男人跟你的未婚妻在一起， 如果我嫁给你，会是什么样？</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="../assets/pic7.jpg" />
+          <div class="message">
+            <h2 class="bookName">错嫁金婚</h2>
+            <span class="author">一犁春雨</span>
+            <p class="recoSent">小编推荐 : 我爱的男人跟你的未婚妻在一起， 如果我嫁给你，会是什么样？</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="../assets/pic7.jpg" />
+          <div class="message">
+            <h2 class="bookName">错嫁金婚</h2>
+            <span class="author">一犁春雨</span>
+            <p class="recoSent">小编推荐 : 我爱的男人跟你的未婚妻在一起， 如果我嫁给你，会是什么样？</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div style="width: 208px;float: right">
+      <div class="ranking">
+        <h2 class="rankTitle">新书榜<span><em class="day on">日</em><em class="week">周</em><em class="month">月</em></span></h2>
+        <dl class="ranking-rect" style="height: 446px;">
+          <dd class="on">
+            <a href="#" class="rectBg girlBg">
+              <em class="num">01</em>
+              <img src="../assets/pic3.jpg" />
+              <h3 class="bookName">绘天神凤</h3>
+              <p class="author">李慕白</p>
+            </a>
+          </dd>
+          <dd class="">
+            <a href="#" class="rectBg">
+              <em class="num">02</em>
+              <img src="../assets/pic3.jpg" />
+              <h3 class="bookName">绘天神凤</h3>
+              <p class="author">李慕白</p>
+            </a>
+          </dd>
+          <dd class="">
+            <a href="#" class="rectBg">
+              <em class="num">02</em>
+              <img src="../assets/pic3.jpg" />
+              <h3 class="bookName">绘天神凤</h3>
+              <p class="author">李慕白</p>
+            </a>
+          </dd>
+          <dd class="">
+            <a href="#" class="rectBg">
+              <em class="num">02</em>
+              <img src="../assets/pic3.jpg" />
+              <h3 class="bookName">绘天神凤</h3>
+              <p class="author">李慕白</p>
+            </a>
+          </dd>
+          <dd class="">
+            <a href="#" class="rectBg">
+              <em class="num">02</em>
+              <img src="../assets/pic3.jpg" />
+              <h3 class="bookName">绘天神凤</h3>
+              <p class="author">李慕白</p>
+            </a>
+          </dd>
+          <dd class="">
+            <a href="#" class="rectBg">
+              <em class="num">02</em>
+              <img src="../assets/pic3.jpg" />
+              <h3 class="bookName">绘天神凤</h3>
+              <p class="author">李慕白</p>
+            </a>
+          </dd>
+          <dd class="">
+            <a href="#" class="rectBg">
+              <em class="num">02</em>
+              <img src="../assets/pic3.jpg" />
+              <h3 class="bookName">绘天神凤</h3>
+              <p class="author">李慕白</p>
+            </a>
+          </dd>
+          <dd class="">
+            <a href="#" class="rectBg">
+              <em class="num">02</em>
+              <img src="../assets/pic3.jpg" />
+              <h3 class="bookName">绘天神凤</h3>
+              <p class="author">李慕白</p>
+            </a>
+          </dd>
+          <dt class="more"><a href="#">查看更多</a></dt>
+        </dl>
+      </div>
+    </div>
+</div>
+<!--女频banner-->
+<div class="girl-banner">
+  <a href="#"><img src="../assets/girl-banner.jpg" /></a>
+</div>
+<!--分类推荐-->
+<div class="classify">
+  <div class="classify-rect">
+    <h3 class="classify-title">分类推荐</h3>
+    <ul class="columnBook-rect">
+      <li class="columnBook-list">
+        <h2 class="type">古代言情<a href="#" class="more">更多</a></h2>
+        <a href="" class="bookLink">
+          <img src="../assets/pic2.jpg" />
+          <div class="details">
+            <h3 class="bookName">邪少的心尖宠儿</h3>
+            <em class="author">黎欣悠悠</em>
+            <p class="intro">简介：最强代号的国之利刃，突然沦为了仓库搬运工，这其中到</p>
+            <span class="sent">小编推荐语：最强代号的国之利刃，突然沦为了仓库搬运工</span>
+          </div>
+        </a>
+        <div>
+          <p class="comment"><a href="">药孽：美人如毒药：在网络游戏中的爱情</a></p>
+          <p class="comment"><a href="">教授大人别惹我：反骨的女主教你生存法则所向无敌</a></p>
+          <p class="comment"><a href="">邪少的心尖宠儿：他的心里还住着另外一个女人！</a></p>
+        </div>
+      </li>
+      <li class="columnBook-list">
+        <h2 class="type">古代言情<a href="#" class="more">更多</a></h2>
+        <a href="" class="bookLink">
+          <img src="../assets/pic2.jpg" />
+          <div class="details">
+            <h3 class="bookName">邪少的心尖宠儿</h3>
+            <em class="author">黎欣悠悠</em>
+            <p class="intro">简介：最强代号的国之利刃，突然沦为了仓库搬运工，这其中到</p>
+            <span class="sent">小编推荐语：最强代号的国之利刃，突然沦为了仓库搬运工</span>
+          </div>
+        </a>
+        <div>
+          <p class="comment"><a href="">药孽：美人如毒药：在网络游戏中的爱情</a></p>
+          <p class="comment"><a href="">教授大人别惹我：反骨的女主教你生存法则所向无敌</a></p>
+          <p class="comment"><a href="">邪少的心尖宠儿：他的心里还住着另外一个女人！</a></p>
+        </div>
+      </li>
+      <li class="columnBook-list">
+        <h2 class="type">古代言情<a href="#" class="more">更多</a></h2>
+        <a href="" class="bookLink">
+          <img src="../assets/pic2.jpg" />
+          <div class="details">
+            <h3 class="bookName">邪少的心尖宠儿</h3>
+            <em class="author">黎欣悠悠</em>
+            <p class="intro">简介：最强代号的国之利刃，突然沦为了仓库搬运工，这其中到</p>
+            <span class="sent">小编推荐语：最强代号的国之利刃，突然沦为了仓库搬运工</span>
+          </div>
+        </a>
+        <div>
+          <p class="comment"><a href="">药孽：美人如毒药：在网络游戏中的爱情</a></p>
+          <p class="comment"><a href="">教授大人别惹我：反骨的女主教你生存法则所向无敌</a></p>
+          <p class="comment"><a href="">邪少的心尖宠儿：他的心里还住着另外一个女人！</a></p>
+        </div>
+      </li>
+      <li class="columnBook-list">
+        <h2 class="type">古代言情<a href="#" class="more">更多</a></h2>
+        <a href="" class="bookLink">
+          <img src="../assets/pic2.jpg" />
+          <div class="details">
+            <h3 class="bookName">邪少的心尖宠儿</h3>
+            <em class="author">黎欣悠悠</em>
+            <p class="intro">简介：最强代号的国之利刃，突然沦为了仓库搬运工，这其中到</p>
+            <span class="sent">小编推荐语：最强代号的国之利刃，突然沦为了仓库搬运工</span>
+          </div>
+        </a>
+        <div>
+          <p class="comment"><a href="">药孽：美人如毒药：在网络游戏中的爱情</a></p>
+          <p class="comment"><a href="">教授大人别惹我：反骨的女主教你生存法则所向无敌</a></p>
+          <p class="comment"><a href="">邪少的心尖宠儿：他的心里还住着另外一个女人！</a></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div style="width: 208px;float: right">
+    <div class="ranking">
+      <h2 class="rankTitle">新书榜<span><em class="day on">日</em><em class="week">周</em><em class="month">月</em></span></h2>
+      <dl class="ranking-rect" style="height: 806px;">
+        <dd class="on">
+          <a href="#" class="rectBg girlBg">
+            <em class="num">01</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dd class="">
+          <a href="#" class="rectBg">
+            <em class="num">02</em>
+            <img src="../assets/pic3.jpg" />
+            <h3 class="bookName">绘天神凤</h3>
+            <p class="author">李慕白</p>
+          </a>
+        </dd>
+        <dt class="more"><a href="#">查看更多</a></dt>
+      </dl>
+    </div>
+  </div>
+</div>
+
+    <!--页脚-->
+    <div class="footer">
+      <div class="footer-main">
+        <div class="contact">
+          <div>
+            <p>火星小说</p>
+            <span>最受欢迎的阅读产品</span>
+            <dl>
+              <dt>关注我们</dt>
+              <dd class='weixin-logo' style="margin-right: 20px;"></dd>
+              <dd class='weibo-logo'></dd>
+            </dl>
+          </div>
+          <div>
+            <p>作者中心</p>
+            <span>投稿请联系编辑</span>
+            <a href="#" class="contact-btn">如何联系</a>
+          </div>
+          <div>
+            <p>联系我们</p>
+            <span>欢迎反馈宝贵意见给我们</span>
+            <ul class="contact-way">
+              <li>客服邮箱：kefu@hotread.com</li>
+              <li>客服电话：010-59002324-621</li>
+              <li>服务时间：09:30-18:30</li>
+            </ul>
+          </div>
+          <div>
+            <p>火星小说客户端</p>
+            <span>扫描二维码直接下载</span>
+            <img src="../assets/two-code.jpg" class="two-code" />
+          </div>
+        </div>
+        <div class="friendship">
+          <h2>友情连接:</h2>
+          <a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a>
+        </div>
+        <ul class="footer-copyright">
+          <li>Beijing Jinying Technology Co., Ltd</li>
+          <li><i>北京金影科技有限公司</i><i>北京市海淀区信息路甲28号-1层D号-116号</i><i>©hotread.com</i><i>京ICP备14052851-2</i><i>TEL:010-11111111</i></li>
+        </ul>
+      </div>
+    </div>
+</body>
+
+</html>

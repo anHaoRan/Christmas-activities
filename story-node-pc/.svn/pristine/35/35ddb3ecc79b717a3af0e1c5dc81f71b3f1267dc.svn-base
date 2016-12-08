@@ -1,0 +1,149 @@
+<template id="rank">
+  <div v-if="type === 5" class="smallWealthy">
+    <h2 class="rankTitle">
+      {{title || TYPE_ARR[type]}}
+      <span v-if="type !== 3">
+        <em :class="{'on': time === index}" 
+          @click="loadByTime(index)"
+          v-for="(index, item) in rangeArr">{{item}}</em>
+      </span>
+    </h2>
+    <dl :style="{height: height}">
+      <dd 
+        v-for="(index, item) in list"
+        @mouseover="hover=index"
+        :class="{'on': hover === index}"
+        :style="{borderBottom: (border ? '1px solid #e6e5e5' : '')}">
+        <a class="rectBg" :class="SCOPE_CLASS[channel]" :href="'/story/' + item.story.id">
+          <em class="num">{{index | ten}}</em>
+          <img :src="item.faceAddress | avatar" />
+          <h3 class="name">{{item.name}}</h3>
+          <p class="money">土豪值：{{item.topValue}}</p>
+        </a>
+      </dd>
+      <dt class="more"><a :href="'/chart?scope=' + (1 - channel) + '&type=' + (type + 1)">查看更多</a></dt>
+    </dl>
+  </div>
+  <div v-else class="ranking" :style="{paddingTop: top + 'px'}">
+    <h2 class="rankTitle">
+      {{title || TYPE_ARR[type]}}
+      <span v-if="type !== 3">
+        <em :class="{'on': time === index}" 
+          @click="loadByTime(index)"
+          v-for="(index, item) in rangeArr">{{item}}</em>
+      </span>
+    </h2>
+    <dl :style="{height: height}">
+      <dd 
+        v-for="(index, item) in list"
+        @mouseover="hover=index"
+        :class="{'on': hover === index}"
+        :style="{borderBottom: (border ? '1px solid #e6e5e5' : '')}">
+        <a class="rectBg" :class="SCOPE_CLASS[channel]" :href="'/story/' + item.story.id">
+          <em class="num">{{index | ten}}</em>
+          <img :src="item.story.cover">
+          <h3 class="bookName">{{item.story.name}}</h3>
+          <p class="author">{{item.story.author}}</p>
+        </a>
+      </dd>
+      <dt class="more"><a :href="'/chart?scope=' + (1 - channel) + '&type=' + (type + 1)">查看更多</a></dt>
+    </dl>
+  </div>
+</template>
+<script type="text/javascript">
+;(function (Vue) {
+  var Rank = Vue.extend({
+    template: '#rank',
+    props: {
+      channel: {
+        type: Number,
+        default: 0
+      },
+      type: {
+        type: Number,
+        default: 0
+      },
+      column: {
+        type: Number,
+        default: 0
+      },
+      size: {
+        type: Number,
+        default: 5
+      },
+      title: {
+        type: String,
+        default: ''
+      },
+      border: {
+        type: Boolean
+      },
+      top: {
+        type: Number
+      }
+    },
+    data: function () {
+      return {
+        TYPE_ARR: ['人气榜', '收藏榜', '推荐榜', '月票榜', '新书榜', '土豪榜'],
+        SCOPE_CLASS: ['boyBg', 'girlBg'],
+        COLUMN: [[6161, 6162, 6163, 6164, 6165, 6166], [6261, 6262, 6263, 6264, 6265, 6266]],
+        time: 0,
+        range: ['日', '周', '月', '总'],
+        hover: 0,
+        list: []
+      };
+    },
+    computed: {
+      rangeArr: function () {
+        // 新书榜没【总】
+        if (this.type === 4) {
+          return ['日', '周', '月', ''];
+        } else {
+          // 其他帮没【日】
+          return ['', '周', '月', '总']
+        }
+      },
+      height: function () {
+        var H = (this.size - 1) * 44 + 90 + 46 + 2;
+        return H + 'px';
+      }
+    },
+    methods: {
+      // 设置初始化默认时间范围
+      setDefaultTime: function () {
+        var time = 1; // 默认周月总，取【月】
+        // 月票榜，只取【月】
+        if (this.type === 3) {
+          time = 2; // (2 + 1 === 3)
+        } else if (this.type === 4) { // 新书榜，日月周，取【日】
+          time = 0;
+        }
+        this.time = time;
+      },
+      loadByTime: function (time) {
+        if (this.time !== time) {
+          this.time = time;
+          this.getList(time);
+        }
+      },
+      getList: function (time) {
+        if (time === 3) { // 总榜->传值[0]
+          time = 0;
+        } else { // 日月周传值[1][2][3]
+          time += 1;
+        }
+        var column = this.COLUMN[this.channel][this.type];
+        this.$http.get('/api/common/rank/' + column + '/' + time + '/' + this.size)
+          .then(function (resp) {
+            this.list = resp.body.list;
+          });
+      },
+    },
+    ready: function () {
+      this.setDefaultTime();
+      this.getList(this.time);
+    }
+  });
+  Vue.component('rank', Rank);
+})(Vue);
+</script>

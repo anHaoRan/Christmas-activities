@@ -1,0 +1,114 @@
+<link rel="stylesheet" type="text/css" href="../styles/works.min.css">
+<div class="container">
+  <div class="nav">
+    <h4>作者中心</h4>
+    <ul>
+      <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+      <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+      <li class="item"><a href="reward.html">打赏收入</a></li>
+      <li class="item"><a href="comment.html">评论管理</a></li>
+      <li class="item"><a href="settings-one.html">个人设置</a></li>
+    </ul>
+  </div>
+  <div class="production fl">
+    <div class="right-header-haveback">
+      <p class="hint wryh-font"><a href="worksList.html" class="back">作品列表</a><a href="worksList.html" class="back">山村老尸</a><span>作品设置</span></p>
+    </div>
+    <div class="main-nav">
+      <a href="worksList-setroll.html">分卷设置</a>
+      <a href="worksList-writeNewSection.html">写新章节</a>
+      <a href="worksList-drafts.html">草稿箱</a>
+      <a href="worksList-issue.html">已发布章节</a>
+      <a href="worksList-setProduction.html" class="active">作品设置</a>
+    </div>
+    <div class="production-main">
+      <div class="cover-box">
+        <div class="cover">
+          <img src="../images/pic.jpg">
+          <span class="uploading-btn"><input type="file" name="">点击上传</span>
+        </div>
+        <span class="msg">封面尺寸为450*590<br />格式为jpg、png、bmp</span>
+      </div>
+      <div class="production-info">
+        <div class="pro-name">
+          <div class="label">作品名称</div>
+          <div class="info-right">
+            <span class="bookname">山村老尸</span>
+            <i class="hint">（更改分类请联系编辑）</i>
+          </div>
+        </div>
+        <div class="pro-number">
+          <div class="label">作品编号</div>
+          <div class="info-right">
+            <span class="number">12121</span>
+            <i class="hint">（系统默认分配，无法修改）</i>
+          </div>
+        </div>
+        <div class="pro-chan">
+          <div class="label">作品频道</div>
+          <div class="info-right">
+            <span class="chan">男频</span>
+            <i class="hint">（更改分类请联系编辑）</i>
+          </div>
+        </div>
+        <div class="pro-type">
+          <div class="label">作品分类</div>
+          <div class="info-right">
+            <span class="type">现代都市</span>
+            <i class="hint">（更改分类请联系编辑）</i>
+          </div>
+        </div>
+        <div class="pro-intro">
+          <div class="label">作品简介</div>
+          <div class="info-right">
+            <div class="info-box all-input-box" :class="{'error': target=='tag', 'has-value': tag}" data-placeholder="从前有座山山上有座庙庙里有个老和尚在给小和尚讲故事听">
+              <textarea v-model="tag"></textarea>
+            </div>
+            <span class="num-hint fl">字数需控制在20至500字之间</span>
+            <span class="new-num fr">当前字数：42</span>
+          </div>
+        </div>
+        <div class="pro-tag">
+          <div class="label">作品标签</div>
+          <div class="info-right">
+            <div class="tag-list">
+              <span class="active">穿越</span>
+              <span>穿越穿越</span>
+              <span>穿越</span>
+              <span>穿越穿越</span>
+              <span>穿越</span>
+              <span>穿11越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+              <span>穿越</span>
+            </div>
+          </div>
+        </div>
+        <div class="pro-btn">
+          <div class="label">&nbsp;</div>
+          <div class="btn">修改</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  new Vue({
+      el: 'body',
+      data: {
+          tag: '',
+          target: 'mobilephone'
+      }
+  });
+</script>

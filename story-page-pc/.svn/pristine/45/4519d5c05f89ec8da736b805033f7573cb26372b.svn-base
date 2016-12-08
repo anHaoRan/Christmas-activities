@@ -1,0 +1,154 @@
+<link rel="stylesheet" href="../styles/news.min.css" />
+<!--导航-->
+<div class="hotr-nav">
+  <ul class="nav-main">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="girl.html">女频</a></li>
+    <li><a href="#">男频</a></li>
+    <li><a href="chart.html">排行</a></li>
+    <li><a href="library.html">书库</a></li>
+    <li><a href="qualityCopyright.html">优质版权</a></li>
+    <li><a href="topUp.html">充值</a></li>
+    <li><a href="#">福利</a></li>
+    <li><a href="#">下载客户端</a></li>
+  </ul>
+</div>
+<!--导航 end-->
+<div class="main">
+  <h4 class="title" id="title">{{msg}}</h4>
+  <div class="show_box">
+    <div class="img_box" :style="{backgroundImage: 'url(' + newList.pic + ')'}">
+      <div class="left" @click="bigLeft"></div>
+      <div class="right" @click="bigRight"></div>
+    </div>
+    <div class="bottom">
+      <p class="intro">{{newList.title}}</p>
+      <span class="num">{{newNum + 1}}/{{length}}</span>
+    </div>
+  </div>
+  <div class="news_nav" id="news_nav">
+    <div class="left" @click="doLeft" v-if="length > 6"></div>
+    <div class="right" @click="doRight" v-if="length > 6"></div>
+    <div class="box">
+      <ul id="outplay_ul" class="outplay_ul" :style="{width: length*166 + 'px', marginLeft: num*-166+'px'}">
+        <li class="item" 
+            v-for='item in list' 
+            @click="setCur($index)" 
+            :class="{active: i==$index}" 
+            :style="{backgroundImage: 'url(' + item.pic + ')'}"
+        ></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src='http://c.hotread.com/assets/js/vue.min.js'></script>
+<script type="text/javascript">
+  var len = 0,
+      data = [
+        {
+          pic: '../images/test/01.jpg',
+          title: '金秋十月，为贯彻习近平总书记文艺工作座谈会重要讲话精神，响应“十月文学月”号召，展示北京文学创作成果，促进精品生产交流，以探寻文学初心，迈向创作高峰为目标，聚拢当代名家，筑牢创作基础，厚植作家土壤，营造良好氛围为宗旨，火星小说成功举办“卫我中华，荣我河山”主题文学交流会活动。图为：文学主题交流会现场。'
+        },
+        {
+          pic: '../images/test/02.jpg',
+          title: '本次主题文学交流会活动，同时是火星小说文学沙龙系列活动的一部分。火星小说从创办伊始，视传播正能量为网站使命，以打造符合社会主义核心价值观的IP作品为己任，努力用文学沙龙、互联网讲座等多种活动形式，引导广大网络文学原创作者创作出更多更优秀、符合新时代需求的文学作品。图为：《诡局》作者、军事题材作家、编剧骠骑，正在就活动主题与现场与会嘉宾沟通。'
+        },
+        {
+          pic: '../images/test/03.jpg',
+          title: '在习主席讲话精神的鼓舞下，在北京市新闻出版广电局的直接领导下，火星小说成功的举办新一届文学沙龙活动。与会数十位嘉宾不仅限于网络原创文学圈，更来自社会各界，各自从自身出发，以“卫我中华，荣我河山”为主题，以火星小说最近推出的军事、谍战力作《诡局》为切入点，就“当今社会条件下军事文学作者应承担怎样的文学使命”这一会议主旨建言献策。现场发言极为热烈。图为：交流会现场热烈，大家纷纷发言。'
+        },
+        {
+          pic: '../images/test/04.jpg',
+          title: '《诡局》作者骠骑会后坦言，参加本次文学沙龙，不仅让他对军事文学作品的前景更具信心，更对他日后的创作开拓了思路、启迪了灵感。他要在未来的日子里，更加积极得参与到火星小说文学沙龙活动之中来。图为：火星小说签约作者小沙弥先生，正在向骠骑提问。。'
+        },
+        {
+          pic: '../images/test/05.jpg',
+          title: '虽然本次文学沙龙活动已经结束，但在北京市新闻出版广电局的指导下，火星小说对于传播正能量、打造符合社会需求的正向IP作品的决心只会愈加坚定，并将会在这条路上步履稳健的走下去，在以后的日子里，将会有越来越多、如《诡局》一样正向的优秀IP作品不断涌现。图为：与会嘉宾全身关注、现场座无虚席。'
+        },
+        {
+          pic: '../images/test/07.jpg',
+          title: '本次主题文学交流会特邀嘉宾，军事题材作家、编剧、网络文学知名作家，骠骑。'
+        },
+        {
+          pic: '../images/test/08.jpg',
+          title: '本次主题文学交流会特邀嘉宾，著名电影人、八一电影制片厂姚冰大校。'
+        },
+        {
+          pic: '../images/test/09.jpg',
+          title: '本次主题文学交流会特邀嘉宾，知名电影人、发行人、编剧、导演，周怡女士。'
+        },
+        {
+          pic: '../images/test/10.jpg',
+          title: '本次主题文学交流活动会场，为火星小说公司本部。'
+        },
+      ];
+  len = data.length;
+
+  new Vue({
+    el: 'body',
+    data: {
+      msg: '响应北京“十月文学月”号召 火星小说文学沙龙成功举办',
+
+      num: 0,
+      length: len,
+      list: data,
+
+      newList: data[0],
+      newNum: 0,
+
+      i : 0
+    },
+    methods: {
+      doLeft: function () {
+        if (this.num > 0) {
+          this.num -= 1;
+        }
+      },
+      doRight: function () {
+        if (this.num + 6 < this.length) {
+          this.num += 1;
+        }
+      },
+      setCur: function (index) {
+        this.newList = this.list[index];
+        this.newNum = index;
+
+        this.i = index;
+      },
+      bigLeft: function () {
+
+        var outplayUl = document.getElementById('outplay_ul'),
+            marginLeft = parseInt(outplayUl.style.marginLeft);
+
+        if(this.newNum > 0){
+          this.newNum -= 1;
+          this.i = this.newNum;
+          this.newList = data[this.newNum];
+
+          if((this.i * 166) < Math.abs(marginLeft)){
+            outplayUl.style.marginLeft = (marginLeft + 166) + 'px';
+            this.num = this.i;
+          }
+
+        }
+      },
+      bigRight: function () {
+
+        var outplayUl = document.getElementById('outplay_ul'),
+            marginLeft = parseInt(outplayUl.style.marginLeft);
+
+        if(this.newNum < this.length - 1){
+          this.newNum += 1;
+          this.i = this.newNum;
+          this.newList = data[this.newNum];
+
+          if(this.i > 5 && Math.abs(marginLeft) < (this.length - 6) * 166){
+            outplayUl.style.marginLeft = (marginLeft - 166) + 'px';
+            this.num = (this.newNum - 5) < 0? 0: (this.newNum - 5);
+          }
+          
+        }
+      }
+    }
+  });
+</script>

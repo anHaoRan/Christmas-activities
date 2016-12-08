@@ -1,0 +1,242 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  color: $text;
+  overflow: auto;
+  background-color: $bg;
+
+  // 内嵌第三方APP样式[一点资讯]
+  &.website-inlay {
+    header.header, .about-wechat, .about-download {
+      display: none;
+    }
+
+    .recommend {
+      border-bottom: none;
+    }
+
+    .dropdown {
+      display: block;
+    }
+  }
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.highlight {
+  color: $theme;
+}
+
+.main {
+}
+
+.footer {
+  padding: 15px;
+  background-color: $footer;
+}
+
+.wrap {
+}
+
+.btn {
+  border-radius: 2px;
+  font-size: 15px;
+  color: #fff;
+  background: $footer;
+  line-height: 34px;
+  text-align: center;
+  border: 0 none;
+  -webkit-appearance: none;
+
+  &.btn-primary {
+    background: $theme;
+  }
+}
+
+.fix-right-pad {
+  padding-right: 15px !important;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 40px;
+
+  .next, .prev {
+    font-size: 13px;
+    color: $text-medium;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    border: 1px solid $icon;
+    border-radius: 2px;
+    @include tap($border);
+
+    [class^="icon-"] {
+      vertical-align: middle;
+    }
+  }
+
+  .page-text {
+    display: block;
+    height: 30px;
+    width: 48px;
+    text-align: center;
+    border-radius: 2px;
+    font-size: 14px;
+    border: 1px solid $icon;
+    color: $text-medium;
+    -webkit-appearance: none;
+  }
+
+  .page-go {
+    display: block;
+    width: 48px;
+    height: 30px;
+    color: $text-medium;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    border: 0 none;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid $icon;
+    -webkit-appearance: none;
+    @include tap($border);
+  }
+
+  .page-pos {
+    line-height: 30px;
+    color: $text-medium;
+    font-size: 14px;
+  }
+}
+
+.alert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .6);
+  padding: 8px 20px;
+}
+
+.not-found {
+  width: 375px;
+  height: 360px;
+  background: #fff url('http://c.hotread.com/wap/images/404.png') no-repeat 50% 50% / 375px 189px;
+}
+
+.alipy-tips {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  padding-top: 400px;
+  text-align: center;
+  @include retina-image('alipay-tips.png', no-repeat 50% 5px / 287px 241px);
+  background-color: rgba(#463C37, .8) !important;
+
+  .tips-btn {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #fff;
+    padding: 0 20px;
+    border-radius: 20px;
+  }
+}
+
+.wx-tips {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  padding-top: 360px;
+  text-align: center;
+  @include retina-image('wx-down-tips.png', no-repeat 50% 5px / 279px 215px);
+  background-color: rgba(#463C37, .8) !important;
+
+  .tips-btn {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #fff;
+    padding: 0 20px;
+    border-radius: 20px;
+  }
+}
+
+.alipay-from-wx {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  text-align: center;
+  background-color: rgba(#463C37, .8) !important;
+
+  > a {
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    line-height: 40px;
+    text-align: center;
+    color: #a5a5a5;
+    font-size: 12px;
+  }
+
+  .content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin: -87.5px 0 0 -63px;
+    width: 126px;
+    height: 175px;
+    padding-top: 110px;
+    @include retina-image('wx-success.png', no-repeat 50% 0 / 94px 94px);
+    color: #fff;
+
+    h3 {
+      font-weight: normal;
+      font-size: 24px;
+    }
+
+    p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  }
+}

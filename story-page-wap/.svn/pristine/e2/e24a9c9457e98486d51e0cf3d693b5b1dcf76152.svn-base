@@ -1,0 +1,64 @@
+.go-login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  padding-right: 15px;
+  font-size: 16px;
+  color: $text-light;
+}
+
+.count-second {
+  display: none;
+  font-size: 17px;
+  color: $icon;
+  &.show {
+    display: block;
+  }
+}
+
+.register-modal{
+
+  .form-group {
+    ~ .form-group {
+      margin-top: 10px;
+    }
+  }
+
+  .phone{
+    .region {
+      display: block;
+      width: 40px;
+      font-size: 17px;
+      border-right: 1px solid $border;
+      margin-right: 10px;
+    }
+  }
+  .note{
+    position: relative;
+    
+    .count-second {
+      position: absolute;
+      right: 140px;
+      top: 0;
+      line-height: 49px;
+    }
+
+    .note-btn {
+      display: block;
+      width: 130px;
+      height: 36px;
+      background: #463c37;
+      font-size: 16px;
+      color: #fff;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 36px;
+      margin-top: 13px;
+      margin-left: 10px;
+    }
+  }
+}

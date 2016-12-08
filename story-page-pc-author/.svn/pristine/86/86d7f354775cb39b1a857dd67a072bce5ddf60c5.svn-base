@@ -1,0 +1,101 @@
+<link rel="stylesheet" type="text/css" href="../styles/settings.min.css">
+<div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item"><a href="worksList.html"><span></span>作品列表</a></li>
+            <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item"><a href="comment.html">评论管理</a></li>
+            <li class="item active"><a href="settings.html">个人设置</a></li>
+        </ul>
+    </div>
+    <!-- 左侧导航 -->
+    <main class="content fl user">
+        <section class="user-top">
+            <div class="right-header right-boder">
+                个人设置
+            </div>
+            <div class="user-item one">
+                <p class="iphone">手机号：13278986547</p>
+                <p class="id-number">证件号码：567789098876542678</p>
+                <p class="QQ-MSN">QQ/MSN：2890765539</p>
+            </div>
+            <div class="user-item">
+                <p class="pen-name">笔名：唐家三少</p>
+                <p class="bank">开户行全称：中国工商银行</p>
+                <p class="mobile-phone">移动电话：18328998745</p>
+            </div>
+            <div class="user-item two">
+                <p class="author-name">真实姓名：张三</p>
+                <p class="bank-id">银行账号：6218000020023464320</p>
+                <p class="address">联系地址：北京市朝阳区东大桥</p>
+            </div>
+            <div class="user-item">
+                <p class="id-type">证件类型：身份证</p>
+                <p class="zip-code">邮编：345344</p>
+            </div>
+        </section>
+        <section class="user-main">
+            <div class="right-header right-boder">
+                修改以上信息请联系编辑
+            </div>
+            <div class="user-pic">
+                <span class="pic-text">作者头像：</span>
+                <p class="pic-img"></p>
+                <div class="btn">上传</div>
+            </div>
+            <div class="user-describe">
+                <span class="pic-text">个人说明:</span>
+                <div class="textarea-box">
+                    <textarea class="describe">个人说明来自火星小说的作家一名，个人说明来自火星小说的作家一名，个人说明来自火星小说的作家一名。</textarea>
+                    <span class="prompt">还可以输入150字</span>
+                </div>
+            </div>
+            <div class="works-describe">
+                <!-- 作品描述 -->
+                <span class="works-text">已发布过的作品说明：</span>
+                <div class="textarea-box">
+                    <textarea class="describe">《作品1》《作品2》《作品3》</textarea>
+                    <span class="prompt">还可以输入150字</span>
+                </div>
+            </div>
+            <div class="btn button">修改</div>
+        </section>
+        <section class="user-bottom">
+            <div class="right-header right-boder">
+                绑定读者账号
+            </div>
+            <section class="matter-main">
+                <div class="form-box">
+                    <label class="icon-iphone">手机号：</label>
+                    <div class="form-control">
+                        <input type="text" placeholder="请输入11位手机号">
+                    </div>
+                </div>
+                <div class="form-box">
+                    <label class="icon-iphone">密码：</label>
+                    <div class="form-control">
+                        <input type="text" placeholder="不少于6位密码，不区分大小写">
+                    </div>
+                </div>
+                <div class="box-login">
+                    <span class="s">其他绑定方式：</span>
+                    <a href="#" class="item">
+                        <i class="i"></i>
+                        <strong class="text">微信</strong>
+                    </a>
+                    <a href="#" class="item">
+                        <i class="i"></i>
+                        <strong class="text">QQ</strong>
+                    </a>
+                    <a href="#" class="item">
+                        <i class="i"></i>
+                        <strong class="text">微博</strong>
+                    </a>
+                </div>
+                <div class="btn botton">绑定</div>
+            </section>
+        </section>
+    </main>
+</div>

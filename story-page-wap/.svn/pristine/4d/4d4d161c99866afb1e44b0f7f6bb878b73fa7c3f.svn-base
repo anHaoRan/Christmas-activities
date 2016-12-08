@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+  <title>火星小说</title>
+  <meta name="format-detection" content="telephone=no,email=no" />
+  <link href="//c.hotread.com/assets/images/favico.ico" rel="shortcut icon">
+  <meta name="apple-itunes-app" content="app-id=1060018265" />
+  <meta name="apple-mobile-web-app-title" content="火星小说" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="apple-touch-icon" sizes="114x114" href="//c.hotread.com/logos/logo@114.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="//c.hotread.com/logos/logo@180.png" />
+  <link rel="stylesheet" href="../styles/story-wap.min.css">
+</head>
+
+<body class="website-inlay">
+  <header class="header">
+    <a class="slogan" href="./index.html">火星小说</a>
+    <div class="tools">
+      <a href="./search.html" class="search"><span class="icon-search"></span></a>
+      <div class="user-help">
+        <a href="./login.html">登录</a>
+        <i class="divide">|</i>
+        <a href="./register.html">注册</a>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <nav class="nav">
+      <a class="active" href="###">男频</a>
+      <a href="###">女频</a>
+      <a href="top.html">排行</a>
+      <a href="pay.html">充值</a>
+      <a href="bookshelf.html">书架</a>
+      <div class="dropdown open1">
+        <span class="menu"></span>
+        <ul class="dropdown-menu">
+          <li><a href="#">搜索</a></li>
+          <li><a href="#">登录</a></li>
+          <li><a href="#">注册</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <div class="home-search">
+        <form action="">
+          <input type="search" name="keyWord" placeholder="输入关键词搜索小说" />
+          <input type="submit" value="搜索"/>
+        </form>
+      </div>
+      <!-- <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background: url(../images/banner.png) no-repeat 50% / cover">
+            <a href="###"></a>
+          </div>
+          <div class="swiper-slide" style="background: url(../images/banner.png) no-repeat 50% / cover">
+            <a href="###"></a>
+          </div>
+          <div class="swiper-slide" style="background: url(../images/banner.png) no-repeat 50% / cover">
+            <a href="###"></a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div> -->
+
+      <section class="section">
+        <h3>重磅推荐</h3>
+        <ul class="books-column">
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="serial">连载</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>男生强推</h3>
+        
+        <ul class="books-table">
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <h4>千金的秘密千金的秘密</h4>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <h4>千金的秘密</h4>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <h4>千金的秘密千金的秘密</h4>
+            </a>
+          </li>
+        </ul>
+        <ul class="books-table">
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <h4>千金的秘密</h4>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <h4>千金的秘密</h4>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <h4>千金的秘密</h4>
+            </a>
+          </li>
+        </ul>
+
+      </section>
+
+      <div class="slider" style="background: url(../images/banner.png) no-repeat 50% / cover"><a href="./details.html"></a></div>
+
+      <section class="section">
+        <h3>火热连载</h3>
+        <ul class="books-column">
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="serial">连载</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>优秀新作</h3>
+        <ul class="books-column">
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="serial">连载</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                  <span class="book-type">古代言情</span>
+                  <span class="complete">完本</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+
+        <form action="">
+          <input type="search" placeholder="输入关键词搜索小说">
+          <input type="submit" value="搜索">
+        </form>
+
+        <nav class="nav-bottom">
+          <a href="###">书架</a>
+          <a href="###">排行</a>
+          <a href="###">充值</a>
+          <a href="###">客户端</a>
+        </nav>
+
+        <div class="contact">
+          <div class="title">联系客服：</div>
+          <div class="contact-list">
+            <span>客服QQ:3416319270</span>
+            <span>客服微信:huoxingkufu</span>
+            <span>客服邮箱:kefu@hotread.com</span>
+            <span>客服电话:010-59002324-621</span>
+          </div>
+        </div>
+
+      </footer>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+  <script>
+    new Swiper('.swiper-container', {
+        speed: 500,
+        autoplay: 3000,
+        spaceBetween: 20,
+        loop: true,
+        pagination: '.swiper-pagination'
+    });
+  </script>
+  <!-- <script src="https://npmcdn.com/vue@1.0.26/dist/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.1/vue-resource.min.js"></script> -->
+</body>
+</html>

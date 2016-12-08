@@ -1,0 +1,29 @@
+<% include partials/head.ejs %>
+<body>
+<% include partials/header.ejs %>
+<style>
+  .news-page {
+    width: 1000px; 
+    padding: 0 0 50px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .news-content {
+    line-height: 2;
+    font-size: 16px;
+  }
+  .news-content p {
+    text-indent: 2em;
+  }
+</style>
+<div class="news-page" id="news-page">
+  <h2><%- event.eventName %></h2>
+  <div class="news-content">
+    <%- '<p>' + event.content.replace(/\n+/g, '</p><p>').replace(/\s*/g, '') + '</p>' %>
+  </div>
+</div>
+<script>
+  document.getElementById('news-page').style.minHeight = (window.innerHeight - 860) + 'px';
+</script>
+<% include partials/vue.ejs %>
+<% include partials/foot.ejs %>

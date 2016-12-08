@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh" class="<%= rootClass %>">
+
+<head>
+  <meta charset="UTF-8">
+  <title><%- title %></title>
+  <meta name="keywords" content="<%- keywords %>">
+  <meta name="description" content="<%- description %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="<%= cdn %>/assets/images/favico.ico" rel="shortcut icon">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta property="wb:webmaster" content="9c7fc0d9e77080c8" />
+  <meta property="qc:admins" content="0237266277607425146375" />
+  <link rel="stylesheet" href="<%= cdn %>/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="<%= cdn %>/assets/styles/story.min.css">
+  <% if (css) { -%>
+    <link rel="stylesheet" href="<%= cdn %>/assets/styles/<%= css %>">
+  <% } -%>
+  <% if (nav == 'home' || nav == 'copyright') { -%>
+    <link rel="stylesheet" href="<%= cdn %>/assets/styles/vue-swipe.css">
+  <% } -%>
+  <style>
+    [v-cloak] { visibility: hidden; }
+    #nprogress{pointer-events:none}#nprogress .bar{background:#0b0;position:fixed;z-index:6000;top:0;left:0;width:100%;height:2px}#nprogress .peg{display:block;position:absolute;right:0;width:100px;height:100%;box-shadow:0 0 10px #29d,0 0 5px #29d;opacity:1;-webkit-transform:rotate(3deg) translate(0,-4px);-ms-transform:rotate(3deg) translate(0,-4px);transform:rotate(3deg) translate(0,-4px)}#nprogress .spinner{display:block;position:fixed;z-index:6000;top:15px;right:15px}#nprogress .spinner-icon{width:18px;height:18px;box-sizing:border-box;border:2px solid transparent;border-top-color:#29d;border-left-color:#29d;border-radius:50%;-webkit-animation:nprogress-spinner 400ms linear infinite;animation:nprogress-spinner 400ms linear infinite}.nprogress-custom-parent{overflow:hidden;position:relative}.nprogress-custom-parent #nprogress .bar,.nprogress-custom-parent #nprogress .spinner{position:absolute}@-webkit-keyframes nprogress-spinner{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg)}}@keyframes nprogress-spinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+  </style>
+  <script type="text/javascript">
+  ;(function () {
+    var cdn = "<%= cdn %>";
+    window._alert = function (content, type, width, during, position) {
+      var box = document.createElement('div');
+      box.style.cssText = 'z-index: 99999;';
+      box.className = 'notification ' + (type ? type : 'success');
+      box.innerHTML = content || '';
+      if (position === 'center') {
+        width = width || 210;
+        box.style.cssText = 'z-index: 4000;top: 50%; right: 50%;margin-top: -34px;margin-right: ' + (width / -2) + 'px;width:' + width + 'px';
+      }
+
+      document.body.appendChild(box);
+
+      setTimeout(function () {
+        document.body.removeChild(box);
+      }, during || 3000);
+    };
+
+    window._alertCenter = function (content, type, width, during) {
+      window._alert.apply(window, [content, type, width, during, 'center'])
+    }
+
+    var loadingBox;
+
+    window._loading = function (hide) {
+      if (hide) {
+        if (loadingBox) {
+          document.body.removeChild(loadingBox);
+          loadingBox = null;
+        }
+      } else {
+        if (loadingBox) {
+          return false;
+        }
+        loadingBox = document.createElement('div');
+        loadingBox.style.cssText = 'position: fixed;z-index: 5000;top: 50%;left:50%;margin: -30px 0 0 -50px;width: 100px;height: 60px;border-radius: 5px;background: rgba(0, 0, 0, .2) url("' + cdn + '/assets/images/loading.gif") no-repeat 50% 50% / 30px 30px;';
+
+        document.body.appendChild(loadingBox);
+      }
+    }
+  })();
+  </script>
+</head>

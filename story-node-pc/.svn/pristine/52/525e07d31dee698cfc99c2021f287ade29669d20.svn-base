@@ -1,0 +1,511 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router';
+import { map, findIndex, assign, filter } from 'lodash';
+import { connect } from 'react-redux';
+
+import fetch, {post} from '../../utils/fetch';
+import LeftColumn from './reading/LeftColumn';
+import Subject from './reading/Subject';
+import {
+  updateCurrentUser,
+  updateLoginModalState
+} from '../../actions/commonActions';
+import {
+  updateCurrentStory
+} from '../../actions/readingActions';
+import CommentListRect from './details/CommentListRect';
+import { addClass, removeClass } from '../../utils'
+import Q from 'q';
+let currentVolumeChapterList = [];
+let prevVolumeChapterList = [];
+let nextVolumeChapterList = [];
+
+const THEME_ARR = [
+'normal',
+'green',
+'black',
+];
+
+const updateLoginUser = (dispatch, fetch, query, params, request) => {
+  return fetch('/api/auth/user', {}, request).then(resp => {
+    return dispatch(updateCurrentUser(resp.data || {}));
+  });
+}
+
+class Reading extends Component {
+
+  static fetchData(dispatch, fetch, query, params, request, isLogined) {
+    let arr = [
+      fetch('/api/details/c/story/' + params.storyId).then(resp => {
+        return dispatch(updateCurrentStory(resp.data || {}));
+      })
+    ];
+    if (isLogined) {
+      arr.push(updateLoginUser(dispatch, fetch, query, params, request));
+    }
+    return Q.all(arr);
+  }
+
+  constructor(props) {
+    super(props);
+    this.state={
+      lastState:0,
+      display:false,
+      liActive:0,
+      fontSize:18,
+      endif:0,
+      content: '',
+      buyed: false,
+      story: {},
+      storyId: '',
+      num: 1,
+      // 当前章
+      current: {
+        chapter: {},
+        volumeId: 0
+      },
+      // 上一章
+      prev: {
+        chapter: {},
+        volumeId: 0
+      },
+      // 下一章
+      next: {
+        chapter: {},
+        volumeId: 0
+      }
+    }
+  }
+
+  componentWillMount() {
+    if (typeof window !== 'undefined') {
+      window.styleMap.readTheArticle.disabled = false;
+    }
+  }
+
+  componentWillUnmount() {
+    window.styleMap.readTheArticle.disabled = true;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.id !== this.props.user.id) {
+      this.getChapterContent(this.props.params.chapterId);
+    }
+  }
+
+  addShelf() {
+    let { dispatch } = this.props;
+    let { storyId } = this.state;
+
+    post('/api/user/c/shelf/add/' + storyId).then(resp => {
+      if (resp.status === 401) {
+        console.info('用户未登录');
+        dispatch(updateLoginModalState(true));
+        return false;
+      } else {
+        console.info('加入书架成功');
+        _alertCenter('加入书架成功');
+      }
+    });
+  }
+
+  buyChapter(chapterId) {
+    post('/api/user/c/product/chapter/pay?cids=' + chapterId)
+      .then(resp => {
+        if (resp.status === 401) {
+          this.props.dispatch(updateLoginModalState(true));
+          return false;
+        }
+        if (resp.errorCode === 0) {
+          this.getChapterContent(chapterId);
+          updateLoginUser(this.props.dispatch, fetch);
+        }
+      });
+  }
+
+  toggleAutoBuy(autoPayChapter) {
+    return post('/api/user/updateAutoPay', {
+      body: {
+        autoPayChapter
+      }
+    }).then(resp => {
+      if (resp.status === 401) {
+        this.props.dispatch(updateLoginModalState(true));
+      } else {
+        updateLoginUser(this.props.dispatch, fetch);
+      }
+    });
+  }
+
+  // 指定卷的所有章节列表
+  getChapterListByVolume(volumeId) {
+    return fetch('/api/details/c/story/volume/' + volumeId + '/chapters');
+  }
+
+  getVolumeList() {
+    return fetch('/api/details/c/story/' + this.state.storyId + '/volumes');
+  }
+
+  getChapterContent(chapterId) {
+    let { storyId } = this.props.params;
+    _loading();
+    fetch('/api/details/c/story/chapter/' + chapterId + '/content')
+      .then((resp) => {
+        _loading(1);
+        window.scrollTo(0, 0);
+        this.setState({
+          content: resp.data || '',
+          buyed: !!resp.data
+        });
+        // 统计
+        fetch('/api/collect/chapter?chapterId=' + chapterId + '&storyId=' + storyId);
+      });
+  }
+
+  getPrevVolume() {
+    let { current } = this.state;
+    let { volumeId } = current;
+    return this.getVolumeList().then((resp) => {
+      let index = findIndex(resp.data, (volume) => {
+        return volume.id === volumeId;
+      });
+      return resp.data[index - 1];
+    })
+  }
+
+  getNextVolume() {
+    let { current } = this.state;
+    let { volumeId } = current;
+    return this.getVolumeList().then((resp) => {
+      let index = findIndex(resp.data, (volume) => {
+        return volume.id === volumeId;
+      });
+      return resp.data[index + 1];
+    })
+  }
+
+  // 获取上下章
+  getRelativeStory(chapterList, current=this.state.current) {
+    let currentChapterIndex = findIndex(chapterList, (chapter) => {
+      return chapter.id === current.chapter.id;
+    });
+    current.chapter = chapterList[currentChapterIndex];
+    this.setState({
+      current
+    });
+
+    if (currentChapterIndex === 0) { // 当前卷第一章
+      this.getPrevVolume().then(prevVolume => {
+        if (!prevVolume) {
+          this.setState({
+            prev: {}
+          });
+          return false;
+        }
+        this.getChapterListByVolume(prevVolume.id).then((resp) => {
+          let prev = {
+            volumeId: prevVolume.id,
+            chapter: resp.data[resp.data.length - 1]
+          };
+          this.setState({
+            prev,
+          });
+          prevVolumeChapterList = resp.data
+        })
+      });
+      this.setState({
+        next: {
+          volumeId: current.volumeId,
+          chapter: chapterList[currentChapterIndex + 1]
+        }
+      });
+    } else if (currentChapterIndex === chapterList.length - 1) { // 当前卷最后一章
+      this.setState({
+        prev: {
+          volumeId: current.volumeId,
+          chapter: chapterList[currentChapterIndex - 1]
+        }
+      });
+      this.getNextVolume().then(nextVolume => {
+        if (!nextVolume) {
+          this.setState({
+            next: {}
+          });
+          return false;
+        }
+        this.getChapterListByVolume(nextVolume.id).then((resp) => {
+          let next = {
+            volumeId: nextVolume.id,
+            chapter: resp.data[0]
+          };
+          this.setState({
+            next,
+          });
+          nextVolumeChapterList = resp.data;
+        });
+      });
+    } else {
+      this.setState({
+        prev: {
+          volumeId: current.volumeId,
+          chapter: chapterList[currentChapterIndex - 1]
+        },
+        next: {
+          volumeId: current.volumeId,
+          chapter: chapterList[currentChapterIndex + 1]
+        }
+      });
+    }
+  }
+
+  componentDidMount() {
+    let {
+      storyId,
+      volumeId,
+      chapterId
+    } = this.props.params;
+
+    fetch('/api/details/c/story/' + storyId).then(resp => {
+      this.setState({
+        story: resp.data
+      });
+
+      fetch('/api/details/c/story/guessYouLike?page=1&type=' + resp.data.type).then(resp => {
+        this.setState({
+          recommend: resp.data.slice(0,5)
+        });
+      });
+    });
+
+    let content = document.getElementById('SubjectContent');
+    window.onscroll = function () {
+      if (window.scrollY > 40) {
+        addClass(content, 'fixed');
+      } else {
+        removeClass(content, 'fixed');
+      }
+    };
+
+    this.getChapterContent(chapterId);
+
+    let { dispatch } = this.props;
+    Reading.fetchData(dispatch, fetch, this.props.query, this.props.params);
+
+    this.setState({
+      storyId,
+      current: {
+        volumeId,
+        chapter: {
+          id: chapterId
+        }
+      }
+    });
+
+    // 默认获取当前章节所在卷的所有章节列表
+    this.getChapterListByVolume(volumeId).then(list => {
+      currentVolumeChapterList = list.data;
+      this.getRelativeStory(currentVolumeChapterList);
+    });
+  }
+
+  display() {
+    if (this.state.display) { this.setState({ display: false }) } else { this.setState({ display: true }) }
+  }
+
+  fontSizeAdd() {
+      let size = this.state.fontSize
+      if (size < 31) {
+        this.setState({ fontSize: size + 2 })
+      }
+  }
+  fontSizeSubtract() {
+      let size = this.state.fontSize
+      if (12 < size) {
+          this.setState({ fontSize: size - 2 })
+      }
+  }
+  styleSwitch() {
+      let liActive = this.state.liActive
+      if (liActive === 0) {
+          return 'readTheArticle_main normal'
+      } else if (liActive === 1) {
+          return 'readTheArticle_main green'
+      } else if (liActive === 2) {
+          return 'readTheArticle_main black'
+      }
+  }
+
+  toggleTheme(index) {
+    this.setState({liActive: index});
+    let theme = THEME_ARR[index];
+    let body = document.body;
+    let other = filter(THEME_ARR, (t) => {
+      return t !== theme;
+    });
+    removeClass(body, other[0]);
+    removeClass(body, other[1]);
+    addClass(body, theme);
+  }
+
+  nextChapter() {
+    let { current, next, storyId } = this.state;
+    if (!next.chapter || !next.chapter.id) {
+      this.setState({lastState: 1});
+      // 最后一章
+      return false;
+    }
+    else{
+      this.setState({lastState: 0});
+    }
+
+    // 设置下一章
+    if (current.volumeId === next.volumeId) {
+      this.getRelativeStory(currentVolumeChapterList, assign({}, next));
+    } else {
+      this.getRelativeStory(nextVolumeChapterList, assign({}, next));
+      prevVolumeChapterList = [].concat(currentVolumeChapterList);
+      currentVolumeChapterList = [].concat(nextVolumeChapterList);
+    }
+
+    this.getChapterContent(next.chapter.id);
+
+    this.context.router.push('/story/reading/' + storyId + '/' + next.volumeId + '/' + next.chapter.id);
+  }
+
+  previousChapter() {
+    let { current, prev, storyId } = this.state;
+    if (!prev.chapter || !prev.chapter.id) {
+      return false;
+    }
+
+    // 设置上一章
+    if (current.volumeId === prev.volumeId) {
+      this.getRelativeStory(currentVolumeChapterList, assign({}, prev));
+    } else {
+      this.getRelativeStory(prevVolumeChapterList, assign({}, prev));
+      nextVolumeChapterList = [].concat(currentVolumeChapterList);
+      currentVolumeChapterList = [].concat(prevVolumeChapterList);
+    }
+
+    this.getChapterContent(prev.chapter.id);
+
+    this.context.router.push('/story/reading/' + storyId + '/' + prev.volumeId + '/' + prev.chapter.id);
+  }
+
+  //点击目录跳转
+  goCatalogue(){
+    let {storyId, volumeId} = this.props.params;
+    this.context.router.push('/catalogue?storyId=' + storyId + '&volumeId=' + volumeId);
+  }
+  render() {
+    let { route } = this.props;
+    let arr = new Array(3);
+    let { recommend } = this.state;
+    return (
+      <div>
+        <link rel="stylesheet" href={route.CDN + '/assets/styles/readTheArticle.min.css'}/>
+        <div className='readTheArticle_main' onClick={() => {
+          this.setState({display: false});
+        }}>
+          <div className="content">
+            <LeftColumn story={this.props.story} />
+            <div className="right_main">
+            <Subject user={this.props.user} {...this.state} 
+              buyChapter={this.buyChapter.bind(this)}
+              toggleAutoBuy={this.toggleAutoBuy.bind(this)}
+              openLoginModal={() => {
+                this.props.dispatch(updateLoginModalState(true));
+              }}/>
+            <div className="rightColumn" id="right_box">
+              <ul>
+                <li className="bookshelf" onClick={this.addShelf.bind(this)}>
+                  加入书架
+                </li>
+                <li className="Catalog" onClick={() => this.goCatalogue()}>
+                  <span></span> 目录
+                </li>
+                <li className="fontSizePlus" onClick={this.fontSizeAdd.bind(this)}>A+</li>
+                <li className="fontSizeMinus" onClick={this.fontSizeSubtract.bind(this)}>A-</li>
+                <li className={this.state.display == true? "Pattern active" : "Pattern"}>
+                  <div className="switch-box" onClick={(evt) => {
+                    evt.stopPropagation();
+                    this.display();
+                  }}>
+                    <span></span>
+                    <a href="javascript:;">模式</a>
+                  </div>
+                  <div 
+                    onClick={(evt) => {evt.stopPropagation();}}
+                    className={this.state.display == true ? "clickShow click":"clickShow"}>
+                    {
+                      map(arr,(item,index)=>{
+                        return(
+                          <span key={index} className={index === this.state.liActive ? 'active' : ''} onClick={(evt) => {
+                            evt.stopPropagation();
+                            this.toggleTheme(index);
+                          }}></span>
+                        )
+                      })
+                    }
+                  </div>
+                </li>
+                <li className="chapter-prev" title="阅读上一章" onClick={this.previousChapter.bind(this)}>
+                </li>
+                <li className="chapter-next" title="阅读下一章" onClick={this.nextChapter.bind(this)}>
+                </li>
+              </ul>
+            </div>
+            </div>
+          </div>
+          <div className={this.state.lastState == 1 ? "Mask" : "Mask hide"}>
+            <div className="centenr_div">
+              <div className={this.state.endif == 0 ? 'top' : 'top hide'}>
+                <div className="text">
+                  作者努力码字中
+                  <span>后续章节敬情期待···</span>
+                </div>
+                <div className="_img"></div>
+              </div>
+              <div className={this.state.endif == 1 ? 'end' : 'end hide'}>
+                这本小说已经完结了
+              </div>
+              <div className="main">
+                <h3>相关推荐</h3>
+                <ul>
+                {
+                  map(recommend,(story,index)=>{
+                    return(
+                      <li key={index}>
+                        <Link to={"/story/" + story.id}>
+                        <img src={story.cover} />
+                        <span title={story.name}>{story.name}</span>
+                        </Link>
+                      </li>
+                    )
+                  })
+                }
+                </ul>
+              </div>
+              <span style={{cursor:'pointer'}} onClick={()=>{this.setState({lastState:0})}} className="Close">
+                <img src={route.CDN + '/assets/images/Close.png'} />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+Reading.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
+
+export default connect(
+  (state) => {
+    return {
+      user: state.common.user,
+      story: state.reading.currentStory
+    };
+  }
+)(Reading);

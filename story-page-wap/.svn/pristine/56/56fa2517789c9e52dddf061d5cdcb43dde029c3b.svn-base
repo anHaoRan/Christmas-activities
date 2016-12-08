@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <title>火星小说 • 圣诞节活动</title>
+    <link rel="stylesheet" href="../styles/christmas.min.css">
+</head>
+
+<body>
+    <div class="top">
+        <header class="header">
+            <h1>火星圣诞狂欢，无限好礼等你拿！</h1></header>
+        <div class="turnplate">
+            <div class="shadow"></div>
+            <div class="rotate" id="rotate"></div>
+            <div class="light s-one s-two" id="light"></div>
+            <div class="pointer" @click="start"></div>
+        </div>
+        <div class="surplus-num">您还剩8次机会</div>
+    </div>
+    <div class="rule">
+    </div>
+    <div class="prize">
+    </div>
+    <div class="box">
+        <div class="box1" style="display: none;">
+            <header class="box1-header"></header>
+            <main class="box1-main">
+                <div class="box1-img" style="background-image:url('../images/christmas/hxjuan.png');"></div>
+                 <!--
+                <div class="img" style="background-image:url('../images/christmas/bolster.png');"></div>抱枕
+                 -->
+                <!-- 
+                 <div class="img" style="background-image:url('../images/christmas/cup.png');"></div>保温杯
+                  -->
+                <!-- 
+                  <div class="img" style="background-image:url('../images/christmas/mi5.png');"></div>小米5
+                  <div class="img" style="background-image:url('../images/christmas/iPhone6splus.png');"></div>小米5 
+                  -->
+                <p class="box1-tips">
+                    您获得了<span class="yellow">188火星卷</span>
+                </p>
+            </main>
+            <div class="box1-input-box">
+                <input type="text" class="box1-input" placeholder="请输入手机号(必填)" maxlength="11">
+                <!-- <p>兑换码：<span class="cdkey">JKSKLXK</span></p> -->
+            </div>
+            <footer class="box1-footer">
+                <input type="button" class="box1-button" value="提交" onclick="submit()" />
+            </footer>
+        </div>
+        <!-- 实物+火星币 -->
+        <div class="popup" style="display: none;">
+            <div class="header"></div>
+            <div class="main">
+                <div class="shade">
+                    <div class="shade-img" style="background-image:url('../images/christmas/money-10.png');"></div>
+                    <div class="lottery">
+                        <div class="text">您获得了<span class="yellow">50元现金</span></div>
+                    </div>
+                </div>
+                <div class="form-popup">
+                    <input type="text" placeholder="请输入手机号(必填)" class="iphone" maxlength="11" />
+                    <input type="text" placeholder="请输入QQ号(必填)" class="qq" />
+                </div>
+            </div>
+            <div class="footer">
+                <input type="submit" class="submit" value="提交" />
+            </div>
+        </div>
+        <!-- 现金-->
+        <div class="alert">
+            <div class="title-img"></div>
+            <div class="mian-text">
+                <p>你还没有抽奖机会哦，赶紧去充值吧</p>
+                <p class="brownness">（充值几次便可获取几次抽奖机会）</p>
+            </div>
+            <a href="#" class="topay">去充值</a>
+        </div>
+    </div>
+    <script src="//c.hotread.com/assets/js/vue.min.js"></script>
+    <script src="//c.hotread.com/assets/js/vue-resource-polyfill.min.js"></script>
+    <script type="text/javascript">
+    ;
+    (function(Vue) {
+        new Vue({
+            el: 'body',
+            data: {
+
+            },
+            methods: {
+                start: function() {
+                    this.rotate();
+                },
+                rotate: function() {
+                    var light = document.getElementById('light'),
+                        rotate = document.getElementById('rotate');
+                    var cssText = 'transform: rotateZ(3600deg);-webkit-transform: rotateZ(3600deg);';
+                    rotate.style.cssText = cssText;
+
+
+                    var timer = setInterval(function() {
+                        if (light.className == 'light s-one') {
+                            document.getElementById('light').className = 'light s-two';
+                        } else {
+                            document.getElementById('light').className = 'light s-one';
+                        }
+                    }, 500)
+
+                    setTimeout(function() {
+                        clearInterval(timer)
+                    }, 8000)
+                }
+            }
+        })
+    })(Vue)
+    </script>
+</body>
+
+</html>

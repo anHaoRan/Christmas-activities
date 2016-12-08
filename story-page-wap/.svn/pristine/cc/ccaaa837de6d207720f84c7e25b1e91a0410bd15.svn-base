@@ -1,0 +1,357 @@
+.read-box {
+  background: $readDayDeepBg;
+
+  .section {
+    background: $readDayBg;
+    color: $readDayText;
+  }
+
+  .read-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    margin: 0 -15px;
+
+    .add-tips {
+      flex: 1;
+      display: block;
+      margin-right: 20px;
+      text-align: right;
+      color: $theme;
+      font-size: 14px;
+
+      &::after {
+        margin-left: 3px;
+        content: "";
+        display: inline-block;
+        width: 15px;
+        height: 8px;
+        background: $readDayHand no-repeat 0 0 / cover;
+        vertical-align: middle;
+      }
+    }
+
+    .read-back {
+      line-height: 44px;
+      width: 60px;
+      padding-left: 15px;
+      font-size: 0;
+
+      [class^="icon-"] {
+        color: $text;
+        font-size: 18px;
+        vertical-align: middle;
+      }
+    }
+
+    .shelf-btn {
+      display: block;
+      margin-right: 15px;
+      height: 25px;
+      padding: 0 10px;
+      line-height: 25px;
+      color: #fff;
+      background-color: $theme;
+      border-radius: 2px;
+      font-size: 14px;
+      &.active {
+        background-color: #A5A5A5;
+      }
+    }
+  }
+
+  .read-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    border-top: 1px solid $readDayDivLine;
+
+    .book-name {
+      font-size: 17px;
+      font-weight: 400;
+      color: inherit;
+      line-height: 44px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .read-operate {
+    font-size: 0;
+    white-space: nowrap;
+    span {
+      display: inline-block;
+      font-size: 13px;
+      color: $readDayBorder;
+      border: 1px solid $readDayBorder;
+      height: 25px;
+      line-height: 24px;
+      padding: 0 5px;
+      border-radius: 2px;
+      vertical-align: middle;
+
+      ~ span {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .content {
+    font-size: 16px;
+    line-height: 1.6;
+
+    h3 {
+      padding-top: 10px;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    p {
+      margin-top: 10px;
+      text-indent: 2em;
+    }
+  }
+
+  .read-prevent {
+    text-align: center;
+    font-size: 15px;
+    padding-top: 20px;
+
+    p {
+      margin-top: 15px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      line-height: 40px;
+      padding: 0 50px;
+      display: inline-block;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+      font-size: 25px;
+    }
+
+    .autobuy-radio {
+      display: none;
+      &:checked {
+        ~ .autobuy {
+          .icon-checked {
+            display: inline;
+          }
+          .icon-check {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .autobuy {
+      margin-top: 15px;
+      display: block;
+      line-height: 15px;
+
+      [class^="icon-"] {
+        color: $theme;
+        vertical-align: baseline;
+      }
+
+      .icon-checked {
+        display: none;
+      }
+    }
+  }
+
+  .chapter-select {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin: 30px 0;
+
+    a {
+      display: block;
+      padding: 0 20px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 13px;
+      color: $readDayBorder;
+      border: 1px solid $readDayBorder;
+      border-radius: 2px;
+      @include tap($readDayBoxHover);
+
+      [class^="icon-"] {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.recommend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid $readDayDivLine;
+
+  line-height: 1.4;
+
+  p {
+    flex: 1;
+    a {
+      color: $readDayText;
+    }
+  }
+}
+
+.about-wechat {
+  padding: 30px 0;
+  text-align: center;
+
+  p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  img {
+    margin: 10px 0;
+    width: 240px;
+    height: 240px;
+  }
+}
+
+.about-download {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+
+  a {
+    width: 48%;
+    display: block;
+
+    &.download-ios {
+      display: none;
+    }
+  }
+
+  &.about-ios {
+    .download-android {
+      display: none;
+    }
+    .download-ios {
+      display: block;
+    }
+  }
+}
+
+body.reverse {
+
+  .header {
+    background-color: $footer;
+    border-color: #6B5D54;
+
+    .icon-search, .divide, .user-help a {
+      color: #CBCBCB;
+    }
+  }
+
+  .nav {
+    background-color: $footer;
+
+    a {
+      color: #CBCBCB;
+    }
+  }
+
+  .read-box {
+    background: $readNightDeepBg;
+  }
+
+  .section {
+    background: $readNightBg;
+    color: $readNightText;
+  }
+
+  .read-header {
+    border-color: $readNightDivLine;
+  }
+
+  .content {
+    h3 {
+      color: $text-light;
+    }
+  }
+
+  .read-operate {
+    span {
+      color: $readNightBorder;
+      border-color: $readNightBorder;
+    }
+  }
+
+  .chapter-select {
+    a {
+      color: $readNightBorder;
+      border-color: $readNightBorder;
+      @include tap($readNightBoxHover);
+    }
+  }
+
+  .recommend {
+    border-color: $readNightDivLine;
+
+    p {
+      a {
+        color: $readNightText;
+      }
+    }
+  }
+
+  .read-banner {
+    .read-back {
+      [class^="icon-"] {
+        color: $readFooterColor;
+      }
+    }
+
+    .add-tips {
+      &::after {
+        background-image: $readNightHand;
+      }
+    }
+
+    .shelf-btn {
+      color: $border;
+      background-color: $readNightShelfBtn;
+
+      &.active {
+        background-color: #505050;
+        color: #999;
+      }
+    }
+  }
+
+  .about-wechat img {
+    opacity: .8;
+  }
+
+  .footer {
+    input[type="search"] {
+      color: $readFooterColor;
+      background-color: $readFooterSearch;
+    }
+
+    input[type="submit"] {
+      color: $readFooterColor;
+    }
+
+    .nav-bottom {
+      a {
+        color: $readFooterColor;
+      }
+    }
+  }
+}

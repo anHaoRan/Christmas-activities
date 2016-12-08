@@ -1,0 +1,217 @@
+@import 'common/fun';
+.estWorks{
+  width: 1140px;
+  height: auto;
+  .right-header-haveback{
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 25px;
+  }
+}
+
+.estWorks-main{
+  width: 836px;
+  &>div{
+    overflow: hidden;
+    margin-bottom: 25px;
+  }
+  .works-name{
+    .bookname{
+      width: 707px;
+      height: 36px;
+      overflow: hidden;
+    }
+    input[type=text]{
+      border: 1px solid #e1e1e1;
+      border-radius: 3px;
+      outline: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .works-cover{
+    .cover{
+      width: 100px;
+      height: 130px;
+      float: left;
+      border: 1px solid #e1e1e1;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+      .uploading-btn{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 26px;
+        width: 100px;
+        line-height: 26px;
+        color: #fff;
+        background: #499fff;
+        text-align: center;
+        cursor: pointer;
+        input[type=file]{
+          position: absolute;
+          left: 0;
+          top:0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+    }
+    .mag{
+      float: left;
+      color: #c7cacb;
+      line-height: 20px;
+      margin: 39px 0 0 30px;
+    }
+  }
+  .works-chan{
+    .chan-list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      float: left;
+    }
+    li{
+      float: left;
+      line-height: 36px;
+      width: 126px;
+      span{
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #e1e1e1;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 8px 9px 0 0;
+      }
+      input[type=radio], label{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      input[type=radio]{
+        z-index: 2;
+        opacity: 0;
+        &:checked{
+          &+label{
+            background-image: bg('checked-blue.png');
+            background-repeat: no-repeat;
+            background-size: 11px 9px;
+            background-position: 50%;
+          }
+        }
+      }
+      label{
+        z-index: 1;
+      }
+    }
+  }
+  .works-type{
+    .chan-list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      float: left;
+    }
+    li{
+      float: left;
+      line-height: 36px;
+      width: 126px;
+      span{
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #e1e1e1;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 8px 9px 0 0;
+      }
+      input[type=radio], label{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      input[type=radio]{
+        z-index: 2;
+        opacity: 0;
+        &:checked{
+          &+label{
+            background-image: bg('checked-blue.png');
+            background-repeat: no-repeat;
+            background-size: 11px 9px;
+            background-position: 50%;
+          }
+        }
+      }
+      label{
+        z-index: 1;
+      }
+    }
+  }
+  .works-intro{
+    .intro{
+      width: 707px;
+      height: 176px;
+      overflow: hidden;
+    }
+    textarea{
+      border: 1px solid #e1e1e1;
+      border-radius: 3px;
+      width: 100%;
+      height: 100%;
+      resize: none;
+      padding: 5px 10px;
+    }
+    .num{
+      line-height: 42px;
+      color: #c7cacb;
+    }
+  }
+  .works-tag{
+    .label{
+      position: relative;
+      span{
+        position: absolute;
+        left: 0;
+        top: 36px;
+        line-height: 16px;
+        color: #a5acb2;
+      }
+    }
+    .tag-list{
+      border: 1px solid #e1e1e1;
+      border-radius: 3px;
+      overflow: hidden;
+      padding: 17px 0 6px 17px;
+      span{
+        float: left;
+        margin: 0 7px 11px 0;
+        line-height: 25px;
+        padding: 0 10px;
+        border: 1px solid #a5a5a5;
+        border-radius: 27px;
+        color: #a5a5a5;
+        cursor: pointer;
+        &.active{
+          color: #ff3a3a;
+          border-color: #ff3a3a;
+        }
+      }
+    }
+  }
+  .works-est{
+    .label{
+      height: 36px;
+    }
+  }
+}

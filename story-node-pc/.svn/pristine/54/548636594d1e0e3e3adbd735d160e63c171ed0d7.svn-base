@@ -1,0 +1,49 @@
+<% include partials/head.ejs %>
+<body>
+<% include partials/header.ejs %>
+
+<!--下载-->
+<div class="download-Box">
+  <div class="download-main">
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="iphone">
+      <img src="//c.hotread.com/assets/images/qrcode.jpg">
+    </div>
+    <div class="main-right">
+      <h2 class="APPName">火星小说APP</h2>
+      <p class="info">全新最全免费掌阅小说<br />90后必备追书神器</p>
+      <dl class="download-Rect">
+        <dt class="download-Way">下载方式</dt>
+        <dd class="iphone-wayRect">
+          <p class="wayName iphone-wayName">iPhone</p>
+          <ol>
+            <li>1.扫码左侧二维码下载</li>
+            <li>2.在App Store中搜索“火星小说”下载</li>
+            <li>3.点击“iPhone下载”按钮直接用电脑下载</li>
+          </ol>
+          <a href="https://itunes.apple.com/zh/app/du-yao-xiao-shuo/id1060018265?l=zh&mt=1" class="download-btn">iPhone下载</a>
+        </dd>
+        <dd class="Android-wayRect">
+          <p class="wayName Android-wayName">Android</p>
+          <ol>
+            <li>1.扫码左侧二维码下载</li>
+            <li>2.在各大应用市场中搜索“火星小说”下载</li>
+            <li>3.点击“Andriod下载”按钮直接用电脑下载</li>
+          </ol>
+          <a href="http://s.duyao001.com/static/apk/PoisonNovel.apk" class="download-btn">Android下载</a>
+        </dd>
+      </dl>
+      <div class="wapEntrance">
+        <div class="twoCode-Rect">
+          <img src="//c.hotread.com/assets/images/qrcode-wap.jpg">
+        </div>
+        <p class="sent">访问手机web站<br />手机浏览器访问:hoterad.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="wave-Box"></div>
+</div>
+
+<% include partials/vue.ejs %>
+<% include partials/foot.ejs %>

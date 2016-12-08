@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="../styles/auth.min.css" />
+<div class="container clearfix">
+  <div class="auth-banner">
+    <a href="./index.html">
+      <img src="../images/logo.png" class="logo" />
+    </a>
+  </div>
+
+  <form class="auth-form">
+    <h2>注册</h2>
+    <div class="auth-switch">已有账号？<a href="./login.html">立即登录</a></div>
+    <div class="form-box">
+      <div class="form-group account">
+        <div class="form-control" data-placeholder="给自己设置一个牛逼的昵称吧~" >
+          <input type="text"/>
+        </div>
+      </div>
+      <div class="form-group phone">
+        <div class="form-control" data-placeholder="请输入11位手机号" >
+          <input type="text"/>
+        </div>
+      </div>
+      <div class="form-group note">
+        <div class="form-control" data-placeholder="请输入短信验证码" >
+          <input type="text"/>
+        </div>
+        <span class="get">获取短信验证码</span>
+      </div>
+      <div class="form-group password">
+        <div class="form-control" data-placeholder="请输入密码" >
+          <input type="password"/>
+        </div>
+      </div>
+      <div class="form-group password-confirm">
+        <div class="form-control" data-placeholder="请确认密码" >
+          <input type="password"/>
+        </div>
+      </div>
+      <div class="form-group verify-box">
+        <div class="form-control" data-placeholder="请输入验证码">
+          <input type="text" />
+        </div>
+        <img src="http://www.hotread.com/api/captcha/code" class="verify" />
+        <span class="verify-btn">换一换</span>
+      </div>
+      <div class="submit-box">
+        <input type="submit" value="注册" class="submit">
+      </div>
+    </div>
+    <div class="third-login">
+      <strong>第三方登录</strong>
+      <a href="#" class="third-btn qq">QQ登录</a>
+      <a href="#" class="third-btn weibo">微博登录</a>
+    </div>
+  </form>
+</div>

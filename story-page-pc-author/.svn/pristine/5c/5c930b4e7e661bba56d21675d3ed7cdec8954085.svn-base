@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="root platform-win">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作者中心</title>
+  <link href="http://c.hotread.com/assets/images/favico.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="../styles/common.min.css">
+  <link rel="stylesheet" href="../styles/works.min.css">
+  <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.slimscroll.min.js"></script>
+  <script src="http://c.hotread.com/assets/js/vue.min.js"></script>
+  <style>[v-cloak] { visibility: hidden;  }</style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="slogan" href="http://author.hotread.com">
+        <img src="http://c.hotread.com/wap/images/3x/slogan.png" alt="">
+      </a>
+      <span class="user">
+        <a href>退出登陆</a>
+      </span>
+    </div>
+  </header>
+  <div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item"><a href="worksList.html"><span></span>作品列表</a></li>
+            <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item active"><a href="comment.html">评论管理</a></li>
+            <li class="item"><a href="settings-one.html">个人设置</a></li>
+        </ul>
+    </div>
+    <!-- 左侧导航 -->
+    <div class="box fl">
+        <div class="right-header right-boder">
+            <p class="hint wryh-font">评论管理</p>
+        </div>
+        <div class="filter comment-filter content">
+            <!-- 筛选 -->
+            <label class="x">选择作品:</label>
+            <div class="form-group">
+                <div class="form-control" :class="{'error': target=='paperType', 'has-value': paperType}" data-placeholder="选择作品">
+                    <input type="text" v-model="paperType">
+                    <select v-model="paperType" class="select-model">
+                        <option value="">--请选择--</option>
+                        <option :value="type" v-for="type in types">{{type}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <section class="content item">
+            <span class="portrait" style="background: url(../images/read-arrow.png) no-repeat 0 0 / cover;"></span>
+            <div class="portrait-content">
+                <span class="name">方迟</span>
+                <p class="text">我奶奶每次看到我看NBA都会说：“看这个有什么意义，大块头黑人直接把球摁框里，还打什么鬼”每次。所以目测你舅舅 和我奶奶水平差不多^_^
+                </p>
+                <div class="portrait-b">
+                    <span class="time">2016-04-18 16:30:10</span>
+                    <a href="#" class="button">置顶</a>
+                    <a href="#" class="button">加精</a>
+                    <div class="huifu">回复（<span>198</span>）</div>
+                </div>
+                <!-- 评论回复列表 -->
+                <div class="reply-list">
+                    <ul>
+                        <li class="reply-item">
+                            <span class="pic"></span>
+                            <div class="reply-d">
+                                <p class="name">骄阳</p>
+                                <p class="text">顶</p>
+                                <p class="time">2016-08-16 20:24:19
+                                    <span class="btn">删除</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 评论回复 -->
+                <div class="reply" :class="{'error': target=='reply_text', 'has-value': reply_text}"  data-placeholder="写下你的回复">
+                    <input type="text" v-model="reply_text" />
+                    <span class="btn">回复</span>
+                </div>
+            </div>
+        </section>
+        <!-- 评论 item -->
+        <div class="paging content">
+            <ul class="paging-list">
+                <li class="paging-left"></li>
+                <li class="paging-item active">1</li>
+                <li class="paging-item">2</li>
+                <li class="paging-item">3</li>
+                <li class="paging-item">4</li>
+                <li class="paging-right"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+new Vue({
+    el: 'body',
+    data: {
+        paperType: '',
+        reply_text:'',
+        target: 'reply_text',
+        target: 'mobilephone',
+        types: ['完美世界1', '完美世界2', '完美世界3']
+    }
+});
+</script>
+
+  <script>!function(e){function n(){}function t(e,n){return function(){e.apply(n,arguments)}}function o(e){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],s(e,this)}function i(e,n){for(;3===e._state;)e=e._value;return 0===e._state?void e._deferreds.push(n):(e._handled=!0,void o._immediateFn(function(){var t=1===e._state?n.onFulfilled:n.onRejected;if(null===t)return void(1===e._state?r:u)(n.promise,e._value);var o;try{o=t(e._value)}catch(i){return void u(n.promise,i)}r(n.promise,o)}))}function r(e,n){try{if(n===e)throw new TypeError("A promise cannot be resolved with itself.");if(n&&("object"==typeof n||"function"==typeof n)){var i=n.then;if(n instanceof o)return e._state=3,e._value=n,void f(e);if("function"==typeof i)return void s(t(i,n),e)}e._state=1,e._value=n,f(e)}catch(r){u(e,r)}}function u(e,n){e._state=2,e._value=n,f(e)}function f(e){2===e._state&&0===e._deferreds.length&&o._immediateFn(function(){e._handled||o._unhandledRejectionFn(e._value)});for(var n=0,t=e._deferreds.length;n<t;n++)i(e,e._deferreds[n]);e._deferreds=null}function c(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}function s(e,n){var t=!1;try{e(function(e){t||(t=!0,r(n,e))},function(e){t||(t=!0,u(n,e))})}catch(o){if(t)return;t=!0,u(n,o)}}var a=setTimeout;o.prototype["catch"]=function(e){return this.then(null,e)},o.prototype.then=function(e,t){var o=new this.constructor(n);return i(this,new c(e,t,o)),o},o.all=function(e){var n=Array.prototype.slice.call(e);return new o(function(e,t){function o(r,u){try{if(u&&("object"==typeof u||"function"==typeof u)){var f=u.then;if("function"==typeof f)return void f.call(u,function(e){o(r,e)},t)}n[r]=u,0===--i&&e(n)}catch(c){t(c)}}if(0===n.length)return e([]);for(var i=n.length,r=0;r<n.length;r++)o(r,n[r])})},o.resolve=function(e){return e&&"object"==typeof e&&e.constructor===o?e:new o(function(n){n(e)})},o.reject=function(e){return new o(function(n,t){t(e)})},o.race=function(e){return new o(function(n,t){for(var o=0,i=e.length;o<i;o++)e[o].then(n,t)})},o._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},o._unhandledRejectionFn=function(e){"undefined"!=typeof console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)},o._setImmediateFn=function(e){o._immediateFn=e},o._setUnhandledRejectionFn=function(e){o._unhandledRejectionFn=e},"undefined"!=typeof module&&module.exports?module.exports=o:e.Promise||(e.Promise=o)}(this);</script>
+  <script src="http://c.hotread.com/assets/js/vue-resource.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>火星小说</title>
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+</head>
+
+<body>
+  
+  <link rel="stylesheet" href="../styles/reviewMatch.min.css" />
+<header class="header">
+    <div class="div_header_money">
+        <div class="div_header_book"></div>
+    </div>
+    <div class="div_introduce">
+        十月将逝，秋意渐浓， “火星小说”隆重推出“写书评，拿奖励”的书评活动。只要拿起你的笔，就能为你喜欢的书加油助威，还能赢奖励！期待你所喜爱的小说火遍全宇宙！
+    </div>
+</header>
+<main class="main">
+    <ul class="set a">
+        <li class="set_title"></li>
+        <li class="item">
+            <div class="top">
+                <p class="top_icon"></p>
+                <p class="top-img"></p>
+                <p class="top-text">火星币</p>
+            </div>
+            <div class="bottom">
+                <p class="bottom-text">毒药app</p>
+                <p class="bottom-text1">图书频道推荐</p>
+            </div>
+        </li>
+        <li class="item">
+            <div class="top">
+                <p class="top_icon"></p>
+                <p class="top-img"></p>
+                <p class="top-text">火星币</p>
+            </div>
+            <div class="bottom">
+                <p class="bottom-text">毒药app</p>
+                <p class="bottom-text1">图书频道推荐</p>
+            </div>
+        </li>
+        <li class="item">
+            <div class="top">
+                <p class="top_icon"></p>
+                <p class="top-img"></p>
+                <p class="top-text">火星币</p>
+            </div>
+            <div class="bottom">
+                <p class="bottom-text">毒药app</p>
+                <p class="bottom-text1">图书频道推荐</p>
+            </div>
+        </li>
+        <li class="item">
+            <div class="top">
+                <p class="top_icon"></p>
+                <p class="top-img"></p>
+                <p class="top-text">火星币</p>
+            </div>
+            <div class="bottom">
+                <p class="bottom-text">最佳书评奖</p>
+                <p class="bottom-text1">30名</p>
+            </div>
+        </li>
+        <li class="icon_left"></li>
+        <li class="icon_right"></li>
+    </ul>
+    <div class="regulation a">
+        <div class="regulation_title"></div>
+        <ul>
+            <li class="item">网站所有作品均为参赛作品，可就任意一部签约作品发表书评。</li>
+            <li class="item">网站所有注册用户都可参加写书评活动。</li>
+            <li class="item">参赛书评必须满200字。</li>
+            <li class="item">优秀书评由该作品的作者提交火星小说编辑部以作记录参赛。</li>
+            <li class="item">达到以上要求的评论，由编辑进行终审评定，评选出 相关奖项。</li>
+            <li class="item">所有获奖书评及作品，将有机会获得网站Banner,公告等形式的曝光机会。作品产生最佳书评的，获得网站公告曝光机会。作品产生Top3评论，获得网站大封推一天，客户端重磅推荐！</li>
+            <li class="item">活动结束后，统一发放奖励。</li>
+            <li class="item"></li>
+        </ul>
+    </div>
+    <div class="reader-list1 a">
+        <div class="reader-list1-title"></div>
+        <ul class="list1-item">
+            <li class="li-item left" v-for="item in list">
+                <a href="javascript:;">
+                    <img class="cover left" :src="item.cover">
+                    <div class="books-information left">
+                        <p class="name">{{item.name}}</p>
+                        <p class="author ">{{item.author}}</p>
+                        <p class="type ">分类：{{item.type}}</p>
+                    </div>
+                    <p class="reader left">{{item.reader}}评论：</p>
+                    <p class="content left">{{item.content}}</p>
+                </a>
+            </li>
+        </ul>
+        <p class="list1-left"></p>
+        <p class="list1-right"></p>
+    </div>
+    <div class="reader-list2 a">
+        <div class="case" id="box">
+            <ul class="list2-item" id="ul1">
+                <li class="li-item" v-for="item in list2">
+                    <p class="reader">{{item.reader}}评论：<span class="name">《{{item.name}}》</span></p>
+                    <p class="content">{{item.content}}</p>
+                </li>
+            </ul>
+            <ul class="list2-item" id="ul2"></ul>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+</footer>
+<script type="text/javascript">
+var box = document.getElementById("box");
+var ul1 = document.getElementById("ul1");
+var ul2 = document.getElementById("ul2");
+var speed = 40;
+ul2.innerHTML = ul1.innerHTML
+
+function Marquee() {
+    if (ul2.offsetTop - box.scrollTop <= 0)
+        box.scrollTop -= ul1.offsetHeight
+    else {
+        box.scrollTop++
+    }
+}
+var MyMar = setInterval(Marquee, speed);
+box.onmouseover = function() {
+    clearInterval(MyMar)
+}
+box.onmouseout = function() {
+    MyMar = setInterval(Marquee, speed)
+}
+</script>
+<script src="http://mobile.hotread.com/tops/data/data-20161018.js"></script>
+<script src="http://c.hotread.com/assets/js/vue.min.js"></script>
+<script>
+new Vue({
+    el: 'body',
+    data: {
+        list: data1,
+        list2: data2
+    }
+});
+</script>
+
+</body>
+
+</html>

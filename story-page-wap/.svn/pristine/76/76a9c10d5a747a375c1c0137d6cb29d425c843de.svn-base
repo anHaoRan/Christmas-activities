@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <title>毒药 • 年度影剧评选</title>
+    <link rel="stylesheet" href="../styles/year-activity.min.css">
+    <style type="text/css">
+    [v-cloak] {
+        visibility: hidden;
+    }
+    </style>
+</head>
+
+<body>
+    <h1 class="none">毒药 • 年度影剧评选</h1>
+    <header class="header"></header>
+    <main class="content">
+        <section class="good-movie item">
+            <p class="guize">投票规则：这份名单中，有狂揽30亿的商业片巨蟒 也有美到忧伤的复古胶片拍摄，商业性与艺术性自古相爱相杀，但好电影总能把二者和谐地糅合。所以请毒友综合考量，选出你心中2016华语电影TOP10。</p>
+            <ul class="list" v-if="GOOD" v-cloak>
+                <li class="list-item" v-for="item in list1"><div class=" checked" v-click=""></div><span class="text">{{item.name}}</span></li>
+            </ul>
+            <ul class="click-list" v-if="!GOOD" v-cloak>
+                <li class="click-item" v-for="item in list1">
+                    <div class="top"><span class="name">{{item.name}}</span><span class="num"><span class="color">234</span>票</span></div>
+                    <div class="bar"></div>
+                    <span class="percent">44.68%</span>
+                </li>
+            </ul>
+            <p class="tips">（最多可投10项）</p>
+            <div class="button">投票</div>
+        </section>
+        <div class="title1"></div>
+        <section class="good-movie item">
+            <p class="guize">投票规则：这份名单中，有狂揽30亿的商业片巨蟒 也有美到忧伤的复古胶片拍摄，商业性与艺术性自古相爱相杀，但好电影总能把二者和谐地糅合。所以请毒友综合考量，选出你心中2016华语电影TOP10。</p>
+            <ul class="list" v-if="BAD" v-cloak>
+                <li class="list-item" v-for="item in list2"><div class="checkboxDiv"></div><span class="text">{{item.name}}</span></li>
+            </ul>
+            <ul class="click-list" v-if="!BAD" v-cloak>
+                <li class="click-item" v-for="item in list2">
+                    <div class="top"><span class="name">{{item.name}}</span><span class="num"><span class="color">234</span>票</span></div>
+                    <div class="bar"></div>
+                    <span class="percent">44.68%</span>
+                </li>
+            </ul>
+            <p class="tips">（最多可投10项）</p>
+            <div class="button">投票</div>
+        </section>
+        <div class="title1"></div>
+        <section class="good-movie item">
+            <p class="guize">投票规则：这份名单中，有狂揽30亿的商业片巨蟒 也有美到忧伤的复古胶片拍摄，商业性与艺术性自古相爱相杀，但好电影总能把二者和谐地糅合。所以请毒友综合考量，选出你心中2016华语电影TOP10。</p>
+            <ul class="list" v-if="BOOM" v-cloak>
+                <li class="list-item" v-for="item in list3"><div class="checkboxDiv"></div><span class="text">{{item.name}}</span></li>
+            </ul>
+            <ul class="click-list" v-if="!BOOM" v-cloak>
+                <li class="click-item" v-for="item in list3">
+                    <div class="top"><span class="name">{{item.name}}</span><span class="num"><span class="color">234</span>票</span></div>
+                    <div class="bar"></div>
+                    <span class="percent">44.68%</span>
+                </li>
+            </ul>
+            <p class="tips">（最多可投10项）</p>
+            <div class="button">投票</div>
+        </section>
+        <footer class="footer">
+        <img class="two-code" src="../images/duyao/two-code.png">
+    </footer>
+    </main>
+    
+    <script type="text/javascript" src="../js/data.js"></script>
+    <script src="//c.hotread.com/assets/js/vue.min.js"></script>
+    <script src="//c.hotread.com/assets/js/vue-resource-polyfill.min.js"></script>
+    <script type="text/javascript">
+    ;
+    (function(Vue) {
+        var context = data;
+        console.log(context)
+        new Vue({
+            el: 'body',
+            data: {
+                list1:context[0].list,
+                list2:context[1].list,
+                list3:context[2].list,
+                GOOD:true,
+                BAD:  true,
+                BOOM:true,
+            },
+            methods: {
+                add:function(){
+                    console.log(this.list1)
+                }
+            },
+            ready:function(){
+                this.add()
+            }
+        });
+    })(Vue)
+    </script>
+</body>
+
+</html>

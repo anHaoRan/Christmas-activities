@@ -1,0 +1,663 @@
+@import "common/variable";
+@import "common/fun";
+
+/*本周热推*/
+.weekHot {
+  width: 1000px;
+  height: 504px;
+  margin: 0 auto;
+  margin-bottom: 26px;
+}
+/*热推主体*/
+
+.weekHot-main {
+  width: 791px;
+  height: 504px;
+  float: left;
+  .weekHot-title {
+    @include marPad();
+    height: 51px;
+    font-size: 22px;
+    line-height: 51px;
+    color: $textColor;
+  }
+  /*图片轮播*/
+  .picAuto {
+    position: relative;
+    width: 320px;
+    height: 453px;
+    float: left;
+    border: 1px solid #eee;
+    overflow: hidden;
+    .cover {
+      position: absolute;
+      width: 318px;
+      height: 112px;
+      z-index: 2;
+      left: 0;
+      bottom: 0;
+      background: black;
+      opacity: 0.7;
+    }
+    ul.bigBook-rect {
+      list-style: none;
+      @include marPad();
+      position: absolute;
+      z-index: 1;
+      width: 318px;
+      height: 451px;
+      overflow: hidden;
+      li{
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    li.bigBook-list {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    ol.smallBook-rect {
+      list-style: none;
+      @include marPad();
+      width: 318px;
+      height: 112px;
+      padding: 33px 0 0 12px;
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      bottom: 0;
+      li.on {
+        border: 2px solid red;
+        overflow: hidden;
+      }
+      li.smallBook-list {
+        float: left;
+        width: 49px;
+        height: 69px;
+        margin-right: 12px;
+        cursor: pointer;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    
+    .bookName {
+      position: absolute;
+      z-index: 3;
+      height: 33px;
+      font-size: 14px;
+      color: white;
+      line-height: 33px;
+      left: 0;
+      bottom: 79px;
+      padding-left: 12px;
+    }
+  }
+  .bookIntro {
+    float: right;
+    width: 435px;
+    height: 453px;
+    overflow: hidden;
+    dl.bookIntro-rect {
+      @include marPad();
+      width: 424px;
+      &:first-child,
+      &:nth-child(2) {
+        margin-bottom: 17px;
+      }
+    }
+    dt.bookIntro-title {
+      font-size: 18px;
+      font-weight: 600;
+      padding-right: 10px;
+      margin-bottom: 4px;
+      @include showApo();
+      a {
+        color: #4e4e4e;
+      }
+    }
+    dd.bookIntro-list {
+      @include marPad();
+      line-height: 28px;
+      padding-right: 30px;
+      @include showApo();
+      a {
+        color: #666666;
+        &:hover{
+          color:#ff3131;
+        }
+      }
+    }
+  }
+}
+
+
+/*热推新书榜*/
+
+.weekHot .girl-ranking {
+  float: right;
+  width: 208px;
+  height: 504px;
+  dl.ranking-rect {
+    @include marPad();
+    width: 208px;
+    height: 453px;
+    border: 1px solid #e6e5e5;
+  }
+}
+
+
+/*精品推荐*/
+
+.girlRecommend {
+  width: 1000px;
+  height: 504px;
+  margin: 0 auto;
+  margin-bottom: 26px;
+}
+
+
+/*推荐主体*/
+
+.girlRecommend-rect {
+  width: 791px;
+  height: 504px;
+  float: left;
+  .girlRecommend-title {
+    @include marPad();
+    height: 51px;
+    font-size: 22px;
+    line-height: 51px;
+    color: $textColor;
+  }
+  /*推荐最大的书*/
+  .chiefBook {
+    position: relative;
+    width: 320px;
+    height: 453px;
+    float: left;
+    border: 1px solid #eee;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .message {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 130px;
+      width: 320px;
+      padding: 15px 0 0 22px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+  }
+  h2.bookName {
+    @include marPad();
+    font-size: 18px;
+    color: #212120;
+    line-height: 18px;
+    height: 18px;
+    font-weight: bold;
+    @include showApo();
+    padding-right: 50px;
+  }
+  span.author {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    color: #999999;
+    @include showApo();
+  }
+  p.recoSent {
+    @include marPad();
+    position: relative;
+    line-height: 24px;
+    font-size: 14px;
+    color: #000000;
+    text-indent: 2em;
+    padding-right: 5px;
+    height: 48px;
+    overflow:hidden;
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '';
+      width: 22px;
+      height: 21px;
+      background: bg('mark.png') no-repeat;
+    }
+  }
+  /*三本小书*/
+  .assistantBook {
+    list-style: none;
+    @include marPad();
+    width: 435px;
+    height: 453px;
+    float: right;
+    overflow: hidden;
+    li {
+      height: 129px;
+      width: 100%;
+      margin-bottom: 31px;
+      img {
+        display: block;
+        float: left;
+        width: 91px;
+        height: 129px;
+      }
+    }
+    .message {
+      float: left;
+      margin-left: 22px;
+      width: 310px;
+      height: 129px;
+    }
+  }
+}
+
+
+/*人气榜*/
+
+.girlRecommend .girl-ranking {
+  float: right;
+  width: 208px;
+  height: 504px;
+  dl.ranking-rect {
+    @include marPad();
+    width: 208px;
+    height: 453px;
+    border: 1px solid #e6e5e5;
+  }
+}
+
+.girl-banner {
+  height: 109px;
+  width: 1000px;
+  margin: 40px auto 29px auto;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+/*分类推荐*/
+
+.classify {
+  width: 1000px;
+  height: 867px;
+  margin: 0 auto;
+  margin-bottom: 127px;
+}
+
+.classify-rect {
+  height: 867px;
+  float: left;
+  width: 765px;
+  .classify-title {
+    @include marPad();
+    width: 765px;
+    height: 50px;
+    font-size: 22px;
+    line-height: 50px;
+    padding-left: 4px;
+  }
+  .columnBook-rect {
+    list-style: none;
+    @include marPad();
+    width: 765px;
+    height: 817px;
+    overflow: hidden;
+    li.columnBook-list {
+      width: 372px;
+      height: 393px;
+      float: left;
+      margin-right: 21px;
+      margin-bottom: 30px;
+      border: 1px solid #ffe8ee;
+      p.comment {
+        @include marPad();
+        height: 21px;
+        line-height: 21px;
+        font-size: 14px;
+        padding: 0 25px;
+        color: $textColor;
+        @include showApo();
+        a{
+          color:#333;
+          &:hover{
+            color: #ff3131;
+          }
+        }
+
+      }
+      h2.type {
+        @include marPad();
+        height: 46px;
+        width: 100%;
+        background: #ffe8ee;
+        font-size: 16px;
+        color: $textColor;
+        font-weight: 600;
+        line-height: 47px;
+        padding-left: 27px;
+        margin-bottom: 33px;
+      }
+      a.more {
+        position: relative;
+        width: 40px;
+        height: 14px;
+        font-size: 14px;
+        line-height: 14px;
+        float: right;
+        cursor: pointer;
+        font-weight: normal;
+        margin: 17px 17px 0 0;
+        color: $textColor;
+        &:after,
+        &:before {
+          position: absolute;
+          right: 1px;
+          top: 2px;
+          content: '';
+          width: 0;
+          height: 0;
+          border: 5px solid transparent;
+          border-left-color: #ffe8ee;
+        }
+        &:before {
+          right: 0;
+          top: 2px;
+          border-left-color: black;
+        }
+      }
+      img {
+        display: block;
+        float: left;
+        width: 145px;
+        height: 205px;
+        margin: 0 23px 0 25px;
+      }
+      div.details {
+        float: left;
+        width: 155px;
+        height: 230px;
+      }
+      h3.bookName {
+        @include marPad();
+        font-size: 16px;
+        line-height: 18px;
+        color: $textColor;
+        font-weight: 600;
+        margin-bottom: 5px;
+        height: 18px;
+        @include showApo();
+      }
+      em.author {
+        font-style: normal;
+        font-size: 14px;
+        line-height: 39px;
+        color: #081426;
+      }
+      p.intro {
+        @include marPad();
+        font-size: 13px;
+        line-height: 20px;
+        color: #666666;
+        margin-bottom: 23px;
+        max-height: 60px;
+        overflow: hidden;
+      }
+      span.sent {
+        display: block;
+        font-size: 13px;
+        line-height: 20px;
+        color: #666666;
+        max-height: 60px;
+        overflow: hidden;
+      }
+      &:hover{
+        border: 1px solid #ff3131;
+        h2.type {
+          background: #ff3131;
+          color: #fff;
+        }
+        a.more {
+          color: #fff;
+          &:after,
+          &:before {
+            border-left-color: #ff3131;
+          }
+          &:before {
+            border-left-color: #fff;
+          }
+        }
+      }
+    }
+    li:nth-child(2),
+    li:nth-child(4) {
+      margin-right: 0;
+    }
+  }
+}
+
+
+/*月票榜*/
+
+.classify .girl-ranking {
+  float: right;
+  width: 208px;
+  height: 867px;
+  padding-top: 3px;
+  dl.ranking-rect {
+    @include marPad();
+    width: 208px;
+    height: 813px;
+    border: 1px solid #e6e5e5;
+  }
+}
+
+.girl-ranking {
+  h2 {
+    @include marPad();
+    height: 52px;
+    width: 100%;
+    font-size: 22px;
+    font-weight: 600;
+    color: $textColor;
+    line-height: 52px;
+    span {
+      display: block;
+      float: right;
+      width: 84px;
+      height: 26px;
+      margin-top: 16px;
+      font-weight: normal;
+    }
+    em.day,
+    em.week,
+    em.month {
+      font-style: normal;
+      display: block;
+      float: left;
+      width: 22px;
+      height: 26px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 6px;
+      line-height: 23px;
+    }
+    em.on {
+      color: white;
+      text-align: center;
+      background: bg('chart-phb-ob.png') no-repeat;
+    }
+  }
+  dd.ranking-list {
+    @include marPad();
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #e6e5e5;
+    padding: 4px;
+    cursor: pointer;
+    a.pinkBg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: #666666;
+    }
+    em.num {
+      font-style: normal;
+      display: block;
+      float: left;
+      width: 46px;
+      height: 36px;
+      text-align: center;
+      line-height: 36px;
+      color: #999999;
+      font-size: 14px;
+    }
+    img {
+      display: block;
+      float: left;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+    h3.bookName {
+      @include marPad();
+      float: left;
+      font-size: 14px;
+      line-height: 36px;
+      font-weight: normal;
+    }
+    p.name {
+      @include marPad();
+      float: left;
+      width: 0;
+      height: 0;
+      font-size: 0;
+      overflow: hidden;
+    }
+  }
+  dd.on {
+    height: 90px;
+    a.pinkBg {
+      background: #ffe8ee;
+      padding-top: 13px;
+    }
+    em.num {
+      display: block;
+      float: left;
+      width: 46px;
+      height: 59px;
+      text-align: center;
+      line-height: 59px;
+      color: #fd2f35;
+      font-size: 18px;
+    }
+    img {
+      display: block;
+      float: left;
+      width: 41px;
+      height: 59px;
+      margin-right: 14px;
+    }
+    h3.bookName {
+      float: left;
+      height: 14px;
+      width: 90px;
+      line-height: 14px;
+      font-size: 14px;
+      color: $textColor;
+      font-weight: 600;
+    }
+    p.name {
+      float: left;
+      width: 90px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+  dt.more {
+    height: 46px;
+    width: 100%;
+    background: #f8f7f7;
+    cursor: pointer;
+    a {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 46px;
+      color: #666666;
+      &:after,
+      &:before {
+        position: absolute;
+        left: 134px;
+        top: 18px;
+        content: '';
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-left-color: #f8f7f7;
+      }
+      &:before {
+        left: 135px;
+        top: 18px;
+        border-left-color: black;
+      }
+    }
+  }
+}
+//分类推荐
+.boy>.classify-rect>ul.columnBook-rect>li.columnBook-list{
+  border-color:#c5ebff;
+}
+.boy>.classify-rect>ul.columnBook-rect>li.columnBook-list>h2.type{
+  background:#c5ebff;
+}
+.boy>.classify-rect>ul.columnBook-rect>li.columnBook-list>h2.type>a.more{
+  &:after{
+    border-left-color:#c5ebff; 
+  }
+}
+// 修改男频样式
+.boy>.girlRecommend-rect>ul.assistantBook>li>a>div.message>p.recoSent{
+  &:before{
+    background: url(../images/mark_boy.png) no-repeat;
+  }
+}
+.boy>.girlRecommend-rect>.chiefBook>a>.message>p.recoSent:before{
+  background: bg('mark_boy.png') no-repeat !important;
+}
+.boy>.classify-rect>ul.columnBook-rect>li.columnBook-list:hover{
+  border-color: #3aaeeb;
+  h2.type{
+    background: #3aaeeb;
+    color: #fff;
+    a.more{
+      color: #fff;
+       &:after{
+        border-left-color: #3aaeeb;
+      }
+      &:before {
+        border-left-color: #fff;
+      }
+    }
+  }
+}

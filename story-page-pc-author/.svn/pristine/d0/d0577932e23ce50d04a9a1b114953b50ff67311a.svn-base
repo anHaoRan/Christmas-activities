@@ -1,0 +1,78 @@
+<link rel="stylesheet" type="text/css" href="../styles/worksList-writeNewSection.min.css">
+<div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+            <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item"><a href="comment.html">评论管理</a></li>
+            <li class="item"><a href="settings.html">个人设置</a></li>
+        </ul>
+    </div>
+    <div class="writeNewSection fl">
+        <div class="right-header-haveback">
+            <p class="hint"><a href="worksList.html" class="back">作品列表</a><span class="bookname">山村老尸</span></p>
+        </div>
+        <div class="main-nav">
+            <a href="worksList-setroll.html">分卷设置</a>
+            <a href="worksList-writeNewSection.html" class="active">写新章节</a>
+            <a href="worksList-drafts.html">草稿箱</a>
+            <a href="worksList-issue.html">已发布章节</a>
+            <a href="">作品设置</a>
+        </div>
+        <div class="writeNewSection-main">
+            <div class="section-title">
+                <span class="label must">章节标题</span>
+                <div class="title">
+                    <input type="text" placeholder="示例：第一张 火星小说">
+                </div>
+                <div class="roll">
+                    <div class="form-group roll-form-group ">
+                        <div class="form-control" :class="{'error': target=='paperType', 'has-value': paperType}" data-placeholder="选择作品">
+                            <input type="text" class="select-like" v-model="paperType">
+                            <select v-model="paperType" class="select-model">
+                                <option value="">--请选择--</option>
+                                <option :value="type" v-for="type in types">{{type}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn fl">添加卷</div>
+                <div class="btn fr">预览</div>
+            </div>
+            <div class="section-text">
+                <span class="label must">章节正文</span>
+                <textarea></textarea>
+                <p class="hint-num">字数限制：100-1000字&nbsp;&nbsp;&nbsp;当前字数：0</p>
+            </div>
+            <div class="section-tag">
+                <span class="label must">附加语</span>
+                <textarea></textarea>
+            </div>
+            <div class="section-send">
+                <div class="timing-btn">
+                    <span>
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox"></label>
+          </span> 定时发送
+                </div>
+                <div class="timing-time">
+                    <input type="text" disabled value="2016-11-02 晚上6点40分">
+                </div>
+                <div class="btn private">发布</div>
+                <div class="disabled-btn private">保存到草稿箱</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+new Vue({
+    el: 'body',
+    data: {
+        paperType: '',
+        target: 'mobilephone',
+        types: ['完美世界', '完美世界1', '完美世界2']
+    }
+});
+</script>

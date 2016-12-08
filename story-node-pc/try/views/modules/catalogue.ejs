@@ -1,0 +1,80 @@
+<div class="catalogue-box" id="catalogue">
+  <h2 class="catalogue-bookName"><%= story.name %></h2>
+  <div class="catalogue-list">
+    <% volumes.forEach(function (volume, index) { -%>
+      <dl class="roll" 
+        :class="{on: indexOf(volumesClosed, '<%= volume.id %>') === -1}">
+        <dt
+          @click="toggleVolumes(<%= index %>)"
+          ><span><em class="rect"></em><%= volume.name %></span><i class="ico"></i></dt>
+        <dd>
+          <a :class="{'vip': chapter.isPay}" 
+            :href="'/story/' + chapter.storyId + '/' + chapter.id" 
+            v-for="chapter in chapterList[<%= index %>]">
+            <span class="chapter-name">{{chapter.name}}</span>
+          </a>
+        </dd>
+      </dl>
+    <% }) -%>
+  </div>
+</div>
+<% include ../partials/vue.ejs %>
+<script>
+  var volumes = <%- JSON.stringify(volumes) %>;
+  ;(function () {
+    new Vue({
+      el: '#catalogue',
+      data: {
+        volumes: volumes,
+        chapterList: [],
+        volumesClosed: []
+      },
+      methods: {
+        indexOf: function (array, item) {
+          var i = 0, len = array.length;
+          var index = -1;
+          for (; i < len; i++) {
+            if (array[i] === item) {
+              index = i;
+              break;
+            }
+          }
+          return index;
+        },
+        remove: function (array, item) {
+          var i = 0, len = array.length;
+          var result = [];
+          for (; i < len; i++) {
+            if (array[i] !== item) {
+              result.push(array[i]);
+            }
+          }
+          return result;
+        },
+        toggleVolumes: function (index) {
+          var volume = this.volumes[index];
+          if (this.indexOf(this.volumesClosed, volume.id) > -1) {
+            this.volumesClosed = this.remove(this.volumesClosed, volume.id);
+          } else {
+            this.volumesClosed.push(volume.id);
+          }
+        },
+        getChapters: function (volume, index) {
+          this.$http.get('/api/story/chapters?volumeId=' + volume.id)
+            .then(function (resp) {
+              this.chapterList.$set(index, resp.body.chapters);
+            });
+        }
+      },
+      ready: function () {
+        var _volumes = volumes.concat([]);
+        var volume;
+        var index = 0;
+        while(volume = _volumes.shift()) {
+          this.getChapters(volume, index);
+          index++;
+        }
+      }
+    });
+  })();
+</script>

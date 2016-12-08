@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="../styles/userCenter.min.css" />
+<!--导航-->
+<div class="hotr-nav">
+  <ul class="nav-main">
+    <li class="on"><a href="index.html">首页</a></li>
+    <li><a href="girl.html">女频</a></li>
+    <li><a href="#">男频</a></li>
+    <li><a href="chart.html">排行</a></li>
+    <li><a href="library.html">书库</a></li>
+    <li><a href="qualityCopyright.html">优质版权</a></li>
+    <li><a href="topUp.html">充值</a></li>
+    <li><a href="#">福利</a></li>
+    <li><a href="#">下载客户端</a></li>
+  </ul>
+</div>
+<!--个人中心-->
+<div class="userCenter">
+  <!--左边导航-->
+  <div class="userCenter-leftNav">
+    <dl class="userCenter-navList">
+      <dt>我的书架</dt>
+    </dl>
+    <dl class="userCenter-navList">
+      <dt>我的账户<i></i></dt>
+      <dd>个人信息</dd>
+      <dd>修改密码</dd>
+    </dl>
+    <dl class="userCenter-navList on">
+      <dt>消息中心</dt>
+    </dl>
+    <dl class="userCenter-navList">
+      <dt>账户管理</dt>
+    </dl>
+  </div>
+  <!--右边盒子-->
+  <div class="userCenter-rightBox">
+    <!--消息中心-->
+    <div class="infocenter">
+      <ol class="cut-btnRect">
+        <li>通知</li>
+        <li class="on">评论</li>
+        <li>我的回复</li>
+      </ol>
+      <!--通知内容盒子-->
+      <div class="infocenter-plCon">
+        <dl class="pl-list">
+          <dt class="tx"><img src="../assets/tx1.jpg" /></dt>
+          <dd class="rightBox">
+            <h3><a href="#" class="name">小星星</a><span>对《最好的我们》的评论：</span><p class="myPl">小说太好看了，坐等更新！</p></h3>
+            <ul class="timeAndreply">
+              <li class="time">2016-07-15 16:04</li>
+              <li class="replyBtn">回复(20)</li>
+            </ul>
+          </dd>
+        </dl>
+        <dl class="pl-list">
+          <dt class="tx"><img src="../assets/tx1.jpg" /></dt>
+          <dd class="rightBox">
+            <h3><a href="#" class="name">小星星</a><span>回复了</span><a href="#" class="name">你</a>：</h3>
+            <p class="myPl">小说太好看了，坐等更新！</p>
+            <p class="otherPl">小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！</p>
+            <ul class="timeAndreply">
+              <li class="time">2016-07-15 16:04</li>
+              <li class="replyBtn">回复(20)</li>
+            </ul>
+          </dd>
+        </dl>
+        <dl class="pl-list">
+          <dt class="tx"><img src="../assets/tx1.jpg" /></dt>
+          <dd class="rightBox">
+            <h3><a href="#" class="name">小星星</a><span>回复了</span><a href="#" class="name">你</a>：</h3>
+            <p class="otherPl">小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！小说太好看了，坐等更新！</p>
+            <ul class="timeAndreply">
+              <li class="time">2016-07-15 16:04</li>
+              <li class="replyBtn">回复(20)</li>
+            </ul>
+          </dd>
+        </dl>
+        <dl class="pl-list">
+          <dt class="tx"><img src="../assets/tx1.jpg" /></dt>
+          <dd class="rightBox">
+            <h3><a href="#" class="name">小星星</a><span>对《最好的我们》的评论：</span><p class="myPl">小说太好看了，坐等更新！</p></h3>
+            <ul class="timeAndreply">
+              <li class="time">2016-07-15 16:04</li>
+              <li class="replyBtn">回复(20)</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>

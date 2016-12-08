@@ -1,0 +1,191 @@
+import React, { Component } from 'react';
+import { map } from 'lodash';
+
+export default class Footer extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      friendshipList: [
+        {
+          site: 'http://yuedu.163.com/',
+          name: '网易云阅读'
+        },
+        {
+          site: 'http://www.yueloo.com/',
+          name: '阅路小说网'
+        },
+        {
+          site: 'http://www.kanshu.com/',
+          name: '看书网'
+        },
+        {
+          site: 'http://www.17k.com/',
+          name: '17k小说网'
+        },
+        {
+          site: 'http://yc.ireader.com.cn/',
+          name: '掌阅小说网'
+        },
+        {
+          site: 'http://www.sweetread.net/',
+          name: '甜悦读网'
+        },
+        {
+          site: 'http://www.dmread.com',
+          name: '朵米阅读网'
+        },
+        {
+          site: 'http://www.iyunyue.com/',
+          name: '云阅文学'
+        },
+        {
+          site: 'http://www.shucong.com/',
+          name: '书丛网'
+        },
+        {
+          site: 'http://www.luochen.com/',
+          name: '落尘文学'
+        },
+        {
+          site: 'http://www.yokong.com/',
+          name: '悠空网'
+        },
+        {
+          site: 'http://www.luohei.com/',
+          name: '落黑中文网'
+        },
+        {
+          site: 'http://www.yushu5.com/',
+          name: '羽书网'
+        },
+        {
+          site: 'http://www.tenghen.com/',
+          name: '藤痕书院'
+        },
+        {
+          site: 'http://www.ycsd.cn/',
+          name: '言情书殿'
+        },
+        {
+          site: 'http://www.zuok.com.cn/',
+          name: '作客文学网'
+        },
+        {
+          site: 'http://www.wzzww.com/',
+          name: '万众中文网'
+        },
+        {
+          site: 'http://www.zzwenxue.com/',
+          name: '掌中文学网'
+        },
+        {
+          site: 'http://www.shengdan.com/',
+          name: '圣诞文学网'
+        },
+        {
+          site: 'http://www.ziningmeng.com/',
+          name: '紫柠檬言情网'
+        },
+        {
+          site: 'http://www.xmnovel.com/',
+          name: '星芒阅读'
+        },
+        {
+          site: 'http://www.ymzww.cn/',
+          name: '阅明中文网'
+        },
+        {
+          site: 'http://www.yuedufang.com/',
+          name: '悦读坊文学网'
+        },
+        {
+          site: 'http://www.s4yd.com',
+          name: '盛世阅读网'
+        },
+        {
+          site: 'http://www.yiyuetop.com',
+          name: '樱桃阅读'
+        },
+        {
+          site: 'http://shenqi.quyuewang.cn',
+          name: '神起中文网'
+        },
+        {
+          site: 'http://www.dreamersall.com',
+          name: '梦想家中文网'
+        },
+        {
+          site: 'http://www.cqzww.com/',
+          name: '传奇中文网'
+        }
+      ]
+    };
+  }
+
+  render() {
+    let cdn = this.props.route.indexRoute.CDN;
+    return (
+      <div className="footer">
+        <div className="footer-main">
+          <div className="contact">
+            <div>
+              <p>火星小说</p>
+              <span>最受欢迎的阅读产品</span>
+              <dl>
+                <dt>关注我们</dt>
+                <dd className='weixin-logo' style={{marginRight: '20px'}}>
+                  <img src={cdn + '/assets/images/qrcode_wyw.jpg'} />
+                </dd>
+                <dd className='weibo-logo'>
+                  <a href="http://www.weibo.com/u/5861671719" target="_blank" style={{display: 'block', height: '40px'}}></a>
+                </dd>
+              </dl>
+            </div>
+            <div>
+              <p>作者中心</p>
+              <span>投稿请联系编辑</span>
+              <a href="http://author.hotread.com/boon" target="_blank" className="contact-btn">如何联系</a>
+            </div>
+            <div>
+              <p>联系我们</p>
+              <span>欢迎反馈宝贵意见给我们</span>
+              <ul className="contact-way">
+                <li>客服邮箱：kefu@hotread.com</li>
+                <li>客服电话：010-59002324-621</li>
+                <li>服务时间：09:30-18:30</li>
+              </ul>
+            </div>
+            <div>
+              <p>火星小说客户端</p>
+              <span>扫描二维码直接下载</span>
+              <img src={cdn + '/assets/images/qrcode.jpg'} className="two-code" />
+            </div>
+          </div>
+          <div className="friendship">
+            <h2>友情连接:</h2>
+            {
+              map(this.state.friendshipList, (item, index) => {
+                return (
+                  <a key={index} target="_blank" href={item.site}>{item.name}</a>
+                )
+              })
+            }
+          </div>
+          <ul className="footer-copyright">
+            <li>Beijing Jinying Technology Co., Ltd</li>
+            <li>
+              <i>北京金影科技有限公司</i>
+              <i>北京市海淀区信息路甲28号-1层D号-116号</i>
+              <i>&copy;hotread.com</i>
+              <a href="http://www.miibeian.gov.cn/" target="_blank"><i>京ICP备14052851-2
+              </i></a>
+              <i>TEL:010-59002324</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
+}

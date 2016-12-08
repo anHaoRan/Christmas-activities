@@ -1,0 +1,141 @@
+.wechat-login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background-color: #fff;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.show {
+    display: flex;
+  }
+
+  .close {
+    position: absolute;
+    display: block;
+    top: 10px;
+    right: 0px;
+    font-size: 16px;
+    width: 80px;
+    height: 50px;
+    padding-right: 15px;
+    line-height: 50px;
+    text-align: right;
+    color: $text-medium;
+  }
+
+  p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    padding: 0 30px;
+    text-align: center;
+    color: $wechat;
+  }
+
+  img {
+    width: 360px;
+    height: 360px;
+  }
+}
+.wrap-only{
+  background: #fff;
+}
+.auth-form{
+  padding: 0 15px;
+  .form-group{
+    border-bottom: 1px solid $border;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    input[type=text],
+    input[type=tel],
+    input[type=password]
+    {
+      border: none;
+      outline: none;
+      display: block;
+      height: 49px;
+      font-size: 17px;
+      color: $text;
+      flex: 1;
+      -webkit-appearance: none;
+    }
+  }
+  .submit-box{
+    height: 60px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    input[type=submit]{
+      display: block;
+      width: 285px;
+      height: 40px;
+      background: $theme;
+      border: none;
+      border-radius: 3px;
+      color: #fff;
+      font-size: 16px;
+      -webkit-appearance: none;
+    }
+  }
+}
+.auth-switch{
+  margin: 0 auto;
+  width: 285px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    display: block;
+    line-height: 40px;
+    font-size: 14px;
+    color: $text-light;
+  }
+}
+.thirdly-login{
+  margin: 0 auto;
+  margin-top: 60px;
+  width: 245px;
+  height: 100px;
+  .title{
+    height: 16px;
+    display: flex;
+    justify-content: space-between;
+    span{
+      display: block;
+      line-height: 16px;
+      font-size: 14px;
+      width: 110px;
+      text-align: center;
+    }
+    span.border{
+      height: 8px;
+      flex: 1;
+      border-bottom: 1px solid $border;
+    }
+  }
+  .rect{
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    [class^=icon-]{
+      font-size: 42px;
+      margin: 0 10px;
+    }
+    .icon-wechat{
+      color: #64CC93;
+    }
+    .icon-qq{
+      color: #4a8ced;
+    }
+    .icon-weibo{
+      color: #EB4F60;
+    }
+  }
+}

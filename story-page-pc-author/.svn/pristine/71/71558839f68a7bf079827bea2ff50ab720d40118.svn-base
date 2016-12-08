@@ -1,0 +1,167 @@
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+//公共按钮
+.btn{
+  display: inline-block;
+  line-height: 34px;
+  font-size: 14px;
+  color: #fff;
+  padding: 0 15px;
+  border-radius: 5px;
+  background: #4a9bff;
+  border-width: 0;
+  cursor: pointer;
+}
+
+//禁用按钮
+.disabled-btn{
+  display: inline-block;
+  line-height: 34px;
+  font-size: 14px;
+  color: #fff;
+  padding: 0 15px;
+  border-radius: 5px;
+  background: #cbcbcb;
+  border-width: 0;
+  cursor: pointer;
+}
+
+//公共列表title
+.list-title{
+  height: 32px;
+  background: #f6f6f6;
+  border-top: 1px solid #eaeaea;
+  padding: 4px 0;
+  line-height: 24px;
+  font-style: 14px;
+  color: #a5acb2;
+  span{
+    display: block;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #eaeaea;
+    &:last-child{
+      border: 0;
+    }
+  }
+}
+// 公共的时间选择
+.filter {
+    height: 34px;
+    margin-top: 40px;
+    padding-left: 15px;
+    color: #26282e;
+    .book-name {
+        width: 214px;
+        height: 34px;
+        border-radius: 3px;
+        color: #a5acb2;
+        margin-right: 90px;
+        text-indent: 14px;
+        margin-left: 13px;
+    }
+    .time {
+        width: 140px;
+        line-height: 32px;
+        display: inline-block;
+        border-radius: 3px;
+        font-size: 14px;
+        color: #a5acb2;
+        background: #fff;
+        text-indent: 14px;
+        position: relative;
+        margin: 0 12px;
+        &:after {
+            content: "";
+            position: absolute;
+            right: 16px;
+            top: 6px;
+            width: 18px;
+            height: 18px;
+            background-image: bg('calendar.png');
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+//右边头部  不带返回
+.right-header{
+  height: 54px;
+  padding-top: 10px;
+  margin-top: 6px;
+  .hint{
+    float: left;
+    margin: 0;
+    line-height: 34px;
+  }
+}
+//右边头部  带返回
+.right-header-haveback{
+  height: 54px;
+  padding-top: 10px;
+  margin-top: 6px;
+  .hint{
+    float: left;
+    margin: 0;
+    line-height: 34px;
+  }
+  .back{
+    position: relative;
+    display: inline-block;
+    width: 88px;
+    color: #a5acb2;
+    &::after{
+      position: absolute;
+      right: 11px;
+      top: 11px;
+      content: '';
+      width: 7px;
+      height: 12px;
+      margin-left: 11px;
+      background-image: bg('q-arrow.png');
+      background-repeat: no-repeat;
+      background-size: 7px auto;
+      background-position:0 -12px;
+    }
+  }
+}
+
+//右边导航
+// 分卷设置 && 写新章节...
+.main-nav{
+  height: 39px;
+  background: #f6f6f6;
+  border-top: 1px solid #eaeaea;
+  a{
+    float: left;
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 20px;
+    &.active, &:hover{
+      border-bottom: 3px solid #4a9bff;
+    }
+  }
+}
+
+
+//加星提示
+.label{
+  display: inline-block;
+  float: left;
+  width: 126px;
+  line-height: 36px;
+  padding-left: 26px;
+}
+.label.must{
+  padding-left: 0;
+  &::before{
+    content: '*';
+    color: red;
+    padding: 0 10px;
+  }
+}

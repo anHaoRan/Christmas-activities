@@ -1,0 +1,165 @@
+/*页脚*/
+
+.footer {
+  width: 100%;
+  height: auto;
+  background: $fh-dark;
+  padding-bottom: 30px;
+}
+
+.footer-main {
+  height: 100%;
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 72px;
+  background: $fh-dark;
+  .contact {
+    width: 100%;
+    height: 183px;
+    color: white;
+    padding-left: 29px;
+    &>div {
+      float: left;
+      height: 100%;
+      &:first-child {
+        width: 209px;
+      }
+      &:nth-child(2) {
+        width: 188px;
+      }
+      &:nth-child(3) {
+        width: 388px;
+      }
+      &:nth-child(4) {
+        width: 130px;
+      }
+      p {
+        @include marPad();
+        font-size: 17px;
+        line-height: 17px;
+      }
+      span {
+        display: block;
+        line-height: 50px;
+        font-size: 14px;
+        height: 39px;
+        overflow: hidden;
+      }
+      dl {
+        width: 100px;
+        height: 86px;
+        margin-top: 15px;
+        dt {
+          line-height: 44px;
+          height: 44px;
+          font-size: 14px;
+        }
+        dd {
+          @include marPad();
+          height: 40px;
+          width: 40px;
+          float: left;
+          cursor: pointer;
+          &.weixin-logo{
+            background: bg('weixin-logo.png');
+            background-repeat: no-repeat;
+          }
+          &.weibo-logo{
+            background: bg('weibo-logo.png');
+            background-repeat: no-repeat;
+          }
+        }
+        .weixin-logo {
+          position: relative;
+
+          img {
+            display: none;
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            left: 100%;
+            right: 50%;
+            margin: -60px 0 0 10px;
+          }
+          &:hover {
+            img {
+              display: block;
+            }
+          }
+        }
+      }
+      .contact-btn {
+        font-style: normal;
+        display: block;
+        width: 100px;
+        height: 33px;
+        border: 1px solid white;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 30px;
+        color: white;
+      }
+      .contact-way {
+        @include ulEmpty();
+        margin-top: 23px;
+        list-style: none;
+        li {
+          font-size: 14px;
+          line-height: 28px;
+        }
+      }
+      .two-code {
+        display: block;
+        width: 101px;
+        height: 101px;
+        margin: 0 auto;
+        margin-top: 21px;
+      }
+    }
+  }
+  .friendship {
+    color: $footer-text;
+    font-size: 12px;
+    width: 972px;
+    height: auto;
+    overflow: hidden;
+    padding-left: 29px;
+    h2 {
+      @include marPad();
+      height: 35px;
+      line-height: 35px;
+      font-size: 12px;
+    }
+    a {
+      display: block;
+      float: left;
+      height: 24px;
+      width: 188px;
+      text-align: left;
+      line-height: 24px;
+      font-size: 12px;
+      color: inherit;
+    }
+  }
+  .footer-copyright {
+    @include marPad();
+    text-align: center;
+    margin-top: 42px;
+    list-style: none;
+    li {
+      color: $footer-text;
+      line-height: 21px;
+      font-size: 12px;
+      i {
+        font-style: normal;
+        margin-right: 5px;
+      }
+      a {
+        color: inherit;
+      }
+    }
+  }
+}

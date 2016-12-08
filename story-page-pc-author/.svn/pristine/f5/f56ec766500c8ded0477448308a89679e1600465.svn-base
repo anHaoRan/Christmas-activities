@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="root platform-win">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作者中心</title>
+  <link href="http://c.hotread.com/assets/images/favico.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="../styles/common.min.css">
+  <link rel="stylesheet" href="../styles/works.min.css">
+  <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.slimscroll.min.js"></script>
+  <script src="http://c.hotread.com/assets/js/vue.min.js"></script>
+  <style>[v-cloak] { visibility: hidden;  }</style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="slogan" href="http://author.hotread.com">
+        <img src="http://c.hotread.com/wap/images/3x/slogan.png" alt="">
+      </a>
+      <span class="user">
+        <a href>退出登陆</a>
+      </span>
+    </div>
+  </header>
+  <div class="container">
+  <div class="nav">
+    <h4>作者中心</h4>
+    <ul>
+      <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+      <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+      <li class="item"><a href="reward.html">打赏收入</a></li>
+      <li class="item"><a href="comment.html">评论管理</a></li>
+      <li class="item"><a href="settings-one.html">个人设置</a></li>
+    </ul>
+  </div>
+  <div class="estWorks fl">
+    <div class="right-header-haveback">
+      <p class="hint wryh-font"><a href="worksList.html" class="back">作品列表</a><span>创建作品</span></p>
+    </div>
+    <div class="estWorks-main">
+      <div class="works-name">
+        <div class="label must">作品名称</div>
+        <div class="all-input-box bookname wryh-font" :class="{'error': target=='name', 'has-value': name}" data-placeholder="18字以内，作品创建后不能更改">
+          <input type="text" v-model="name">
+        </div>
+      </div>
+      <div class="works-cover">
+        <div class="label">作品封面</div>
+        <div class="cover">
+          <img src="../images/pic.jpg">
+          <span class="uploading-btn"><input type="file">点击上传</span>
+        </div>
+        <span class="mag">封面尺寸为450*590<br />格式为jpg、png、bmp</span>
+      </div>
+      <div class="works-chan">
+        <div class="label must">所属频道</div>
+        <ul class="charge-list">
+          <li><span><input type="radio" name="radio" id="boy"><i></i></span><label for="boy">男生频道</label></li>
+          <li><span><input type="radio" name="radio" id="girl"><i></i></span><label for="girl">女生频道</label></li>
+        </ul>
+      </div>
+      <div class="works-type">
+        <div class="label must">作品类型</div>
+        <ul class="charge-list">
+          <li><span><input type="radio" name="radio-type" id="type-1"><i></i></span><label for="type-1">现代言情</label></li>
+          <li><span><input type="radio" name="radio-type" id="type-2"><i></i></span><label for="type-2">古代言情</label></li>
+          <li><span><input type="radio" name="radio-type" id="type-3"><i></i></span><label for="type-3">仙侠奇幻</label></li>
+          <li><span><input type="radio" name="radio-type" id="type-4"><i></i></span><label for="type-4">耽美纯爱</label></li>
+        </ul>
+      </div>
+      <div class="works-intro">
+        <div class="label">作品简介</div>
+        <div class="intro fl">
+          <textarea>字数需控制在20至500字之间</textarea>
+        </div>
+        <span class="num fr">当前字数：0</span>
+      </div>
+      <div class="works-tag">
+        <div class="label">
+          作品标签
+          <span>（最多选择5个）</span>
+        </div>
+        <div class="tag-list">
+          <span class="active">穿越</span>
+          <span>穿越穿越</span>
+          <span>穿越</span>
+          <span>穿越穿越</span>
+          <span>穿越</span>
+          <span>穿11越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+          <span>穿越</span>
+        </div>
+      </div>
+      <div class="works-est">
+        <div class="label"></div>
+        <div class="btn">创建书籍</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  new Vue({
+      el: 'body',
+      data: {
+          name: '',
+          target: 'mobilephone'
+      }
+  });
+</script>
+  <script>!function(e){function n(){}function t(e,n){return function(){e.apply(n,arguments)}}function o(e){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],s(e,this)}function i(e,n){for(;3===e._state;)e=e._value;return 0===e._state?void e._deferreds.push(n):(e._handled=!0,void o._immediateFn(function(){var t=1===e._state?n.onFulfilled:n.onRejected;if(null===t)return void(1===e._state?r:u)(n.promise,e._value);var o;try{o=t(e._value)}catch(i){return void u(n.promise,i)}r(n.promise,o)}))}function r(e,n){try{if(n===e)throw new TypeError("A promise cannot be resolved with itself.");if(n&&("object"==typeof n||"function"==typeof n)){var i=n.then;if(n instanceof o)return e._state=3,e._value=n,void f(e);if("function"==typeof i)return void s(t(i,n),e)}e._state=1,e._value=n,f(e)}catch(r){u(e,r)}}function u(e,n){e._state=2,e._value=n,f(e)}function f(e){2===e._state&&0===e._deferreds.length&&o._immediateFn(function(){e._handled||o._unhandledRejectionFn(e._value)});for(var n=0,t=e._deferreds.length;n<t;n++)i(e,e._deferreds[n]);e._deferreds=null}function c(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}function s(e,n){var t=!1;try{e(function(e){t||(t=!0,r(n,e))},function(e){t||(t=!0,u(n,e))})}catch(o){if(t)return;t=!0,u(n,o)}}var a=setTimeout;o.prototype["catch"]=function(e){return this.then(null,e)},o.prototype.then=function(e,t){var o=new this.constructor(n);return i(this,new c(e,t,o)),o},o.all=function(e){var n=Array.prototype.slice.call(e);return new o(function(e,t){function o(r,u){try{if(u&&("object"==typeof u||"function"==typeof u)){var f=u.then;if("function"==typeof f)return void f.call(u,function(e){o(r,e)},t)}n[r]=u,0===--i&&e(n)}catch(c){t(c)}}if(0===n.length)return e([]);for(var i=n.length,r=0;r<n.length;r++)o(r,n[r])})},o.resolve=function(e){return e&&"object"==typeof e&&e.constructor===o?e:new o(function(n){n(e)})},o.reject=function(e){return new o(function(n,t){t(e)})},o.race=function(e){return new o(function(n,t){for(var o=0,i=e.length;o<i;o++)e[o].then(n,t)})},o._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},o._unhandledRejectionFn=function(e){"undefined"!=typeof console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)},o._setImmediateFn=function(e){o._immediateFn=e},o._setUnhandledRejectionFn=function(e){o._unhandledRejectionFn=e},"undefined"!=typeof module&&module.exports?module.exports=o:e.Promise||(e.Promise=o)}(this);</script>
+  <script src="http://c.hotread.com/assets/js/vue-resource.min.js"></script>
+</body>
+</html>

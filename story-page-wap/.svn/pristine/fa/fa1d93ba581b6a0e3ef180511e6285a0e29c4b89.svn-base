@@ -1,0 +1,208 @@
+@mixin showApo() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+html {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+}
+.alert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 200;
+  padding: 0 10px;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, .8);
+  color: #fff;
+  font-size: 14px;
+  overflow: hidden;
+}
+.none {
+    display: none;
+}
+
+.guize {
+    color: #fce7ae;
+    font-size: 12px;
+    line-height: 2;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.header {
+    height: 1320px;
+    background: url('../images/duyao/header.jpg') 0 0 no-repeat;
+    background-size: cover;
+}
+
+.content {
+    background-color: #000000;
+    .title1 {
+        width: 375px;
+        height: 122px;
+        &:nth-of-type(1) {
+            background: url('../images/duyao/title1.jpg') 0 0 no-repeat;
+            background-size: cover;
+        }
+        &:nth-of-type(2) {
+            background: url('../images/duyao/title2.jpg') 0 0 no-repeat;
+            background-size: cover;
+        }
+    }
+}
+
+.item {
+    background-color: #2a251c;
+    // border: 6px solid #1b1710;
+    box-shadow: -1px 1px 2px 6px #1B1710;
+    border-radius: 5px;
+}
+
+.good-movie {
+    width: 336px;
+    // height: 714px;
+    margin: 0 auto;
+    padding: 21px 22px;
+    color: #fff;
+    .list {
+        margin-top: 28px;
+        .list-item {
+            float: left;
+            width: 50%;
+            height: 38px;
+            margin-bottom: 30px;
+            .checkboxDiv {
+                width: 16px;
+                height: 16px;
+                border: 1px solid #f5dda2;
+                display: inline-block;
+                float: left;
+                margin-right: 16px;
+                margin-bottom: 14px;
+                border-radius: 2px;
+            }
+            .checked{
+                    background:url(../images/duyao/checked.jpg) 0 0 no-repeat;
+                    width: 16px;
+                    height: 16px;
+                    background-size: cover;
+                    display: inline-block;
+                    float: left;
+                    margin-right: 16px;
+            }
+        }
+    }
+    .click-list {
+        margin-top: 28px;
+        .click-item {
+            width: 50%;
+            height: 33px;
+            margin-bottom: 18px;
+            float: left;
+            .bar {
+                width: 132px;
+                height: 5px;
+                background-color: #887b64;
+                position: relative;
+                border-radius: 5px;
+                margin: 3px 0;
+                &:after {
+                    content: "";
+                    width: 50px;
+                    height: 5px;
+                    background-color: #fca824;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                    position: absolute;
+                }
+            }
+            .top {
+                width: 132px;
+                .name {
+                    width: 84px;
+                    display: inline-block;
+                    font-size: 12px;
+                    color: #fff;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+                .num {
+                    float: right;
+                    margin-top: -3px;
+                    .color {
+                        display: inline-block;
+                        width: 36px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        color: #fca824;
+                        font-size: 15px;
+                        text-align: right;
+                        margin-bottom: -3px;
+                    }
+                }
+            }
+            .percent {
+                font-size: 10px;
+            }
+        }
+    }
+    .tips {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .button {
+        width: 145px;
+        line-height: 42px;
+        border-radius: 20px;
+        margin: 0 auto;
+        font-size: 24px;
+        color: #2a251c;
+        background: url('../images/duyao/button.png') 0 0 no-repeat;
+        background-size: 100%;
+        text-align: center;
+        &.unbutton{
+            background-position: 0 -46px;
+        }
+    }
+}
+.footer{
+    height: 296px;
+    position: relative;
+    .two-code{
+        width: 161px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -108px;
+        margin-left: -80.5px;
+    }
+}

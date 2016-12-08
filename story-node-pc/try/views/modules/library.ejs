@@ -1,0 +1,163 @@
+<div class="library-main" id="library">
+  <div class="library">
+    <div class="filtrate">
+      <ul class="filtrateRect">
+        <li class="filtrate-list">
+          <label class="classify">小说频道：</label>
+          <a class="<%= query.channel == '2' ? 'on' : ''%>" 
+            href="/library?channel=2&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=<%=query.wordNumber%>">女频</a>
+          <a class="<%= query.channel == '1' ? 'on' : ''%>"
+            href="/library?channel=1&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=<%=query.wordNumber%>">男频</a>
+        </li>
+        <li class="filtrate-list">
+          <label class="classify">小说分类：</label>
+          <div class="body">
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=全部&updateTime=<%=query.updateTime%>&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.type == '全部' ? 'on' : ''%>">全部</a>
+            <% types.forEach(function (type) { -%>
+              <a 
+                href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=type%>&updateTime=<%=query.updateTime%>&wordNumber=<%=query.wordNumber%>"
+                class="<%= query.type == type ? 'on' : '' %>"><%= type %></a>
+            <% }) -%>
+          </div>
+        </li>
+        <li class="filtrate-list">
+          <label class="classify">小说标签：</label>
+          <div class="body">
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=全部&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.tag == '全部' ? 'on' : ''%>">全部</a>
+            <% tags.forEach(function (tag, index) { -%>
+              <a 
+                v-show="(<%= index > 9 %> && opened) || <%= index < 10 %>"
+                href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=<%=query.wordNumber%>"
+                class="<%= query.tag == tag ? 'on' : '' %>"><%= tag %></a>
+            <% }) -%>
+            <a class="foor" @click="toggleTags">{{opened ? '收起' : '展开'}}</a>
+          </div>
+        </li>
+        <li class="filtrate-list">
+          <label class="classify">小说字数：</label>
+          <div class="body">
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=全部"
+              class="<%= query.wordNumber == '全部' ? 'on' : '' %>">全部</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=1"
+              class="<%= query.wordNumber == '1' ? 'on' : '' %>">30万以下</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=2"
+              class="<%= query.wordNumber == '2' ? 'on' : '' %>">30-50万</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=3"
+              class="<%= query.wordNumber == '3' ? 'on' : '' %>">50-100万</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=4"
+              class="<%= query.wordNumber == '4' ? 'on' : '' %>">100万以上</a>
+          </div>
+        </li>
+        <li class="filtrate-list">
+          <label class="classify">小说时间：</label>
+          <div class="body">
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=全部&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.updateTime == '全部' ? 'on' : '' %>">全部</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=1&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.updateTime == '1' ? 'on' : '' %>">三日内</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=2&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.updateTime == '2' ? 'on' : '' %>">七日内</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=3&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.updateTime == '3' ? 'on' : '' %>">半月内</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=<%=query.option%>&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=4&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.updateTime == '4' ? 'on' : '' %>">一月内</a>
+          </div>
+        </li>
+        <li class="filtrate-list">
+          <label class="classify">小说选项：</label>
+          <div class="body">
+            <a 
+              href="/library?channel=<%=query.channel%>&option=全部&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.option == '全部' ? 'on' : '' %>">全部</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=0&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.option == '0' ? 'on' : '' %>">免费</a>
+            <a 
+              href="/library?channel=<%=query.channel%>&option=1&tag=<%=query.tag%>&type=<%=query.type%>&updateTime=<%=query.updateTime%>&wordNumber=<%=query.wordNumber%>"
+              class="<%= query.option == '1' ? 'on' : '' %>">收费</a>
+          </div>
+        </li>
+      </ul>
+      <p class="msg">所有小说按照更新时间排序</p>
+    </div>
+    <div class="filtrate-result">
+      <% if (library.total > 0) { %>
+      <ul class="resultRect">
+        <li class="list-title">
+          <span class="type">分类</span>
+          <span class="bookName">小说名称</span>
+          <span class="chapter">更新章节</span>
+          <span class="author">作者</span>
+          <span class="time">最新更新时间</span>
+        </li>
+        <% library.list.forEach(function (book) { -%>
+          <li>
+            <a href="/story/<%= book.id %>">
+              <span class="type">[<%= book.type %>]</span>
+              <span class="bookName">
+                <h2><%= book.name %></h2>
+                <% if (book.isPay) { -%>
+                  <i class="vip-logo"></i>
+                <% } -%>
+              </span>
+              <span class="chapter"><%= book.latestChapter %></span>
+              <span class="author"><%= book.author %></span>
+              <span class="time"><%= book.latestRevisionDate %></span>
+            </a>
+          </li>
+        <% }) -%>
+      </ul>
+      <pagination @page-change="pageChange" :page-no="<%= library.pageNo + 1 %>" :total-pages="<%= library.totalPages %>"></pagination>
+      <% } else { %>
+      <ul class="noData">
+        <li class="nodata">
+          <div class="img"></div>
+          <span class="text">抱歉！搜索无结果</span>
+        </li>
+      </ul>
+      <% } %>
+    </div>
+  </div>
+  <div style="width: 208px; float: right;">
+    <rank title="女生人气榜" :channel="1" :border="true" :size="8"></rank>
+    <rank title="男生人气榜" :channel="0" :border="true" :size="8" :top="20"></rank>
+  </div>
+</div>
+
+<% include ../partials/vue.ejs %>
+<% include ../partials/pagination.ejs %>
+<script type="text/javascript">
+(function (Vue){
+  var query = <%- JSON.stringify(query) %>;
+  var result = <%- JSON.stringify(library) %>;
+
+  new Vue({
+    el: '#library',
+    data: {
+      opened: false
+    },
+    methods: {
+      toggleTags: function () {
+        this.opened = !this.opened;
+      },
+      pageChange: function (number) {
+        location.href = '/library?channel=' + query.channel + '&option=' + query.option + '&tag=' + query.tag + '&type=' + query.type + '&updateTime=' + query.updateTime + '&wordNumber=' + query.wordNumber + '&pageNo=' + number;
+      }
+    }
+  });
+})(Vue);
+</script>

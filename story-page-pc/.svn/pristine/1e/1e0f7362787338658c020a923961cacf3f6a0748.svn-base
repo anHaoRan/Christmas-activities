@@ -1,0 +1,18 @@
+$textColor: #333;
+$text-grey: #666;
+$text-light: #999;
+$borderColor:#e1e1e1;
+$bg-light: #f3f3f3;
+// 强调色、高亮色
+$em: #fd2f35;
+// 女频色
+$girl: #fd2f35;
+$girl-light: #ffe8ee;
+// 男频色
+$boy: #41b1ec;
+// 置于浅蓝色底上的文字颜色
+$boyText: #0b94f5;
+$boy-light: #c5ebff;
+
+$fh-dark: #262c40;
+$footer-text: #b5b5cd;

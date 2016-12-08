@@ -1,0 +1,121 @@
+@import 'common/fun';
+.production{
+  width: 1013px;
+  height: auto;
+}
+.production-main{
+  margin-top: 19px;
+  .cover-box{
+    width: 150px;
+    float: left;
+    padding-top: 11px;
+    .cover{
+      position: relative;
+      margin-bottom: 15px;
+      width: 120px;
+      height: 150px;
+      border: 1px solid #e1e1e1;
+      border-radius: 3px;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+      .uploading-btn{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 26px;
+        width: 100%;
+        line-height: 26px;
+        background: #499fff;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+        input[type=file]{
+          position: absolute;
+          left: 0;
+          top:0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+    }
+    .msg{
+      line-height: 20px;
+      color: #c7cacb;
+    }
+  }
+}
+
+.production-info{
+  width: 863px;
+  height: 100px;
+  float: left;
+  &>div{
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .pro-intro{
+    .info-box{
+      width: 707px;
+      float: left;
+      &::before{
+        top: 5px;
+      }
+    }
+    textarea{
+      width: 100%;
+      height: 176px;
+      border: 1px solid #e1e1e1;
+      border-radius: 3px;
+      resize: none;
+      padding: 5px 10px;
+    }
+    .num-hint{
+      line-height: 32px;
+      color: #c7cacb;
+    }
+    .new-num{
+      line-height: 22px;
+      padding: 0 13px;
+      color: #a5a5a5;
+      background: #f0f0f0;
+      border-radius: 3px;
+      margin-top: 10px;
+    }
+  }
+  .pro-tag{
+    .tag-list{
+      border: 1px solid #e1e1e1;
+      border-radius: 3px;
+      overflow: hidden;
+      padding: 17px 0 6px 17px;
+      span{
+        float: left;
+        margin: 0 7px 11px 0;
+        line-height: 25px;
+        padding: 0 10px;
+        border: 1px solid #a5a5a5;
+        border-radius: 27px;
+        color: #a5a5a5;
+        cursor: pointer;
+        &.active{
+          color: #ff3a3a;
+          border-color: #ff3a3a;
+        }
+      }
+    }
+  }
+  .info-right{
+    width: 707px;
+    float: left;
+  }
+  .hint{
+    line-height: 36px;
+    font-style: normal;
+    color: #a5acb2;
+  }
+}

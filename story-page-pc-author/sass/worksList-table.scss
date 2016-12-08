@@ -1,0 +1,166 @@
+// 作品列表
+@import 'common/fun';
+.worksList {
+    width: 1005px;
+    height: auto;
+}
+
+.worksList-header {
+    .hint {
+        span {
+            color: #abb1b7;
+        }
+        .num {
+            font-style: normal;
+            color: #7798b1;
+            padding: 0 5px;
+        }
+    }
+}
+
+.wl-t {
+    span {
+        &:nth-child(1) {
+            width: 257px;
+        }
+        &:nth-child(2) {
+            width: 250px;
+        }
+        &:nth-child(3) {
+            width: 129px;
+        }
+        &:nth-child(4) {
+            width: 185px;
+        }
+        &:nth-child(5) {
+            width: 182px;
+        }
+    }
+}
+.table-list{
+    width: 1005px;
+    border-collapse: collapse;
+    margin-bottom: 100px;
+    thead{
+        background: #f6f6f6;
+        color: #a5acb2;
+        tr{
+            border-top: 1px solid #e1e1e1;
+            height: 32px;
+            font-size: 14px;
+        }
+        th{
+            font-weight: normal;
+            border-right: 1px solid #e1e1e1;
+            &:last-child{
+                border-right: none;
+            }
+        }
+    }
+    tbody{
+        tr{
+            border-bottom: 1px solid #e1e1e1;
+        }
+        td{
+            padding-top: 20px;
+            padding-bottom: 10px;
+            &:nth-child(1) {
+                width: 257px;
+            }
+            &:nth-child(2) {
+                width: 250px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            &:nth-child(3) {
+                //width: 158px;
+            }
+            &:nth-child(4) {
+                width: 185px;
+            }
+            &:nth-child(5) {
+                width: 182px;
+                padding-left: 20px;
+            }
+        }
+    }
+    .cover {
+        float: left;
+        width: 90px;
+        height: 118px;
+        margin: 0 20px 0 10px;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .details{
+        width: 130px;
+        float: left;
+        .bookname {
+            @include showApo();
+            margin: 0;
+            height: 33px;
+            line-height: 33px;
+            overflow: hidden;
+            width: 130px;
+            font-size: 18px;
+            font-family: "Hiragino Sans GB", "STHeiti", "微软雅黑", "Microsoft YaHei", SimHei, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .sectionall {
+            display: inline-block;
+            width: 130px;
+            line-height: 49px;
+            font-size: 14px;
+            color: #a5acb2;
+        }
+        .wordsnum {
+            display: inline-block;
+            width: 130px;
+            line-height: 36px;
+            font-size: 14px;
+            color: #a5acb2;
+        }
+    }
+    .newest{
+        .intro {
+            margin: 0;
+            line-height: 26px;
+            font-size: 14px;
+        }
+        .time {
+            line-height: 36px;
+            font-size: 14px;
+            color: #a5acb2;
+        }
+    }
+    .state {
+        .applying {
+            color: #499fff;
+        }
+        .serial {
+            color: #06b527;
+        }
+        .error {
+            color: #ff3c36;
+        }
+        .msg {
+            color: #c3c6c8;
+            line-height: 28px;
+            padding: 0 5px;
+            font-size: 14px;
+        }
+    }
+    .operation{
+        a{
+            display: inline-block;
+            float: left;
+            line-height: 32px;
+            width: 80px;
+            color: #7798b1;
+            font-size: 14px;
+            margin-bottom: 11px;
+        }
+    }
+    
+}

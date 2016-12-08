@@ -1,0 +1,44 @@
+<link rel="stylesheet" type="text/css" href="../styles/auth.min.css" />
+<div class="container clearfix">
+    <div class="auth-banner">
+      <a href="./index.html">
+        <img src="../images/logo.png" class="logo" />
+      </a>
+    </div>
+
+    <form class="auth-form">
+      <h2>登录</h2>
+      <div class="auth-switch">
+        <a href="./recover.html">忘记密码？</a>
+        <a href="./register.html">立即注册</a>
+      </div>
+      <div class="form-box">
+        <div class="form-group account">
+          <div class="form-control" data-placeholder="请输入手机号码">
+            <input type="text" />
+          </div>
+        </div>
+        
+        <div class="form-group password">
+          <div class="form-control" data-placeholder="请输入密码">
+            <input type="password" />
+          </div>
+        </div>
+        <div class="form-group verify-box">
+          <div class="form-control" data-placeholder="请输入验证码">
+            <input type="text" />
+          </div>
+          <img src="http://www.hotread.com/api/captcha/code" class="verify" />
+          <span class="verify-btn">换一换</span>
+        </div>
+        <div class="submit-box">
+          <input type="submit" value="登录" class="submit">
+        </div>
+      </div>
+      <div class="third-login">
+        <strong>第三方登录</strong>
+        <a href="#" class="third-btn qq">QQ登录</a>
+        <a href="#" class="third-btn weibo">微博登录</a>
+      </div>
+    </form>
+</div>

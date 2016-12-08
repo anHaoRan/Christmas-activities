@@ -1,0 +1,281 @@
+<body class="<%- setting.theme  %>" :class="theme" id="readController" 
+  @keyup.right.prevent="jumpChapter(1)"
+  @keyup.left.prevent="jumpChapter(0)"
+  @keyup.esc.prevent="isEnd=false"
+  @click="themeOpen=false">
+<div class="readTheArticle_main">
+  <div class="content">
+    <div class="leftBox">
+      <div class="leftColumn" id="left_box">
+        <div class="_img"><img src="<%= story.cover %>" /></div>
+        <div class="_title"><%= story.name %></div>
+        <div class="two_code"></div>
+        <span class="codeDownload">二维码客户端下载</span>
+        <a target="_blank" href="/download" class="_button">立即下载</a>
+      </div>
+    </div>
+    <div class="right_main">
+      <div class="subject">
+        <div class="signOut">
+          <a href="/story/<%= story.id %>"> &lt;退出阅读 </a>
+        </div>
+        <div class="subject_top">
+          <div class="checkboxFive" @click="toggleAutoPay" style="height: 40px;cursor: pointer;">
+            <div style="position: relative;top: 2px" 
+              class="checkboxDiv" :class="{active: onlineUser.autoPayChapter}"></div>
+            <span class="autoPurchase">自动购买下一章</span>
+          </div>
+          <a class="reward" href="/story/<%= story.id %>?award=2">打赏</a>
+        </div>
+        <% if (buyed) { -%>
+          <div class="subject_main" id="chapter-content">
+            <div class="_main_header" id="chapter-name"><h2><%= chapter.name %></h2></div>
+            <div class="main_content"
+              style="font-size: <%= setting.fontSize %>px;-moz-user-select: none;-webkit-user-select: none;user-select: 0;padding-bottom: 30px;"
+              :style="{'font-size': fontSize + 'px'}"
+              ><%- '<p>' + content.replace(/\n+/g, '</p><p>').replace(/\s*/g, '') + '</p>' %></div>
+          </div>
+        <% } else { -%>
+          <div class="subject_main">
+            <div class="paidRecharge">
+                <h2><%= chapter.name %></h2>
+                <div class="paidRecharge_content">
+                  <h3>本章为付费章节</h3>
+                  <p>字数<span><%= chapter.wordNumber %></span></p>
+                  <p>价格<span><%= chapter.price %></span>火星币</p>
+                  <p v-if="onlineUser.id > 0">火星币余额<span>{{onlineUser.goldAmount || 0}}</span>火星币</p>
+                  <p v-if="onlineUser.id > 0">火星券余额<span>{{onlineUser.giveAmount || 0}}</span>火星券</p>
+                  <a v-if="onlineUser.id > 0 && total < chapter.price" class="button" href="/pay">余额不足，充值并购买</a>
+                  <button v-if="onlineUser.id > 0 && total >= chapter.price" class="button" @click="buyChapter">立即购买</button>
+                  <button v-if="!onlineUser.id" class="button" @click="openLoginModal">请登录</button>
+                </div>
+            </div>
+          </div>
+        <% } -%>
+      </div>
+      <div class="rightColumn" id="right_box">
+        <ul>
+          <li class="bookshelf" @click="addShelf">加入书架</li>
+          <li class="Catalog" style="position: relative;">
+            <a href="/catalogue?storyId=<%= story.id %>" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;"></a>
+            <span></span> 目录
+          </li>
+          <li class="fontSizePlus" @click="fontSizeAdd">A+</li>
+          <li class="fontSizeMinus" @click="fontSizeSubtract">A-</li>
+          <li class="Pattern" :class="{active: themeOpen}" @click.stop="themeOpen=themeOpen">
+            <div class="switch-box" @click="themeOpen=!themeOpen">
+              <span></span>
+              <a href="javascript:;">模式</a>
+            </div>
+            <div class="clickShow" :class="{click: themeOpen}">
+              <span v-for="item in themeList" @click="changeTheme(item)" :class="{active: theme === item}"></span>
+            </div>
+          </li>
+          <li class="chapter-prev" style="position: relative;" title="阅读上一章">
+            <% if (prev > 0) { -%>
+              <a style="position: absolute;top: 0;right: 0;bottom: 0;left: 0;" 
+                href="/story/<%= story.id %>/<%= prev %>"></a>
+            <% } else { -%>
+              <a style="position: absolute;top: 0;right: 0;bottom: 0;left: 0;cursor: default;" 
+                href="javascript:void(0)"></a>
+            <% } -%>
+          </li>
+          <li class="chapter-next" style="position: relative;" title="阅读下一章">
+            <% if (next > 0) { -%>
+              <a style="position: absolute;top: 0;right: 0;bottom: 0;left: 0;" 
+                href="/story/<%= story.id %>/<%= next %>"></a>
+            <% } else { -%>
+              <a style="position: absolute;top: 0;right: 0;bottom: 0;left: 0;cursor: default;" 
+                href="javascript:void(0)"
+                @click="showEnd"></a>
+            <% } -%>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="Mask" style="display: none;" v-show="isEnd">
+    <div class="centenr_div">
+      <div class="top" v-if="story.state=='1'">
+        <div class="text">作者努力码字中<span>后续章节敬情期待···</span></div>
+        <div class="_img"></div>
+      </div>
+      <div class="end" v-if="story.state=='2'">这本小说已经完结了</div>
+      <div class="main">
+        <h3>相关推荐</h3>
+        <ul>
+          <li v-for="item in recommend">
+            <a :href="'/story/' + item.story.id">
+              <img :src="item.story.cover" />
+              <span :title="item.story.name">{{item.story.name}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <span style="cursor:pointer;" class="Close" @click="isEnd=false">
+        <img src="<%= cdn %>/assets/images/Close.png" />
+      </span>
+    </div>
+  </div>
+</div>
+<% if (buyed) { -%>
+<script>
+  ;(function (win) {
+    win.addEventListener('scroll', function () {
+      whenScroll();
+    });
+
+    var fixed = false;
+    var box = document.getElementById('chapter-content');
+    var header = document.getElementById('chapter-name');
+
+    whenScroll();
+
+    function whenScroll() {
+      var t = win.scrollY;
+      if (fixed && t <= 40) {
+        box.style.paddingTop = '0';
+        header.style.cssText = '';
+        fixed = false;
+      } else if (!fixed && t >= 40) {
+        box.style.paddingTop = '61px';
+        header.style.cssText = 'position: fixed;top:0;';
+        fixed = true;
+      }
+    }
+  })(window);
+</script>
+<% } -%>
+
+<% include ../partials/vue.ejs %>
+<script>
+;(function (Vue, win) {
+  var onlineUser = <%- JSON.stringify(onlineUser) %>;
+  var story = <%- JSON.stringify(story) %>;
+  var chapter = <%- JSON.stringify(chapter) %>;
+  var next = <%- JSON.stringify(next) %>;
+  var prev = <%- JSON.stringify(prev) %>;
+  var buyed = <%- buyed %>;
+  var THEME_ARR = ['normal', 'green', 'black'];
+
+  function disableSelect() {return false;}
+  if (typeof(document.onselectstart) != "undefined") {
+    document.onselectstart = disableSelect;
+  } else {
+    document.onmousedown = disableSelect;
+    document.onmouseup = disableSelect;
+  }
+  document.oncontextmenu = disableSelect;
+
+  new Vue({
+    el: '#readController',
+    data: {
+      themeList: THEME_ARR,
+      theme: '<%- setting.theme %>',
+      story: story,
+      chapter: chapter,
+      fontSize: <%- setting.fontSize %>,
+      themeOpen: false,
+      onlineUser: onlineUser,
+      isEnd: false,
+      recommend: []
+    },
+    computed: {
+      total: function () {
+        return (this.onlineUser.goldAmount || 0) - 0 + ((this.onlineUser.giveAmount || 0) - 0);
+      }
+    },
+    methods: {
+      showEnd: function () {
+        if (!this.recommend.length) {
+          this.getRecommend();
+        }
+        this.isEnd = true;
+      },
+      jumpChapter: function (pos) {
+        if (pos) {
+          if (next > 0) {
+            location.href = '/story/' + this.story.id + '/' + next;
+          } else {
+            this.showEnd();
+          }
+        } else {
+          if (prev > 0) {
+            location.href = '/story/' + this.story.id + '/' + prev;
+          }
+        }
+      },
+      openLoginModal: function () {
+        _authModal.type = 1;
+      },
+      toggleAutoPay: function () {
+        this.$http.post('/api/user/autoPay/' + (1 - this.onlineUser.autoPayChapter || 0))
+          .then(function (resp) {
+            if (resp.body.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            onlineUser.autoPayChapter = resp.body.autoPayChapter;
+            this.onlineUser = onlineUser;
+
+            // 设置自动购买后，当前未付费章节
+            if (!buyed && onlineUser.autoPayChapter == 1) {
+              location.reload();
+            }
+          });
+      },
+      // 购买章节
+      buyChapter: function () {
+        this.$http.post('/api/user/chapter/buy/' + this.chapter.id)
+          .then(function (resp) {
+            if (resp.body.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            _alertCenter('购买成功');
+            location.reload();
+          });
+      },
+      // 加入书架
+      addShelf: function () {
+        this.$http.post('/api/user/shelf/add/' + this.story.id)
+          .then(function (resp) {
+            if (resp.body.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            _alertCenter('加入书架成功');
+          });
+      },
+      getRecommend: function () {
+        this.$http.get('/api/story/typeRecommend?type=' + story.type)
+          .then(function (resp) {
+            this.recommend = resp.body.typeRecommend;
+          });
+      },
+      changeTheme: function (theme) {
+        this.theme = theme;
+        this.cookie();
+      },
+      fontSizeAdd: function () {
+        if (this.fontSize < 31) {
+          this.fontSize += 2;
+          this.cookie();
+        }
+      },
+      fontSizeSubtract: function () {
+        if (12 < this.fontSize) {
+          this.fontSize -= 2;
+          this.cookie();
+        }
+      },
+      cookie: function () {
+        this.$http.post('/api/story/setting', {
+          fontSize: this.fontSize,
+          theme: this.theme
+        });
+      }
+    }
+  });
+})(Vue, window);
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <title>火星小说</title>
+    <link rel="stylesheet" href="../styles/story-wap.min.css">
+</head>
+
+<body class="qr-body">
+    <div class="wechat-pay" id="wechatPay">
+        <div class="pay-back">
+            <a href="./pay.html"><i class="icon-back"></i> 返回支付页面</a>
+            <a href="./userCenter.html" class="success">支付完成</a>
+        </div>
+        <div class="content">
+            <p class="tips wechat-tips">长按图片识别二维码进行微信支付</p>
+            <p class="tips browser-tips">长按图片保存，然后在“微信”中打开“扫一扫”，选择右上角“相册”中保存的支付二维码进行支付</p>
+            <img src="http://c.hotread.com/assets/images/qrcode_wyw.jpg" alt="">
+            <p class="tips">支付完成后点击上方【返回支付页面】查看支付结果</p>
+        </div>
+    </div>
+    <script>
+        ;(function () {
+            if (/micromessenger/i.test(navigator.userAgent)) {
+                document.getElementById('wechatPay').className = 'wechat-pay os-wechat';
+            }
+        })();
+    </script>
+</body>
+
+</html>

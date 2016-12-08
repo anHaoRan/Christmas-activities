@@ -1,0 +1,155 @@
+<template id="rankPage">
+  <div v-if="type == 5" class="wealthy on">
+    <div class="wealthy-title">
+      <h2 class="rankTitle">
+        {{TYPE_ARR[type]}}
+      </h2>
+      <span v-if="type !== 3">
+        <a :class="{'on': time === index}" 
+          @click="loadByTime(index)"
+          href="javascript:void(0)"
+          v-for="(index, item) in rangeArr">{{item}}</a>
+      </span>
+    </div>
+    <ul class="wealthy-list">
+      <li class="list-title"><span>排名</span><span>头像</span><span>昵称</span><span>土豪值</span></li>
+      <li v-for="(index, item) in list" :class="SCOPE_CLASS[channel]">
+        <span>{{item.topNum}}<i v-if="pageNo === 1" :class="portrait[index]"></i></span>
+        <span><img :src="item.faceAddress | avatar" alt=""></span>
+        <span>{{item.name}}</span>
+        <span>{{item.topValue}}</span>
+      </li>
+    </ul>
+    <pagination @page-change="pageChange" :page-no="pageNo" :total-pages="totalPages"></pagination>
+  </div>
+  <div v-else class="restsChrat on">
+    <div class="restsChrat-title">
+      <h2 class="rankTitle">
+        {{TYPE_ARR[type]}}
+      </h2>
+      <span v-if="type !== 3">
+        <a :class="{'on': time === index}" 
+          @click="loadByTime(index)"
+          href="javascript:void(0)"
+          v-for="(index, item) in rangeArr">{{item}}</a>
+      </span>
+    </div>
+    <ul class="restsChrat-list">
+      <li class="list-title">
+        <span class="num">序号</span>
+        <span class="type">分类</span>
+        <span class="bookNameBox">小说名称</span>
+        <span class="newChapter">更新章节</span>
+        <span class="author">作者</span>
+        <span class="time">最新更新时间</span>
+      </li>
+      <li v-for="(index, item) in list" :class="SCOPE_CLASS[channel]">
+        <a :href="'/story/' + item.story.id">
+          <span class="num">{{index | ten}}</span>
+          <span class="type">{{item.story.type}}</span>
+          <span class="bookNameBox">
+            <h2 class="bookName">{{item.story.name}}</h2>
+            <i v-if="item.story.isPay" class="vip-logo"></i>
+          </span>
+          <span class="newChapter">{{item.story.latestChapter}}</span>
+          <span class="author">{{item.story.author}}</span>
+          <span class="time">{{item.story.latestChapterTime | datetime}}</span>
+        </a>
+      </li>
+    </ul>
+    <pagination @page-change="pageChange" :page-no="pageNo" :total-pages="totalPages"></pagination>
+  </div>
+</template>
+<script type="text/javascript">
+;(function (Vue) {
+  var RankPage = Vue.extend({
+    template: '#rankPage',
+    props: {
+      channel: {
+        type: Number,
+        default: 0
+      },
+      type: {
+        type: Number,
+        default: 0
+      },
+      column: {
+        type: Number,
+        default: 0
+      },
+      size: {
+        type: Number,
+        default: 20
+      }
+    },
+    data: function () {
+      return {
+        TYPE_ARR: ['人气榜', '收藏榜', '推荐榜', '月票榜', '新书榜', '土豪榜'],
+        SCOPE_CLASS: ['boyhover', 'grilhover'],
+        COLUMN: [[6161, 6162, 6163, 6164, 6165, 6166], [6261, 6262, 6263, 6264, 6265, 6266]],
+        time: 0,
+        range: ['日', '周', '月', '总'],
+        hover: 0,
+        list: [],
+        pageNo: 1,
+        totalPages: 0,
+        portrait: ['champion','runner-up','third']
+      };
+    },
+    computed: {
+      rangeArr: function () {
+        // 新书榜没【总】
+        if (this.type === 4) {
+          return ['日', '周', '月', ''];
+        } else {
+          // 其他帮没【日】
+          return ['', '周', '月', '总']
+        }
+      }
+    },
+    methods: {
+      // 设置初始化默认时间范围
+      setDefaultTime: function () {
+        var time = 1; // 默认周月总，取【月】
+        // 月票榜，只取【月】
+        if (this.type === 3) {
+          time = 2; // (2 + 1 === 3)
+        } else if (this.type === 4) { // 新书榜，日月周，取【日】
+          time = 0;
+        }
+        this.time = time;
+      },
+      loadByTime: function (time) {
+        if (this.time !== time) {
+          this.pageNo = 1;
+          this.time = time;
+          this.getList(time);
+        }
+      },
+      getList: function (time) {
+        if (time === 3) { // 总榜->传值[0]
+          time = 0;
+        } else { // 日月周传值[1][2][3]
+          time += 1;
+        }
+        var column = this.COLUMN[this.channel][this.type];
+        this.$http.get('/api/common/rank/' + column + '/' + time + '/' + this.size + '?pageNo=' + this.pageNo)
+          .then(function (resp) {
+            this.list = resp.body.list;
+            this.pageNo = resp.body.pageNo + 1;
+            this.totalPages = resp.body.totalPages;
+          });
+      },
+      pageChange: function (pageNo) {
+        this.pageNo = pageNo;
+        this.getList(this.time);
+      }
+    },
+    ready: function () {
+      this.setDefaultTime();
+      this.getList(this.time);
+    }
+  });
+  Vue.component('rank-page', RankPage);
+})(Vue);
+</script>

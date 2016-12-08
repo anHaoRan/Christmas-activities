@@ -1,0 +1,161 @@
+@import 'common/fun';
+.writeNewSection{
+  width: 833px;
+  height: auto;
+  padding-bottom: 100px;
+}
+
+.writeNewSection-main{
+  &>div{
+    overflow: hidden;
+  }
+  .section-title, .section-text, .section-tag, .section-send, .section-charge{
+    margin-top: 30px;
+  }
+  .title, .roll{
+    float: left;
+    height: 36px;
+    overflow: hidden;
+    margin-right: 35px;
+  }
+  .title{
+    width: 314px;
+    input[type=text]{
+      
+    }
+  }
+  .roll{
+    width: 152px;
+    position: relative;
+    border:1px solid #e1e1e1;
+    border-radius: 3px;
+    &::after{
+      position: absolute;
+      right: 13px;
+      top: 16px;
+      content: '';
+      width: 10px;
+      height: 5px;
+      background-image: bg('read-arrow.png');
+      background-size: 10px auto;
+      background-position: 0 -5px;
+      z-index: 3;
+    }
+    .roll-form-group{
+      border: none;
+      width: 150px;
+      margin: 0px;
+    }
+  }
+  .section-text{
+    textarea{
+      width: 707px;
+      height: 399px;
+      border:1px solid #e1e1e1;
+      border-radius: 3px;
+      float: left;
+      padding: 5px 10px;
+      resize: vertical;
+    }
+    .hint-num{
+      margin: 0;
+      float: right;
+      color: #c7cacb;
+      line-height: 40px;
+    }
+  }
+  .section-tag{
+    textarea{
+      width: 707px;
+      height: 120px;
+      resize: none;
+      border:1px solid #e1e1e1;
+      border-radius: 3px;
+      float: left;
+      padding: 5px 10px;
+    }
+  }
+  .section-send{
+    height: 34px;
+    .timing-btn{
+      float: left;
+      width: 126px;
+      line-height: 34px;
+      cursor: pointer;
+      span{
+        position: relative;
+        display: inline-block;
+        top: 9px;
+        float: left;
+        width: 16px;
+        height: 16px;
+        margin: 0 10px;
+      }
+      label{
+        cursor: pointer;
+      }
+      input[type=checkbox]{
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        &:checked{
+          &+i{
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABFUExURUxpcUqg/0ug/0qg/0ug/0qf/0uf/0qf/0ug/0qi/0qg/0yh/0qf/0qg/0qf/0qf/0qg/0uf/0if/0uf/0ai/0qg/0ug/8IGu1wAAAAWdFJOUwDgosaSPtr58BxmC3MWfVYl5y1KBbf+ifIAAAAAyklEQVQ4y+2VyQ7DIAxEh0AwW/aE///UgtQcKlVlOKdzfiCwPR4A3ijJDYkyHkWjy5TcWO4l2UJ7mEzLwPKwgvCwIHfo2bAKmodHrDQ8AAsLi0dULDwDM/tBFeGFhRdgYEuni4foOu+AZuFStsB20E2I2294C/eXEr6Z8wNOd2XtiVUasI7vlx7A1Zy6Si+SL+AgRtROdUXtOC0zz3YFyoHEDf9WuoHJkU6pC9DQtpKQ/kuGgbuWeVdMdAVQV7R1hWaNY9uOY1vj+AWu5JvDZFdfmAAAAABJRU5ErkJggg==);
+            background-size: 16px 16px;
+            border: 0;
+          }
+        }
+      }
+      i{
+        position: absolute;
+        z-index: 9;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        border: 1px solid #e1e1e1;
+      }
+    }
+    .timing-time{
+      width: 407px;
+      height: 34px;
+      float: left;
+      background: #f6f6f6;
+      border: 1px solid #e1e1e1;
+      border-radius: 3px;
+      position: relative;
+      &::after{
+        position: absolute;
+        right: 13px;
+        top: 16px;
+        content: '';
+        width: 10px;
+        height: 5px;
+        background-image: bg('read-arrow.png');
+        background-size: 10px auto;
+        background-position: 0 -5px;
+        z-index: 3px;
+      }
+      input[type=text]{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+        background: #f6f6f6;
+        text-align: center;
+        color: #a5acb2;
+      }
+    }
+    .private{
+      float: left;
+      margin-left: 38px;
+      padding: 0 28px;
+    }
+  }
+  .section-charge{
+    
+  }
+}

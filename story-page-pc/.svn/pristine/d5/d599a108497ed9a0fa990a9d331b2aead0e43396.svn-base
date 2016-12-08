@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="root platform-mac">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>火星小说</title>
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="../styles/story.min.css">
+</head>
+
+<body>
+  <!--头部-->
+  <div class="hotr-header">
+    <div class="header-bg">
+      <div class="header-main">
+        <ul>
+          <li class="logo"></li>
+          <li>
+            <div class="header-search">
+              <input type="text" name="" id="" value="" class="search-text" placeholder="妖孽美人如毒药" />
+              <a href="search.html" class="search-btn"></a>
+            </div>
+            <p class="header-recommend"><a>绘天凤凰</a><a>绘天凤凰</a><a>绘天凤凰</a></p>
+          </li>
+        </ul>
+        <div class="user-state"><a href="login.html">登陆</a>|<a href="register.html">注册</a>|<a>作者中心</a></div>
+      </div>
+    </div>
+  </div>
+  <link rel="stylesheet" href="../styles/download.min.css" />
+<!--导航-->
+<div class="hotr-nav">
+  <ul class="nav-main">
+    <li class="on"><a href="index.html">首页</a></li>
+    <li><a href="girl.html">女频</a></li>
+    <li><a href="#">男频</a></li>
+    <li><a href="chart.html">排行</a></li>
+    <li><a href="library.html">书库</a></li>
+    <li><a href="qualityCopyright.html">优质版权</a></li>
+    <li><a href="topUp.html">充值</a></li>
+    <li><a href="#">福利</a></li>
+    <li><a href="#">下载客户端</a></li>
+  </ul>
+</div>
+<!--下载-->
+<div class="download-Box">
+  <div class="download-main">
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="iphone">
+      <img src="../assets/two-code.jpg">
+    </div>
+    <div class="main-right">
+      <h2 class="APPName">火星小说APP</h2>
+      <p class="info">全新最全免费掌阅小说<br />90后必备追书神器</p>
+      <dl class="download-Rect">
+        <dt class="download-Way">下载方式</dt>
+        <dd class="iphone-wayRect">
+          <p class="wayName iphone-wayName">iphone</p>
+          <ol>
+            <li>1.扫码左侧二维码下载</li>
+            <li>2.在App Store中搜索“火星小说”下载</li>
+            <li>3.点击“iPhone下载”按钮直接用电脑下载</li>
+          </ol>
+          <a href="#" class="download-btn">iPhone下载</a>
+        </dd>
+        <dd class="Android-wayRect">
+          <p class="wayName Android-wayName">Android</p>
+          <ol>
+            <li>1.扫码左侧二维码下载</li>
+            <li>2.在各大应用市场中搜索“火星小说”下载</li>
+            <li>3.点击“Andriod下载”按钮直接用电脑下载</li>
+          </ol>
+          <a href="#" class="download-btn">Android下载</a>
+        </dd>
+      </dl>
+      <div class="wapEntrance">
+        <div class="twoCode-Rect">
+          <img src="../assets/two-code.jpg">
+        </div>
+        <p class="sent">访问手机web站<br />手机浏览器访问:m.hoterad.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="wave-Box"></div>
+</div>
+
+
+    <!--页脚-->
+    <div class="footer">
+      <div class="footer-main">
+        <div class="contact">
+          <div>
+            <p>火星小说</p>
+            <span>最受欢迎的阅读产品</span>
+            <dl>
+              <dt>关注我们</dt>
+              <dd class='weixin-logo' style="margin-right: 20px;"></dd>
+              <dd class='weibo-logo'></dd>
+            </dl>
+          </div>
+          <div>
+            <p>作者中心</p>
+            <span>投稿请联系编辑</span>
+            <a href="#" class="contact-btn">如何联系</a>
+          </div>
+          <div>
+            <p>联系我们</p>
+            <span>欢迎反馈宝贵意见给我们</span>
+            <ul class="contact-way">
+              <li>客服邮箱：kefu@hotread.com</li>
+              <li>客服电话：010-59002324-621</li>
+              <li>服务时间：09:30-18:30</li>
+            </ul>
+          </div>
+          <div>
+            <p>火星小说客户端</p>
+            <span>扫描二维码直接下载</span>
+            <img src="../assets/two-code.jpg" class="two-code" />
+          </div>
+        </div>
+        <div class="friendship">
+          <h2>友情连接:</h2>
+          <a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a><a href="#">品读者官网</a>
+        </div>
+        <ul class="footer-copyright">
+          <li>Beijing Jinying Technology Co., Ltd</li>
+          <li><i>北京金影科技有限公司</i><i>北京市海淀区信息路甲28号-1层D号-116号</i><i>©hotread.com</i><i>京ICP备14052851-2</i><i>TEL:010-11111111</i></li>
+        </ul>
+      </div>
+    </div>
+</body>
+
+</html>

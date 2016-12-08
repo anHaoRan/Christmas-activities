@@ -1,0 +1,538 @@
+<div class="userCenter" id="userCenter">
+  <style type="text/css">
+    .userCenter-navList dt {
+      position: relative;
+    }
+    .userCenter-navList a {
+      display: block;
+      line-height: 60px;
+      color: inherit;
+    }
+    .userCenter-navList dd a {
+      line-height: 45px;
+    }
+  </style>
+  <div class="userCenter-leftNav">
+    <dl class="userCenter-navList <%- (!query.section || query.section == 'shelf') ? 'on' : '' %>">
+      <dt><a href="/userCenter?section=shelf">我的书架</a></dt>
+    </dl>
+    <dl class="userCenter-navList <%- query.section == 'user' ? 'on' : '' %>">
+      <dt><a href="/userCenter?section=user&us=personal">我的账户<i></i></a></dt>
+      <dd class="<%- query.us == 'personal' ? 'on' : '' %>"><a href="/userCenter?section=user&us=personal">个人信息</a></dd>
+      <dd class="<%- query.us == 'secret' ? 'on' : '' %>"><a href="/userCenter?section=user&us=secret">修改密码</a></dd>
+    </dl>
+    <dl class="userCenter-navList <%- query.section == 'account' ? 'on' : '' %>">
+      <dt><a href="/userCenter?section=account">账户管理</a></dt>
+    </dl>
+  </div>
+  <div class="userCenter-rightBox">
+    <% if (!query.section || query.section == 'shelf') { -%>
+      <div class="bookrack" id="shelfController" v-cloak>
+        <div class="bookrack-title">
+          <span class="amend-btn" v-if="!operate" @click="operate=true">编辑</span>
+          <div class="amend" v-else>
+            <span class="allCheck" 
+              @click="toggleSelectAll"
+              :class="{checked: selected.length === list.length }">
+              <span class="checkbox"></span>全选
+            </span>
+            <span class="del" @click="removeShelf">删除</span>
+            <span class="accomplish" @click="operate=false">完成</span>
+          </div>
+        </div>
+        <div class="bookrack-rect">
+          <div class="book-list" v-for="item in list">
+            <a :href="'/story/' + item.storyId">
+              <img :src="item.storyVo.cover" />
+              <h3 class="bookName">{{item.storyVo.name}}</h3>
+              <p class="old">{{item.lastTimeChapter ? ('上次阅读到：' + item.lastTimeChapter) : '还未读过'}}</p>
+              <p class="new">最新更新：{{item.storyVo.latestChapter}}</p>
+              <i class="upDateLog" 
+                v-if="item.storyVo.state == 1 && item.lastTimeChapter != item.storyVo.latestChapter"></i>
+              <i class="endLog" v-if="item.storyVo.state == 2"></i>
+            </a>
+            <div class="shade" v-if="operate" @click="toggleChecked(item.storyId)">
+              <span class="checkBox" :class="{checked: indexOf(selected, item.storyId) > -1}"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } -%>
+    <% if (query.section == 'user' && query.us == 'personal') { -%>
+      <div class="usermsg" id="userInfo">
+        <div style="overflow: hidden;">
+          <div class="uploadingTx">
+            <dl class="uploadingTxRect">
+              <dt class="tx">
+                <img :src="onlineUser.face_url | avatar" />
+              </dt>
+              <dd style="overflow: hidden;" class="btn blue">
+                上传头像
+                <iframe style="display: none;" @load="loaded" name="uploadAvatar"></iframe>
+                <form id="uploadForm" action="/api/image/upload" method="post" target="uploadAvatar" encType="multipart/form-data">
+                  <input style="position: absolute;top: 0;right: 0;font-size: 100px;opacity: 0;"
+                    @change="upload"
+                    type="file" name="uploadFile" accept=".jpg,.jpeg,.png,.gif" />
+                </form>
+              </dd>
+            </dl>
+            <p class="uploadingTxMsg">头像只支持JPG、PNG大小 不要超过2M </p>
+          </div>
+          <div class="usermsg-rect">
+            <div class="nameRect">
+              <label>昵称</label>
+              <input type="text" class="nameTxt" v-model="onlineUser.nickName"/>
+              <p class="nameMsg">昵称可以使用中英文或者数字符号，限制长度在10个汉字或者20个字符。</p>
+            </div>
+            <div class="sexRect">
+              <label>性别</label>
+              <div class="sexRect-box" @click="onlineUser.sex='1'">
+                <span class="sex" :class="{checked: onlineUser.sex == '1'}"><i></i></span> 男
+              </div>
+              <div class="sexRect-box" @click="onlineUser.sex='0'">
+                <span class="sex" :class="{checked: onlineUser.sex == '0'}"><i></i></span> 女
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="stockpile-btn" @click="saveUserInfo">保存</span>
+      </div>
+    <% } -%>
+
+    <% if (query.section == 'user' && query.us == 'secret') { -%>
+      <form @submit.prevent="modifyPassword" class="amendpassword" id="passwordManager">
+        <p>
+          <label>原密码</label>
+          <input type="password" autocomplete="off" 
+            v-model="oldPassword" placeholder="原来的密码" />
+        </p>
+        <p>
+          <label>新密码</label>
+          <input type="password" autocomplete="off" 
+            v-model="newPassword" placeholder="请输入不少于6位的新密码" />
+        </p>
+        <p>
+          <label>确认密码</label>
+          <input type="password" autocomplete="off" 
+            v-model="newConfirmPassword" placeholder="确认密码" />
+        </p>
+        <input type="submit" value="保存" style="display: none;"/>
+        <span class="stockpile-btn" @click="modifyPassword">保存</span>
+      </form>
+    <% } -%>
+
+    <% if (query.section == 'account') { -%>
+      <div id="accountManager" v-cloak>
+        <div class="moneyRect">
+          <ul class="remainingRect">
+            <li>
+              <label>火星币余额：</label>
+              <span>{{onlineUser.goldAmount}}</span>
+              <em>&nbsp;火星币</em>
+            </li>
+            <li>
+              <label>火星券余额：</label>
+              <span>{{onlineUser.giveAmount}}</span>
+              <em>&nbsp;火星券</em>
+            </li>
+          </ul>
+          <a href="/pay" class="topUpBtn">充值</a>
+        </div>
+        <ul class="cutRect">
+          <li :class="{on: type == 0}" @click="type=0">充值记录</li>
+          <li :class="{on: type > 0}" @click="type=1">消费记录</li>
+        </ul>
+        <div v-if="type == 0">
+          <ol class="topUp-resultRect">
+            <li class="list-title">
+              <span class="quantity">充值火星币数量</span>
+              <span class="sum">消费金额</span>
+              <span class="time">充值时间</span>
+              <span class="way">充值方式</span>
+              <span class="state">充值状态</span>
+            </li>
+            <li v-for="record in payRecord.list">
+              <span class="quantity">{{record.tradeAmount}}火星币</span>
+              <span class="sum">{{record.rechargeFee}}</span>
+              <span class="time">{{record.createTime}}</span>
+              <span class="way">{{record.rechargeType}}</span>
+              <span class="state" :class="{true: record.rechargeStatus == 1, false: record.rechargeStatus != 1}">
+                {{record.rechargeStatus ? '成功' : '失败'}}
+              </span>
+            </li>
+          </ol>
+          <pagination @page-change="getPayRecord" 
+            :page-no="payRecord.pageNo + 1" 
+            :total-pages="payRecord.totalPages"></pagination>
+        </div>
+        <div v-else>
+          <ul class="xfjl-cutRect">
+            <li :class="{on: type == 1}" @click="type=1">付费章节消费记录</li>
+            <li :class="{on: type == 2}" @click="type=2">打赏记录</li>
+            <li :class="{on: type == 3}" @click="type=3">投票记录</li>
+          </ul>
+          <div v-if="type == 1">
+            <ol class="consume-resultRect">
+              <li class="list-title">
+                <span class="bookName">小说名称</span>
+                <span class="chapter">更新章节</span>
+                <span class="consume">消费火星币/券</span>
+                <span class="time">最新更新时间</span>
+              </li>
+              <li v-for="record in payChapterRecord.list">
+                <span class="bookName"><h2>{{record.bookName}}</h2></span>
+                <span class="chapter">{{record.operateDesc}}</span>
+                <span class="consume">{{record.costAmount}}</span>
+                <span class="time">{{record.createTime}}</span>
+              </li>
+            </ol>
+            <pagination @page-change="getPayChapterRecord" 
+              :page-no="payChapterRecord.pageNo + 1" 
+              :total-pages="payChapterRecord.totalPages"></pagination>
+          </div>
+          <div v-if="type == 2">
+            <ol class="award-resultRect">
+              <li class="list-title">
+                <span class="bookName">打赏书名</span>
+                <span class="goods">打赏内容</span>
+                <span class="value">价值</span>
+                <span class="time">时间</span>
+                <span class="sent">赠言</span>
+              </li>
+              <li v-for="record in rewardRecord.list">
+                <span class="bookName"><h2>{{record.bookName}}</h2></span>
+                <span class="goods">{{record.operateDesc}}</span>
+                <span class="value">{{record.costAmount}}</span>
+                <span class="time">{{record.createTime}}</span>
+                <span class="sent">{{record.descn}}</span>
+              </li>
+            </ol>
+            <pagination @page-change="getRewardRecord" 
+              :page-no="rewardRecord.pageNo + 1" 
+              :total-pages="rewardRecord.totalPages"></pagination>
+          </div>
+          <div v-if="type == 3">
+            <ol class="vote-resultRect">
+              <li class="list-title">
+                <span class="bookName">书名</span>
+                <span class="goods">票数</span>
+                <span class="value">价值</span>
+                <span class="time">时间</span>
+                <span class="sent">赠言</span>
+              </li>
+              <li v-for="record in voteRecord.list">
+                <span class="bookName"><h2>{{record.bookName}}</h2></span>
+                <span class="goods">{{record.operateDesc}}票</span>
+                <span class="value">{{record.operateDesc * 200}}火星币</span>
+                <span class="time">{{record.createTime}}</span>
+                <span class="sent">{{record.descn}}</span>
+              </li>
+            </ol>
+            <pagination @page-change="getVoteRecord" 
+              :page-no="voteRecord.pageNo + 1" 
+              :total-pages="voteRecord.totalPages"></pagination>
+          </div>
+        </div>
+      </div>
+    <% } -%>
+  </div>
+</div>
+<% include ../partials/vue.ejs %>
+<% if (!query.section || query.section == 'shelf') { -%>
+<script>
+  ;(function (Vue) {
+    new Vue({
+      el: '#shelfController',
+      data: {
+        list: [],
+        operate: false,
+        selected: []
+      },
+      methods: {
+        indexOf: function (array, item) {
+          var i = 0, len = array.length;
+          var index = -1;
+          for (; i < len; i++) {
+            if (array[i] === item) {
+              index = i;
+              break;
+            }
+          }
+          return index;
+        },
+        remove: function (array, item) {
+          var i = 0, len = array.length;
+          var result = [];
+          for (; i < len; i++) {
+            if (array[i] !== item) {
+              result.push(array[i]);
+            }
+          }
+          return result;
+        },
+        toggleChecked: function (storyId) {
+          if (this.indexOf(this.selected, storyId) > -1) {
+            this.selected = this.remove(this.selected, storyId);
+          } else {
+            this.selected.push(storyId);
+          }
+        },
+        toggleSelectAll: function () {
+          if (this.list.length === this.selected.length) {
+            this.selected = [];
+          } else {
+            this.selected = this.list.map(function (item) {
+              return item.storyId;
+            });
+          }
+        },
+        removeShelf: function () {
+          if (!this.selected.length) {
+            _alertCenter('请选择要移除的书');
+            return false;
+          }
+          _loading();
+          this.$http.post('/api/user/shelf/remove/' + this.selected.join(','))
+            .then(function (resp) {
+              _loading(1);
+              if (resp.body.error === 401) {
+                _authModal.type = 1;
+                return false;
+              }
+              this.getShelf();
+            });
+        },
+        getShelf: function () {
+          _loading();
+          this.$http.get('/api/user/shelf')
+            .then(function (resp) {
+              _loading(1);
+              if (resp.body.error === 401) {
+                _authModal.type = 1;
+                return false;
+              }
+              this.list = resp.body.shelf;
+            });
+        }
+      },
+      ready: function () {
+        this.getShelf();
+      }
+    });
+  })(Vue);
+</script>
+<% } -%>
+
+<% if (query.section == 'user' && query.us == 'personal') { -%>
+<script>
+  ;(function (Vue) {
+    var uploadForm = document.getElementById('uploadForm');
+    var onlineUser = <%- JSON.stringify(onlineUser) %>;
+    new Vue({
+      el: '#userInfo',
+      data: {
+        onlineUser: onlineUser
+      },
+      methods: {
+        loaded: function (event) {
+          _loading(1);
+          uploadForm.reset();
+          var codeEle = event.target.contentWindow.document.body.querySelector('pre');
+          if (!codeEle) {
+            return true;
+          }
+          var content = codeEle.innerHTML;
+
+          var result = JSON.parse(content);
+          if (result.error) {
+            _alertCenter(result.message, 'error');
+          } else {
+            this.onlineUser.face_url = result.message[0];
+          }
+        },
+        upload: function (event) {
+          _loading();
+          uploadForm.submit();
+        },
+        saveUserInfo: function () {
+          _loading();
+          this.$http.post('/api/user/modifyInfo', {
+            sex: onlineUser.sex,
+            nickName: onlineUser.nickName,
+            faceUrl: onlineUser.face_url
+          }).then(function (resp) {
+            _loading(1);
+            var result = resp.body;
+            if (result.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            if (result.errorCode > 0) {
+              if (result.errorCode < 500) {
+                _alertCenter(result.message, 'error', 350);
+              } else {
+                _alertCenter('修改信息失败，请重试', 'error');
+              }
+            } else {
+              _alertCenter('修改信息成功');
+            }
+          });
+        }
+      }
+    });
+  })(Vue);
+</script>
+<% } -%>
+
+<% if (query.section == 'user' && query.us == 'secret') { -%>
+<script>
+  ;(function (Vue) {
+    new Vue({
+      el: '#passwordManager',
+      data: {
+        oldPassword: '',
+        newPassword: '',
+        newConfirmPassword: '',
+      },
+      methods: {
+        validate: function () {
+          if (!this.oldPassword) {
+            _alertCenter('请输入原密码');
+            return false;
+          }
+
+          if (!this.newPassword) {
+            _alertCenter('请输入新密码');
+            return false;
+          }
+
+          if (this.newPassword != this.newConfirmPassword) {
+            _alertCenter('两次密码输入不一致');
+            return false;
+          }
+          return true;
+        },
+        modifyPassword: function () {
+          if (!this.validate()) {
+            return false;
+          }
+          _loading();
+          this.$http.post('/api/user/modifyPwd', {
+            oldPwd: this.oldPassword,
+            newPwd: this.newPassword
+          }).then(function (resp) {
+            _loading(1);
+            var result = resp.body;
+            if (result.error === 401) {
+              _authModal.type = 1;
+              return false;
+            }
+            if (result.errorCode > 0) {
+              if (result.errorCode < 500) {
+                _alertCenter(result.message, 'error', 350);
+              } else {
+                _alertCenter('修改密码失败，请重试', 'error');
+              }
+            } else {
+              _alertCenter('修改密码成功');
+              this.oldPassword = '';
+              this.newPassword = '';
+              this.newConfirmPassword = '';
+            }
+          });
+        }
+      }
+    });
+  })(Vue);
+</script>
+<% } -%>
+
+<% if (query.section == 'account') { -%>
+<% include ../partials/pagination.ejs %>
+<script>
+  ;(function (Vue) {
+    var onlineUser = <%- JSON.stringify(onlineUser) %>;
+    new Vue({
+      el: '#accountManager',
+      data: {
+        onlineUser: onlineUser,
+        type: 0,
+        payRecord: {list: [], pageNo: 0, totalPages: 0},
+        payChapterRecord: {list: [], pageNo: 0, totalPages: 0},
+        rewardRecord: {list: [], pageNo: 0, totalPages: 0},
+        voteRecord: {list: [], pageNo: 0, totalPages: 0}
+      },
+      watch: {
+        type: function () {
+          if (this.type == 1 && !this.payChapterRecord.list.length) {
+            this.getPayChapterRecord();
+          }
+          if (this.type == 2 && !this.rewardRecord.list.length) {
+            this.getRewardRecord();
+          }
+          if (this.type == 3 && !this.voteRecord.list.length) {
+            this.getVoteRecord();
+          }
+        }
+      },
+      methods: {
+        getPayRecord: function (pageNo) {
+          _loading();
+          this.$http.get('/api/user/payRecord?pageNo=' + (pageNo || 1))
+            .then(function (resp) {
+              _loading(1);
+              if (resp.body.error === 401) {
+                _authModal.type = 1;
+                return false;
+              }
+              var payRecord = resp.body.payRecord;
+              this.payRecord = payRecord;
+            });
+        },
+        getPayChapterRecord: function (pageNo) {
+          _loading();
+          this.$http.get('/api/user/payChapterRecord?pageNo=' + (pageNo || 1))
+            .then(function (resp) {
+              _loading(1);
+              if (resp.body.error === 401) {
+                _authModal.type = 1;
+                return false;
+              }
+              var payChapterRecord = resp.body.payChapterRecord;
+              this.payChapterRecord = payChapterRecord;
+            });
+        },
+        getRewardRecord: function (pageNo) {
+          _loading();
+          this.$http.get('/api/user/rewardRecord?pageNo=' + (pageNo || 1))
+            .then(function (resp) {
+              _loading(1);
+              if (resp.body.error === 401) {
+                _authModal.type = 1;
+                return false;
+              }
+              var rewardRecord = resp.body.rewardRecord;
+              this.rewardRecord = rewardRecord;
+            });
+        },
+        getVoteRecord: function (pageNo) {
+          _loading();
+          this.$http.get('/api/user/voteRecord?pageNo=' + (pageNo || 1))
+            .then(function (resp) {
+              _loading(1);
+              if (resp.body.error === 401) {
+                _authModal.type = 1;
+                return false;
+              }
+              var voteRecord = resp.body.voteRecord;
+              this.voteRecord = voteRecord;
+            });
+        }
+      },
+      ready: function () {
+        this.getPayRecord();
+      }
+    });
+  })(Vue);
+</script>
+<% } -%>

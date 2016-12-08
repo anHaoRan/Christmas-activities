@@ -1,0 +1,4 @@
+<% include partials/head.ejs %>
+<body>
+<% include modules/auth.ejs %>
+<% include partials/foot.ejs %>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>火星小说</title>
+    <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <link rel="stylesheet" href="../styles/story-wap.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <a class="slogan" href="./index.html">火星小说</a>
+        <div class="tools">
+            <a href="./search.html" class="search"><span class="icon-search"></span></a>
+            <div class="user-help">
+                <a href="./login.html">登录</a>
+                <i class="divide">|</i>
+                <a href="./register.html">注册</a>
+            </div>
+        </div>
+    </header>
+    <main class="main pay" style="overflow: hidden;">
+        <nav class="nav">
+            <a href="index.html">男频</a>
+            <a href="###">女频</a>
+            <a href="top.html">排行</a>
+            <a class="active" href="pay.html">充值</a>
+            <a href="bookshelf.html">书架</a>
+        </nav>
+        <div class="wrap" style="overflow: hidden;">
+            <section class="section" id="payBox">
+                <div class="user">
+                    <p><strong>充值账户：</strong>张木子</p>
+                    <p><strong>账户余额：</strong>1000火星币</p>
+                </div>
+                <div class="pay-way">
+                    <h2 class="title">选择充值方式</h2>
+                    <div class="pay-list">
+                        <div class="item pay" :class="payMode == 0 ? ' active' : ''" @click="payMode=0">
+                            <span class="icon-current"></span>
+                            <i class="icon"></i>
+                            <i class="divide">|</i>
+                            <span class="pay-text">支付宝</span>
+                        </div>
+                        <div class="item we-chat" :class="payMode == 1 ? ' active' : ''" @click="payMode=1">
+                            <span class="icon-current"></span>
+                            <i class="icon"></i>
+                            <i class="divide">|</i>
+                            <span class="pay-text">微信</span>
+                        </div>
+                    </div>
+                    <div class="money-list">
+                        <div class="item" 
+                            v-for="(index, product) in productList" 
+                            :class="'money-' + (product.amount/100) + (index == payCount ? ' active' : '')" 
+                            @click="payCount=index">
+                            <span class="mars-currency">{{product.amount}} 火星币</span>
+                            <span class="money-amount">￥<span>{{product.amount/100}}</span></span>
+                            <i class="icon-current"></i>
+                        </div>
+                    </div>
+                    <div class="submit">确定充值</div>
+                    <div class="tip">
+                        <div class="title">温馨提示</div>
+                        <ol class="tip-list">
+                          <li>1.充值阅读仅限在火星小说网使用</li>
+                          <li>2.火星币兑换比例为1元兑换100火星币</li>
+                          <li>3.购买后，账户余额若长时间无变化，请致电客服010-59002324-621</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <form action="">
+                    <input type="search" placeholder="输入关键词搜索小说">
+                    <input type="submit" value="搜索">
+                </form>
+                <nav class="nav-bottom">
+                    <a href="###">书架</a>
+                    <a href="###">排行</a>
+                    <a href="###">充值</a>
+                    <a href="###">客户端</a>
+                </nav>
+                <div class="contact">
+                    <div class="title">联系客服：</div>
+                    <div class="contact-list">
+                        <span>客服QQ:3416319270</span>
+                        <span>客服微信:huoxingkufu</span>
+                        <span>客服邮箱:kefu@hotread.com</span>
+                        <span>客服电话:010－59002324-621</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+    <script src="https://npmcdn.com/vue@1.0.26/dist/vue.min.js"></script>
+    <script>
+        ;(function () {
+
+            new Vue({
+                el: '#payBox',
+                data: {
+                    payMode: 0,
+                    payCount: 0,
+                    productList: [
+                        {
+                            amount: 10000
+                        },
+                        {
+                            amount: 5000
+                        },
+                        {
+                            amount: 3000
+                        }
+                    ]
+                }
+            });
+
+        })();
+    </script>
+</body>
+
+</html>

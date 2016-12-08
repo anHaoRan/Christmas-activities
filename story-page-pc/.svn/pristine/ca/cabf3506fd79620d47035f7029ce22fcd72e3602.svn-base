@@ -1,0 +1,322 @@
+<link rel="stylesheet" href="../styles/qualityCopyright.min.css" />
+<!--导航-->
+<div class="hotr-nav">
+  <ul class="nav-main">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="girl.html">女频</a></li>
+    <li><a href="#">男频</a></li>
+    <li><a href="chart.html">排行</a></li>
+    <li><a href="library.html">书库</a></li>
+    <li class="on"><a href="qualityCopyright.html">优质版权</a></li>
+    <li><a href="topUp.html">充值</a></li>
+    <li><a href="#">福利</a></li>
+    <li><a href="#">下载客户端</a></li>
+  </ul>
+</div>
+<!--导航 end-->
+<div class="copyright_content">
+  <div class="copyright_box">
+    <div class="box_left">
+      <img src="../assets/a-box_left_carouselFigure.jpg" />
+    </div>
+    <div class="box_right">
+      <h3>最新资讯</h3>
+      <ul class="a_information">
+        <li><a href=""><span class="a_information-title">【资讯】</span><span class="a_information-content">热烈祝贺《最好的我们》电视剧于安徽卫视上映！</span></a></li>
+        <li><a href=""><span class="a_information-title">【资讯】</span><span class="a_information-content">热烈祝贺《最好的我们》电视剧于安徽卫视上映！</span></a></li>
+        <li><a href=""><span class="a_information-title">【资讯】</span><span class="a_information-content">热烈祝贺《最好的我们》电视剧于安徽卫视上映！</span></a></li>
+        <li><a href=""><span class="a_information-title">【资讯】</span><span class="a_information-content">热烈祝贺《最好的我们》电视剧于安徽卫视上映！</span></a></li>
+        <li><a href=""><span class="a_information-title">【资讯】</span><span class="a_information-content">热烈祝贺《最好的我们》电视剧于安徽卫视上映！</span></a></li>
+        <li><a href=""><span class="a_information-title">【资讯】</span><span class="a_information-content">热烈祝贺《最好的我们》电视剧于安徽卫视上映！</span></a></li>
+        <li><a href=""><span class="a_information-title">【资讯】</span><span class="a_information-content">热烈祝贺《最好的我们》电视剧于安徽卫视上映！</span></a></li>
+        <li><a href=""><span class="a_information-title">【资讯】</span><span class="a_information-content">热烈祝贺《最好的我们》电视剧于安徽卫视上映！</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <!--最新咨讯-->
+</div>
+<div class="outplay_box">
+  <div class="left"></div>
+  <div class="right"></div>
+  <div class="top"><h2 data-reactid="60">最新出售作品</h2></div>
+  <div class="main">
+    <ul class="outplay_ul">
+      <li class="item">
+        <a href="#">
+        <div class="img">
+          <img src="../assets/pic1.jpg" alt="" />
+        </div>
+        <span class="_fictionName">重生之锦绣皇后</span>
+        <span class="_author">花柒迟迟</span>
+        <span class="_classification">分类：<span>现代都市</span></span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+        <div class="img">
+          <img src="../assets/pic1.jpg" alt="" />
+        </div>
+        <span class="_fictionName">重生之锦绣皇后</span>
+        <span class="_author">花柒迟迟</span>
+        <span class="_classification">分类：<span>现代都市</span></span>
+        </a>
+      </li>
+      <li class="item active">
+        <a href="#">
+          <div class="img">
+          <img src="../assets/pic1.jpg" alt="" />
+        </div>
+          <span class="_fictionName">重生之锦绣皇后</span>
+          <span class="_author">花柒迟迟</span>
+          <span class="_classification">分类：<span>现代都市</span></span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+        <div class="img">
+          <img src="../assets/pic1.jpg" alt="" />
+        </div>
+        <span class="_fictionName">重生之锦绣皇后</span>
+        <span class="_author">花柒迟迟</span>
+        <span class="_classification">分类：<span>现代都市</span></span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+        <div class="img">
+          <img src="../assets/pic1.jpg" alt="" />
+        </div>
+        <span class="_fictionName">重生之锦绣皇后</span>
+        <span class="_author">花柒迟迟</span>
+        <span class="_classification">分类：<span>现代都市</span></span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+        <div class="img">
+          <img src="../assets/pic1.jpg" alt="" />
+        </div>
+        <span class="_fictionName">重生之锦绣皇后</span>
+        <span class="_author">花柒迟迟</span>
+        <span class="_classification">分类：<span>现代都市</span></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--最新出售作品-->
+<div class="fCRecommendation_box">
+  <div class="fCRecommendation_box-top">
+    <h2 class="_h2">精选版权推荐</h2>
+  </div>
+  <div class="fCRecommendation_box-main">
+    <ul class="main_top">
+      <li class="item movies">
+        <i class="_icon">图书</i>
+        <a href="./details.html">
+          <div class="img">
+            <img src="../assets/pic1.jpg" />
+          </div>
+          <div class="recommend">
+            <span class="recommend_title win-head">重生之锦绣皇后</span>
+            <span class="recommend_author">花柒迟迟</span>
+            <span class="recommend_concent">小编推荐：五百年前,八十一难,你护我成佛</span>
+            <span class="recommend_classification">分类：<span>现代都市</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item movies">
+        <i class="_icon">图书</i>
+        <a href="./details.html">
+          <div class="img">
+            <img src="../assets/pic1.jpg" />
+          </div>
+          <div class="recommend">
+            <span class="recommend_title win-head">重生之锦绣皇后</span>
+            <span class="recommend_author">花柒迟迟</span>
+            <span class="recommend_concent">小编推荐：五百年前,八十一难,你护我成佛</span>
+            <span class="recommend_classification">分类：<span>现代都市</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item movies">
+        <i class="_icon">图书</i>
+        <a href="./details.html">
+          <div class="img">
+            <img src="../assets/pic1.jpg" />
+          </div>
+          <div class="recommend">
+            <span class="recommend_title win-head">重生之锦绣皇后</span>
+            <span class="recommend_author">花柒迟迟</span>
+            <span class="recommend_concent">小编推荐：五百年前,八十一难,你护我成佛</span>
+            <span class="recommend_classification">分类：<span>现代都市</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item movies">
+        <i class="_icon">图书</i>
+        <a href="./details.html">
+          <div class="img">
+            <img src="../assets/pic1.jpg" />
+          </div>
+          <div class="recommend">
+            <span class="recommend_title win-head">重生之锦绣皇后</span>
+            <span class="recommend_author">花柒迟迟</span>
+            <span class="recommend_concent">小编推荐：五百年前,八十一难,你护我成佛</span>
+            <span class="recommend_classification">分类：<span>现代都市</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item movies">
+        <i class="_icon">图书</i>
+        <a href="./details.html">
+          <div class="img">
+            <img src="../assets/pic1.jpg" />
+          </div>
+          <div class="recommend">
+            <span class="recommend_title win-head">重生之锦绣皇后</span>
+            <span class="recommend_author">花柒迟迟</span>
+            <span class="recommend_concent">小编推荐：五百年前,八十一难,你护我成佛</span>
+            <span class="recommend_classification">分类：<span>现代都市</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item movies">
+        <i class="_icon">图书</i>
+        <a href="./details.html">
+          <div class="img">
+            <img src="../assets/pic1.jpg" />
+          </div>
+          <div class="recommend">
+            <span class="recommend_title win-head">重生之锦绣皇后</span>
+            <span class="recommend_author">花柒迟迟</span>
+            <span class="recommend_concent">小编推荐：五百年前,八十一难,你护我成佛</span>
+            <span class="recommend_classification">分类：<span>现代都市</span></span>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <ul class="main_bottom">
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+      <li class="item books">
+        <i class="item_icon">图书</i>
+        <a href="./details.html">
+          <div class="item_title win-head">阴婚</div>
+            <div class="item_author_type">
+            <span class="item_author">颜祯</span>
+            <span class="item_classification">分类：<span>悬疑灵异</span></span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,364 @@
+@import "common/variable";
+@import "common/fun";
+
+.library-main {
+  width: 1000px;
+  margin: 0 auto 70px;
+
+  &::before, &::after {
+    content: " ";
+    display: table;
+    line-height: 0;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+
+/*筛选盒子*/
+
+.library {
+  width: 760px;
+  float: left;
+  /*筛选*/
+  .filtrate {
+    width: 760px;
+    min-height: 301px;
+    border: 1px solid #e1e1e1;
+    padding: 19px 0 0 30px;
+    background: #fafafa;
+    ul.filtrateRect {
+      @include marPad();
+      list-style: none;
+      width: 100%;
+      height: auto;
+      margin-bottom: 12px;
+    }
+    li.filtrate-list {
+      width: 710px;
+      min-height: 38px;
+      position: relative;
+    }
+    label.classify {
+      display:block;
+      width: 80px;
+      height: 100%;
+      font-size: 16px;
+      color: $textColor;
+      line-height: 38px;
+      float: left;
+    }
+    div.body{
+      margin-left: 80px;
+      padding-right: 45px;
+    }
+    .foor, .foor:hover {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #039;
+    }
+    a {
+      display: inline-block;
+      height: 22px;
+      font-size: 14px;
+      color: #666666;
+      padding: 0 10px;
+      margin: 8px 0;
+      cursor: pointer;
+      line-height: 22px;
+      &:hover {
+        color: #fd2f35;
+      }
+      &.on {
+        border: 1px solid #fc8e91;
+        color: #fd2f35;
+        border-radius: 10px;
+      }
+    }
+    p.msg {
+      @include marPad();
+      font-size: 14px;
+      color: #707070;
+    }
+  }
+  /*筛选结果*/
+  .filtrate-result {
+    width: 760px;
+    ul.resultRect {
+      list-style: none;
+      @include marPad();
+      border: 1px solid #e1e1e1;
+      border-top: 0;
+      padding: 9px;
+
+      li {
+        height: 38px;
+        font-size: 13px;
+        line-height: 35px;
+        cursor: pointer;
+        padding-left: 21px;
+        color: #666;
+        a {
+          color: #666;
+        }
+        &:nth-child(even) {
+          background: #f8f7f7;
+        }
+        &:hover {
+          background: #ffe8ee;
+        }
+        span {
+          float: left;
+          height: 100%;
+          text-align: left;
+          i,
+          em {
+            font-style: normal;
+            float: left;
+          }
+          i.vip-logo {
+            float: left;
+            margin-top: 11px;
+            margin-left: 3px;
+            width: 15px;
+            height: 8px;
+            background: bg('vip.png') no-repeat;
+          }
+          h2 {
+            @include marPad();
+            float: left;
+            font-size: 14px;
+            font-weight: normal;
+            max-width: 140px;
+            @include showApo();
+          }
+          &.type {
+            width: 96px;
+          }
+          &.bookName {
+            width: 177px;
+          }
+          &.chapter {
+            width: 215px;
+            @include showApo();
+            padding-right: 10px;
+          }
+          &.author {
+            width: 106px;
+            @include showApo();
+            padding-right: 5px;
+          }
+          &.time {
+            width: 123px;
+          }
+        }
+      }
+
+      li.list-title {
+        font-size: 14px;
+        height: 52px;
+        font-weight: bold;
+        line-height: 52px;
+        overflow: hidden;
+        color: $textColor;
+
+        span.time {
+          @include showApo();
+        }
+      }
+    }
+    
+    ul.noData{
+      width: 760px;
+      height: 829px;
+      border: 1px solid #e1e1e1;
+      border-top: 0;
+      padding: 9px;
+      @include marPad();
+      @include ulEmpty();
+      li.list-title {
+        font-size: 14px;
+        height: 52px;
+        font-weight: bold;
+        line-height: 52px;
+        overflow: hidden;
+        color: $textColor;
+        border-bottom: 1px solid #e1e1e1;
+      }
+      li.nodata{
+        width: 100%;
+        height: 776px;
+        overflow: hidden;
+        cursor:auto;
+        .img{
+          width: 110px;
+          height: 110px;
+          background: bg('noData.png');
+          margin: 100px auto 0px;
+        }
+        .text{
+          width: 100%;
+          height: 40px;
+          text-align: center;
+          display: block;
+          margin: 17px auto 0px;
+          color: #666;
+        }
+      }
+    }
+  }
+
+}
+
+
+/*榜*/
+
+ol.column-right {
+  @include marPad();
+  float: right;
+  width: 208px;
+  height: 1000px;
+  list-style: none;
+}
+
+li.rankingRect {
+  width: 208px;
+  height: 495px;
+  &:first-child {
+    margin-bottom: 6px;
+  }
+  h2.ranking-title {
+    @include marPad();
+    height: 41px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    color: $textColor;
+    line-height: 41px;
+    span {
+      float: right;
+      height: 26px;
+      margin-top: 7px;
+    }
+    em.day,
+    em.week,
+    em.month {
+      font-style: normal;
+      float: left;
+      width: 22px;
+      height: 26px;
+      font-weight: normal;
+      font-size: 14px;
+      color: $textColor;
+      text-align: center;
+      line-height: 23px;
+      margin-left: 6px;
+    }
+    em.on {
+      color: white;
+      background: bg('chart-phb-ob.png') no-repeat;
+    }
+  }
+  dl.ranking {
+    @include marPad();
+    width: 208px;
+    height: 450px;
+    border: 1px solid #e6e5e5;
+  }
+  dd.ranking-list {
+    @include marPad();
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #e6e5e5;
+    padding: 4px;
+    cursor: pointer;
+    a.pinkBg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: $textColor;
+    }
+    em.num {
+      font-style: normal;
+      float: left;
+      width: 46px;
+      height: 36px;
+      text-align: center;
+      line-height: 36px;
+      color: #999999;
+      font-size: 14px;
+    }
+    img {
+      float: left;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+    h3.bookName {
+      @include marPad();
+      float: left;
+      font-size: 14px;
+      line-height: 36px;
+      font-weight: normal;
+    }
+    span.author {
+      float: left;
+      width: 0;
+      height: 0;
+      font-size: 0;
+      overflow: hidden;
+    }
+  }
+  dd.on {
+    height: 90px;
+    a.pinkBg {
+      background: #ffe8ee;
+      padding-top: 13px;
+    }
+    em.num {
+      height: 59px;
+      line-height: 59px;
+      color: #fd2f35;
+      font-size: 18px;
+    }
+    img {
+      width: 41px;
+      height: 59px;
+      margin-right: 14px;
+    }
+    h3.bookName {
+      width: 90px;
+      line-height: 14px;
+      color: $textColor;
+      font-weight: 600;
+    }
+    span.author {
+      width: 90px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+  dt {
+    height: 43px;
+    width: 100%;
+    background: #f8f7f7;
+    padding-top: 16px;
+    cursor: pointer;
+    span {
+      display: block;
+      width: 66px;
+      height: 14px;
+      font-size: 14px;
+      line-height: 14px;
+      color: #666666;
+      margin: auto;
+      background: bg('black-jt.png') no-repeat;
+      background-position: right center;
+    }
+  }
+}

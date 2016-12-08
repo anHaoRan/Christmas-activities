@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>火星小说-作者中心</title>
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+</head>
+<body>
+  <%= contents %>
+</body>
+</html>

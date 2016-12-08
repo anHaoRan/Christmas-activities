@@ -1,0 +1,36 @@
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.btn{
+  display: inline-block;
+  line-height: 34px;
+  font-size: 14px;
+  color: #fff;
+  padding: 0 15px;
+  border-radius: 5px;
+  background: #4a9bff;
+  border-width: 0;
+  cursor: pointer;
+}
+
+.list-title{
+  height: 32px;
+  background: #f6f6f6;
+  border-top: 1px solid #eaeaea;
+  padding: 4px 0;
+  line-height: 24px;
+  font-style: 14px;
+  color: #a5acb2;
+  span{
+    display: block;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #eaeaea;
+    &:last-child{
+      border: 0;
+    }
+  }
+}

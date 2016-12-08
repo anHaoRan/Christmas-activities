@@ -1,0 +1,1055 @@
+@import "common/variable";
+@import "common/fun";
+.userCenter {
+  width: 1000px;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto 80px auto;
+}
+
+
+/*左边导航*/
+
+.userCenter-leftNav {
+  float: left;
+  width: 177px;
+  height: 332px;
+}
+
+.userCenter-navList {
+  @include marPad();
+  width: 170px;
+  height: auto;
+  margin-bottom: 1px;
+  &.on {
+    dt {
+      width: 177px;
+      background: bg('userCenter-checkbg.png') no-repeat;
+      background-size: 100% 100%;
+      color: white;
+      i{
+        &:after,&:before{
+          left:0;
+          top: 1px;
+          border: 5px solid transparent;
+          border-left-color: red;
+        }
+        &:before{
+          left: 2px;
+          border-left-color: #fff;
+        }
+      }
+    }
+    dd{
+      display: block;
+    }
+  }
+  dt {
+    cursor: pointer;
+    position: relative;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: $textColor;
+    font-size: 16px;
+    background: #F3F3F3;
+    margin-bottom: 1px;
+    i {
+      position: absolute;
+      right: 29px;
+      top: 24px;
+      display: block;
+      width: 16px;
+      height: 18px;
+      &:after,&:before{
+        position: absolute;
+        left: 1px;
+        top: 2px;
+        content: '';
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-top-color: #f8f7f7;
+      }
+      &:before{
+        left: 1px;
+        top: 4px;
+        border-top-color: black;
+      }
+    }
+  }
+  dd {
+    cursor: pointer;
+    display: none;
+    @include marPad();
+    background: #F3F3F3;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 14px;
+    color: #666666;
+    &.on {
+      background: #dedcdf;
+      color: #ff3b4f;
+    }
+  }
+}
+
+
+/*右边盒子*/
+
+.userCenter-rightBox {
+  width: 780px;
+  height: auto;
+  float: right;
+}
+
+
+/*------------------------------------------------书架----------------------------------------------*/
+.shelf-empty {
+  padding: 300px 0;
+  text-align: center;
+  font-size: 16px;
+  color: $text-grey;
+  background: bg('shelf.png') no-repeat 48% 100px / 200px 180px;
+}
+.bookrack {
+  div.bookrack-title {
+    height: 40px;
+    width: 100%;
+    border-bottom: 2px solid #e1e1e1;
+    background: white;
+    .amend-btn {
+      display: block;
+      float: right;
+      width: 47px;
+      height: 14px;
+      font-size: 14px;
+      line-height: 14px;
+      background: bg('amendLogo.png') no-repeat;
+      background-position: right center;
+      margin-top: 14px;
+      cursor: pointer;
+    }
+    .amend {
+      height: 18px;
+      float: right;
+      margin-top: 10px;
+      &>span {
+        display: block;
+        float: left;
+        font-size: 14px;
+        line-height: 18px;
+        cursor: pointer;
+      }
+      .allCheck {
+        position: relative;
+        width: 55px;
+        height: 18px;
+        text-align: right;
+        .checkbox {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 18px;
+          height: 18px;
+          z-index: 9;
+          background: bg('checkbox-x.jpg') no-repeat;
+        }
+        &.checked {
+          .checkbox {
+            background-image: bg('checkbox-y.jpg');
+          }
+        }
+      }
+      .del {
+        margin-left: 28px;
+      }
+      .accomplish {
+        margin-left: 28px;
+      }
+    }
+  }
+  div.bookrack-rect {
+    overflow: hidden;
+    margin-left: -14px;
+  }
+  div.book-list {
+    position: relative;
+    float: left;
+    margin-left: 14px;
+    position: relative;
+    width: 184px;
+    height: 348px;
+    // height: 300px;
+    border: 1px solid #e1e1e1;
+    margin-top: 20px;
+    img {
+      display: block;
+      width: 140px;
+      height: 199px;
+      margin: 20px auto 6px auto;
+    }
+    h3.bookName {
+      @include marPad();
+      @include showApo();
+      font-size: 18px;
+      color: #081426;
+      line-height: 37px;
+      width: 150px;
+      margin: 0 auto;
+    }
+    p.old,
+    p.new {
+      @include marPad();
+      font-size: 12px;
+      color: #666666;
+      line-height: 17px;
+      width: 153px;
+      margin: 0 auto;
+      margin-bottom: 4px;
+      height: 34px;
+      overflow: hidden;
+    }
+    i {
+      position: absolute;
+      width: 39px;
+      height: 23px;
+      background: red;
+      left: -6px;
+      top: 45px;
+    }
+    i.upDateLog {
+      background: bg('updateLog.png') no-repeat;
+    }
+    i.endLog {
+      background: bg('endLog.png') no-repeat;
+    }
+    .shade {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      .checkBox {
+        position: absolute;
+        right: 11px;
+        top: 9px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #cbcbcb;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .8);
+        text-align: center;
+
+        &.checked {
+          background: #fbb03b;
+          border-color: #fbb03b;
+          
+          &::before {
+            display: inline-block;
+            content: "";
+            width: 13px;
+            height: 10px;
+            vertical-align: middle;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAUCAQAAAA5SeU1AAAA0ElEQVQ4y5XTwQoBcRDH8b1QHsAjKCklpZSUA2229iLl4CIHFwe5eCQHcnJw9Ay8g0iKktoVvg6YbBbz/12nz79p5j+WZRAcpsQsI2LjATOielLhxCMjLSkJ8bB1pCjEx9GRAkchro7kOQipvRe+zoOckAv190KcJa1QkmUvpBEkC+BC84Nk2AkJVpmHvmWRZvusXD/6CO+alJAb7d/zOT/mQ5KNkI5qEyRYCelqd77mlZ7+d73S1+y+HGADs4sBGJocWhUfmBAxu0+X8b/bvAOjzCujhFnwGAAAAABJRU5ErkJggg==) no-repeat center / cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*----------------------------------------------------------个人信息盒子--------------------------------------*/
+
+.usermsg {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 20px 0 0 27px;
+}
+
+
+/*上传头像*/
+
+.uploadingTx {
+  width: 170px;
+  height: 252px;
+  float: left;
+}
+
+.uploadingTxRect {
+  @include marPad();
+  position: relative;
+  width: 169px;
+  height: 169px;
+  margin-bottom: 9px;
+  .tx {
+    img {
+      width: 169px;
+      height: 169px;
+    }
+  }
+  dd {
+    @include marPad();
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 35px;
+    width: 100%;
+    background: #d4d4d4;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+    color: $textColor;
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+.uploadingTxMsg {
+  @include marPad();
+  font-size: 13px;
+  line-height: 22px;
+  color: #c5c5c5;
+}
+
+
+/*用户信息*/
+
+.usermsg-rect {
+  width: 523px;
+  height: auto;
+  float: right;
+  &>div {
+    overflow: hidden;
+    label {
+      display: block;
+      float: left;
+      width: 45px;
+      height: auto;
+      font-size: 16px;
+      color: $textColor;
+      line-height: 42px;
+    }
+  }
+  /*名称*/
+  .nameRect {
+    height: 74px;
+    margin-bottom: 32px;
+    label {
+      height: 74px;
+    }
+    .nameTxt {
+      @include marPad();
+      float: left;
+      width: 302px;
+      height: 42px;
+      border: 1px solid #e1e1e1;
+      padding-left: 15px;
+    }
+    .nameMsg {
+      @include marPad();
+      float: left;
+      font-size: 13px;
+      line-height: 13px;
+      color: #C5C5C5;
+      margin-top: 19px;
+    }
+  }
+  /*性别*/
+  .sexRect {
+    height: 42px;
+    .sexRect-box {
+      position: relative;
+      float: left;
+      width: 120px;
+      height: 16px;
+      padding-left: 23px;
+      margin-top: 14px;
+      line-height: 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .sex {
+      @include marPad();
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 10;
+      width: 16px;
+      height: 16px;
+      border-radius: 8px;
+      border: 1px solid #dadada;
+      i {
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin: 3px auto 0 auto;
+      }
+    }
+    .sex.checked {
+      i {
+        background: #fbb03b;
+      }
+    }
+  }
+}
+
+
+/*保存*/
+
+.stockpile-btn {
+  display: block;
+  margin-top: 45px;
+  width: 114px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: white;
+  font-size: 16px;
+  background: #fd2f35;
+  border-radius: 27px;
+  margin-left: 28px;
+  cursor: pointer;
+}
+
+
+/*----------------------------------------------------------消息中心---------------------------------------*/
+
+.infocenter {
+  width: 100%;
+  height: auto;
+}
+
+.cut-btnRect {
+  @include ulEmpty();
+  width: 100%;
+  height: 33px;
+  li {
+    width: 104px;
+    height: 33px;
+    float: left;
+    border: 1px solid #e1e1e1;
+    border-bottom: none;
+    text-align: center;
+    line-height: 33px;
+    border-radius: 3px 3px 0 0;
+    cursor: pointer;
+    background: #f3f3f3;
+    font-size: 14px;
+    color: #666666;
+    margin-right: 5px;
+    &.on {
+      height: 34px;
+      background: white;
+      font-weight: 600;
+    }
+  }
+}
+
+
+/*通知内容盒子*/
+
+.infocenter-tzCon {
+  width: 100%;
+  height: auto;
+  border: 1px solid #E1E1E1;
+  padding: 30px 26px 0 30px;
+  dl.tz-list {
+    @include marPad();
+    width: 100%;
+    height: 60px;
+    margin-bottom: 18px;
+  }
+  dt.tx {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  dd.rightBox {
+    @include marPad();
+    float: left;
+    width: 667px;
+    height: 60px;
+    float: right;
+    border-bottom: 1px solid #f2f2f2;
+    p {
+      @include marPad();
+      @include showApo();
+      font-size: 14px;
+      color: #666666;
+      line-height: 18px;
+      a.name {
+        color: #fbb03b;
+      }
+    }
+    .time {
+      display: block;
+      font-size: 13px;
+      line-height: 13px;
+      color: #999999;
+      margin-top: 11px;
+    }
+  }
+}
+
+/*评论内容盒子*/
+
+.infocenter-plCon {
+  width: 100%;
+  height: auto;
+  border: 1px solid #E1E1E1;
+  padding: 30px 26px 0 30px;
+  dl.pl-list {
+    @include marPad();
+    width: 100%;
+    height: auto;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  dt.tx {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  dd.rightBox {
+    @include marPad();
+    float: left;
+    width: 667px;
+    height: auto;
+    float: right;
+    border-bottom: 1px solid #f2f2f2;
+    h3 {
+      @include marPad();
+      @include showApo();
+      font-weight: normal;
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 10px;
+      a.name {
+        color: #fbb03b;
+        float: left;
+      }
+      span{
+        float: left;
+      }
+    }
+    p {
+      @include marPad();
+    }
+    p.myPl {
+      @include marPad();
+      float: left;
+      font-size: 14px;
+      color: #666666;
+      line-height: 18px;
+      @include showApo();
+    }
+    p.otherPl {
+      margin-top: 12px;
+      padding: 13px 16px 10px 16px;
+      background: #f5f5f5;
+      font-size: 14px;
+      line-height: 24px;
+      float: left;
+      color: #666666;
+    }
+    ul.timeAndreply {
+      @include ulEmpty();
+      float: left;
+      width: 100%;
+      height: 13px;
+      margin: 12px 0 12px 0;
+      li {
+        font-size: 13px;
+        line-height: 13px;
+        color: #999999;
+      }
+    }
+    li.time {
+      float: left;
+    }
+    li.replyBtn {
+      float: right;
+      cursor: pointer;
+    }
+    .reply-rect{
+      height: 79px;
+      float: left;
+      width: 100%;
+      border: 1px solid #e1e1e1;
+      border-radius: 3px;
+      position: relative;
+      background: #fff;
+      margin-bottom: 5px;
+      textarea{
+        width: 100%;
+        height: 100%;
+        border:none;
+        outline: none;
+        resize:none;
+      }
+      &:after,&:before{
+        position: absolute;
+        right: 22px;
+        top: -9px;
+        content: '';
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-bottom-color: #fff;
+      }
+      &:before{
+        top: -10px;
+        border-bottom-color: #e1e1e1;
+      }
+    }
+  }
+}
+
+
+
+
+/*------------------------------------------------------修改密码------------------------------------------------*/
+
+.amendpassword {
+  width: 100%;
+  height: auto;
+  padding-top: 60px;
+  p {
+    @include marPad();
+    height: 42px;
+    margin-bottom: 32px;
+    label {
+      display: block;
+      float: left;
+      height: 42px;
+      width: 144px;
+      text-align: right;
+      margin-right: 19px;
+      line-height: 42px;
+      font-size: 16px;
+      color: #666666;
+    }
+    input {
+      float: left;
+      width: 302px;
+      height: 42px;
+      border: 1px solid #e1e1e1;
+      padding-left: 14px;
+    }
+  }
+  .stockpile-btn {
+    display: block;
+    margin-top: 45px;
+    width: 114px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 16px;
+    background: #fd2f35;
+    border-radius: 27px;
+    cursor: pointer;
+    margin-left: 200px;
+  }
+}
+
+
+/*--------------------------------------------------账户管理---------------------------*/
+/* 余额盒子 */
+.moneyRect {
+  height: 60px;
+  width: 100%;
+  border-bottom: 2px solid #E1E1E1;
+  ul.remainingRect {
+    @include ulEmpty();
+    float: left;
+    height: 22px;
+    margin-top: 19px;
+    overflow: hidden;
+    li {
+      float: left;
+      height: 22px;
+      color: $textColor;
+      overflow: hidden;
+      margin-right: 50px;
+    }
+    label {
+      float: left;
+      font-size: 16px;
+      line-height: 22px;
+    }
+    span {
+      float: left;
+      font-size: 22px;
+      color: #fbb03b;
+      line-height: 22px;
+    }
+    em {
+      font-style: normal;
+      float: left;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+  .topUpBtn {
+    float: left;
+    display: block;
+    width: 81px;
+    height: 29px;
+    border: 1px solid #fc9e0b;
+    background: #fbb03b;
+    color: white;
+    font-size: 16px;
+    line-height: 26px;
+    margin-top: 16px;
+    text-align: center;
+    border-radius: 3px;
+  }
+}
+
+
+/*切换*/
+
+.cutRect {
+  @include ulEmpty();
+  width: 274px;
+  height: 54px;
+  margin: 30px 0 20px 0;
+  li {
+    float: left;
+    width: 50%;
+    height: 47px;
+    line-height: 45px;
+    background: #f0f0f0;
+    border: 1px solid #e7e7e7;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666666;
+    text-align: center;
+    &:first-child {
+      border-radius: 3px 0 0 3px;
+      border-right: none;
+    }
+    &:nth-child(2) {
+      border-radius: 0 3px 3px 0;
+      border-left: none;
+    }
+  }
+  li.on {
+    border: none;
+    height: 54px;
+    background: bg('userCenter-li-bg.jpg') no-repeat;
+    background-size: 100%;
+    color: white;
+  }
+}
+
+
+/*消费记录切换*/
+
+ul.xfjl-cutRect {
+  @include ulEmpty();
+  width: 100%;
+  height: 34px;
+  li {
+    float: left;
+    width: 135px;
+    height: 34px;
+    border: 1px solid #e1e1e1;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    text-align: center;
+    line-height: 32px;
+    background: #f3f3f3;
+    color: #666666;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  li.on {
+    height: 35px;
+    background: white;
+    color: $textColor;
+  }
+}
+
+ol li.result-empty {
+  border-top: 1px solid #eee;
+  height: 556px !important;
+  text-align: center !important;
+  padding: 340px 0 0 0 !important;
+  background: #fff bg('u-empty.jpg') no-repeat 50% 145px / 234px 184px !important;
+  p {
+    font-size: 16px;
+  }
+}
+
+//付费章节
+ol.consume-resultRect {
+  @include ulEmpty();
+  width: 100%;
+  height: auto;
+  border: 1px solid #e7e7e7;
+  padding: 12px 17px 15px 15px;
+  li {
+    width: 100%;
+    height: 38px;
+    padding-left: 27px;
+    font-size: 13px;
+    color: #666666;
+    line-height: 38px;
+    &:nth-child(even) {
+      background: #f8f7f7;
+    }
+    span {
+      float: left;
+      display: block;
+      &.bookName {
+        width: 177px;
+        h2{
+          @include marPad();
+          @include showApo();
+          font-size: 13px;
+          max-width: 150px;
+          float: left;
+          font-weight: normal;
+        }
+        i.viplog {
+          top: 11px;
+          width: 15px;
+          height: 8px;
+          background: bg('vip.png') no-repeat;
+          float: left;
+          margin: 8px 0 0 5px;
+        }
+      }
+      &.chapter {
+        width: 250px;
+        @include showApo();
+      }
+      &.consume {
+        width: 154px;
+        @include showApo();
+      }
+      &.time {
+        width: 120px;
+        @include showApo();
+      }
+    }
+  }
+  li.list-title {
+    height: 52px;
+    line-height: 52px;
+    font-size: 16px;
+    color: $textColor;
+    font-weight: 600;
+  }
+}
+
+
+//充值记录
+ol.topUp-resultRect {
+  @include ulEmpty();
+  width: 100%;
+  height: auto;
+  border: 1px solid #e7e7e7;
+  padding: 12px 17px 12px 15px;
+  li {
+    width: 100%;
+    height: 38px;
+    padding-left: 27px;
+    font-size: 13px;
+    color: #666666;
+    line-height: 38px;
+    &:nth-child(even) {
+      background: #f8f7f7;
+    }
+    span {
+      float: left;
+      display: block;
+      @include showApo();
+      &.quantity {
+        width: 165px;
+      }
+      &.sum {
+        width: 128px;
+      }
+      &.time {
+        width: 169px;
+      }
+      &.way {
+        width: 150px;
+      }
+      &.state {
+        width: 107px;
+      }
+      &.true {
+        color: #FD2F35;
+      }
+      &.false {
+        color: green;
+      }
+    }
+  }
+  li.list-title {
+    height: 52px;
+    line-height: 52px;
+    font-size: 16px;
+    color: $textColor;
+    font-weight: 600;
+  }
+}
+
+//打赏记录
+ol.award-resultRect {
+  @include ulEmpty();
+  width: 100%;
+  height: auto;
+  border: 1px solid #e7e7e7;
+  padding: 12px 17px 15px 15px;
+  li {
+    width: 100%;
+    height: 38px;
+    padding-left: 27px;
+    font-size: 13px;
+    color: #666666;
+    line-height: 38px;
+    &:nth-child(even) {
+      background: #f8f7f7;
+    }
+    span {
+      float: left;
+      display: block;
+      &.bookName {
+        width: 157px;
+        h2{
+          @include marPad();
+          @include showApo();
+          font-size: 13px;
+          max-width: 120px;
+          float: left;
+          font-weight: normal;
+        }
+        i.viplog {
+          top: 11px;
+          width: 15px;
+          height: 8px;
+          background: bg('vip.png') no-repeat;
+          float: left;
+          margin: 8px 0 0 5px;
+        }
+      }
+      &.goods {
+        width: 112px;
+        @include showApo();
+      }
+      &.value {
+        width: 154px;
+        @include showApo();
+      }
+      &.time {
+        width: 120px;
+        @include showApo();
+      }
+      &.sent {
+        width: 170px;
+        @include showApo();
+      }
+    }
+  }
+  li.list-title {
+    height: 52px;
+    line-height: 52px;
+    font-size: 16px;
+    color: $textColor;
+    font-weight: 600;
+  }
+}
+
+//投票记录
+ol.vote-resultRect {
+  @include ulEmpty();
+  width: 100%;
+  height: auto;
+  border: 1px solid #e7e7e7;
+  padding: 12px 17px 15px 15px;
+  li {
+    width: 100%;
+    height: 38px;
+    padding-left: 27px;
+    font-size: 13px;
+    color: #666666;
+    line-height: 38px;
+    &:nth-child(even) {
+      background: #f8f7f7;
+    }
+    span {
+      float: left;
+      display: block;
+      &.bookName {
+        width: 157px;
+        h2{
+          @include marPad();
+          @include showApo();
+          font-size: 13px;
+          max-width: 120px;
+          float: left;
+          font-weight: normal;
+        }
+        i.viplog {
+          top: 11px;
+          width: 15px;
+          height: 8px;
+          background: bg('vip.png') no-repeat;
+          float: left;
+          margin: 8px 0 0 5px;
+        }
+      }
+      &.goods {
+        width: 112px;
+        @include showApo();
+      }
+      &.value {
+        width: 134px;
+        @include showApo();
+      }
+      &.time {
+        width: 140px;
+        @include showApo();
+      }
+      &.sent {
+        width: 170px;
+        @include showApo();
+      }
+    }
+  }
+  li.list-title {
+    height: 52px;
+    line-height: 52px;
+    font-size: 16px;
+    color: $textColor;
+    font-weight: 600;
+  }
+}

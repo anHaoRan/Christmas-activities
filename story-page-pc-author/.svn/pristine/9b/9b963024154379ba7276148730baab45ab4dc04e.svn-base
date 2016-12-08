@@ -1,0 +1,116 @@
+<link rel="stylesheet" type="text/css" href="../styles/reward.min.css">
+<div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item"><a href="worksList.html"><span></span>作品列表</a></li>
+            <li class="item  active"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item"><a href="comment.html">评论管理</a></li>
+            <li class="item"><a href="settings-one.html">个人设置</a></li>
+        </ul>
+    </div>
+    <div class="content-r fl">
+        <div class="right-header right-boder">
+            <p class="hint wryh-font">订阅收入</p>
+        </div>
+        <section class="main">
+            <ul class="content-r-header">
+                <!-- 火星币收入 -->
+                <li class="item">昨日收入：<span class="money-color">1704火星币</span></li>
+                <li class="item">今日收入：<span class="money-color">234火星币</span></li>
+                <li class="item">本月收入：<span class="money-color">54354火星币</span></li>
+                <li class="item">累计收入：<span class="money-color">3424849火星币</span></li>
+            </ul>
+            <div class=" reward-filter filter">
+                <!-- 筛选 -->
+                <label class="x">选择作品:</label>
+                <div class="form-group">
+                    <div class="form-control" :class="{'error': target=='paperType', 'has-value': paperType}" data-placeholder="选择作品">
+                    <p class="data-name">{{paperType}}</p>
+                        <input type="text" v-model="paperType">
+                        <select v-model="paperType" class="select-model">
+                            <option value="">--请选择--</option>
+                            <option :value="type" v-for="type in types">{{type}}</option>
+                        </select>
+                    </div>
+                </div>自
+                <div class="time border">
+                    <input type="text" value="2016-04-19" readonly="readonly" />
+                </div>至
+                <div class="time border">
+                    <input type="text" value="2016-04-19" readonly="readonly" />
+                </div>
+                <div class="btn">查询</div>
+            </div>
+            <div class="content-r-all">
+                <!-- 合计 -->
+                筛选合计：<span class="money-color-red">837483</span>火星币
+            </div>
+            <div class="content-r-result">
+                <!-- 结果 -->
+                <div class="list-title order-result-t">
+                    <span>序号</span>
+                    <span>订阅用户</span>
+                    <span>订阅金额（火星币）</span>
+                    <span>章节</span>
+                    <span>时间</span>
+                </div>
+                <ul class="order-list">
+                    <li class="list-item ">
+                        <span>1</span>
+                        <span>大鹏仔~</span>
+                        <span>26</span>
+                        <span>第一章火星之旅</span>
+                        <span>2016-10-26  10:32</span>
+                    </li>
+                    <li class="list-item ">
+                        <span>1</span>
+                        <span>大鹏仔~</span>
+                        <span>26</span>
+                        <span>第一章火星之旅</span>
+                        <span>2016-10-26  10:32</span>
+                    </li>
+                    <li class="list-item ">
+                        <span>1</span>
+                        <span>大鹏仔~</span>
+                        <span>26</span>
+                        <span>第一章火星之旅</span>
+                        <span>2016-10-26  10:32</span>
+                    </li>
+                    <li class="list-item ">
+                        <span>1</span>
+                        <span>大鹏仔~</span>
+                        <span>26</span>
+                        <span>第一章火星之旅</span>
+                        <span>2016-10-26  10:32</span>
+                    </li>
+                </ul>
+                <div class="screening-results">
+                    <!-- 筛选结果合计火星币 -->
+                    根据当前筛选条件，打赏金额合计：<span>837483</span>火星币
+                </div>
+                <div class="paging">
+                    <ul class="paging-list">
+                        <li class="paging-left"></li>
+                        <li class="paging-item active">1</li>
+                        <li class="paging-item">2</li>
+                        <li class="paging-item">3</li>
+                        <li class="paging-item">4</li>
+                        <li class="paging-right"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+new Vue({
+    el: 'body',
+    data: {
+        paperType: '',
+        target: 'mobilephone',
+        types: ['我的名字十八个汉字如果不信你就数一数', '完美世界', '完美世界']
+    }
+});
+</script>

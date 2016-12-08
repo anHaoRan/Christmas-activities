@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" class="root platform-win">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作者中心</title>
+  <link href="http://c.hotread.com/assets/images/favico.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="../styles/common.min.css">
+  <link rel="stylesheet" href="../styles/works.min.css">
+  <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.slimscroll.min.js"></script>
+  <script src="http://c.hotread.com/assets/js/vue.min.js"></script>
+  <style>[v-cloak] { visibility: hidden;  }</style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="slogan" href="http://author.hotread.com">
+        <img src="http://c.hotread.com/wap/images/3x/slogan.png" alt="">
+      </a>
+      <span class="user">
+        <button>退出登陆</button>
+      </span>
+    </div>
+  </header>
+  <div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item"><a href="worksList.html"><span></span>作品列表</a></li>
+            <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item"><a href="comment.html">评论管理</a></li>
+            <li class="item active"><a href="settings.html">个人设置</a></li>
+        </ul>
+    </div>
+    <!-- 左侧导航 -->
+    <main class="content fl user">
+        <section class="fill-information">
+            <div class="right-header right-boder wryh-font">
+                基本信息（仅一次编辑机会，再次编辑请联系编辑）
+            </div>
+            <div class="detailed-information">
+                <form class="form">
+                    <div class="form-horizontal">
+                        <div class="form-group disabled">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <input type="text" placeholder="用户名（手机号)">
+                            </div>
+                        </div>
+                        <div class="form-group error">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <input type="text" placeholder="请输入笔名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <input type="text" placeholder="真实姓名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <input type="text" placeholder="QQ/MSN">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <input type="text" placeholder="联系地址">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <input type="text" placeholder="邮编">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <div class="form-control" :class="{'error': target=='paperType', 'has-value': paperType}" data-placeholder="证件类型">
+                                    <input type="text" class="select-like" v-model="paperType">
+                                    <select v-model="paperType" class="select-model">
+                                        <option value="">--请选择--</option>
+                                        <option :value="type" v-for="type in types">{{type}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <input type="text" placeholder="证件号码"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <input type="text" placeholder="开户行全称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <input type="text" placeholder="银行账户">
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" submit">保存</div>
+                </form>
+            </div>
+        </section>
+        <section class="user-main">
+            <div class="right-header right-boder wryh-font">
+                修改以上信息请联系编辑
+            </div>
+            <div class="user-pic">
+                <span class="pic-text">作者头像：</span>
+                <p class="pic-img"></p>
+                <div class="btn">上传</div>
+            </div>
+            <div class="user-describe">
+                <span class="pic-text">个人说明:</span>
+                <div class="textarea-box">
+                    <textarea class="describe">个人说明来自火星小说的作家一名，个人说明来自火星小说的作家一名，个人说明来自火星小说的作家一名。</textarea>
+                    <span class="prompt">还可以输入150字</span>
+                </div>
+            </div>
+            <div class="works-describe">
+                <!-- 作品描述 -->
+                <span class="works-text">已发布过的作品说明：</span>
+                <div class="textarea-box">
+                    <textarea class="describe">《作品1》《作品2》《作品3》</textarea>
+                    <span class="prompt">还可以输入150字</span>
+                </div>
+            </div>
+            <div class="btn button">修改</div>
+        </section>
+        <section class="user-bottom">
+            <div class="right-header right-boder wryh-font">
+                绑定读者账号
+            </div>
+            <section class="matter-main">
+                <div class="form-box">
+                    <label class="icon-iphone">手机号：</label>
+                    <div class="form-control">
+                        <input type="text" placeholder="请输入11位手机号">
+                    </div>
+                </div>
+                <div class="form-box">
+                    <label class="icon-iphone">密码：</label>
+                    <div class="form-control">
+                        <input type="text" placeholder="不少于6位密码，不区分大小写">
+                    </div>
+                </div>
+                <div class="box-login">
+                    <span class="s">其他绑定方式：</span>
+                    <a href="#" class="item">
+                        <i class="i"></i>
+                        <strong class="text">微信</strong>
+                    </a>
+                    <a href="#" class="item">
+                        <i class="i"></i>
+                        <strong class="text">QQ</strong>
+                    </a>
+                    <a href="#" class="item">
+                        <i class="i"></i>
+                        <strong class="text">微博</strong>
+                    </a>
+                </div>
+                <div class="btn botton">绑定</div>
+            </section>
+        </section>
+    </main>
+</div>
+<script type="text/javascript">
+new Vue({
+    el: 'body',
+    data: {
+        paperType: '',
+        target: 'mobilephone',
+        types: ['身份证', '户口本', '银行卡']
+    }
+});
+</script>
+
+  <script>!function(e){function n(){}function t(e,n){return function(){e.apply(n,arguments)}}function o(e){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],s(e,this)}function i(e,n){for(;3===e._state;)e=e._value;return 0===e._state?void e._deferreds.push(n):(e._handled=!0,void o._immediateFn(function(){var t=1===e._state?n.onFulfilled:n.onRejected;if(null===t)return void(1===e._state?r:u)(n.promise,e._value);var o;try{o=t(e._value)}catch(i){return void u(n.promise,i)}r(n.promise,o)}))}function r(e,n){try{if(n===e)throw new TypeError("A promise cannot be resolved with itself.");if(n&&("object"==typeof n||"function"==typeof n)){var i=n.then;if(n instanceof o)return e._state=3,e._value=n,void f(e);if("function"==typeof i)return void s(t(i,n),e)}e._state=1,e._value=n,f(e)}catch(r){u(e,r)}}function u(e,n){e._state=2,e._value=n,f(e)}function f(e){2===e._state&&0===e._deferreds.length&&o._immediateFn(function(){e._handled||o._unhandledRejectionFn(e._value)});for(var n=0,t=e._deferreds.length;n<t;n++)i(e,e._deferreds[n]);e._deferreds=null}function c(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}function s(e,n){var t=!1;try{e(function(e){t||(t=!0,r(n,e))},function(e){t||(t=!0,u(n,e))})}catch(o){if(t)return;t=!0,u(n,o)}}var a=setTimeout;o.prototype["catch"]=function(e){return this.then(null,e)},o.prototype.then=function(e,t){var o=new this.constructor(n);return i(this,new c(e,t,o)),o},o.all=function(e){var n=Array.prototype.slice.call(e);return new o(function(e,t){function o(r,u){try{if(u&&("object"==typeof u||"function"==typeof u)){var f=u.then;if("function"==typeof f)return void f.call(u,function(e){o(r,e)},t)}n[r]=u,0===--i&&e(n)}catch(c){t(c)}}if(0===n.length)return e([]);for(var i=n.length,r=0;r<n.length;r++)o(r,n[r])})},o.resolve=function(e){return e&&"object"==typeof e&&e.constructor===o?e:new o(function(n){n(e)})},o.reject=function(e){return new o(function(n,t){t(e)})},o.race=function(e){return new o(function(n,t){for(var o=0,i=e.length;o<i;o++)e[o].then(n,t)})},o._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},o._unhandledRejectionFn=function(e){"undefined"!=typeof console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)},o._setImmediateFn=function(e){o._immediateFn=e},o._setUnhandledRejectionFn=function(e){o._unhandledRejectionFn=e},"undefined"!=typeof module&&module.exports?module.exports=o:e.Promise||(e.Promise=o)}(this);</script>
+  <script src="http://c.hotread.com/assets/js/vue-resource.min.js"></script>
+</body>
+</html>

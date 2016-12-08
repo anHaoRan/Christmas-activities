@@ -1,0 +1,310 @@
+<div class="container clearfix" id="authController">
+  <style>
+    #authController .input-error {
+      border-color: #f00 !important;
+    }
+  </style>
+  <div class="auth-banner">
+    <a href="/">
+      <img src="<%= cdn %>/assets/images/logo.png" alt="" class="logo">
+    </a>
+  </div>
+
+  <% if (type==1) { -%>
+  <form class="auth-form" @submit.prevent="doLogin">
+    <h2>登录</h2>
+    <div class="auth-switch">
+      <a href="/recover?originalUrl=<%- query.originalUrl || '/' %>">忘记密码？</a>
+      <a href="/register?originalUrl=<%- query.originalUrl || '/' %>">立即注册</a>
+    </div>
+    <div class="form-box">
+      <div class="form-group account">
+        <div class="form-control" :class="{'has-value': username}" data-placeholder="请输入手机号码">
+          <input type="text" v-model="username" />
+        </div>
+      </div>
+      <div class="form-group password">
+        <div class="form-control" :class="{'has-value': password}" data-placeholder="请输入密码">
+          <input type="password" v-model="password" />
+        </div>
+      </div>
+      <div class="form-group verify-box">
+        <div class="form-control" :class="{'has-value' : code}" data-placeholder="请输入验证码">
+          <input type="text" v-model="code"/>
+        </div>
+        <img :src="captcha" class="verify" @click="updateCaptcha" />
+        <span class="verify-btn" @click="updateCaptcha">换一换</span>
+      </div>
+      <div class="submit-box">
+        <input type="submit" value="登录" class="submit" />
+      </div>
+    </div>
+    <div class="third-login" style="display: block;">
+      <strong>第三方登录</strong>
+      <a class="third-btn qq" href="<%= loginQQ %>">QQ登录</a>
+      <a class="third-btn weibo" href="<%= loginWB %>">微博登录</a>
+    </div>
+  </form>
+  <% } -%>
+
+  <% if (type==2) { -%>
+  <form @submit.prevent="doRegister" class="auth-form">
+    <h2>注册</h2>
+    <div class="auth-switch">已有账号？<a href="/login?originalUrl=<%- query.originalUrl || '/' %>">立即登录</a></div>
+    <div class="form-box">
+      <div class="form-group account">
+        <div 
+          class="form-control"
+          :class="{'has-value': nickName}" 
+          data-placeholder="给自己设置一个牛逼的昵称吧~" >
+          <input type="text" v-model="nickName" 
+          :class="{'input-error': !nickName && target == 'nickName'}" />
+        </div>
+      </div>
+      <div class="form-group phone">
+        <div 
+          class="form-control"
+          :class="{'has-value': mobilePhone}" 
+          data-placeholder="请输入11位手机号" >
+          <input type="text" v-model="mobilePhone"
+            :class="{'input-error': !mobilePhone && target == 'mobilePhone'}"/>
+        </div>
+      </div>
+      <div class="form-group note">
+        <div 
+          class="form-control"
+          :class="{'has-value': clientCode}" 
+          data-placeholder="请输入短信验证码" >
+          <input type="text" v-model="clientCode" 
+            :class="{'input-error': !clientCode && target == 'clientCode'}"/>
+        </div>
+        <span class="get" v-if="sending">{{seconds}}s后重新获取</span>
+        <span class="get" v-else @click="sendMessageCode()">获取短信验证码</span>
+      </div>
+      <div class="form-group password">
+        <div 
+          class="form-control"
+          :class="{'has-value': password}" 
+          data-placeholder="请输入密码" >
+          <input type="password" v-model="password"
+            :class="{'input-error': !password && target == 'password'}"/>
+        </div>
+      </div>
+      <div class="form-group password-confirm">
+        <div 
+          class="form-control"
+          :class="{'has-value': confirmPassword}" 
+          data-placeholder="请确认密码" >
+          <input type="password" v-model="confirmPassword"
+            :class="{'input-error': !confirmPassword && target == 'confirmPassword'}"/>
+        </div>
+      </div>
+      <div class="form-group verify-box">
+        <div 
+          class="form-control"
+          :class="{'has-value': code}" 
+          data-placeholder="请输入验证码">
+          <input type="text" v-model="code"
+            :class="{'input-error': !code && target == 'code'}"/>
+        </div>
+        <img :src="captcha" class="verify" @click="updateCaptcha" />
+        <span class="verify-btn" @click="updateCaptcha" >换一换</span>
+      </div>
+      <div class="submit-box">
+        <input type="submit" value="注册" class="submit" />
+      </div>
+    </div>
+    <div class="third-login">
+      <strong>第三方登录</strong>
+      <a href="<%= loginQQ %>" class="third-btn qq">QQ登录</a>
+      <a href="<%= loginWB %>" class="third-btn weibo">微博登录</a>
+    </div>
+  </form>
+  <% } -%>
+
+  <% if (type==3) { -%>
+  <form @submit.prevent="doRecover" class="auth-form">
+    <h2>忘记密码</h2>
+    <div class="auth-switch">
+      已有账号？
+      <a href="/login?originalUrl=<%- query.originalUrl || '/' %>">立即登录</a>
+    </div>
+    <div class="form-box no-icon">
+      <div class="form-group">
+        <div 
+          class="form-control"
+          :class="{'has-value': mobilePhone}"
+          data-placeholder="请输入手机号" >
+          <input type="text" v-model="mobilePhone"
+            :class="{'input-error': !mobilePhone && target == 'mobilePhone'}"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div 
+          class="form-control"
+          :class="{'has-value': password}"
+          data-placeholder="请输入密码" >
+          <input type="password" v-model="password"
+            :class="{'input-error': !password && target == 'password'}"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div 
+          class="form-control"
+          :class="{'has-value': confirmPassword}"
+          data-placeholder="请确认密码" >
+          <input type="password" v-model="confirmPassword" 
+            :class="{'input-error': !confirmPassword && target == 'confirmPassword'}"/>
+        </div>
+      </div>
+      <div class="form-group note">
+        <div 
+          class="form-control"
+          :class="{'has-value': clientCode}" 
+          data-placeholder="请输入短信验证码" >
+          <input type="text" v-model="clientCode"
+            :class="{'input-error': !clientCode && target == 'clientCode'}"/>
+        </div>
+        <span class="get" v-if="sending">{{seconds}}s后重新获取</span>
+        <span class="get" v-else @click="sendMessageCode(true)">获取短信验证码</span>
+      </div>
+      <div class="submit-box">
+        <input type="submit" value="确认修改" class="submit" />
+      </div>
+    </div>
+  </form>
+  <% } -%>
+
+</div>
+
+<% include ../partials/vue.ejs %>
+<script>
+  ;(function (Vue) {
+    var COUNT = 60;
+    var PHONE_REG = /^1[3|5|7|8]\d{9}$/;
+    var originalUrl = '<%- query.originalUrl %>' || '/';
+    new Vue({
+      el: '#authController',
+      data: {
+        username: '',
+        password: '',
+        code: '',
+        nickName: '',
+        mobilePhone: '',
+        clientCode: '',
+        confirmPassword: '',
+        target: '',
+        seconds: COUNT,
+        sending: false,
+        captcha: '/core/code'
+      },
+      methods: {
+        checkPhone: function () {
+          return PHONE_REG.test(this.mobilePhone);
+        },
+        doLogin: function () {
+          var self = this;
+          _loading();
+          this.$http.post('/core/auth/login', {
+            username: this.username,
+            password: this.password,
+            captcha: this.code
+          }).then(function (resp) {
+            _loading(1);
+            var result = resp.body;
+            if (result.error) {
+              _alertCenter(result.msg, 'error');
+            } else {
+              _alertCenter('登录成功');
+              location.replace(originalUrl);
+            }
+          });
+        },
+        doRegister: function () {
+          var self = this;
+          _loading();
+          this.$http.post('/core/auth/register', {
+            nickName: this.nickName,
+            mobilePhone: this.mobilePhone,
+            password: this.password,
+            clientCode: this.clientCode,
+            confirmPassword: this.confirmPassword,
+            captcha: this.code
+          }).then(function (resp) {
+            _loading(1);
+            var result = resp.body;
+            if (result.error > 0) {
+              self.target = result.target || '';
+              _alertCenter(result.msg, 'error', 260);
+            } else {
+              self.target = '';
+              _alertCenter('注册成功');
+              location.replace(originalUrl);
+            }
+          });
+        },
+        doRecover: function () {
+          var self = this;
+          _loading();
+          this.$http.post('/core/auth/recover', {
+            mobilePhone: this.mobilePhone,
+            password: this.password,
+            clientCode: this.clientCode,
+            confirmPassword: this.confirmPassword,
+          }).then(function (resp) {
+            _loading(1);
+            var result = resp.body;
+            if (result.error > 0) {
+              self.target = result.target || '';
+              _alertCenter(result.msg, 'error', 260);
+            } else {
+              self.target = '';
+              _alertCenter('密码修改成功');
+              setTimeout(function () {
+                location.replace('/login?originalUrl=' + originalUrl);
+              }, 500);
+            }
+          });
+        },
+        sendMessageCode:function (ignore) {
+          if (!this.checkPhone()) {
+            _alertCenter('请输入正确的手机号码', 'error', 300);
+            return false;
+          }
+          if (this.sending) {
+            return false;
+          }
+          _loading();
+          var self = this;
+          var url = ignore ? '/core/auth/recover/code' : '/core/auth/register/code';
+          this.$http.post(url, {
+            mobilePhone: this.mobilePhone
+          }).then(function (resp) {
+            _loading(1);
+            if (resp.body.errorCode > 0) {
+              _alertCenter(resp.body.message);
+            } else {
+              self.sending = true;
+              self.counting();
+            }
+          });
+        },
+        counting: function () {
+          var self = this;
+          setTimeout(function () {
+            if (self.seconds > 1) {
+              self.seconds --;
+              self.counting();
+            } else {
+              self.sending = false;
+              self.seconds = COUNT;
+            }
+          }, 1000);
+        },
+        updateCaptcha: function () {
+          this.captcha = '/core/code?' + (new Date - 0); 
+        }
+      }
+    });
+  })(Vue);
+</script>

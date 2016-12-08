@@ -1,0 +1,23 @@
+:focus {
+  outline: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+.header {
+  height: 125px;
+  background: #1e2539;
+
+  .slogan {
+    margin-top: 34px;
+    float: left;
+    
+    img {
+      width: 213px;
+      height: 57px;
+    }
+  }
+}

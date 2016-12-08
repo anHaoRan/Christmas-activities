@@ -1,0 +1,143 @@
+@import 'common/fun';
+@import 'common/variable';
+.money-color {
+    color: #95591e;
+}
+
+.money-color-red {
+    color: #ff3a3a;
+}
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.content-r {
+    width: 1140px;
+    margin-bottom: 100px;
+}
+
+.main {
+    width: 834px;
+}
+.content-r-header {
+    padding-left: 15px;
+    background: #fbecc8;
+    overflow-x: hidden;
+    border-radius: 5px;
+    margin-top: 20px;
+    .item {
+        float: left;
+        line-height: 34px;
+        margin-left: 40px;
+        &:nth-of-type(1) {
+            margin-left: 0px;
+        }
+        span {
+            line-height: 14px;
+        }
+    }
+}
+.reward-filter{
+    margin-top: 40px;
+    .reward-book{
+        margin-right: 90px;
+        margin-left: 13px;
+    }
+}
+.content-r-all {
+    line-height: 40px;
+    text-align: right;
+    margin-top: 8px;
+    color: #a5acb2;
+}
+
+.result-t {
+    span {
+        &:nth-of-type(1) {
+            width: 84px;
+        }
+        &:nth-of-type(2) {
+            width: 260px;
+        }
+        &:nth-of-type(3) {
+            width: 294px;
+        }
+        &:nth-of-type(4) {
+            width: 192px;
+        }
+    }
+}
+
+.content-r-result {
+    color: #4e4e4e;
+    .list {
+        .list-item {
+            height: 34px;
+            border-bottom: 1px #cbcbcb dotted;
+            clear: both;
+            span {
+                float: left;
+                text-align: center;
+                line-height: 34px;
+                &:nth-of-type(1) {
+                    width: 84px;
+                }
+                &:nth-of-type(2) {
+                    width: 262px;
+                }
+                &:nth-of-type(3) {
+                    width: 296px;
+                }
+                &:nth-of-type(4) {
+                    margin-left: 30px;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+
+.screening-results {
+    line-height: 52px;
+    text-align: right;
+    margin-bottom: 17px;
+}
+
+.paging {
+    height: 24px;
+    .paging-list {
+        width: 220px;
+        height: 24px;
+        margin: 7px auto 0;
+        .paging-left {
+            width: 7px;
+            height: 24px;
+            background: #eaeaea;
+            float: left;
+            margin-right: 30px;
+        }
+        .paging-right {
+            width: 7px;
+            height: 24px;
+            background: #eaeaea;
+            display: inline-block;
+            float: left;
+            margin-left: 30px;
+        }
+        .paging-item {
+            width: 24px;
+            height: 24px;
+            float: left;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 12px;
+            color: #333333;
+            &:hover,&.active {
+                background: #eaeaea;
+            }
+        }
+    }
+}

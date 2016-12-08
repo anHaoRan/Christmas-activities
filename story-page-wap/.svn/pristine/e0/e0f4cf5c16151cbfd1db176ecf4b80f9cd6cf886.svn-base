@@ -1,0 +1,688 @@
+@mixin showApo(){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+html {
+    height: 100%;
+}
+body{
+  width: 375px;
+  margin: 0 auto;
+  &.over {
+        height: 100%;
+        overflow: hidden;
+  }
+  &.over1 {
+        height: 100%;
+        overflow: hidden;
+  }
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  -webkit-appearance: none;
+}
+a:link{text-decoration: none;}
+a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+a:active{text-decoration: none;}
+.none{
+  display: none;
+}
+.block{
+  display: block;
+}
+.alert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 200;
+  padding: 0 10px;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, .8);
+  color: #fff;
+  font-size: 14px;
+  overflow: hidden;
+}
+.top{
+  height: 600px;
+  background: url('../images/christmas/top_bg.jpg') 50%/cover;
+  padding-top: 21px;
+  .surplus-num{
+    position: relative;
+    height: 29px;
+    width: 188px;
+    line-height: 29px;
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: center;
+    background: #cc2c38;
+    border-radius: 27px;
+    color: #fff;
+    .num{
+      color: #fedb72;
+      font-size: 20px;
+      padding: 0 5px;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 9px;
+      background: url('../images/christmas/icon.png') 50%/cover;
+      right: -8px;
+      top: 2px;
+    }
+  }
+}
+.header{
+  width: 304px;
+  height: 180px;
+  background: url('../images/christmas/logo.png') 50%/cover;
+  margin: 0 auto;
+  h1{
+    display: none;
+  }
+}
+.turnplate{
+  width: 326px;
+  height: 330px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 34px;
+  background: url('../images/christmas/rotate-bg.png') 50%/cover;
+  &::before{
+    content: '';
+    position: absolute;
+    width: 102px;
+    height: 114px;
+    background: url('../images/christmas/old-man.png') 50%/cover;
+    top: -42px;
+    z-index: 3;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    width: 107px;
+    height: 148px;
+    background: url('../images/christmas/deer.png') 50%/cover;
+    bottom: -39px;
+    right: -20px;
+    z-index: 3;
+  }
+  .rotate-box{
+    position: absolute;
+    z-index: 2;
+    width: 286px;
+    height: 286px;
+    border-radius: 50%;
+    top: 20px;
+    left: 20px;
+    &::after{
+      content: '';
+      position: absolute;
+      z-index: 1;
+      width: 286px;
+      height: 286px;
+      border-radius: 50%;
+      background: #940009;
+      top: 3px;
+      left: 1px;
+    }
+  }
+  .rotate{
+    position: absolute;
+    width: 286px;
+    height: 286px;
+    border-radius: 50%;
+    z-index: 2;
+    background: url('../images/christmas/rotate-new.png') 50%/cover;
+    // -webkit-transition: -webkit-transform 7s ease-out;
+    // transition: -webkit-transform 7s ease-out;
+    // transition: transform 7s ease-out;
+    // transition: transform 7s ease-out,-webkit-transform 7s ease-out;
+  }
+  .light{
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    left: 7.5px;
+    top: 7.5px;
+    z-index: 2;
+    &.s-one{
+      background: url('../images/christmas/light.png') 50%/cover;
+    }
+    &.s-two{
+      background: url('../images/christmas/light-two.png') 50%/cover;
+    }
+  }
+  .pointer{
+    position: absolute;
+    width: 56px;
+    height: 115px;
+    left: 50%;
+    top: 50%;
+    margin-left: -28px;
+    margin-top: -88px;
+    background: url('../images/christmas/pointer.png') 50%/cover;
+    z-index: 5;
+    border: none;
+  }
+}
+
+.rule{
+  background: #fcfae7;
+  padding: 0 16px 0 17px;
+  overflow: hidden;
+  h4{
+    font-size: 14.5px;
+    color: #cc2c38;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  ul{
+
+  }
+  li{
+    font-size: 14.5px;
+    color: #cc2c38;
+    padding-left: 19.5px;
+    position: relative;
+    line-height: 22px;
+    margin-bottom: 4.5px;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      left: 0;
+      top: 4px;
+    }
+    &:nth-child(1){
+      &::before{
+        background: url('../images/christmas/num-one.png') 50%/cover;
+      }
+    }
+    &:nth-child(2){
+      &::before{
+        background: url('../images/christmas/num-two.png') 50%/cover;
+      }
+    }
+  }
+  .time-box{
+    font-size: 14.5px;
+    color: #cc2c38;
+    line-height: 23px;
+    span{
+      font-weight: 600;
+    }
+  }
+}
+.prize{
+  background: #d5232a;
+  position: relative;
+  padding: 41.5px 16.5px 50px 16.5px;
+  &::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 375px;
+    height: 41.5px;
+    background: url('../images/christmas/bottom-bg.png') no-repeat 50%/cover;
+  }
+  .cut-box{
+    height: 44px;
+    padding: 0 12px;
+    .myself-btn, 
+    .list-btn {
+      width: 140px;
+      height: 44px;
+    }
+    .myself-btn{
+      float: left;
+      background: url('../images/christmas/tab-btn.png') no-repeat;
+      background-position: 0 -89px;
+      background-size: 140px auto;
+      &.active{
+        background-position: 0 -134px;
+        background-size: 140px auto;
+      }
+    }
+    .list-btn{
+      float: right;
+      background: url('../images/christmas/tab-btn.png') no-repeat;
+      background-position: 0 0;
+      background-size: 140px auto;
+      &.active{
+        background-position: 0 -44px;
+        background-size: 140px auto;
+      }
+    }
+  }
+  .msg-box{
+    position: relative;
+    height: 56px;
+    background: #fff871;
+    border-radius: 8px 8px 0 0;
+    padding-top: 4px;
+    margin-top: 24px;
+    .msg{
+      position: relative;
+      height: 52px;
+      background: #a2131b;
+      border-radius: 6px 6px 0 0;
+      padding: 11.5px 30px 0 54.5px;
+      line-height: 18px;
+      font-size: 12px;
+      color: #fff;
+      &::before{
+        content: '';
+        position: absolute;
+        width: 27.5px;
+        height: 32.5px;
+        background: url('../images/christmas/bell.png') 50%/cover no-repeat;
+        left: 20px;
+        top: 14px;
+      }
+    }
+  }
+  .content-box{
+    background: #a2131b;
+    border-radius: 0 0 6px 6px;
+    padding: 0 16.5px;
+    .myself-box{
+      li{
+        padding: 15px 0;
+        overflow: hidden;
+        border-top: 1px solid #cd7c42;
+        border-bottom: 1px solid #7d0d14;
+        &:first-child{
+          border-top: none;
+        }
+        &:last-child{
+          border-bottom: none;
+        }
+      }
+      .cover-dashed{
+        width: 78.5px;
+        height: 78.5px;
+        border: 1px dashed #fedb72;
+        border-radius: 10px;
+        float: left;
+        margin-right: 9px;
+      }
+      .cover-solid{
+        width: 73px;
+        height: 73px;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        margin: 2px auto;
+        background: #6c2510;
+      }
+      .img{
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: contain;
+        background-origin: content-box;
+      }
+      .article{
+        display: inline-block;
+        float: left;
+        width: 216px;
+        font-size: 18px;
+        color: #fff;
+        line-height: 26px;
+        margin-bottom: 40px;
+      }
+      .time{
+        font-size: 14.5px;
+        color: #fedb72;
+        float: right;
+      }
+    }
+    .list-box{
+      height: 708px;
+      overflow: hidden;
+      ul{
+
+      }
+      li{
+        overflow: hidden;
+        padding: 13px 0 12px 5px;
+        border-top: 1px solid #cd7c42;
+        border-bottom: 1px solid #7d0d14;
+        font-size: 14.5px;
+        &:first-child{
+          border-top: none;
+        }
+      }
+      .cover{
+        width: 63px;
+        height: 63px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        position: relative;
+        float: left;
+        margin-right: 19px;
+        &::before{
+          content: '';
+          position: absolute;
+          left: -4.5px;
+          top: -7.5px;
+          width: 34px;
+          height: 37px;
+          background: url('../images/christmas/cap.png') 50%/cover;
+        }
+        img{
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+      .name{
+        display: inline-block;
+        float: left;
+        line-height: 18px;
+        color: #fff;
+        width: 123px;
+      }
+      .article{
+        display: inline-block;
+        float: right;
+        line-height: 18px;
+        color: #fff;
+        margin-right: 3px;
+      }
+      .time{
+        display: inline-block;
+        float: left;
+        color: #fedb72;
+        margin-top: 28px;
+      }
+    }
+  }
+}
+.yellow {
+    color: #fbee26;
+}
+
+.brownness {
+    color: #aa151e;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 10;
+    top: 0px;
+    font-size: 14px;
+    .popup {
+        width: 332px;
+        min-height: 556px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -166px;
+        margin-top: -300px;
+        transform: scale(0.85, 0.85);
+        &.material {
+            .main .shade-img {
+                height: 174px;
+            }
+        }
+        .header {
+            width: 293px;
+            margin-left: 13px;
+            margin-right: 26px;
+            height: 138px;
+            background: url('../images/christmas/popup-header.png') 0 0 no-repeat;
+            background-size: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        .b {
+            width: 272px;
+            min-height: 438px;
+            margin-top: -41px;
+            margin-left: 30px;
+            margin-right: 28px;
+            padding-top: 39px;
+            background: #ee2f2f;
+            border-radius: 20px;
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 90px;
+        }
+        .main {
+            width: 272px;
+            float: left;
+            .shade {
+                background: url(../images/christmas/shade.jpg) 0 0 no-repeat;
+                background-size: 100%;
+            }
+            .shade-img {
+                width: 162px;
+                height: 134px;
+                margin: 0 auto;
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-position: 0;
+            }
+            .lottery {
+                width: 211px;
+                margin: 0 auto;
+                background: url('../images/christmas/lottery.png') 0 0 no-repeat;
+                background-size: 100%;
+                position: relative;
+                text-align: center;
+                padding-top: 46px;
+                padding-bottom: 10px;
+                .text {
+                    line-height: 16px;
+                    color: #fff;
+                    font-size: 15px;
+                }
+            }
+            .form-popup {
+                width: 180px;
+                margin: 0 auto;
+                padding-top: 5px;
+                position: relative;
+                z-index: 1;
+                color: #fff;
+                .iphone,
+                input[type=text] {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    border-radius: 20px;
+                    height: 38px;
+                    margin: 3px 0;
+                    padding-left: 18px;
+                    padding-right: 18px;
+                    font-size: 14px;
+                }
+                .cdkey {
+                    width: 100px;
+                    line-height: 36px;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 20px;
+                    background: rgba(0, 0, 0, 0.3);
+                }
+            }
+        }
+        .footer {
+            width: 332px;
+            height: 125px;
+            background: url(../images/christmas/footer.png) 0 0 no-repeat;
+            background-size: 100%;
+            text-align: center;
+            margin-left: -31px;
+            margin-top: -20px;
+            position: relative;
+            // clear: both;
+            float: left;
+            .submit {
+                width: 170px;
+                height: 38px;
+                background: #ee2f2f;
+                color: #fff;
+                border: none;
+                font-size: 16px;
+                border-radius: 20px;
+                box-shadow: 0 3px 0px 0px #888;
+                position: absolute;
+                bottom: 30px;
+                left: 50%;
+                margin-left: -85px;
+            }
+        }
+    }
+    .box1 {
+        width: 334px;
+        min-height: 512px;
+        float: left;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -256px;
+        margin-left: -166px;
+        background: url('../images/christmas/background.png') 50%/cover;
+        background-repeat: no-repeat;
+        padding-top: 124px;
+        overflow: hidden;
+        .box1-input-box {
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            .cdkey {
+                width: 100px;
+                line-height: 36px;
+                text-align: center;
+                display: inline-block;
+                border-radius: 20px;
+                background: rgba(0, 0, 0, 0.3);
+            }
+        }
+        .box1-input {
+            width: 180px;
+            height: 40px;
+            border: none;
+            color: #333;
+            border-radius: 20px;
+            padding-left: 20px;
+            margin: 5px 0;
+        }
+        // .box1-header {
+        //     height: 134px;
+        // }
+        .box1-main {
+            // height: 226px;
+        }
+        .box1-img {
+            width: 129px;
+            height: 132px;
+            margin: 0 auto;
+            margin-bottom: 66px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: 0;
+        }
+        .box1-tips {
+            width: 170px;
+            margin: 0 auto;
+            color: #fff;
+            text-indent: 6px;
+        }
+        .box1-footer {
+            text-align: center;
+        }
+        .box1-button {
+            width: 170px;
+            height: 42px;
+            border-radius: 20px;
+            background-color: #ee2f2f;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            letter-spacing: 10px;
+            box-shadow: 0 3px 0px #333333;
+        }
+    }
+    .alert-box {
+        width: 276px;
+        min-height: 212px;
+        background-color: #fff;
+        border-radius: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -106px;
+        margin-left: -138px;
+        text-align: center;
+        padding-bottom: 30px;
+        &::before{
+          content: '';
+          width: 120px;
+          height: 96px;
+          background: url('../images/christmas/title-img.png') 50%/cover;
+          position: absolute;
+          top: -52px;
+          left: 50%;
+          margin-left: -60px;
+        }
+        .close {
+            font-style: normal;
+            position: absolute;
+            right: -8px;
+            top: -8px;
+            width: 26px;
+            height: 26px;
+            text-align: center;
+            line-height: 23px;
+            border: 1px solid #ccc;
+            font-size: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: #fff;
+            background-color: #ccc;
+        }
+        .mian-text {
+            margin-top: 70px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 20px;
+            p{
+              padding: 0 20px;
+              text-align: center;
+            }
+        }
+        .topay {
+            width: 102px;
+            line-height: 40px;
+            background-color: #ec2d33;
+            color: #fff;
+            display: inline-block;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+            &.back {
+                background-color: #fff;
+                border: 1px solid #aa151e;
+                color: #aa151e;
+            }
+        }
+    }
+}

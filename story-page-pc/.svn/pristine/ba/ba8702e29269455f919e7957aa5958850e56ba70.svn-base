@@ -1,0 +1,404 @@
+/* 弹出登录注册 */
+/*弹框*/
+
+.popup-box {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  &.on{
+    display: block;
+  }
+  &>div {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    &.on {
+      display: block;
+    }
+  }
+  /*注册*/
+  .pop-register {
+    width: 490px;
+    height: 580px;
+    background: white;
+    margin-left: -245px;
+    margin-top: -290px;
+    padding-top: 21px;
+    border-radius: 5px;
+    h2 {
+      @include marPad();
+      height: 54px;
+      line-height: 54px;
+      font-size: 30px;
+      text-align: center;
+      font-weight: normal;
+    }
+    .box {
+      display: block;
+      font-size: 14px;
+      text-align: center;
+      height: 14px;
+      line-height: 14px;
+      a {
+        color: #f50e0e;
+
+        ~ a {
+          color: $textColor;
+        }
+      }
+    }
+    /*表单盒子*/
+    .form-box {
+      @include marPad();
+      list-style: none;
+      width: 375px;
+      height: 496px;
+      margin: 0 auto;
+      padding-top: 19px;
+      // border-bottom: 1px solid #aaaaaa;
+      li {
+        height: 39px;
+        width: 100%;
+        margin-top: 18px;
+        &.account{
+          label{
+            background: bg('input-user.png');
+            background-repeat: no-repeat;
+          }
+        }
+        &.phone{
+          label{
+            background: bg('input-phone.png');
+            background-repeat: no-repeat;
+          }
+        }
+        &.note{
+          label{
+            background: bg('input-note.png');
+            background-repeat: no-repeat;
+          }
+        }
+        &.password-o{
+          label{
+            background: bg('input-lock.png');
+            background-repeat: no-repeat;
+          }
+        }
+        &.password-t{
+          label{
+            background: bg('input-lock-two.png');
+            background-repeat: no-repeat;
+          }
+        }
+        &.verify-box{
+          label{
+            background: bg('input-verify.png');
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      label {
+        display: block;
+        float: left;
+        width: 25px;
+        height: 22px;
+        margin-top: 9px;
+        margin-right: 23px;
+      }
+      p {
+        @include marPad();
+        float: left;
+        height: 39px;
+        padding: 2px 0 0 24px;
+        width: 326px;
+        border: 1px solid #aaaaaa;
+        border-radius: 27px;
+        input {
+          height: 35px;
+          width: 95%;
+          border: 0;
+          outline: none;
+          background: white;
+        }
+      }
+      .verify {
+        display: block;
+        float: left;
+        width: 106px;
+        height: 27px;
+        margin: 10px 0 0 11px;
+      }
+      em.verify-btn {
+        font-style: normal;
+        display: block;
+        float: left;
+        width: 65px;
+        height: 28px;
+        text-align: center;
+        line-height: 28px;
+        margin-top: 10px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      /*填写验证码样式*/
+      li.verify-box {
+        p {
+          width: 144px;
+        }
+        input {
+          width: 85%;
+        }
+      }
+      /*获取短信验证码样式*/
+      li.note {
+        p {
+          width: 181px;
+        }
+        input {
+          width: 85%;
+        }
+        i {
+          font-style: normal;
+          display: block;
+          float: left;
+          width: 139px;
+          height: 39px;
+          background: #e3e3e3;
+          border-radius: 27px;
+          font-size: 14px;
+          text-align: center;
+          line-height: 39px;
+          cursor: pointer;
+          margin-left: 5px;
+        }
+      }
+      .submit-box {
+        margin-top: 40px;
+        text-align: center;
+      }
+      .submit {
+        width: 182px;
+        height: 39px;
+        background: #f60e0e;
+        border-radius: 23px;
+        line-height: 39px;
+        color: white;
+        font-size: 16px;
+        margin: 0 auto;
+        cursor: pointer;
+        border: 0 none;
+      }
+      /*提示信息*/
+      li.msg {
+        line-height: 19px;
+        margin-top: 12px;
+        font-size: 12px;
+        color: #aaaaaa;
+        a {
+          color: #f16565;
+        }
+      }
+    }
+  }
+  /*登陆*/
+  .pop-login {
+    width: 490px;
+    height: 392px;
+    margin-top: -196px;
+    margin-left: -245px;
+    background: white;
+    padding-top: 21px;
+    border-radius: 5px;
+    h2 {
+      @include marPad();
+      height: 54px;
+      line-height: 54px;
+      font-size: 30px;
+      text-align: center;
+      font-weight: normal;
+    }
+    .box {
+      display: block;
+      font-size: 14px;
+      text-align: center;
+      height: 14px;
+      line-height: 14px;
+      a {
+        color: #f50e0e;
+
+        ~ a {
+          color: $textColor;
+        }
+      }
+    }
+    .form-box {
+      list-style: none;
+      @include marPad();
+      width: 375px;
+      height: 303px;
+      margin: 0 auto;
+      padding-top: 19px;
+      // border-bottom: 1px solid #aaaaaa;
+      li {
+        height: 39px;
+        width: 100%;
+        margin-top: 18px;
+        &.account{
+          label{
+            background: bg('input-user.png');
+            background-repeat: no-repeat;
+          }
+        }
+        &.password{
+          label{
+            background: bg('input-lock.png');
+            background-repeat: no-repeat;
+          }
+        }
+        &.verify-box{
+          label{
+            background: bg('input-verify.png');
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      label {
+        display: block;
+        float: left;
+        width: 25px;
+        height: 22px;
+        margin-top: 9px;
+        margin-right: 23px;
+      }
+      p {
+        @include marPad();
+        float: left;
+        height: 39px;
+        padding: 2px 0 0 24px;
+        border: 1px solid #aaaaaa;
+        border-radius: 27px;
+        input {
+          height: 35px;
+          width: 95%;
+          border: 0;
+          outline: none;
+          background: white;
+        }
+      }
+      li:first-child,
+      li:nth-child(2) {
+        p {
+          width: 326px;
+        }
+      }
+      li.verify-box {
+        p {
+          width: 144px;
+        }
+        input {
+          width: 85%;
+        }
+      }
+      .verify {
+        display: block;
+        float: left;
+        width: 106px;
+        height: 27px;
+        margin: 10px 0 0 11px;
+      }
+      em.verify-btn {
+        font-style: normal;
+        display: block;
+        float: left;
+        width: 65px;
+        height: 28px;
+        text-align: center;
+        line-height: 28px;
+        margin-top: 10px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .submit-box {
+        margin-top: 40px;
+        text-align: center;
+      }
+      .submit {
+        width: 182px;
+        height: 39px;
+        background: #f60e0e;
+        border-radius: 23px;
+        line-height: 39px;
+        color: white;
+        font-size: 16px;
+        margin: 0 auto;
+        cursor: pointer;
+        border: 0 none;
+      }
+    }
+  }
+  /*第三方登陆*/
+  .thirdParty {
+    display: none;
+    width: 100%;
+    height: 35px;
+    margin-top: 17px;
+    padding-left: 57px;
+    dt {
+      float: left;
+      width: 96px;
+      height: 35px;
+      text-align: left;
+      line-height: 35px;
+      color: $textColor;
+      font-size: 14px;
+    }
+    dd {
+      float: left;
+      width: 35px;
+      height: 35px;
+      margin-left: 19px;
+      cursor: pointer;
+      &.third-qq{
+        background: bg('third-qq-logo.png');
+        background-repeat: no-repeat;
+      }
+      &.third-weibo{
+        background: bg('third-weibo-logo.png');
+        background-repeat: no-repeat;
+      }
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+
+
+i.close-btn {
+  font-style: normal;
+  position: absolute;
+  right: 15px;
+  top: 16px;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 23px;
+  border: 1px solid #cccccc;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #cccccc;
+  &:hover {
+    background: #cccccc;
+    color: white;
+  }
+}

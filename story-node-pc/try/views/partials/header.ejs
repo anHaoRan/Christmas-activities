@@ -1,0 +1,89 @@
+<div class="hotr-header" id="hotr-header">
+  <div class="header-bg">
+    <div class="header-main">
+      <ul>
+        <li class="logo">
+          <a href="/">
+            <img src="<%= cdn %>/assets/images/logo.png" class="logo" alt=""/>
+          </a>
+        </li>
+        <li>
+          <form class="header-search" onsubmit="beforeSearch(this, '<%- hotList[0].keyWord %>')" action="/search">
+            <% if (nav == 'search') { -%>
+              <input type="text" name="keyWord" value="<%= query.keyWord %>" placeholder="<%- hotList[0].keyWord %>" autocomplete="off" class="search-text" />
+            <% } else { -%>
+              <input type="text" name="keyWord" placeholder="<%- hotList[0].keyWord %>" autocomplete="off" class="search-text" />
+            <% } -%>
+            <input type="submit" value=" " class="search-btn"/>
+          </form>
+          <p class="header-recommend">
+            <% hotList.forEach(function (hot) { %>
+              <a href="/search?keyWord=<%= hot.keyWord %>"><%= hot.keyWord %></a>
+            <% }) %>
+          </p>
+        </li>
+      </ul>
+      <% if (onlineUser.id > 0) { -%>
+        <div class="user-state">
+          <a href="/userCenter"><%= onlineUser.nickName %></a>
+          |
+          <a href="/logout?originalUrl=<%= originalUrl %>">退出</a>
+          |
+          <a href="http://author.hotread.com/login">作者中心</a>
+        </div>
+      <% } else { -%>
+        <div class="user-state">
+          <a href="javascript:_authModal.openLogin()">登录</a>
+          |
+          <a href="javascript:_authModal.openRegister()">注册</a>
+          |
+          <a href="http://author.hotread.com/login">作者中心</a>
+        </div>
+      <% } -%>
+    </div>
+  </div>
+</div>
+<div class="hotr-nav" id="hotr-nav">
+  <ul class="nav-main">
+    <li class="<%= nav == 'home' ? 'on' : '' %>"><a href="/">首页</a></li>
+    <li class="<%= nav == 'girl' ? 'on' : '' %>"><a href="/girl">女频</a></li>
+    <li class="<%= nav == 'boy' ? 'on' : '' %>"><a href="/boy">男频</a></li>
+    <li class="<%= nav == 'chart' ? 'on' : '' %>"><a href="/chart">排行</a></li>
+    <li class="<%= nav == 'library' ? 'on' : '' %>"><a href="/library">书库</a></li>
+    <li class="<%= nav == 'copyright' ? 'on' : '' %>"><a href="/copyright" target="_blank">优质版权</a></li>
+    <li class="<%= nav == 'pay' ? 'on' : '' %>"><a href="/pay">充值</a></li>
+    <li><a href="//author.hotread.com/boon">福利</a></li>
+    <li class="<%= nav == 'download' ? 'on' : '' %>"><a href="/download" target="_blank">下载客户端</a></li>
+  </ul>
+</div>
+<script>
+  function beforeSearch(form, keyWord) {
+    if (!form.keyWord.value) {
+      form.keyWord.value = keyWord;
+    }
+  }
+  ;(function (win) {
+    win.addEventListener('scroll', function () {
+      whenScroll();
+    });
+
+    var fixed = false;
+    var menu = document.getElementById('hotr-nav');
+    var header = document.getElementById('hotr-header');
+
+    whenScroll();
+
+    function whenScroll() {
+      var t = win.scrollY;
+      if (fixed && t <= 239) {
+        menu.style.cssText = '';
+        header.style.cssText = '';
+        fixed = false;
+      } else if (!fixed && t >= 239) {
+        menu.style.cssText = 'position: fixed;top:0;left:0;z-index: 6;';
+        header.style.cssText = 'margin-bottom: 83px;';
+        fixed = true;
+      }
+    }
+  })(window);
+</script>

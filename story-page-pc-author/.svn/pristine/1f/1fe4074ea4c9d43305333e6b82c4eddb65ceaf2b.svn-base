@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="root platform-win">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作者中心</title>
+  <link href="http://c.hotread.com/assets/images/favico.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="http://c.hotread.com/assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="../styles/common.min.css">
+  <link rel="stylesheet" href="../styles/works.min.css">
+  <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.slimscroll.min.js"></script>
+  <script src="http://c.hotread.com/assets/js/vue.min.js"></script>
+  <style>[v-cloak] { visibility: hidden;  }</style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="slogan" href="http://author.hotread.com">
+        <img src="http://c.hotread.com/wap/images/3x/slogan.png" alt="">
+      </a>
+      <span class="user">
+        <button>退出登陆</button>
+      </span>
+    </div>
+  </header>
+  <div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+            <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item"><a href="comment.html">评论管理</a></li>
+            <li class="item"><a href="settings.html">个人设置</a></li>
+        </ul>
+    </div>
+    <div class="issue fl">
+        <div class="right-header-haveback">
+            <p class="hint wryh-font"><a href="worksList.html" class="back">作品列表</a><span>山村老尸</span></p>
+        </div>
+        <div class="main-nav">
+            <a href="worksList-setroll.html">分卷设置</a>
+            <a href="worksList-writeNewSection.html">写新章节</a>
+            <a href="worksList-drafts.html">草稿箱</a>
+            <a href="worksList-issue.html" class="active">已发布章节</a>
+            <a href="worksList-setProduction.html">作品设置</a>
+        </div>
+        <div class="list-title i-t">
+            <span>序号</span>
+            <span>卷名</span>
+            <span>标题</span>
+            <span>字数</span>
+            <span>发布时间</span>
+            <span>最新修改时间</span>
+            <span>订阅次数</span>
+            <span>操作</span>
+        </div>
+        <ul class="issue-list">
+            <li>
+                <span class="num">1</span>
+                <span class="rollname">卷一</span>
+                <span class="title top">第一章 火星之旅</span>
+                <span class="wordsnum">4115</span>
+                <span class="time">2016-10-26  10:32</span>
+                <span class="newtime">2016-10-26  10:32</span>
+                <span class="subscription">212131</span>
+                <span class="operate">
+          <a href="worksList-editIssue.html" class="amend">修改</a>
+          <a href="" class="share">分享</a>
+          <a href="" class="sort">排序</a>
+        </span>
+            </li>
+            <li>
+                <span class="num">2</span>
+                <span class="rollname">卷一</span>
+                <span class="title">第一章 火星之旅</span>
+                <span class="wordsnum">4115</span>
+                <span class="time">2016-10-26  10:32</span>
+                <span class="newtime">2016-10-26  10:32</span>
+                <span class="subscription">212131</span>
+                <span class="operate">
+          <a href="worksList-editIssue.html" class="amend">修改</a>
+          <a href="" class="share">分享</a>
+          <a href="" class="sort">排序</a>
+        </span>
+            </li>
+            <li>
+                <span class="num">3</span>
+                <span class="rollname">卷一</span>
+                <span class="title">第一章 火星之旅</span>
+                <span class="wordsnum">4115</span>
+                <span class="time">2016-10-26  10:32</span>
+                <span class="newtime">2016-10-26  10:32</span>
+                <span class="subscription">212131</span>
+                <span class="operate">
+          <a href="worksList-editIssue.html" class="amend">修改</a>
+          <a href="" class="share">分享</a>
+          <a href="" class="sort">排序</a>
+        </span>
+            </li>
+        </ul>
+        <div class="paging">
+            <ul class="paging-list">
+                <li class="paging-left"></li>
+                <li class="paging-item active">1</li>
+                <li class="paging-item">2</li>
+                <li class="paging-item">3</li>
+                <li class="paging-item">4</li>
+                <li class="paging-right"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="popup hide">
+    <div class="popup-box">
+        <a href="#" class="popup-close"></a>
+        <h3 class="popup-title">修改卷名</h3>
+        <section class="popup-body">
+            <div class="line-box">
+                <div class="label">本章序号：</div>
+                <span class="num">111</span>
+            </div>
+            <div class="line-box">
+                <div class="label">本章标题：</div>
+                <span class="title">第一章 山村老尸</span>
+            </div>
+            <div class="line-box">
+                <div class="label">移动到：</div>
+                <div class="select-box">
+                    <div class="roll-box">
+                        <div class="form-group">
+                            <div class="form-control" :class="{'error': target=='paperType', 'has-value': paperType}" data-placeholder="选择卷">
+                                <input type="text" class="select-like" v-model="paperType">
+                                <select v-model="paperType" class="select-model">
+                                    <option value="">--请选择--</option>
+                                    <option :value="type" v-for="type in types">{{type}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-box">
+                        <div class="form-group">
+                            <div class="form-control" :class="{'error': target=='paperType1', 'has-value': paperType1}" data-placeholder="选择序号">
+                                <input type="text" class="select-like" v-model="paperType1">
+                                <select v-model="paperType1" class="select-model">
+                                    <option value="">--请选择--</option>
+                                    <option :value="type" v-for="type in types1">{{type}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="hint">例：将序号57移动到序号2时，该章序号57将变为2，原序号2章节将变为3，逐次+1</span>
+                </div>
+            </div>
+        </section>
+        <footer class="popup-footer">
+            <div class="btn disabled-btn">取消</div>
+            <div class="btn">确定</div>
+        </footer>
+    </div>
+</div>
+<script type="text/javascript">
+new Vue({
+    el: 'body',
+    data: {
+        paperType: '',
+        paperType1: '',
+        target: 'roll',
+        target1: 'section',
+        types: ['完美世界1', '完美世界2', '完美世界3'],
+        types1: ['1','2','3','4'],
+    }
+});
+</script>
+
+  <script>!function(e){function n(){}function t(e,n){return function(){e.apply(n,arguments)}}function o(e){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],s(e,this)}function i(e,n){for(;3===e._state;)e=e._value;return 0===e._state?void e._deferreds.push(n):(e._handled=!0,void o._immediateFn(function(){var t=1===e._state?n.onFulfilled:n.onRejected;if(null===t)return void(1===e._state?r:u)(n.promise,e._value);var o;try{o=t(e._value)}catch(i){return void u(n.promise,i)}r(n.promise,o)}))}function r(e,n){try{if(n===e)throw new TypeError("A promise cannot be resolved with itself.");if(n&&("object"==typeof n||"function"==typeof n)){var i=n.then;if(n instanceof o)return e._state=3,e._value=n,void f(e);if("function"==typeof i)return void s(t(i,n),e)}e._state=1,e._value=n,f(e)}catch(r){u(e,r)}}function u(e,n){e._state=2,e._value=n,f(e)}function f(e){2===e._state&&0===e._deferreds.length&&o._immediateFn(function(){e._handled||o._unhandledRejectionFn(e._value)});for(var n=0,t=e._deferreds.length;n<t;n++)i(e,e._deferreds[n]);e._deferreds=null}function c(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}function s(e,n){var t=!1;try{e(function(e){t||(t=!0,r(n,e))},function(e){t||(t=!0,u(n,e))})}catch(o){if(t)return;t=!0,u(n,o)}}var a=setTimeout;o.prototype["catch"]=function(e){return this.then(null,e)},o.prototype.then=function(e,t){var o=new this.constructor(n);return i(this,new c(e,t,o)),o},o.all=function(e){var n=Array.prototype.slice.call(e);return new o(function(e,t){function o(r,u){try{if(u&&("object"==typeof u||"function"==typeof u)){var f=u.then;if("function"==typeof f)return void f.call(u,function(e){o(r,e)},t)}n[r]=u,0===--i&&e(n)}catch(c){t(c)}}if(0===n.length)return e([]);for(var i=n.length,r=0;r<n.length;r++)o(r,n[r])})},o.resolve=function(e){return e&&"object"==typeof e&&e.constructor===o?e:new o(function(n){n(e)})},o.reject=function(e){return new o(function(n,t){t(e)})},o.race=function(e){return new o(function(n,t){for(var o=0,i=e.length;o<i;o++)e[o].then(n,t)})},o._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},o._unhandledRejectionFn=function(e){"undefined"!=typeof console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)},o._setImmediateFn=function(e){o._immediateFn=e},o._setUnhandledRejectionFn=function(e){o._unhandledRejectionFn=e},"undefined"!=typeof module&&module.exports?module.exports=o:e.Promise||(e.Promise=o)}(this);</script>
+  <script src="http://c.hotread.com/assets/js/vue-resource.min.js"></script>
+</body>
+</html>

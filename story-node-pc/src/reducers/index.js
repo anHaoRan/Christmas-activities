@@ -1,0 +1,30 @@
+import { combineReducers } from 'redux';
+import home from './homeReducer';
+import girl from './girlReducer';
+import boy from './boyReducer';
+import library from './libraryReducer';
+import pay from './payReducer';
+import search from './searchReducer';
+import details from './detailsReducer';
+import fans from './fansReducer';
+import common from './commonReducer';
+import newsPage from './newsPageReducer';
+import user from './userReducer';
+import reading from './readingReducer';
+
+const reducers = combineReducers({
+  home,
+  girl,
+  boy,
+  details,
+  fans,
+  common,
+  library,
+  pay,
+  search,
+  newsPage,
+  user,
+  reading
+});
+
+export default reducers;

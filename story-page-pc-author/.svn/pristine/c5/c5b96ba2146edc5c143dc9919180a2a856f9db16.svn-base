@@ -1,0 +1,59 @@
+<link rel="stylesheet" type="text/css" href="../styles/works.min.css">
+<div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item active"><a href="worksList.html"><span></span>作品列表</a></li>
+            <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item"><a href="comment.html">评论管理</a></li>
+            <li class="item"><a href="settings-one.html">个人设置</a></li>
+        </ul>
+    </div>
+    <div class="writeNewSection fl">
+        <div class="right-header-haveback">
+            <p class="hint wryh-font"><a href="worksList-issue.html" class="back">已发布章节</a><span class="bookname">修改</span></p>
+        </div>
+        <div class="writeNewSection-main">
+            <div class="section-title">
+                <span class="label must">章节标题</span>
+                <div class="title all-input-box" :class="{'error': target=='title', 'has-value': title}" data-placeholder="示例：第一张 火星小说">
+                    <input type="text" v-model="title">
+                </div>
+                <div class="btn fl">预览</div>
+            </div>
+            <div class="section-text">
+                <span class="label must">章节正文</span>
+                <div class="text-box all-input-box" :class="{'error': target=='text', 'has-value': text}" data-placeholder="章节正文">
+                    <textarea v-model="text"></textarea>
+                </div>
+                <div class="sensitive-words">
+                    <div class="tips">
+                        <p class="hint text">请删除敏感词：{{ sensitiveWords }}</p>
+                        <p class="hint num">字数限制：100-1000字&nbsp;&nbsp;&nbsp;当前字数：0</p>
+                    </div>
+                    <p class="tips-to">按住Ctrl+F键，输入具体敏感词，可高亮显示敏感词的位置</p>
+                </div>
+            </div>
+            <div class="section-tag">
+                <span class="label must">附加语</span>
+                <div class="tag-box all-input-box" :class="{'error': target=='tag', 'has-value': tag}" data-placeholder="附加语">
+                    <textarea v-model="tag"></textarea>
+                </div>
+            </div>
+            <div class="section-send">
+                <div class="btn fl" style="margin-left: 126px">保存并发布</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+new Vue({
+    el: 'body',
+    data: {
+        title: '',
+        target: 'mobilephone',
+        sensitiveWords:'强暴、习近平'
+    }
+});
+</script>

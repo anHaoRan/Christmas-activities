@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <title>毒药 • 年度影剧评选</title>
+    <link rel="stylesheet" href="../styles/year-activity.min.css">
+    <style type="text/css">
+    [v-cloak] {
+        visibility: hidden;
+    }
+    </style>
+</head>
+
+<body>
+    <h1 class="none">毒药 • 年度影剧评选</h1>
+    <header class="header"></header>
+    <main class="content">
+        <section class="good-movie item">
+            <p class="guize">投票规则：这份名单中，有狂揽30亿的商业片巨蟒 也有美到忧伤的复古胶片拍摄，商业性与艺术性自古相爱相杀，但好电影总能把二者和谐地糅合。所以请毒友综合考量，选出你心中2016华语电影TOP10。</p>
+            <ul class="list" v-if="GOOD" v-cloak>
+                <li class="list-item" v-for="item in list1.list" @click="clickListA(item.id)">
+                    <div :class="{'checkboxDiv': !item.checked, 'checked': item.checked}"></div>
+                    <span class="text">{{item.name}}</span>
+                </li>
+            </ul>
+            <ul class="click-list" v-if="!GOOD" v-cloak>
+                <li class="click-item" v-for="item in list1.list">
+                    <div class="top"><span class="name">{{item.name}}</span><span class="num"><span class="color">234</span>票</span></div>
+                    <div class="bar"></div>
+                    <span class="percent">44.68%</span>
+                </li>
+            </ul>
+            <p class="tips">（最多可投10项）</p>
+            <div class="button unbutton">投票</div>
+        </section>
+        <div class="title1"></div>
+        <section class="good-movie item">
+            <p class="guize">投票规则：这份名单中，有狂揽30亿的商业片巨蟒 也有美到忧伤的复古胶片拍摄，商业性与艺术性自古相爱相杀，但好电影总能把二者和谐地糅合。所以请毒友综合考量，选出你心中2016华语电影TOP10。</p>
+            <ul class="list" v-if="BAD" v-cloak>
+                <li class="list-item" v-for="item in list2.list" @click="clickListB(item.id)">
+                    <div :class="{'checkboxDiv': !item.checked, 'checked': item.checked}"></div>
+                    <span class="text">{{item.name}}</span>
+                </li>
+            </ul>
+            <ul class="click-list" v-if="!BAD" v-cloak>
+                <li class="click-item" v-for="item in list2.list">
+                    <div class="top"><span class="name">{{item.name}}</span><span class="num"><span class="color">234</span>票</span></div>
+                    <div class="bar"></div>
+                    <span class="percent">44.68%</span>
+                </li>
+            </ul>
+            <p class="tips">（最多可投10项）</p>
+            <div class="button">投票</div>
+        </section>
+        <div class="title1"></div>
+        <section class="good-movie item">
+            <p class="guize">投票规则：这份名单中，有狂揽30亿的商业片巨蟒 也有美到忧伤的复古胶片拍摄，商业性与艺术性自古相爱相杀，但好电影总能把二者和谐地糅合。所以请毒友综合考量，选出你心中2016华语电影TOP10。</p>
+            <ul class="list" v-if="BOOM" v-cloak>
+                <li class="list-item" v-for="item in list3.list" @click="clickListC(item.id)">
+                <div :class="{'checkboxDiv': !item.checked, 'checked': item.checked}"></div>
+                <span class="text">{{item.name}}</span>
+            </li>
+            </ul>
+            <ul class="click-list" v-if="!BOOM" v-cloak>
+                <li class="click-item" v-for="item in list3.list">
+                    <div class="top">
+                        <span class="name">{{item.name}}</span>
+                        <span class="num"><span class="color">234</span>票</span>
+                    </div>
+                    <div class="bar"></div>
+                    <span class="percent">44.68%</span>
+                </li>
+            </ul>
+            <p class="tips">（最多可投10项）</p>
+            <div class="button">投票</div>
+        </section>
+        <footer class="footer">
+        <img class="two-code" src="../images/duyao/two-code.png">
+    </footer>
+    </main>
+    
+    <script type="text/javascript" src="../js/data.js"></script>
+    <script src="//c.hotread.com/assets/js/vue.min.js"></script>
+    <script src="//c.hotread.com/assets/js/vue-resource-polyfill.min.js"></script>
+    <script type="text/javascript">
+    ;
+    (function(Vue) {
+        new Vue({
+            el: 'body',
+            data: {
+                list1:{
+                    name: '良心佳作候选名单',
+                    list: [
+                      {
+                        id: 1,
+                        name: '美人鱼',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 2,
+                        name: '箭士柳白猿',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 3,
+                        name: '火锅英雄',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 4,
+                        name: '树大招风',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 5,
+                        name: '老笠',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 6,
+                        name: '北京遇上西雅图之不二情书',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 7,
+                        name: '百鸟朝凤',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 8,
+                        name: '我不是王毛',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 9,
+                        name: '惊天大逆转',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 10,
+                        name: '寒战2',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 11,
+                        name: '路边野餐',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 12,
+                        name: '长江图',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 13,
+                        name: '幸运是我',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 14,
+                        name: '喊山',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 15,
+                        name: '黑出有什么',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 16,
+                        name: '湄公河行动',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 17,
+                        name: '追凶者也',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 18,
+                        name: '驴得水',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 19,
+                        name: '七月与安生',
+                        checked: false
+                      }
+                      ,
+                      {
+                        id: 20,
+                        name: '我不是潘金莲',
+                        checked: false
+
+                      }
+                    ]
+                  },
+                list2:{
+                    name: '扑街烂片候选名单',
+                    list: [
+                      {
+                        id: 21,
+                        name: '澳门风云3',
+                        checked: false
+                      },
+                      {
+                        id: 22,
+                        name: '卧虎藏龙：青冥宝剑',
+                        checked: false
+                      },
+                      {
+                        id: 23,
+                        name: '梦想合伙人',
+                        checked: false
+                      },
+                      {
+                        id: 24,
+                        name: '大唐玄奘',
+                        checked: false
+                      },
+                      {
+                        id: 25,
+                        name: '赏金猎人',
+                        checked: false
+                      },
+                      {
+                        id: 26,
+                        name: '致青春·原来你还在这里',
+                        checked: false
+                      },
+                      {
+                        id: 27,
+                        name: '陆垚知马俐',
+                        checked: false
+                      },
+                      {
+                        id: 28,
+                        name: '封神传奇',
+                        checked: false
+                      },
+                      {
+                        id: 29,
+                        name: '盗墓笔记',
+                        checked: false
+                      },
+                      {
+                        id: 30,
+                        name: '夏有乔木 雅望天堂',
+                        checked: false
+                      },
+                      {
+                        id: 31,
+                        name: '我最好朋友的婚礼',
+                        checked: false
+                      },
+                      {
+                        id: 32,
+                        name: '微微一笑很倾城',
+                        checked: false
+                      },
+                      {
+                        id: 33,
+                        name: '那件疯狂的小事叫爱情',
+                        checked: false
+                      },
+                      {
+                        id: 34,
+                        name: '在世界中心呼唤爱',
+                        checked: false
+                      },
+                      {
+                        id: 35,
+                        name: '爵迹',
+                        checked: false
+                      },
+                      {
+                        id: 36,
+                        name: '从你的全世界路过',
+                        checked: false
+                      },
+                      {
+                        id: 37,
+                        name: '大话西游3',
+                        checked: false
+                      },
+                      {
+                        id: 38,
+                        name: '王牌逗王牌',
+                        checked: false
+                      },
+                      {
+                        id: 39,
+                        name: '惊天破',
+                        checked: false
+                      },
+                      {
+                        id: 40,
+                        name: '三少爷的剑',
+                        checked: false
+                      }
+                    ]
+                  },
+                list3:{
+                    name: '爆款网剧候选名单',
+                    list: [
+                      {
+                        id: 41,
+                        name: '老九门',
+                        checked: false
+                      },
+                      {
+                        id: 42,
+                        name: '余罪',
+                        checked: false
+                      },
+                      {
+                        id: 43,
+                        name: '美人为馅',
+                        checked: false
+                      },
+                      {
+                        id: 44,
+                        name: '上瘾',
+                        checked: false
+                      },
+                      {
+                        id: 45,
+                        name: '如果蜗牛有爱情',
+                        checked: false
+                      },
+                      {
+                        id: 46,
+                        name: '超少年密码',
+                        checked: false
+                      },
+                      {
+                        id: 47,
+                        name: '法医秦明',
+                        checked: false
+                      },
+                      {
+                        id: 48,
+                        name: '画江湖之不良人',
+                        checked: false
+                      },
+                      {
+                        id: 49,
+                        name: '陈二狗的妖孽人生',
+                        checked: false
+                      },
+                      {
+                        id: 50,
+                        name: '灵魂摆渡3',
+                        checked: false
+                      },
+                      {
+                        id: 51,
+                        name: '亲爱的公主病',
+                        checked: false
+                      },
+                      {
+                        id: 52,
+                        name: '校花的贴身高手',
+                        checked: false
+                      },
+                      {
+                        id: 53,
+                        name: '最好的我们',
+                        checked: false
+                      },
+                      {
+                        id: 54,
+                        name: '十宗罪',
+                        checked: false
+                      },
+                      {
+                        id: 55,
+                        name: '半妖倾城',
+                        checked: false
+                      },
+                      {
+                        id: 56,
+                        name: '重生之名流巨星',
+                        checked: false
+                      },
+                      {
+                        id: 57,
+                        name: '灭罪师',
+                        checked: false
+                      },
+                      {
+                        id: 58,
+                        name: '我的奇妙男友',
+                        checked: false
+                      },
+                      {
+                        id: 59,
+                        name: '心理罪',
+                        checked: false
+                      },
+                      {
+                        id: 60,
+                        name: '微微一笑很倾城',
+                        checked: false
+                      }
+                    ]
+                  },
+                list1Checked: [],
+                list2Checked: [],
+                list3Checked: [],
+                GOOD:true,
+                BAD:  true,
+                BOOM:true,
+            },
+            methods: {
+                clickListA: function(id){
+                    this.list1.list[id-1].checked = !this.list1.list[id-1].checked;
+                    var newArr = [];
+                    for(var i=0;i<this.list1.list.length;i++){
+                        if(this.list1.list[i].checked){
+                            newArr.push(this.list1.list[i].id);
+                        }
+                    }
+                    this.list1Checked = newArr;
+                },
+                clickListB: function(id){
+                    this.list2.list[id-1-20].checked = !this.list2.list[id-1-20].checked;
+                    return false;
+                    var newArr = [];
+                    for(var i=0;i<this.list2.list.length;i++){
+                        if(this.list2.list[i].checked){
+                            newArr.push(this.list2.list[i].id);
+                        }
+                    }
+                    this.list2Checked = newArr;
+                },
+                clickListC: function(id){
+                    this.list3.list[id-1-40].checked = !this.list3.list[id-1-40].checked;
+                    var newArr = [];
+                    for(var i=0;i<this.list3.list.length;i++){
+                        if(this.list3.list[i].checked){
+                            newArr.push(this.list3.list[i].id);
+                        }
+                    }
+                    this.list3Checked = newArr;
+                },
+            },
+            ready:function(){
+                
+            }
+        });
+    })(Vue)
+    </script>
+</body>
+
+</html>

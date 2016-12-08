@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+    <title>火星小说</title>
+    <link rel="stylesheet" href="../styles/story-wap.min.css">
+</head>
+
+<body class="ali-in-wx">
+  <div class="open-browser">请使用其他浏览器打开进行支付</div>
+  <a href="./userCenter.html" class="btn btn-success">充值完成</a>
+</body>
+</html>

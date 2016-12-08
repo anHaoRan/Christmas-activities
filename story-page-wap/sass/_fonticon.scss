@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'duyaoicon';
+  src:  url('../fonts/duyaoicon.eot?22gprx');
+  src:  url('../fonts/duyaoicon.eot?22gprx#iefix') format('embedded-opentype'),
+    url('../fonts/duyaoicon.ttf?22gprx') format('truetype'),
+    url('../fonts/duyaoicon.woff?22gprx') format('woff'),
+    url('../fonts/duyaoicon.svg?22gprx#duyaoicon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'duyaoicon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-down:before {
+  content: "\e90f";
+}
+.icon-top:before {
+  content: "\e914";
+}
+.icon-left:before {
+  content: "\e90e";
+}
+.icon-right:before {
+  content: "\e915";
+}
+.icon-list:before {
+  content: "\e913";
+}
+.icon-android:before {
+  content: "\e900";
+}
+.icon-apple:before {
+  content: "\e901";
+}
+.icon-back:before {
+  content: "\e902";
+}
+.icon-check:before {
+  content: "\e903";
+}
+.icon-checked:before {
+  content: "\e904";
+}
+.icon-comment:before {
+  content: "\e905";
+}
+.icon-current:before {
+  content: "\e906";
+}
+.icon-fav-full:before {
+  content: "\e907";
+  color: rgb(250, 70, 70);
+}
+.icon-fav-full:after {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-fav:before {
+  content: "\e909";
+}
+.icon-money:before {
+  content: "\e90a";
+}
+.icon-plus:before {
+  content: "\e90b";
+}
+.icon-wallet:before {
+  content: "\e90c";
+}
+.icon-qq:before {
+  content: "\e90d";
+}
+.icon-search:before {
+  content: "\e910";
+}
+.icon-wechat:before {
+  content: "\e911";
+}
+.icon-weibo:before {
+  content: "\e912";
+}

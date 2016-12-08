@@ -1,0 +1,27 @@
+<link rel="stylesheet" type="text/css" href="../styles/worksList.min.css">
+
+<div class="container">
+  <div class="nav">
+    <h4>作者中心</h4>
+    <ul>
+      <li class="item active"><a href="#"><span></span>作品列表</a></li>
+      <li class="item"><a href="#">消息中心</a></li>
+      <li class="item"><a href="#">订阅收入</a></li>
+      <li class="item"><a href="#">查看打赏</a></li>
+      <li class="item"><a href="#">个人设置</a></li>
+    </ul>
+  </div>
+  <div class="worksList fl">
+    <div class="worksList-header">
+      <p class="fl hint">作品列表<span>（当前作品<i class="num">2</i>本）</span></p>
+      <a href="" class="btn fr">创建作品</a>
+    </div>
+    <div class="list-title wl-t">
+      <span>作品名称</span>
+      <span>最新发布章节</span>
+      <span>收藏量</span>
+      <span>作品状态</span>
+      <span>操作</span>
+    </div>
+  </div>
+</div>

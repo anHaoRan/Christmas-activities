@@ -1,0 +1,166 @@
+<div class="copyright_content">
+  <div class="copyright_box">
+    <div class="box_left" id="slideController">
+      <style type="text/css">
+        .my-swipe {
+          height: 321px;
+        }
+      </style>
+      <!--图片轮播-->
+      <div class="picAuto">
+        <swipe class="my-swipe">
+          <swipe-item v-for="item in slider">
+            <a :href="item.targetType === 1 ? ('/story/' + item.targetId) : item.linkUrl"
+              style="display:block;height:321px;background: none no-repeat 50% center / cover"
+              :style="{
+                backgroundImage: 'url(' + item.pic + ')'
+              }"></a>
+          </swipe-item>
+        </swipe>
+      </div>
+    </div>
+    <div class="box_right">
+      <h3>最新资讯</h3>
+      <ul class="a_information">
+        <% infor.forEach(function (item) { -%>
+        <li>
+          <a href="/newspage?id=<%= item.id %>">
+            <span class="a_information-title">【资讯】</span>
+            <span class="a_information-content"><%= item.eventName %></span>
+          </a>
+        </li>
+        <% }) -%>
+      </ul>
+    </div>
+  </div>
+  <!--最新咨讯-->
+</div>
+
+<div class="outplay_box" id="newBook">
+  <div class="left" @click="doLeft"></div>
+  <div class="right" @click="doRight"></div>
+  <div class="top"><h2>最新出售作品</h2></div>
+  <div class="main">
+    <ul class="outplay_ul"
+      :style="{ width: length * 204 + 'px', left: no * -204 + 'px'}">
+      <% newBooks.forEach(function (rec) { -%>
+        <li class="item">
+          <a href="/story/<%= rec.story.id %>">
+          <div class="img">
+            <img src="<%= rec.story.cover %>" alt="" />
+          </div>
+          <span class="_fictionName"><%= rec.story.name %></span>
+          <span class="_author"><%= rec.story.author %></span>
+          <span class="_classification">分类：<%= rec.story.type %></span>
+          </a>
+        </li>
+      <% }) -%>
+    </ul>
+  </div>
+</div>
+
+<div class="fCRecommendation_box" id="goodRecommend">
+  <div class="fCRecommendation_box-top">
+    <h2 class="_h2">精选版权推荐</h2>
+  </div>
+  <div class="fCRecommendation_box-main">
+    <ul class="main_top">
+      <li class="item" :class="rec.remark || 'books'" v-for="rec in big">
+        <i class="_icon">{{map[rec.remark || 'books']}}</i>
+        <a :href="'/story/' + rec.story.id">
+          <div class="img">
+            <img :src="rec.story.cover" />
+          </div>
+          <div class="recommend">
+            <span class="recommend_title win-head">{{rec.story.name}}</span>
+            <span class="recommend_author">{{rec.story.author}}</span>
+            <span class="recommend_concent">小编推荐：{{rec.story.pcIntroduce | clean}}</span>
+            <span class="recommend_classification">分类：<span>{{rec.story.type}}</span></span>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <ul class="main_bottom">
+      <li class="item" :class="rec.remark || 'books'" v-for="rec in small">
+        <i class="item_icon">{{map[rec.remark || 'books']}}</i>
+        <a :href="'/story/' + rec.story.id">
+          <div class="item_title win-head">{{rec.story.name}}</div>
+          <div class="item_author_type">
+            <span class="item_author">{{rec.story.author}}</span>
+            <span class="item_classification">分类：<span>{{rec.story.type}}</span></span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<% include ../partials/vue.ejs %>
+<script src="//c.hotread.com/assets/js/vue-swipe.js"></script>
+<script type="text/javascript">
+(function (Vue) {
+  var slider = <%- JSON.stringify(slider) %>;
+  var newBooksLen = <%- newBooks.length %>;
+  new Vue({
+    el: '#slideController',
+    data: {
+      slider: slider
+    },
+    components: {
+      'swipe': VueSwipe.Swipe,
+      'swipe-item': VueSwipe.SwipeItem
+    }
+  });
+
+  new Vue({
+    el: '#newBook',
+    data: {
+      no: 0,
+      length: newBooksLen
+    },
+    methods: {
+      doLeft: function () {
+        if (this.no + 5 < this.length) {
+          this.no += 1;
+        }
+      },
+      doRight: function () {
+        if (this.no > 0) {
+          this.no -= 1;
+        }
+      }
+    }
+  });
+
+  new Vue({
+    el: '#goodRecommend',
+    data: {
+      big: [],
+      small: [],
+      map: {
+        'books': '图书',
+        'movies': '影视',
+        'games': '游戏'
+      }
+    },
+    methods: {
+      getBigList: function () {
+        this.$http.get('/api/copyright/bigGood')
+          .then(function (resp) {
+            this.big = resp.body.list;
+          });
+      },
+      getSmallList: function () {
+        this.$http.get('/api/copyright/smallGood')
+          .then(function (resp) {
+            this.small = resp.body.list;
+          });
+      }
+    },
+    ready: function () {
+      this.getBigList();
+      this.getSmallList();
+    }
+  });
+})(Vue);
+</script>

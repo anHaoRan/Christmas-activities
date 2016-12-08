@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="//c.hotread.com/wap/flexible-0.3.4.js"></script>
+  <title>火星小说</title>
+  <meta name="format-detection" content="telephone=no,email=no" />
+  <link href="//c.hotread.com/assets/images/favico.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="../styles/story-wap.min.css">
+</head>
+
+<body>
+  <form class="search-header">
+    <a href="./index.html" class="back"><span class="icon-back"></span></a>
+    <div class="search-text">
+      <i class="icon-search"></i>
+      <input type="search" placeholder="搜索">
+    </div>
+    <input type="submit" value="搜索">
+  </form>
+  <main class="main search-body">
+    <div class="wrap">
+      <div class="search-empty">
+        <span class="empty"><i class="icon-search"></i></span>
+        <p>没有找到合适的内容哦~</p>
+      </div>
+      <div class="search-result">
+        <ul class="books-column">
+        <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./details.html">
+              <span class="cover" style="background-image: url(../images/cover.png)"></span>
+              <div class="descn">
+                <h4>十宗罪</h4>
+                <div class="about">
+                  <span>苏苏</span>
+                </div>
+                <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+              </div>
+            </a>
+          </li>
+          <li>
+              <a href="./details.html">
+                <span class="cover" style="background-image: url(../images/cover.png)"></span>
+                <div class="descn">
+                  <h4>十宗罪</h4>
+                  <div class="about">
+                    <span>苏苏</span>
+                  </div>
+                  <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="./details.html">
+                <span class="cover" style="background-image: url(../images/cover.png)"></span>
+                <div class="descn">
+                  <h4>十宗罪</h4>
+                  <div class="about">
+                    <span>苏苏</span>
+                  </div>
+                  <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="./details.html">
+                <span class="cover" style="background-image: url(../images/cover.png)"></span>
+                <div class="descn">
+                  <h4>十宗罪</h4>
+                  <div class="about">
+                    <span>苏苏</span>
+                  </div>
+                  <p class="introduce">极品废材，说她？开什么玩笑，她一全能天才分分钟虐死这些个渣渣...</p>
+                </div>
+              </a>
+            </li>
+        </ul>
+      </div>
+      <div class="search-tips">
+        <h3>大家都在搜</h3>
+        <div class="hot-search">
+          <a href="#">玄幻</a>
+          <a href="#">武侠</a>
+          <a href="#">穿越</a>
+          <a href="#">梦境</a>
+          <a href="#">悬疑</a>
+          <a href="#">玄幻</a>
+          <a href="#">武侠</a>
+          <a href="#">穿越</a>
+          <a href="#">梦境</a>
+          <a href="#">悬疑</a>
+        </div>
+      </div>
+      <footer class="footer">
+        <form action="">
+          <input type="search" placeholder="输入关键词搜索小说">
+          <input type="submit" value="搜索">
+        </form>
+
+        <nav class="nav-bottom">
+          <a href="###">书架</a>
+          <a href="###">排行</a>
+          <a href="###">充值</a>
+          <a href="###">客户端</a>
+        </nav>
+
+        <div class="contact">
+          <div class="title">联系客服：</div>
+          <div class="contact-list">
+            <span>客服QQ:3416319270</span>
+            <span>客服微信:huoxingkufu</span>
+            <span>客服邮箱:kefu@hotread.com</span>
+            <span>客服电话:010-59002324-621</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+</body>
+</html>

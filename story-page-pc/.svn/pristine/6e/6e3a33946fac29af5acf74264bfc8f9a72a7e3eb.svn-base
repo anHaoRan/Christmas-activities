@@ -1,0 +1,73 @@
+@import "common/variable";
+@import "common/fun";
+body{
+  background: #d93139;
+  min-width: 1314px;
+}
+.activity{
+  background: url(../images/activity-header-bg.png) no-repeat center 0;
+  padding-top: 644px;
+}
+.main{
+  width: 1000px;
+  height: 2000px;
+  margin: 0 auto;
+  position: relative;
+  .tag{
+    width: 320px;
+    background: #fbead9;
+    padding-bottom: 21px;
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    margin-bottom: 20px;
+  }
+  .title{
+    padding-left: 40px;
+    height: 77px;
+    background: #fbdbbb;
+    font-size: 28px;
+    color: #8d561c;
+    line-height: 77px;
+    font-weight: 600;
+  }
+  .intr{
+    width: 240px;
+    margin: 0 auto;
+    font-size: 20px;
+    /* color: #a96c2a; */
+    color: rgba(169,108,42,0.5);
+    line-height: 28px;
+    padding: 15px 0!important;
+    border-bottom: 2px solid #f1cca6;
+    width: 260px!important;
+  }
+  .sent{
+    position: relative;
+    width: 240px;
+    margin: 27px auto 0 auto;
+    font-size: 14px;
+    line-height: 28px;
+    color: #a96c2a;
+    text-indent: 2em;
+    padding: 28px 0;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 18px;
+      height: 15px;
+      background: url(../images/activity-topMark.png) no-repeat;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      bottom: 9px;
+      right: -5px;
+      width: 18px;
+      height: 15px;
+      background: url(../images/activity-bottomMark.png) no-repeat;
+    }
+  }
+}

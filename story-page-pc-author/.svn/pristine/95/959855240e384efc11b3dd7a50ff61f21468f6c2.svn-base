@@ -1,0 +1,20 @@
+.worksList{
+  width: 1140px;
+  height: auto;
+}
+.worksList-header{
+  height: 54px;
+  padding-top: 10px;
+  .hint{
+    margin: 0;
+    line-height: 34px;
+    span{
+      color: #abb1b7;
+    }
+    .num{
+      font-style: normal;
+      color: #7798b1;
+      padding: 0 5px;
+    }
+  }
+}

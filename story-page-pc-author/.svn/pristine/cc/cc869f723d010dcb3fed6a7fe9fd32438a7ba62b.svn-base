@@ -1,0 +1,313 @@
+<link rel="stylesheet" type="text/css" href="../styles/settings.min.css">
+<div class="container">
+    <div class="nav">
+        <h4>作者中心</h4>
+        <ul>
+            <li class="item"><a href="worksList-table.html"><span></span>作品列表</a></li>
+            <li class="item"><a href="orderHeader.html">订阅收入</a></li>
+            <li class="item"><a href="reward.html">打赏收入</a></li>
+            <li class="item"><a href="comment.html">评论管理</a></li>
+            <li class="item active"><a href="settings-one.html">个人设置</a></li>
+        </ul>
+    </div>
+    <!-- 左侧导航 -->
+    <main class="content fl user">
+        <section class="fill-information">
+            <div class="right-header right-boder wryh-font">
+                基本信息（仅一次编辑机会，再次编辑请联系编辑）
+            </div>
+            <div class="detailed-information">
+                <form class="form">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box" :class="{'error': target=='mobilephone', 'has-value': mobilephone}" data-placeholder="用户名（手机号）">
+                                <input type="text" v-model="mobilephone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box" :class="{'error': target=='name', 'has-value': name}" data-placeholder="请输入笔名">
+                                <input type="text" v-model="name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box" :class="{'error': target=='realName', 'has-value': realName}" data-placeholder="真实姓名">
+                                <input type="text" v-model="realName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box" :class="{'error': target=='contactWay1', 'has-value': contactWay1}" data-placeholder="QQ / MSN">
+                                <input type="text" v-model="contactWay1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box" :class="{'error': target=='contactWay2', 'has-value': contactWay2}" data-placeholder="联系地址">
+                                <input type="text" v-model="contactWay2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box" :class="{'error': target=='contactWay3', 'has-value': contactWay3}" data-placeholder="邮编">
+                                <input type="text" v-model="contactWay3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box">
+                                <div class="form-control" :class="{'error': target=='paperType', 'has-value': paperType}" data-placeholder="证件类型">
+                                    <input type="text" class="select-like" v-model="paperType">
+                                    <select v-model="paperType" class="select-model">
+                                        <option value="">--请选择--</option>
+                                        <option :value="type" v-for="type in types">{{type}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box" :class="{'error': target=='paperInfo', 'has-value': paperInfo}" data-placeholder="证件号码">
+                                <input type="text" v-model="paperInfo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box" :class="{'error': target=='bankAddress', 'has-value': bankAddress}" data-placeholder="开户行全称">
+                                <input type="text" v-model="bankAddress">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon"></label>
+                            <div class="box" :class="{'error': target=='bankCard', 'has-value': bankCard}" data-placeholder="银行账号">
+                                <input type="text" v-model="bankCard">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="submit">保存</div> -->
+                    <input class="submit" type="submit" value="保存">
+                </form>
+            </div>
+        </section>
+        <section class="user-main">
+            <div class="right-header right-boder wryh-font">
+                修改以上信息请联系编辑
+            </div>
+            <div class="user-pic">
+                <span class="pic-text">作者头像：</span>
+                <p class="pic-img"></p>
+                <div class="btn-file">上传<input type="file" class="file"></div>
+
+            </div>
+            <div class="user-describe">
+                <span class="pic-text">个人说明:</span>
+                <div class="textarea-box" :class="{'error': target=='personal', 'has-value': personal}"  data-placeholder="个人说明">
+                    <textarea class="describe"  v-model="personal"></textarea>
+                    <span class="prompt">还可以输入{{num}}字</span>
+                </div>
+            </div>
+            <div class="works-describe">
+                <!-- 作品描述 -->
+                <span class="works-text">已发布过的作品说明：</span>
+                <div class="textarea-box" :class="{'error': target=='workI', 'has-value': workI}"  data-placeholder="作品说明">
+                    <textarea class="describe" v-model="workI"></textarea>
+                    <span class="prompt">还可以输入{{num}}字</span>
+                </div>
+            </div>
+            <!-- <div class="btn button">修改</div> -->
+            <input type="button" value="修改" class="btn button">
+
+        </section>
+        <section class="user-bottom">
+            <div class="right-header right-boder wryh-font">
+                绑定读者账号
+            </div>
+            <div class="info-box">
+                <p class="phone"><span>读者账号：</span>14752216442</p>
+                <p class="name"><span>读者昵称：</span>胥</p>
+                <div class="btn info-btn">我是按钮</div>
+            </div>
+            <section class="matter-main">
+                <div class="form-box">
+                    <label class="icon-userName">昵称：</label>
+                    <div class="form-control" :class="{'error': target=='userName', 'has-value': userName}" data-placeholder="请输入用户昵称">
+                        <input type="text" v-model="userName">
+                    </div>
+                    <button class="btn search-user">搜索</button>
+                </div>
+                <div class="search-result">
+                    <ul>
+                        <li class="active">
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li class="active">
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li class="active">
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li class="active">
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                        <li>
+                            <div class="user-cover">
+                                <img class="" src="http://www.ld12.com/upimg358/allimg/c150627/14353W345a130-Q2B.jpg">
+                            </div>
+                            <span class="user-name">胥</span>
+                            <span class="user-phone">14752216442</span>
+                        </li>
+                    </ul>
+                </div>
+                <input type="button" class="btn botton" value="绑定" name=""/>
+            </section>
+        </section>
+    </main>
+</div>
+<script type="text/javascript">
+new Vue({
+    el: 'body',
+    data: {
+        mobilephone: '',
+        name: '',
+        realName: '',
+        paperType: '',
+        contactWay1: '',
+        contactWay2: '',
+        contactWay3: '',
+        paperInfo: '',
+        bankAddress: '',
+        bankCard: '',
+        iphone: '',
+        userName: '',
+        password:'',
+        personal:'',
+        workI:'',
+        num:150,
+        target: 'mobilephone',
+        types: ['身份证', '户口本', '银行卡']
+    }
+});
+</script>
